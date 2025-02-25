@@ -1,14 +1,13 @@
 :root {
-  --d-sidebar-background: #F5F8FF;
+  --d-sidebar-background: #f5f8ff;
 }
-
 
 .sidebar-wrapper {
   .sidebar-container {
-  border-right: none;
-}
+    border-right: none;
+  }
 
-.sidebar-sections {
-  padding:0;
-}
+  .sidebar-sections {
+    padding: 0;
+  }
 }

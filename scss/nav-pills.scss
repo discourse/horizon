@@ -1,8 +1,8 @@
 .list-controls {
   position: sticky;
-  top:0;
+  top: 0;
   background: var(--secondary);
-  z-index:100;
+  z-index: 100;
   padding-top: 1.5rem;
   max-width: unset;
   width: 100%;
@@ -11,14 +11,13 @@
     .category-breadcrumb {
       order: 1;
     }
-
   }
-.combo-box .combo-box-header,
-.select-kit.is-expanded .select-kit-body,
-.discourse-post-event .discourse-post-event-widget {
-  background-color: var(--secondary);
-  border-radius: 6.25rem;
-}
+  .combo-box .combo-box-header,
+  .select-kit.is-expanded .select-kit-body,
+  .discourse-post-event .discourse-post-event-widget {
+    background-color: var(--secondary);
+    border-radius: 6.25rem;
+  }
 }
 .nav-pills > li > a:hover,
 .nav-pills > li button:hover {
