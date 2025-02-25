@@ -5,3 +5,22 @@
   }
   border: 1px solid #cedde3;
 }
+
+.more-topics__container
+  .more-topics__list
+  .topic-list-body
+  .topic-list-item:last-of-type {
+  border: 1px solid #cedde3;
+}
+
+@media screen and (max-width: 480px) {
+  .topic-list-body {
+    border-top: none;
+  }
+  .topic-list-item {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+  }
+}

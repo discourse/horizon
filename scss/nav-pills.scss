@@ -1,7 +1,9 @@
 .list-controls {
-  position: sticky;
-  top: 0;
-  background: var(--secondary);
+  // position: sticky;
+  // top: 0;
+  // background: transparent;
+  // this does not work properly without using a background color
+  // which if used, conflicts with the gradient background
   z-index: 100;
   padding-top: 1.5rem;
   max-width: unset;
@@ -10,13 +12,16 @@
   .navigation-container {
     .category-breadcrumb {
       order: 1;
+      margin-left: 0.5em;
     }
   }
-  .combo-box .combo-box-header,
-  .select-kit.is-expanded .select-kit-body,
-  .discourse-post-event .discourse-post-event-widget {
+  .combo-box .combo-box-header {
     background-color: var(--secondary);
     border-radius: 6.25rem;
+  }
+  .select-kit.is-expanded .select-kit-body {
+    background: #ffffff;
+    border-radius: var(--d-border-radius);
   }
 }
 .nav-pills > li > a:hover,

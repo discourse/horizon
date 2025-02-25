@@ -1,0 +1,32 @@
+.topic-post.sticky-avatar > article > .row > .topic-avatar {
+  position: sticky;
+  top: calc(var(--header-offset) + 0.75em);
+  margin-bottom: 25px;
+}
+
+.container.posts .topic-navigation {
+  top: calc(var(--header-offset, 60px) + 4em);
+}
+
+#topic-title {
+  z-index: 999;
+  margin-bottom: 1em;
+  padding: 12px 24px;
+  position: sticky;
+  top: 0;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.container.posts,
+.more-topics__container,
+#topic-footer-buttons {
+  padding: 0 24px;
+}
+
+.more-topics__lists.single-list {
+  padding: 12px 0;
+}
