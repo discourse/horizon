@@ -10,10 +10,11 @@
   border: 1px solid var(--accent-color);
   background: var(--secondary);
 }
-#create-topic.btn {
+#create-topic.btn,
+.topic-drafts-menu-trigger {
   background-color: var(--accent-color);
   color: var(--accent-text-color);
-  svg {
+  .d-icon {
     color: var(--accent-text-color);
   }
 }
