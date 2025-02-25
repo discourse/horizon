@@ -1,54 +1,56 @@
+body, html {
+  background-color: #F5F8FF;
+}
+
 body:not(.archetype-regular, .has-full-page-chat)
   #main-outlet-wrapper
   #main-outlet {
-  height: 85vh;
   overflow: scroll;
-  padding: 16px 24px;
   border-radius: var(--d-border-radius-large);
-  background: radial-gradient(
-      600px 600px at 50% 75%,
-      rgba(188, 241, 238, 0.2),
-      rgba(255, 255, 255, 0.2)
-    ),
-    radial-gradient(
-      600px 600px at 75% 50%,
-      rgba(162, 165, 225, 0.2),
-      rgba(255, 255, 255, 0)
-    );
+}
+
+#main-outlet-wrapper {
+  margin-top: 1.5rem;
+    gap: 2em !important;
+    height: calc(100vh - var(--header-offset) - 4rem);
+    box-sizing: border-box;
+    > * {
+      height: inherit;
+      box-sizing: border-box;
+    }
+  #main-outlet {
+    width: 100%;
+        height: inherit;
+    overflow: scroll;
+    &:has(.list-controls){
+      padding-top: 0;
+    }
+    &:has(#topic-title) {
+  padding-top: 0;
+    }
+    > *:not(.full-page-chat)  {
+      max-width: 1000px;
+      margin-inline: auto;
+    }
+  border-radius: var(--d-border-radius-large);
+border-radius: 1.25rem;
+.navigation-topics & {
+
+  background: radial-gradient(100.59% 70.87% at 41.19% 73.28%, rgba(188, 241, 238, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%), radial-gradient(75.11% 79.17% at 66.02% 41.71%, rgba(162, 164, 225, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%), #FFF;
+}
+box-shadow: 0px 0px 1px 2px #E2E8F8, 0px 0px 24px 4px #E2E8F8;
   background-color: light-dark(#ffffff, #000000);
 }
 
-#main-outlet-wrapper #main-outlet {
-  border-radius: var(--d-border-radius-large);
-  //   padding: 0 24px;
-  box-shadow: 0 10px 24px 4px #e2e8f8, 0 0 0 3px #e2e8f8,
-    0 0 0 1px var(--primary-low);
-  width: calc(100% - 48px);
-  max-width: 1000px !important;
-  background: radial-gradient(
-      600px 600px at 50% 75%,
-      rgba(188, 241, 238, 0.2),
-      rgba(255, 255, 255, 0.2)
-    ),
-    radial-gradient(
-      600px 600px at 75% 50%,
-      rgba(162, 165, 225, 0.2),
-      rgba(255, 255, 255, 0)
-    );
-  background-color: light-dark(#ffffff, #000000);
 }
 
 #topic-title {
   z-index: 999;
   margin-bottom: 1em;
-  padding: 0.5em 24px;
+  padding: 1.5rem 2rem 0.5em;
   position: sticky;
   top: 0;
-  background-image: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
+ background: var(--secondary);
 }
 
 .container.posts,
@@ -56,3 +58,7 @@ body:not(.archetype-regular, .has-full-page-chat)
 #topic-footer-buttons {
   padding: 0 24px;
 }
+
+    .container.posts .topic-navigation {
+              top: calc(var(--header-offset, 60px) + 4em);
+    }

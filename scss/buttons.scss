@@ -1,3 +1,15 @@
+:root {
+  --d-button-border-radius: 6.25rem;
+}
+
+.btn {
+  padding: .5em 1rem;
+}
+
+.btn-default {
+  border: 1px solid var(--accent-color);
+  background: var(--secondary);
+}
 #create-topic.btn {
   background-color: var(--accent-color);
   color: var(--accent-text-color);

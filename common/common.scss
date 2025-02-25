@@ -7,10 +7,6 @@
 @import "nav-pills";
 @import "buttons";
 @import "chat";
+@import "hiddenstuff";
 
-.list-controls .combo-box .combo-box-header,
-.select-kit.is-expanded .select-kit-body,
-.discourse-post-event .discourse-post-event-widget {
-  background-color: light-dark(#ffffff, #000000);
-  border-radius: var(--d-input-border-radius);
-}
+
