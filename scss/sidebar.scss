@@ -1,8 +1,13 @@
 :root {
-  --d-sidebar-background: #f5f8ff;
+  // --d-sidebar-background: #f5f8ff;
 }
 
 .sidebar-wrapper {
+  background: #f5f8ff;
+
+  .has-full-page-chat & {
+    background: transparent;
+  }
   .sidebar-container {
     border-right: none;
   }

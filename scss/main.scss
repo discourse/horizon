@@ -1,73 +1,69 @@
-body,
-html {
+html:not(:has(.has-full-page-chat)) {
   background-color: #f5f8ff;
 }
 
-body:not(.archetype-regular, .has-full-page-chat)
-  #main-outlet-wrapper
-  #main-outlet {
-  overflow: scroll;
-  border-radius: var(--d-border-radius-large);
-}
-
-#main-outlet-wrapper {
-  margin-top: 1.5rem;
-  gap: 2em !important;
-  height: calc(100vh - var(--header-offset) - 4rem);
-  box-sizing: border-box;
-  > * {
-    height: inherit;
+body:not(.has-full-page-chat) {
+  background-color: #f5f8ff;
+  #main-outlet-wrapper {
+    margin-top: 1.5rem;
+    gap: 2em !important;
+    height: calc(100vh - var(--header-offset) - 4rem);
     box-sizing: border-box;
+    > * {
+      height: inherit;
+      box-sizing: border-box;
+    }
+    #main-outlet {
+      width: 100%;
+      height: inherit;
+      overflow: scroll;
+      &:has(.list-controls) {
+        padding-top: 0;
+      }
+      &:has(#topic-title) {
+        padding-top: 0;
+      }
+      > *:not(.full-page-chat) {
+        max-width: 1000px;
+        margin-inline: auto;
+        padding-inline: 1.5em;
+      }
+      border-radius: var(--d-border-radius-large);
+      border-radius: 1.25rem;
+      .navigation-topics & {
+        background: radial-gradient(
+            100.59% 70.87% at 41.19% 73.28%,
+            rgba(188, 241, 238, 0.2) 0%,
+            rgba(255, 255, 255, 0) 100%
+          ),
+          radial-gradient(
+            67.07% 61.36% at 66.47% 64.15%,
+            rgba(162, 164, 225, 0.2) 0%,
+            rgba(255, 255, 255, 0) 100%
+          ),
+          #fff;
+      }
+      box-shadow: 0px 0px 1px 2px #e2e8f8, 0px 0px 24px 4px #e2e8f8;
+      background-color: light-dark(#ffffff, #000000);
+    }
   }
-  #main-outlet {
-    width: 100%;
-    height: inherit;
-    overflow: scroll;
-    &:has(.list-controls) {
-      padding-top: 0;
-    }
-    &:has(#topic-title) {
-      padding-top: 0;
-    }
-    > *:not(.full-page-chat) {
-      max-width: 1000px;
-      margin-inline: auto;
-    }
-    border-radius: var(--d-border-radius-large);
-    border-radius: 1.25rem;
-    .navigation-topics & {
-      background: radial-gradient(
-          100.59% 70.87% at 41.19% 73.28%,
-          rgba(188, 241, 238, 0.2) 0%,
-          rgba(255, 255, 255, 0) 100%
-        ),
-        radial-gradient(
-          75.11% 79.17% at 66.02% 41.71%,
-          rgba(162, 164, 225, 0.2) 0%,
-          rgba(255, 255, 255, 0) 100%
-        ),
-        #fff;
-    }
-    box-shadow: 0px 0px 1px 2px #e2e8f8, 0px 0px 24px 4px #e2e8f8;
-    background-color: light-dark(#ffffff, #000000);
+
+  #topic-title {
+    z-index: 999;
+    margin-bottom: 1em;
+    padding: 1.5rem 2rem 0.5em;
+    position: sticky;
+    top: 0;
+    background: var(--secondary);
   }
-}
 
-#topic-title {
-  z-index: 999;
-  margin-bottom: 1em;
-  padding: 1.5rem 2rem 0.5em;
-  position: sticky;
-  top: 0;
-  background: var(--secondary);
-}
+  .container.posts,
+  .more-topics__container,
+  #topic-footer-buttons {
+    padding: 0 24px;
+  }
 
-.container.posts,
-.more-topics__container,
-#topic-footer-buttons {
-  padding: 0 24px;
-}
-
-.container.posts .topic-navigation {
-  top: calc(var(--header-offset, 60px) + 4em);
+  .container.posts .topic-navigation {
+    top: calc(var(--header-offset, 60px) + 4em);
+  }
 }
