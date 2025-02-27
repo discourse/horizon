@@ -1,13 +1,18 @@
 .custom-search-banner-wrap {
   display: grid;
   grid-template-rows: 0.33fr 0.33fr 0.33fr;
-  grid-template-columns: 0.5fr 0.5fr;
+  grid-template-columns: 1fr 1fr;
   grid-column-gap: 1em;
   grid-row-gap: 0.5em;
   border-bottom: 1px solid var(--primary-300);
   padding: 2.5em 0 2.5em;
   margin-bottom: 2.5em;
   --search-color: #595bca;
+  @media screen and (max-width: 700px) {
+    padding: 1em 1em 0 1em;
+    margin-bottom: 0.5em;
+    border-bottom: none;
+  }
   h1 {
     grid-column: 1/2;
     grid-row: 1/-1;
@@ -17,12 +22,43 @@
     margin: 0;
     font-weight: 400;
     color: #350c73;
+    @media screen and (max-width: 1028px) {
+      font-size: var(--font-up-4);
+      grid-column: 1/-1;
+      grid-row: 1;
+      text-align: center;
+      margin-bottom: 0.5em;
+    }
+    @media screen and (max-width: 768px) {
+      text-align: left;
+      grid-column: 1/2;
+      grid-row: 1/-1;
+      font-size: var(--font-up-3);
+    }
+    @media screen and (max-width: 600px) {
+      grid-column: 1/-1;
+      grid-row: 1;
+      text-align: center;
+      margin-bottom: 0.5em;
+    }
   }
   .search-menu {
     grid-column: 2/3;
     grid-row: 1/-1;
     width: 100%;
     align-self: center;
+    @media screen and (max-width: 1028px) {
+      grid-row: 2/-1;
+      grid-column: 1/-1;
+    }
+    @media screen and (max-width: 768px) {
+      grid-column: 2/-1;
+      grid-row: 1/-1;
+    }
+    @media screen and (max-width: 600px) {
+      grid-row: 2/-1;
+      grid-column: 1/-1;
+    }
   }
   p {
     display: none;
