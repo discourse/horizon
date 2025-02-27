@@ -2,6 +2,10 @@
   // --d-sidebar-background: #f5f8ff;
 }
 
+.sidebar-section-link-wrapper .sidebar-section-link {
+  border-radius: var(--d-border-radius);
+}
+
 .sidebar-wrapper {
   background: #f5f8ff;
 
@@ -15,4 +19,8 @@
   .sidebar-sections {
     padding: 0;
   }
+}
+
+.admin-area .sidebar-wrapper .admin-panel {
+  background-color: var(--secondary);
 }

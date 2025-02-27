@@ -1,16 +1,12 @@
-:root {
-  --d-button-border-radius: 6.25rem;
-}
-
 .btn {
   padding: 0.5em 1rem;
 }
 
-.btn-default {
-  border: 1px solid var(--accent-color);
-  background: var(--secondary);
+.sidebar-new-topic-button__wrapper {
+  margin: 1.5rem 1rem;
 }
-#create-topic.btn {
+
+.sidebar-new-topic-button__wrapper .btn {
   background-color: var(--accent-color);
   color: var(--accent-text-color);
   svg {

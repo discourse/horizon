@@ -1,0 +1,29 @@
+#topic-title {
+  z-index: 999;
+  margin-bottom: 1em;
+  padding: 1.5rem 2rem 0.5em;
+  position: sticky;
+  top: var(--header-offset);
+  background: #ffffff;
+}
+
+// .container.posts,
+// .more-topics__container,
+// #topic-footer-buttons {
+//   padding: 0 24px;
+// }
+
+.container.posts .topic-navigation {
+  top: calc(var(--header-offset, 60px) + 4em);
+}
+
+.discourse-post-event .discourse-post-event-widget {
+  background-color: #ffffff;
+}
+
+.more-topics__container
+  .more-topics__list
+  .topic-list-body
+  .topic-list-item:last-of-type {
+  border-bottom: 1px solid #cedde3;
+}
