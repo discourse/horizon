@@ -1,0 +1,12 @@
+.user-main .about.collapsed-info .details {
+  background: var(--d-content-background);
+}
+
+.user-menu .quick-access-panel .read,
+.user-notifications-list .read {
+  background: var(--d-content-background);
+}
+
+.powered-by-discourse {
+  z-index: 9999;
+}
