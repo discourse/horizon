@@ -5,11 +5,11 @@
   grid-column-gap: 1em;
   grid-row-gap: 0.5em;
   border-bottom: 1px solid var(--primary-300);
-  padding: 2.5em 0 2.5em;
-  margin-bottom: 2.5em;
+  padding: 1.5em 0 2.5em;
+  margin-bottom: 0;
   --search-color: #595bca;
-  @media screen and (max-width: 700px) {
-    margin-bottom: 0.5em;
+  @media screen and (max-width: 900px) {
+    padding-bottom: 1em;
   }
   h1 {
     grid-column: 1/2;
