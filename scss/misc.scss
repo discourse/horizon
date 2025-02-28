@@ -10,3 +10,20 @@
 .powered-by-discourse {
   z-index: 9999;
 }
+
+.boxed.white {
+  background-color: var(--d-content-background);
+}
+
+.admin-area .sidebar-wrapper .admin-panel {
+  background-color: transparent;
+}
+
+.admin-report .main .report-alert.no-data,
+.admin-report .main .report-alert.rate-limited {
+  background-color: var(--d-content-background);
+}
+
+.admin-detail {
+  background-color: var(--d-content-background);
+}
