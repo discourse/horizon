@@ -7,6 +7,7 @@
   max-width: unset;
 
   .navigation-container {
+    gap: 1rem;
     .category-breadcrumb {
       order: 1;
     }
@@ -14,8 +15,15 @@
   .combo-box .combo-box-header,
   .select-kit.is-expanded .select-kit-body,
   .discourse-post-event .discourse-post-event-widget {
+    // needs more specificy than just in the button file
     background-color: var(--secondary);
+    border: 1px solid var(--accent-color);
     border-radius: 6.25rem;
+    font-size: var(--font-up-1-rem);
+  }
+  .select-kit.combo-box.category-drop.has-selection
+    .category-drop-header:hover {
+    border-color: transparent;
   }
 }
 .nav-pills > li > a:hover,

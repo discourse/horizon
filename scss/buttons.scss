@@ -8,7 +8,8 @@
 
 .btn-default,
 .btn-primary,
-.btn-danger {
+.btn-danger,
+.select-kit .select-kit-header {
   padding: $padding-block-s $padding-inline-m;
   font-size: var(--font-up-1-rem);
   // border-radius: var(--d-button-border-radius);
@@ -18,9 +19,10 @@
   }
 }
 
-.btn-default {
-  // border: 1px solid var(--accent-color);
-  box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.1); //id like to use rgba of the accent colour but how to derive that?
+.btn-default,
+.select-kit .select-kit-header {
+  border: 1px solid var(--accent-color);
+  // box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.1); //id like to use rgba of the accent colour but how to derive that?
   background: var(--secondary);
 
   .d-icon {
@@ -28,8 +30,8 @@
   }
   &:hover {
     .discourse-no-touch & {
-      border: 1px solid var(--accent-color);
-      box-shadow: none;
+      border: 1px solid transparent;
+      box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.1);
       background: var(--secondary);
       color: var(--accent-color);
       .d-icon {
@@ -105,4 +107,12 @@
   svg.d-icon {
     color: inherit !important; //something we should honestly implement in core imo, when do we ever NOT want the same colour for icon and text?
   }
+}
+
+//undoing the outline for select-kit, since Im using a custom visual cue
+.select-kit.single-select.is-expanded .select-kit-header:not(.btn),
+.select-kit.single-select .select-kit-header:not(.btn):focus,
+.select-kit.single-select .select-kit-header:not(.btn):active {
+  outline: transparent;
+  border-color: var(--accent-color);
 }
