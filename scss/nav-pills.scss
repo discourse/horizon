@@ -13,7 +13,6 @@
     }
   }
   .combo-box .combo-box-header,
-  .select-kit.is-expanded .select-kit-body,
   .discourse-post-event .discourse-post-event-widget {
     // needs more specificy than just in the button file
     background-color: var(--secondary);
@@ -26,6 +25,13 @@
     border-color: transparent;
   }
 }
+
+.select-kit.is-expanded .select-kit-body {
+  border-radius: var(--d-border-radius);
+  border: 1px solid var(--accent-color);
+  background-color: var(--d-content-background);
+}
+
 .nav-pills > li > a:hover,
 .nav-pills > li button:hover {
   background: transparent;

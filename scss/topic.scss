@@ -68,3 +68,9 @@
 .discourse-post-event .discourse-post-event-widget {
   background: var(--d-content-background);
 }
+
+.more-topics__container .nav {
+  position: unset;
+  margin-block: unset;
+  margin-bottom: 1em;
+}

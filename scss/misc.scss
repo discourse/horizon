@@ -27,3 +27,18 @@
 .admin-detail {
   background-color: var(--d-content-background);
 }
+
+.select-kit.combo-box .select-kit-header,
+.select-kit.multi-select .multi-select-header,
+.d-editor-textarea-wrapper,
+.fk-d-menu__inner-content {
+  background-color: var(--d-content-background);
+}
+
+.fk-d-menu .btn {
+  border-radius: 0;
+}
+
+.d-editor-button-bar {
+  padding: 3px;
+}
