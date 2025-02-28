@@ -3,4 +3,8 @@
 }
 .desktop-view .d-header {
   background: transparent;
+
+  .user-status-background {
+    background: var(--header-background);
+  }
 }
