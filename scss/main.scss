@@ -68,6 +68,6 @@ body:not(.has-full-page-chat) {
   }
 
   .global-notice {
-    margin-top: --margin-block-m;
+    margin-top: var(--margin-block-m);
   }
 }
