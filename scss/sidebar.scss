@@ -1,6 +1,4 @@
 .sidebar-wrapper {
-  background: #f5f8ff;
-
   .has-full-page-chat & {
     background: transparent;
   }
@@ -12,8 +10,8 @@
     padding: 0;
   }
   .sidebar-section-link {
-    font-size: var(--font-up-1);
-    font-family: "inter";
+    // font-size: var(--font-up-1); // dont want to change fonts here just yet as font-size can be changed as a user pref.
+    // font-family: "inter";
     letter-spacing: 0.5px;
     border-radius: 10px; //visually somewhat consistent with border on main outlet (?)
     transition: none;
@@ -22,7 +20,7 @@
 .sidebar-section-wrapper {
   padding-block: 0.45em;
   .sidebar-section-header {
-    font-size: var(--font-down-1);
+    // font-size: var(--font-down-1);
   }
   .sidebar-section-content {
     margin: 0;
@@ -37,4 +35,12 @@
   .d-icon {
     color: var(--primary);
   }
+}
+
+.sidebar-new-topic-button__wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-wrapper .sidebar-sections {
+  padding: 0 1rem;
 }

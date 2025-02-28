@@ -1,7 +1,7 @@
 .list-controls {
   position: sticky;
-  top: 0;
-  background: var(--secondary);
+  top: var(--header-offset);
+  background: #fff;
   z-index: 100;
   padding: 1.5rem 0 1rem 0;
   max-width: unset;
@@ -18,7 +18,7 @@
     // needs more specificy than just in the button file
     background-color: var(--secondary);
     border: 1px solid var(--accent-color);
-    border-radius: 6.25rem;
+    border-radius: var(--d-border-radius-large);
     font-size: var(--font-up-1-rem);
   }
   .select-kit.combo-box.category-drop.has-selection
