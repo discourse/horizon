@@ -10,7 +10,7 @@
 .btn-primary,
 .btn-danger,
 .select-kit .select-kit-header {
-  padding: var(--padding-block-s) var(--padding-inline-m);
+  padding: var(--spacing-block-s) var(--spacing-inline-m);
   font-size: var(--font-up-1-rem);
   // border-radius: var(--d-button-border-radius);
 
@@ -50,6 +50,9 @@
       }
     }
   }
+}
+//not shared with select-kit
+.btn-default {
   &:active {
     .discourse-no-touch & {
       color: var(--secondary);

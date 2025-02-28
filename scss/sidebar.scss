@@ -11,4 +11,30 @@
   .sidebar-sections {
     padding: 0;
   }
+  .sidebar-section-link {
+    font-size: var(--font-up-1);
+    font-family: "inter";
+    letter-spacing: 0.5px;
+    border-radius: 10px; //visually somewhat consistent with border on main outlet (?)
+    transition: none;
+  }
+}
+.sidebar-section-wrapper {
+  padding-block: 0.45em;
+  .sidebar-section-header {
+    font-size: var(--font-down-1);
+  }
+  .sidebar-section-content {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-block-xs);
+  }
+}
+
+.sidebar-section-link-wrapper .sidebar-section-link:focus,
+.sidebar-section-link-wrapper .sidebar-section-link:hover {
+  .d-icon {
+    color: var(--primary);
+  }
 }
