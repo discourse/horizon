@@ -5,12 +5,17 @@
   }
 }
 
+.container.posts .topic-navigation {
+  top: calc(var(--header-offset, 60px) + 6em);
+}
+
 .timeline-container .topic-timeline {
   min-width: unset; //why we have this?
   .timeline-scrollarea {
     border-left: 1px solid var(--accent-color);
   }
   .timeline-scroller {
+    padding: 0.25em;
     border: 1px solid var(--accent-color);
     border-radius: 0.75em;
     padding-left: 0.5em;
@@ -45,4 +50,17 @@
   position: sticky;
   top: var(--header-offset);
   background: #fff;
+}
+
+.container.posts,
+.more-topics__container,
+#topic-footer-buttons {
+  padding: 0 24px;
+}
+
+.more-topics__container
+  .more-topics__list
+  .topic-list-body
+  .topic-list-item:last-of-type {
+  border-bottom: 1px solid #cedde3;
 }

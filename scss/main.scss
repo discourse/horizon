@@ -51,15 +51,6 @@ body:not(.has-full-page-chat) {
       background-color: light-dark(#ffffff, #000000);
     }
   }
-  .container.posts,
-  .more-topics__container,
-  #topic-footer-buttons {
-    padding: 0 24px;
-  }
-
-  .container.posts .topic-navigation {
-    top: calc(var(--header-offset, 60px) + 4em);
-  }
 
   .global-notice {
     margin-top: var(--spacing-block-m);
