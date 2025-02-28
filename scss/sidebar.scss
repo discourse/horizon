@@ -39,6 +39,11 @@
 
 .sidebar-new-topic-button__wrapper {
   margin-bottom: 1.5rem;
+  @media screen and (max-width: 1000px) {
+    .sidebar-new-topic-button .d-icon {
+      display: none;
+    }
+  }
 }
 
 .sidebar-wrapper .sidebar-sections {

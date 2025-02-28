@@ -10,7 +10,10 @@ body:not(.has-full-page-chat) {
   background-color: #f5f8ff;
   #main-outlet-wrapper {
     // margin-top: 1.5rem;
-    gap: var(--main-grid-gap) !important;
+    @media screen and (max-width: 485px) {
+      --main-grid-gap: 0;
+    }
+    gap: var(--main-grid-gap);
     // height: calc(100vh - var(--header-offset) - 4rem);
     // box-sizing: border-box;
     // > * {
@@ -31,6 +34,9 @@ body:not(.has-full-page-chat) {
         max-width: 1000px;
         margin-inline: auto;
         padding-inline: 1.5em;
+        @media screen and (max-width: 425px) {
+          padding-inline: 0.5em;
+        }
       }
       // border-radius: var(--d-border-radius-large);
       // border-radius: 1.25rem;
