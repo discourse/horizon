@@ -66,4 +66,8 @@ body:not(.has-full-page-chat) {
   .container.posts .topic-navigation {
     top: calc(var(--header-offset, 60px) + 4em);
   }
+
+  .global-notice {
+    margin-top: --margin-block-m;
+  }
 }
