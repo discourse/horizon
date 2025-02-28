@@ -1,7 +1,7 @@
 .topic-list-item {
-  background: light-dark(#ffffff, #1f1f1f);
+  background: var(--d-content-background);
   &:hover {
-    background: light-dark(#fcfcfc, #161616);
+    background: oklch(from var(--d-content-background) 97% c h);
   }
   border: 1px solid #cedde3;
 }

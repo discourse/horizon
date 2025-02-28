@@ -1,7 +1,7 @@
 .list-controls {
   position: sticky;
   top: var(--header-offset);
-  background: #fff;
+  background: var(--d-content-background);
   z-index: 100;
   padding: 1.5rem 0 1rem 0;
   max-width: unset;
@@ -19,7 +19,7 @@
     background-color: var(--secondary);
     border: 1px solid var(--accent-color);
     border-radius: var(--d-border-radius-large);
-    font-size: var(--font-up-1-rem);
+    // font-size: var(--font-up-1-rem);
   }
   .select-kit.combo-box.category-drop.has-selection
     .category-drop-header:hover {

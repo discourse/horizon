@@ -1,6 +1,6 @@
 .post-stream {
   .contents p {
-    font-size: var(--font-up-1);
+    // font-size: var(--font-up-1);
     line-height: 1.75;
   }
 }
@@ -33,7 +33,7 @@
     line-height: 1;
   }
   .timeline-ago {
-    font-size: var(--font-down-1);
+    // font-size: var(--font-down-1);
   }
   .timeline-handle {
     background-color: var(--accent-color);
@@ -63,4 +63,8 @@
   .topic-list-body
   .topic-list-item:last-of-type {
   border-bottom: 1px solid #cedde3;
+}
+
+.discourse-post-event .discourse-post-event-widget {
+  background: var(--d-content-background);
 }

@@ -62,7 +62,7 @@
     display: none;
   }
   .search-input {
-    background: light-dark(#ffffff, #1f1f1f);
+    background: var(--d-content-background);
     border: 1px solid oklch(from var(--search-color) 80% calc(c * 2.5) h);
     box-shadow: 0 4px 10px rgba(52, 6, 121, 15%);
   }
@@ -76,6 +76,6 @@
     color: var(--search-color);
   }
   .results {
-    background: light-dark(#ffffff, #1f1f1f);
+    background: var(--d-content-background);
   }
 }
