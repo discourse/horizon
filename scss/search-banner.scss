@@ -75,6 +75,9 @@
   .search-menu .searching .d-icon {
     color: var(--search-color);
   }
+  .panel-body {
+    z-index: z("dropdown");
+  }
   .results {
     background: var(--d-content-background);
   }
