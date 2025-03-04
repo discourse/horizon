@@ -11,7 +11,8 @@
   "modifiers": {},
   "components": [
     "https://github.com/discourse/discourse-sidebar-new-topic-button.git",
-    "https://github.com/discourse/discourse-search-banner.git"
+    "https://github.com/discourse/discourse-search-banner.git",
+    "https://github.com/discourse/discourse-full-width-component.git"
   ],
   "color_schemes": {
     "next_gen": {
@@ -20,19 +21,21 @@
       "primary-500": "8591ad",
       "secondary": "ffffff",
       "header_background": "f5f8ff",
-      "tertiary": "595bca",
+      "tertiary": "313270",
       "tertiary-low": "d8d9f3",
+      "tertiary-50": "f5f8ff",
       "selected": "d8d9f3",
       "hover": "ebebf9"
     },
     "next_gen_dark": {
-      "primary": "f8f5ff",
-      "secondary": "1d0058",
+      "primary": "F1EFF9",
+      "secondary": "1e1a36",
       "header_background": "00091d",
       "header_primary": "F5F8FF",
-      "tertiary": "595bca",
-      "selected": "292f90",
-      "hover": "0f0031"
+      "tertiary": "6465ab",
+      "tertiary-50": "131124",
+      "selected": "1e1a36",
+      "hover": "131124"
     }
   }
 }

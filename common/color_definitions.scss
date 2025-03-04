@@ -1,0 +1,5 @@
+$accent-color: dark-light-choose(#3c41c3, #6e4bbc);
+
+:root {
+  --accent-color: #{$accent-color};
+}

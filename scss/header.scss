@@ -2,3 +2,24 @@
   box-shadow: none;
   background: var(--tertiary-50);
 }
+
+.user-menu .quick-access-panel,
+.user-notifications-list {
+  li {
+    &.pending,
+    &.unread {
+      background: var(--d-hover);
+
+      .discourse-no-touch & {
+        &:hover,
+        &:focus {
+          background: var(--d-selected);
+        }
+      }
+    }
+  }
+}
+
+.user-menu.revamped .tabs-list .btn.active {
+  background: var(--d-hover);
+}

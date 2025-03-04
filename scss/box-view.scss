@@ -30,7 +30,7 @@
     position: fixed;
     width: var(--d-border-radius-large);
     height: var(--d-border-radius-large);
-    background-color: var(--secondary);
+    background-color: var(--tertiary-50);
     z-index: 999;
     -webkit-mask: radial-gradient(
       circle at var(--d-border-radius-large) var(--d-border-radius-large),
@@ -90,7 +90,7 @@
     position: fixed;
     width: 100%;
     z-index: 999;
-    background-color: var(--secondary);
+    background-color: var(--tertiary-50);
     bottom: 0;
     left: calc(var(--main-grid-gap) + var(--d-sidebar-width));
     @media screen and (max-width: 768px) {
