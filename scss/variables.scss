@@ -4,18 +4,16 @@
   --d-input-border-radius: 6px;
   --accent-color: #3c41c3;
   --accent-text-color: #ffffff;
-  --d-content-background: #fff;
+  --d-content-background: var(--secondary);
   --d-nav-color--active: var(--accent-color);
-  --primary: #14171f;
-  --header-background: #f5f8ff;
   --d-post-control-background--hover: #ebecf9;
   --d-post-control-text-color--hover: #242775;
+  --d-sidebar-background: var(--tertiary-50);
+  --d-sidebar-footer-fade: rgba(var(--tertiary-50-rgb), 1);
   --d-sidebar-link-color: var(--primary);
   --d-sidebar-highlight-color: var(--primary);
-  --d-sidebar-link-icon-color: #8591ad;
+  --d-sidebar-highlight-background: var(--tertiary-300);
   --d-sidebar-section-link-icon-size: 1em;
-  --d-sidebar-highlight-background: #ebecf9;
-  --d-sidebar-active-background: #d8d9f3;
   --d-input-bg-color: var(--d-content-background);
   // --d-sidebar-row-height: 2.8em;
   //the idea is: block spacing can grow with font-size, but inline spacing should not to maintain horizontal (text) alignment

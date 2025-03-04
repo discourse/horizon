@@ -9,18 +9,30 @@
   "maximum_discourse_version": null,
   "assets": {},
   "modifiers": {},
+  "components": [
+    "https://github.com/discourse/discourse-sidebar-new-topic-button.git",
+    "https://github.com/discourse/discourse-search-banner.git"
+  ],
   "color_schemes": {
     "next_gen": {
       "primary": "1A1A1A",
-      "secondary": "F5F8FF",
-      "header_background": "F5F8FF",
-      "tertiary": "595bca"
+      "primary-low": "ebecf9",
+      "primary-500": "8591ad",
+      "secondary": "ffffff",
+      "header_background": "f5f8ff",
+      "tertiary": "595bca",
+      "tertiary-low": "d8d9f3",
+      "selected": "d8d9f3",
+      "hover": "ebebf9"
     },
     "next_gen_dark": {
-      "primary": "F5F8FF",
-      "secondary": "1A1A1A",
-      "header_background": "1A1A1A",
-      "tertiary": "595bca"
+      "primary": "f8f5ff",
+      "secondary": "1d0058",
+      "header_background": "00091d",
+      "header_primary": "F5F8FF",
+      "tertiary": "595bca",
+      "selected": "292f90",
+      "hover": "0f0031"
     }
   }
 }

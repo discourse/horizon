@@ -1,7 +1,6 @@
 .topic-list-item {
   background: var(--d-content-background);
   &:hover {
-    background: oklch(from var(--d-content-background) 97% c h);
+    background: var(--primary-very-low);
   }
-  border: 1px solid #cedde3;
 }

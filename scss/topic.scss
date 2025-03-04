@@ -62,7 +62,7 @@
   .more-topics__list
   .topic-list-body
   .topic-list-item:last-of-type {
-  border-bottom: 1px solid #cedde3;
+  border-bottom: 1px solid var(--primary-300);
 }
 
 .discourse-post-event .discourse-post-event-widget {

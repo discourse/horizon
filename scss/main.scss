@@ -1,5 +1,5 @@
 html:not(:has(.has-full-page-chat)) {
-  background-color: #f5f8ff;
+  background-color: var(--tertiary-50);
 }
 
 :root {
@@ -7,7 +7,7 @@ html:not(:has(.has-full-page-chat)) {
 }
 
 body:not(.has-full-page-chat) {
-  background-color: #f5f8ff;
+  background-color: var(--tertiary-50);
   #main-outlet-wrapper {
     // margin-top: 1.5rem;
     @media screen and (max-width: 485px) {
@@ -68,7 +68,8 @@ aside.onebox {
 }
 
 .d-editor-preview-wrapper {
-  box-shadow: 0px 0px 1px 2px #e2e8f8, 0px 0px 24px 4px #e2e8f8;
+  box-shadow: 0px 0px 1px 2px var(--tertiary-50),
+    0px 0px 24px 4px var(--tertiary-50);
   border-radius: var(--d-border-radius-large);
   padding: 1em;
   background-color: var(--d-content-background);

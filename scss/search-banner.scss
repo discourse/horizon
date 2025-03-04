@@ -7,7 +7,7 @@
   border-bottom: 1px solid var(--primary-300);
   padding: 1.5em 0 2.5em;
   margin-bottom: 0;
-  --search-color: #595bca;
+  --search-color: var(--tertiary-medium);
   @media screen and (max-width: 900px) {
     padding-bottom: 1em;
   }
@@ -19,7 +19,7 @@
     align-self: center;
     margin: 0;
     font-weight: 400;
-    color: #350c73;
+    color: var(--tertiary);
     @media screen and (max-width: 1028px) {
       font-size: var(--font-up-4);
       grid-column: 1/-1;
@@ -63,7 +63,7 @@
   }
   .search-input {
     background: var(--d-content-background);
-    border: 1px solid oklch(from var(--search-color) 80% calc(c * 2.5) h);
+    border: 1px solid var(--search-color);
     box-shadow: 0 4px 10px rgba(52, 6, 121, 15%);
   }
   .search-menu .search-input:focus-within,
