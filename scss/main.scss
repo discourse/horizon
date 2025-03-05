@@ -1,5 +1,5 @@
 html:not(:has(.has-full-page-chat)) {
-  background-color: var(--tertiary-50);
+  background-color: var(--background-color);
 }
 
 :root {
@@ -7,7 +7,7 @@ html:not(:has(.has-full-page-chat)) {
 }
 
 body:not(.has-full-page-chat) {
-  background-color: var(--tertiary-50);
+  background-color: var(--background-color);
   #main-outlet-wrapper {
     // margin-top: 1.5rem;
     @media screen and (max-width: 485px) {
@@ -22,6 +22,7 @@ body:not(.has-full-page-chat) {
     // }
     #main-outlet {
       width: 100%;
+      padding-bottom: var(--spacing-block-l);
       // height: inherit;
       // overflow: scroll;
       // &:has(.list-controls) {
@@ -30,7 +31,13 @@ body:not(.has-full-page-chat) {
       // &:has(#topic-title) {
       // padding-top: 0;
       // }
-      > *:not(.full-page-chat) {
+      //thanks to random container elements on the page, I can't do a direct child selector here because it targets all the randomness, so I see no other option than MANUALLY adding every possible element that can appear in the main outlet YAY
+      .list-controls,
+      .list-container,
+      #topic-title,
+      .container.posts,
+      #topic-footer-buttons,
+      .more-topics__container {
         max-width: 1000px;
         margin-inline: auto;
         padding-inline: 1.5em;
@@ -38,21 +45,8 @@ body:not(.has-full-page-chat) {
           padding-inline: 0.5em;
         }
       }
-      // border-radius: var(--d-border-radius-large);
-      // border-radius: 1.25rem;
-      // .navigation-topics & {
-      //   background: radial-gradient(
-      //       100.59% 70.87% at 41.19% 73.28%,
-      //       rgba(188, 241, 238, 0.2) 0%,
-      //       rgba(255, 255, 255, 0) 100%
-      //     ),
-      //     radial-gradient(
-      //       67.07% 61.36% at 66.47% 64.15%,
-      //       rgba(162, 164, 225, 0.2) 0%,
-      //       rgba(255, 255, 255, 0) 100%
-      //     ),
-      //     #fff;
-      // }
+      border-radius: var(--d-border-radius-large);
+      border-radius: 1.25rem;
       // box-shadow: 0px 0px 1px 2px #e2e8f8, 0px 0px 24px 4px #e2e8f8;
       background-color: var(--d-content-background);
     }
@@ -61,6 +55,15 @@ body:not(.has-full-page-chat) {
   // .global-notice {
   //   margin-top: var(--spacing-block-m);
   // }
+}
+
+.list-container {
+  .topic-list-body {
+    padding-top: var(--spacing-block-m);
+  }
+  .topic-list-item {
+    box-shadow: 0px 0px 26px 1px hsl(224 61% 96% / 1);
+  }
 }
 
 aside.onebox {

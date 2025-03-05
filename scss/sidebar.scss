@@ -10,7 +10,9 @@
     padding: 0;
   }
   .sidebar-section-link {
-    // font-size: var(--font-up-1); // dont want to change fonts here just yet as font-size can be changed as a user pref.
+    font-size: var(
+      --font-up-1
+    ); // dont want to change fonts here just yet as font-size can be changed as a user pref. – charlie: sure but I want it to be bigger by default
     // font-family: "inter";
     letter-spacing: 0.5px;
     border-radius: 10px; //visually somewhat consistent with border on main outlet (?)
@@ -20,7 +22,7 @@
 .sidebar-section-wrapper {
   padding-block: 0.45em;
   .sidebar-section-header {
-    // font-size: var(--font-down-1);
+    font-size: var(--font-down-1);
   }
   .sidebar-section-content {
     margin: 0;
