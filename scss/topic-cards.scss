@@ -29,6 +29,38 @@ $extra-large: 1280px;
   }
 }
 
+body.bulk-select-enabled .topic-list-item {
+  grid-template-areas:
+    "bulk-select avatar author status status . activity"
+    ". topic-title topic-title topic-title likes-replies likes-replies category";
+  .bulk-select {
+    grid-area: bulk-select;
+    padding: 0;
+    margin: 0;
+    align-self: center;
+    justify-self: center;
+    label {
+      margin: 0;
+    }
+  }
+  @media screen and (max-width: $medium) {
+    grid-template-columns: 44px min-content min-content auto min-content min-content min-content;
+    grid-template-rows: 22px minmax(22px, auto);
+    grid-template-areas:
+      "bulk-select avatar author status status  . activity"
+      ". topic-title topic-title topic-title . . likes-replies"
+      ". topic-title topic-title topic-title . . category";
+  }
+  @media screen and (max-width: $small) {
+    grid-template-columns: 25px auto repeat(6, 1fr);
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "bulk-select category-status category-status . . . . activity"
+      "topic-title topic-title topic-title topic-title topic-title topic-title topic-title topic-title"
+      "avatar author . . . . . likes-replies";
+  }
+}
+
 body.user-messages-page .topic-list-item {
   .topic-category-status-data {
     display: none;
