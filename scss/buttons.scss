@@ -41,6 +41,15 @@
   }
 }
 
+.discourse-no-touch .btn-default.topic-drafts-menu-trigger {
+  border: none;
+  margin-left: 2px;
+  &:hover {
+    border: none;
+    box-shadow: none;
+  }
+}
+
 .btn-default {
   border: 1px solid var(--primary-300);
   background: var(--secondary);
