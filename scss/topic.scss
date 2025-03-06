@@ -47,14 +47,15 @@
 }
 
 #topic-title {
-  z-index: 999;
-  padding: var(--spacing-block-l) var(--spacing-inline-xl);
-  position: sticky;
-  margin-bottom: 0;
-  top: var(--header-offset);
-  background: var(--d-content-background);
+  @include breakpoint(extra-large, $rule: min-width) {
+    z-index: 999;
+    padding: var(--spacing-block-l) var(--spacing-inline-xl);
+    position: sticky;
+    margin-bottom: 0;
+    top: var(--header-offset);
+    background: var(--d-content-background);
+  }
 }
-
 .container.posts,
 .more-topics__container,
 #topic-footer-buttons {

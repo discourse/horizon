@@ -1,7 +1,9 @@
 .d-header {
-  box-shadow: none;
-  background: var(--background-color);
-  padding-bottom: 1.5em;
+  @include breakpoint(extra-large, $rule: min-width) {
+    box-shadow: none;
+    background: var(--background-color);
+    padding-bottom: 1.5em;
+  }
 }
 
 .user-menu .quick-access-panel,

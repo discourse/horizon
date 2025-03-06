@@ -1,5 +1,7 @@
 html:not(:has(.has-full-page-chat)) {
-  background-color: var(--background-color);
+  @include breakpoint(extra-large, $rule: min-width) {
+    background-color: var(--background-color);
+  }
 }
 
 :root {
@@ -7,13 +9,17 @@ html:not(:has(.has-full-page-chat)) {
 }
 
 body:not(.has-full-page-chat) {
-  background-color: var(--background-color);
+  @include breakpoint(extra-large, $rule: min-width) {
+    background-color: var(--background-color);
+  }
   #main-outlet-wrapper {
     // margin-top: 1.5rem;
     @media screen and (max-width: 485px) {
       --main-grid-gap: 0;
     }
-    gap: var(--main-grid-gap);
+    @include breakpoint(tablet, $rule: min-width) {
+      gap: var(--main-grid-gap);
+    }
     // height: calc(100vh - var(--header-offset) - 4rem);
     // box-sizing: border-box;
     // > * {
@@ -41,9 +47,6 @@ body:not(.has-full-page-chat) {
         max-width: 1000px;
         margin-inline: auto;
         padding-inline: 1.5em;
-        @media screen and (max-width: 425px) {
-          padding-inline: 0.5em;
-        }
       }
       border-radius: var(--d-border-radius-large);
       border-radius: 1.25rem;
