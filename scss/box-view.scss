@@ -22,6 +22,9 @@
 }
 
 .experimental-screen {
+  @include breakpoint(medium) {
+    display: none;
+  }
   max-width: unset !important;
   .has-full-page-chat & {
     display: none;

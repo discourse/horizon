@@ -1,4 +1,10 @@
 .sidebar-wrapper {
+  @include breakpoint(medium) {
+    background: var(--secondary);
+    .sidebar-footer-wrapper {
+      background: var(--secondary);
+    }
+  }
   .has-full-page-chat &,
   .has-full-page-chat & .sidebar-footer-wrapper {
     background: transparent;

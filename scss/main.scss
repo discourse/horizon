@@ -1,11 +1,15 @@
 html:not(:has(.has-full-page-chat)) {
-  @include breakpoint(extra-large, $rule: min-width) {
-    background-color: var(--background-color);
-  }
+  // @include breakpoint(extra-large, $rule: min-width) {
+  background-color: var(--background-color);
+  // }
 }
 
 :root {
   --main-grid-gap: 2em;
+}
+
+#main-outlet-wrapper {
+  gap: var(--main-grid-gap);
 }
 
 body.has-sidebar-page.has-full-page-chat #main-outlet-wrapper {
@@ -24,8 +28,7 @@ body:not(.has-full-page-chat) {
     background-color: var(--background-color);
   }
   #main-outlet-wrapper {
-    // margin-top: 1.5rem;
-    @media screen and (max-width: 485px) {
+    @include breakpoint(medium) {
       --main-grid-gap: 0;
     }
     @include breakpoint(tablet, $rule: min-width) {
@@ -63,12 +66,16 @@ body:not(.has-full-page-chat) {
       .container.groups-index,
       .body-page,
       .container.badges,
-      .topic-above-footer-buttons-outlet .presence-users {
+      .topic-above-footer-buttons-outlet .presence-users,
+      .global-notice {
         max-width: 1000px;
         margin-inline: auto;
         padding-inline: 1.5em;
       }
       border-radius: var(--d-border-radius-large);
+      @include breakpoint(medium) {
+        border-radius: 0px;
+      }
       border-radius: 1.25rem;
       // box-shadow: 0px 0px 1px 2px #e2e8f8, 0px 0px 24px 4px #e2e8f8;
       background-color: var(--d-content-background);
