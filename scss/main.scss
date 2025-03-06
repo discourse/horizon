@@ -6,6 +6,17 @@ html:not(:has(.has-full-page-chat)) {
   --main-grid-gap: 2em;
 }
 
+body.has-sidebar-page.has-full-page-chat #main-outlet-wrapper {
+  grid-column-gap: var(--main-grid-gap);
+}
+
+body.has-full-page-chat #main-outlet-wrapper {
+  grid-template-columns: 1fr minmax(0, var(--d-max-width)) 1fr;
+  #main-outlet {
+    max-width: var(--d-max-width);
+  }
+}
+
 body:not(.has-full-page-chat) {
   background-color: var(--background-color);
   #main-outlet-wrapper {

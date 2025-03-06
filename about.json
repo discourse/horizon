@@ -1,5 +1,5 @@
 {
-  "name": "next-gen",
+  "name": "Horizon Theme",
   "authors": "Design Team",
   "about_url": "TODO: Put your theme's public repo or Meta topic URL here",
   "license_url": "TODO: Put your theme's LICENSE URL here",
@@ -17,7 +17,7 @@
     "https://github.com/discourse/discourse-full-width-component.git"
   ],
   "color_schemes": {
-    "next_gen": {
+    "Horizon": {
       "primary": "1A1A1A",
       "primary-low": "ebecf9",
       "primary-500": "8591ad",
@@ -29,7 +29,7 @@
       "selected": "d8d9f3",
       "hover": "ebebf9"
     },
-    "next_gen_dark": {
+    "Horizon Dark": {
       "primary": "F1EFF9",
       "secondary": "1e1a36",
       "header_background": "00091d",

@@ -20,6 +20,8 @@
     // font-size: var(--font-up-1-rem);
     &:hover {
       border: 1px solid var(--accent-color);
+      box-shadow: 0px 0px 8px 2px
+        oklch(from (var(--accent-color)) calc(l * 2) calc(c * 0.125) h);
     }
   }
   .select-kit.combo-box.category-drop.has-selection
