@@ -12,13 +12,17 @@
       order: 1;
     }
   }
-  .combo-box .combo-box-header,
-  .discourse-post-event .discourse-post-event-widget {
+  .combo-box .combo-box-header {
     // needs more specificy than just in the button file
     background-color: var(--secondary);
-    border: 1px solid var(--accent-color);
     border-radius: var(--d-border-radius-large);
+    border: 1px solid var(--primary-300);
     // font-size: var(--font-up-1-rem);
+    &:hover {
+      border: 1px solid var(--accent-color);
+      box-shadow: 0px 0px 8px 2px
+        oklch(from (var(--accent-color)) calc(l * 2) calc(c * 0.125) h);
+    }
   }
   .select-kit.combo-box.category-drop.has-selection
     .category-drop-header:hover {

@@ -15,8 +15,11 @@
     // dont want to change fonts here just yet as font-size can be changed as a user pref.
     // – charlie: sure but I want it to be bigger by default
     // letter-spacing: 0.5px;
-    border-radius: 10px; // visually somewhat consistent with border on main outlet (?)
     transition: none;
+    border-radius: var(--d-border-radius);
+  }
+  .dropdown-menu__item .sidebar-section-link {
+    border-radius: 0px;
   }
 }
 .sidebar-section-wrapper {

@@ -5,6 +5,18 @@
   }
 }
 
+.chat-drawer-active.chat-drawer-expanded {
+  .experimental-screen {
+    &__top-left,
+    &__top-right,
+    &__bottom-left,
+    &__bottom-right,
+    &__bottom-bar {
+      z-index: 199;
+    }
+  }
+}
+
 .has-full-page-chat .experimental-screen {
   display: none;
 }

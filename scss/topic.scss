@@ -69,6 +69,23 @@
   padding: 0 24px;
 }
 
+.container.posts {
+  grid-template-columns: auto 150px;
+  @media screen and (max-width: 924px) {
+    grid-template-columns: auto auto;
+  }
+}
+
+.timeline-container .topic-timeline .timeline-ago {
+  max-width: unset;
+  overflow: unset;
+  text-overflow: unset;
+}
+
+.timeline-container .topic-timeline .timeline-scroller-content {
+  overflow: unset;
+}
+
 .more-topics__container
   .more-topics__list
   .topic-list-body

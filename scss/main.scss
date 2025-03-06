@@ -8,6 +8,17 @@ html:not(:has(.has-full-page-chat)) {
   --main-grid-gap: 2em;
 }
 
+body.has-sidebar-page.has-full-page-chat #main-outlet-wrapper {
+  grid-column-gap: var(--main-grid-gap);
+}
+
+body.has-sidebar-page #main-outlet-wrapper {
+  grid-template-columns: var(--d-sidebar-width) 1fr 0px;
+  #main-outlet {
+    max-width: unset;
+  }
+}
+
 body:not(.has-full-page-chat) {
   @include breakpoint(extra-large, $rule: min-width) {
     background-color: var(--background-color);
@@ -51,7 +62,8 @@ body:not(.has-full-page-chat) {
       .discourse-post-event-upcoming-events,
       .container.groups-index,
       .body-page,
-      .container.badges {
+      .container.badges,
+      .topic-above-footer-buttons-outlet .presence-users {
         max-width: 1000px;
         margin-inline: auto;
         padding-inline: 1.5em;
