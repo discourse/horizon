@@ -34,10 +34,12 @@
   }
 }
 
+.btn-default.sidebar-new-topic-button {
+  border: none;
+}
+
 .btn-default {
   border: 1px solid var(--primary-300);
-  //id like to use rgba of the accent colour but how to derive that?
-  // box-shadow: 0px 0px 8px 2px oklch(from (var(--accent-color)) calc(l * 2) calc(c * 0.125) h);
   background: var(--secondary);
 
   .d-icon {

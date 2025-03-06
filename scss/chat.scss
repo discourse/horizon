@@ -31,6 +31,7 @@ body.has-full-page-chat {
   margin-bottom: var(--spacing-block-xs);
   font-size: var(--font-up-1);
   border-radius: var(--d-border-radius);
+  border-bottom: none;
   &:hover {
     background-color: var(--d-sidebar-active-background);
   }
