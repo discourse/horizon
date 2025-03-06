@@ -11,10 +11,7 @@ body.has-sidebar-page.has-full-page-chat #main-outlet-wrapper {
 }
 
 body.has-full-page-chat #main-outlet-wrapper {
-  grid-template-columns: 1fr minmax(0, var(--d-max-width)) 1fr;
-  #main-outlet {
-    max-width: var(--d-max-width);
-  }
+  grid-template-columns: var(--d-sidebar-width) 1fr 0px;
 }
 
 body:not(.has-full-page-chat) {
