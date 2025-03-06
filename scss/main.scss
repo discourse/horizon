@@ -10,8 +10,11 @@ body.has-sidebar-page.has-full-page-chat #main-outlet-wrapper {
   grid-column-gap: var(--main-grid-gap);
 }
 
-body.has-full-page-chat #main-outlet-wrapper {
+body.has-sidebar-page #main-outlet-wrapper {
   grid-template-columns: var(--d-sidebar-width) 1fr 0px;
+  #main-outlet {
+    max-width: unset;
+  }
 }
 
 body:not(.has-full-page-chat) {
