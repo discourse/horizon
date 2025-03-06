@@ -2,6 +2,7 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 import didInsert from "@ember/render-modifiers/modifiers/did-insert";
+import { cancel, throttle } from "@ember/runloop";
 import { htmlSafe } from "@ember/template";
 import { bind } from "discourse/lib/decorators";
 
@@ -21,6 +22,14 @@ export default class ExperimentalScreen extends Component {
 
   @bind
   calculateDistance() {
+    this._throttledCalculateDistanceHandler = throttle(
+      this,
+      this._throttledCalculateDistance,
+      50
+    );
+  }
+
+  _throttledCalculateDistance() {
     const element = document.getElementById("main-outlet");
 
     if (element) {
