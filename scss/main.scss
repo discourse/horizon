@@ -45,7 +45,8 @@ body:not(.has-full-page-chat) {
       .discourse-post-event-upcoming-events,
       .container.groups-index,
       .body-page,
-      .container.badges {
+      .container.badges,
+      .topic-above-footer-buttons-outlet .presence-users {
         max-width: 1000px;
         margin-inline: auto;
         padding-inline: 1.5em;
