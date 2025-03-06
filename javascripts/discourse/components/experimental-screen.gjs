@@ -12,7 +12,7 @@ export default class ExperimentalScreen extends Component {
 
   willDestroy() {
     super.willDestroy(...arguments);
-    window.removeEventListener("resize", this.calculateDistance);
+    cancel(this._throttledCalculateDistanceHandler);
   }
 
   getDistance(element) {
