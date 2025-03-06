@@ -1,6 +1,9 @@
 .topic-list-item {
   background: var(--d-content-background);
+  box-shadow: 0px 0px 26px 1px
+    light-dark(hsl(224 61% 96% / 1), hsl(224 61% 96% / 0.1));
   &:hover {
     border: 1px solid var(--accent-color);
+    background: var(--d-content-background);
   }
 }
