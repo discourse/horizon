@@ -1,12 +1,7 @@
-import Component from "@glimmer/component";
 import { categoryLinkHTML } from "discourse/helpers/category-link";
 
-export default class TopicAuthorColumn extends Component {
-  constructor() {
-    super(...arguments);
-  }
+const TopicCategoryColumn = <template>
+  {{categoryLinkHTML @topic.category}}
+</template>;
 
-  <template>
-    {{categoryLinkHTML @topic.category}}
-  </template>
-}
+export default TopicCategoryColumn;

@@ -4,6 +4,7 @@ import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { and } from "truth-helpers";
 import icon from "discourse/helpers/d-icon";
+import i18n from "discourse-i18n";
 
 export default class TopicStatusColumn extends Component {
   @service currentUser;
@@ -43,26 +44,38 @@ export default class TopicStatusColumn extends Component {
   }
 
   @action
-  togglePinned(e) {
-    e.preventDefault();
+  togglePinned(event) {
+    event.preventDefault();
     this.args.topic.togglePinnedForUser();
   }
 
   <template>
     {{#if @topic.bookmarked}}
-      <span class={{this.statusClass}}>{{icon "bookmark"}}Bookmarked</span>
+      <span class={{this.statusClass}}>{{icon "bookmark"}}{{i18n
+          (themePrefix "topic_bookmarked")
+        }}</span>
     {{/if}}
     {{#if (and @topic.closed @topic.archived)~}}
-      <span class={{this.statusClass}}>Locked and Archived</span>
+      <span class={{this.statusClass}}>{{i18n
+          (themePrefix "topic_closed_and_archived")
+        }}</span>
     {{else if @topic.closed}}
-      <span class={{this.statusClass}}>Locked</span>
+      <span class={{this.statusClass}}>{{i18n
+          (themePrefix "topic_closed")
+        }}</span>
     {{else if @topic.archived}}
-      <span class={{this.statusClass}}>Archived</span>
+      <span class={{this.statusClass}}>{{i18n
+          (themePrefix "topic_archived")
+        }}</span>
     {{/if}}
     {{#if @topic.is_warning}}
-      <span class={{this.statusClass}}>Warning</span>
+      <span class={{this.statusClass}}>{{i18n
+          (themePrefix "topic_warning")
+        }}</span>
     {{else if (and @showPrivateMessageIcon @topic.isPrivateMessage)}}
-      <span class={{this.statusClass}}>Private Message</span>
+      <span class={{this.statusClass}}>{{i18n
+          (themePrefix "topic_personal_message")
+        }}</span>
     {{/if}}
     {{#if @topic.pinned}}
       {{#if this.canAct}}
@@ -70,9 +83,11 @@ export default class TopicStatusColumn extends Component {
           type="button"
           {{on "click" this.togglePinned}}
           class={{this.statusClass}}
-        >{{icon "thumbtack"}}Pinned</button>
+        >{{icon "thumbtack"}}{{i18n (themePrefix "topic_pinned")}}</button>
       {{else}}
-        <span class={{this.statusClass}}>{{icon "thumbtack"}}Pinned</span>
+        <span class={{this.statusClass}}>{{icon "thumbtack"}}{{i18n
+            (themePrefix "topic_pinned")
+          }}</span>
       {{/if}}
     {{else if @topic.unpinned}}
       {{#if this.canAct}}
@@ -80,17 +95,21 @@ export default class TopicStatusColumn extends Component {
           type="button"
           {{on "click" this.togglePinned}}
           class={{this.statusClass}}
-        >{{icon "thumbtack" class="unpinned"}}Unpinned</button>
+        >{{icon "thumbtack" class="unpinned"}}{{i18n
+            (themePrefix "topic_unpinned")
+          }}</button>
       {{else}}
         <span class={{this.statusClass}}>{{icon
             "thumbtack"
             class="unpinned"
-          }}Unpinned</span>
+          }}{{i18n (themePrefix "topic_unpinned")}}</span>
       {{/if}}
     {{/if}}
 
     {{#if this.heatMap}}
-      <span class="topic-status-card --hot">{{icon "fa-fire"}}Hot</span>
+      <span class="topic-status-card --hot">{{icon "fire"}}{{i18n
+          (themePrefix "topic_hot")
+        }}</span>
     {{/if}}
   </template>
 }

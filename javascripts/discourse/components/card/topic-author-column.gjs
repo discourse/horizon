@@ -1,11 +1,5 @@
-import Component from "@glimmer/component";
+const TopicAuthorColumn = <template>
+  <span class="topic-author">@{{@topic.creator.username}}</span>
+</template>;
 
-export default class TopicAuthorColumn extends Component {
-  constructor() {
-    super(...arguments);
-  }
-
-  <template>
-    <span class="topic-author">@{{@topic.creator.username}}</span>
-  </template>
-}
+export default TopicAuthorColumn;
