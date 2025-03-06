@@ -16,6 +16,20 @@ body.has-sidebar-page.has-full-page-chat #main-outlet-wrapper {
   grid-column-gap: var(--main-grid-gap);
 }
 
+body.has-full-page-chat:not(.has-sidebar-page) {
+  .d-header {
+    background-color: var(--background-color);
+  }
+  #main-outlet-wrapper {
+    --main-grid-gap: 0;
+    .full-page-chat.full-page-chat-sidebar-enabled,
+    .c-navbar-container {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+    }
+  }
+}
+
 body.has-sidebar-page #main-outlet-wrapper {
   grid-template-columns: var(--d-sidebar-width) 1fr 0px;
   #main-outlet {
