@@ -4,7 +4,7 @@ import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { and } from "truth-helpers";
 import icon from "discourse/helpers/d-icon";
-import i18n from "discourse-i18n";
+import { i18n } from "discourse-i18n";
 
 export default class TopicStatusColumn extends Component {
   @service currentUser;
