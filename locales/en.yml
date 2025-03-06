@@ -1,5 +1,12 @@
 en:
   theme_metadata:
-    description: ""
-    settings:
-      example_setting: A description of a setting.
+    description: "A simple, beautiful theme for the future of Discourse that improves the out of the box experience for sites."
+  topic_bookmarked: "Bookmarked"
+  topic_closed_archived: "Closed and archived"
+  topic_closed: "Closed"
+  topic_archived: "Archived"
+  topic_warning: "Warning"
+  topic_personal_message: "Personal message"
+  topic_pinned: "Pinned"
+  topic_unpinned: "Unpinned"
+  topic_hot: "Hot"

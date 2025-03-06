@@ -1,5 +1,6 @@
 .sidebar-wrapper {
-  .has-full-page-chat & {
+  .has-full-page-chat &,
+  .has-full-page-chat & .sidebar-footer-wrapper {
     background: transparent;
   }
   .sidebar-container {
@@ -10,12 +11,11 @@
     padding: 0;
   }
   .sidebar-section-link {
-    font-size: var(
-      --font-up-1
-    ); // dont want to change fonts here just yet as font-size can be changed as a user pref. – charlie: sure but I want it to be bigger by default
-    // font-family: "inter";
-    letter-spacing: 0.5px;
-    border-radius: 10px; //visually somewhat consistent with border on main outlet (?)
+    font-size: var(--font-up-1);
+    // dont want to change fonts here just yet as font-size can be changed as a user pref.
+    // – charlie: sure but I want it to be bigger by default
+    // letter-spacing: 0.5px;
+    border-radius: 10px; // visually somewhat consistent with border on main outlet (?)
     transition: none;
   }
 }
