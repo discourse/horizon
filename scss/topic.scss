@@ -1,19 +1,19 @@
 .post-stream {
-  .contents p {
+  .contents {
     font-size: var(--font-up-1);
     line-height: 1.25;
   }
 }
 
 .container.posts .topic-navigation {
-  //super fragile because new sticky topic title doesnt have a calculated value (= 53px with this font and size but…)
+  // super fragile because new sticky topic title doesnt have a calculated value (= 53px with this font and size but…)
   top: calc(
     var(--header-offset, 60px) + 53px + calc(var(--spacing-block-l) * 2)
   );
 }
 
 .timeline-container .topic-timeline {
-  min-width: unset; //why we have this?
+  min-width: unset; // why we have this?
   .timeline-scrollarea {
     border-left: 1px solid var(--accent-color);
   }
@@ -24,7 +24,7 @@
     padding-left: 0.5em;
     margin-left: calc(-0.5em - 2.5px);
     background: var(--secondary);
-    height: 40px !important; //height is coming from element style have no other choice
+    height: 40px !important; // height is coming from element style have no other choice
   }
   .timelime-scroller-content {
     display: flex;
@@ -53,6 +53,7 @@
   margin-bottom: 0;
   top: var(--header-offset);
   background: var(--d-content-background);
+  border-radius: var(--d-border-radius-large);
 }
 
 .container.posts,
