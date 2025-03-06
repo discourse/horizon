@@ -34,8 +34,11 @@
   }
 }
 
-.btn-default.sidebar-new-topic-button {
+.discourse-no-touch .btn-default.sidebar-new-topic-button {
   border: none;
+  &:hover {
+    border: none;
+  }
 }
 
 .btn-default {
