@@ -3,6 +3,7 @@ import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 import didInsert from "@ember/render-modifiers/modifiers/did-insert";
 import { htmlSafe } from "@ember/template";
+import { bind } from "discourse/lib/decorators";
 
 export default class ExperimentalScreen extends Component {
   @tracked left = 0;
@@ -18,6 +19,7 @@ export default class ExperimentalScreen extends Component {
     return rect;
   }
 
+  @bind
   calculateDistance() {
     const element = document.getElementById("main-outlet");
 
@@ -37,7 +39,7 @@ export default class ExperimentalScreen extends Component {
   @action
   onInsert() {
     this.calculateDistance();
-    window.addEventListener("resize", this.calculateDistance.bind(this));
+    window.addEventListener("resize", this.calculateDistance);
   }
 
   <template>
