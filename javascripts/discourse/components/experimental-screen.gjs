@@ -18,6 +18,7 @@ export default class ExperimentalScreen extends Component {
   @bind
   calculateDistance(element) {
     const distance = element.getBoundingClientRect();
+
     this.left = distance.left;
     this.right = distance.right;
   }
@@ -33,6 +34,8 @@ export default class ExperimentalScreen extends Component {
     this.calculateDistance(element);
 
     this.resizeObserver = new ResizeObserver((entries) => {
+      console.log("resize observer", entries);
+
       for (const entry of entries) {
         this.calculateDistance(entry.target);
       }

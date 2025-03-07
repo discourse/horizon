@@ -21,7 +21,7 @@ body.has-full-page-chat:not(.has-sidebar-page) {
     background-color: var(--background-color);
   }
   #main-outlet-wrapper {
-    --main-grid-gap: 0;
+    gap: var(--main-grid-gap);
     .full-page-chat.full-page-chat-sidebar-enabled,
     .c-navbar-container {
       border-top-right-radius: 0;
@@ -35,6 +35,10 @@ body.has-sidebar-page #main-outlet-wrapper {
   #main-outlet {
     max-width: unset;
   }
+}
+
+body:not(.has-sidebar-page) #main-outlet-wrapper {
+  grid-template-columns: 0px 1fr 0px;
 }
 
 body:not(.has-full-page-chat) {
@@ -57,14 +61,7 @@ body:not(.has-full-page-chat) {
     #main-outlet {
       width: 100%;
       padding-bottom: var(--spacing-block-l);
-      // height: inherit;
-      // overflow: scroll;
-      // &:has(.list-controls) {
-      // padding-top: 0;
-      // }
-      // &:has(#topic-title) {
-      // padding-top: 0;
-      // }
+      max-width: unset;
       //thanks to random container elements on the page, I can't do a direct child selector here because it targets all the randomness, so I see no other option than MANUALLY adding every possible element that can appear in the main outlet YAY
       .list-controls,
       .list-container,

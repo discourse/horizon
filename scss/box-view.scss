@@ -17,8 +17,8 @@
   }
 }
 
-.has-full-page-chat .experimental-screen {
-  display: none;
+.has-full-page-chat .chat-replying-indicator-container {
+  margin-bottom: var(--d-border-radius-large);
 }
 
 .experimental-screen {
@@ -26,9 +26,6 @@
     display: none;
   }
   max-width: unset !important;
-  .has-full-page-chat & {
-    display: none;
-  }
   @media screen and (max-width: 488px) {
     display: none;
   }
