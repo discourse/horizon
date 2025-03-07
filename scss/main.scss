@@ -1,7 +1,5 @@
 html:not(:has(.has-full-page-chat)) {
-  // @include breakpoint(extra-large, $rule: min-width) {
   background-color: var(--background-color);
-  // }
 }
 
 :root {
@@ -22,6 +20,9 @@ body.has-full-page-chat:not(.has-sidebar-page) {
   }
   #main-outlet-wrapper {
     gap: var(--main-grid-gap);
+    @include breakpoint(mobile-extra-large) {
+      grid-column-gap: 0;
+    }
     .full-page-chat.full-page-chat-sidebar-enabled,
     .c-navbar-container {
       border-top-right-radius: 0;
