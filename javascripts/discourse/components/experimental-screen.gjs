@@ -18,7 +18,6 @@ export default class ExperimentalScreen extends Component {
   @bind
   calculateDistance(element) {
     const distance = element.getBoundingClientRect();
-
     this.left = distance.left;
     this.right = distance.right;
   }
