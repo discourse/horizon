@@ -103,7 +103,6 @@ body.user-messages-page .topic-list-item {
   border: 1px solid var(--primary-300);
   display: grid;
   grid-template-columns: 44px min-content min-content auto min-content min-content min-content;
-
   grid-template-rows: 22px minmax(22px, auto);
   grid-template-areas:
     "avatar author status status . . activity"
@@ -360,8 +359,7 @@ body.user-messages-page .topic-list-item {
 
 .topic-list-item {
   background: var(--d-content-background);
-  box-shadow: 0px 0px 26px 1px
-    light-dark(hsl(224 61% 96% / 1), hsl(224 61% 96% / 0.1));
+  box-shadow: 0px 0px 26px 1px var(--topic-card-shadow);
   &:hover {
     border: 1px solid var(--accent-color);
     background: var(--d-content-background);

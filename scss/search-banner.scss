@@ -7,7 +7,6 @@
   border-bottom: 1px solid var(--primary-300);
   padding: 1.5em 0 2.5em;
   margin-bottom: 0;
-  --search-color: var(--tertiary-medium);
   @media screen and (max-width: 900px) {
     padding-bottom: 1em;
   }
@@ -19,7 +18,7 @@
     align-self: center;
     margin: 0;
     font-weight: 400;
-    color: var(--tertiary);
+    color: var(--search-banner-text-color);
     @media screen and (max-width: 1028px) {
       font-size: var(--font-up-4);
       grid-column: 1/-1;
