@@ -21,6 +21,10 @@
     oklch(from var(--accent-color) calc(l * 1.9) calc(c * 2) h / 0.3),
     oklch(from var(--accent-color) calc(l * 0.65) calc(c * 0.65) h / 0.75)
   );
+  --d-chat-border: light-dark(
+    oklch(from var(--accent-color) calc(l * 1.9) calc(c * 2) h),
+    oklch(from var(--accent-color) calc(l * 0.2) calc(c * 0.5) h)
+  );
   --d-max-width: 1000px;
   --d-border-radius-large: 20px;
   --d-border-radius: 8px;

@@ -79,11 +79,9 @@
   &__bottom-right {
     transform: rotate(180deg);
     bottom: var(--d-border-radius-large);
-    @container content-width (width > 1px) {
-      left: calc(var(--right-distance) - var(--d-border-radius-large));
-      @media screen and (max-width: 768px) {
-        bottom: calc(var(--d-border-radius-large) * 2);
-      }
+    left: calc(var(--right-distance) - var(--d-border-radius-large));
+    @media screen and (max-width: 768px) {
+      bottom: calc(var(--d-border-radius-large) * 2);
     }
   }
   &__bottom-bar {
