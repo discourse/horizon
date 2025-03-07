@@ -107,6 +107,9 @@ body.user-messages-page .topic-list-item {
   grid-template-areas:
     "avatar author status status . . activity"
     ". topic-title topic-title topic-title likes-replies likes-replies category";
+  grid-column-gap: 12px;
+  grid-row-gap: 8px;
+  border-radius: var(--d-border-radius);
   &.excerpt-expanded {
     grid-template-columns: 44px repeat(6, 1fr) auto;
     grid-template-rows: 22px auto auto 30px;
@@ -134,9 +137,6 @@ body.user-messages-page .topic-list-item {
       }
     }
   }
-  grid-column-gap: 12px;
-  grid-row-gap: 8px;
-  border-radius: var(--d-border-radius);
   @media screen and (max-width: $medium) {
     grid-template-columns: 44px min-content min-content auto min-content min-content min-content;
     grid-template-rows: 22px minmax(22px, auto);

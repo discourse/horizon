@@ -145,3 +145,26 @@
     }
   }
 }
+
+//should be changed in core, should not be a primary btn
+//changing this into straight buttons to match the progress one, which doesnt work well with rounded corners
+#topic-progress-wrapper {
+  .progress-back-container {
+    margin-right: 0;
+    margin-bottom: var(--spacing-block-xs);
+    .btn-primary.progress-back {
+      border-radius: 0;
+      background: var(--secondary);
+      border: 1px solid var(--tertiary-low);
+      color: var(--accent-color);
+      padding: var(--spacing-inline-s) var(--spacing-inline-m);
+      .d-icon {
+        color: var(--accent-color);
+      }
+    }
+  }
+  .topic-admin-menu-trigger {
+    border-radius: 0;
+    border: 1px solid var(--tertiary-low);
+  }
+}

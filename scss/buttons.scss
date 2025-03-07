@@ -35,25 +35,12 @@
 }
 
 .discourse-no-touch .btn-default.sidebar-new-topic-button,
-.discourse-no-touch .interface-color-selector-content .btn-default {
-  border: none;
-  &:hover {
-    border: none;
-    box-shadow: none;
-  }
-}
-
-.discourse-no-touch .btn-default.topic-drafts-menu-trigger {
-  border: none;
-  margin-left: 2px;
-  &:hover {
-    border: none;
-    box-shadow: none;
-  }
-}
-
-.btn-default {
-  border: 1px solid var(--primary-300);
+.discourse-no-touch .interface-color-selector-content,
+.btn-default,
+.select-kit .select-kit-header {
+  border: 1px solid var(--accent-color);
+  //id like to use rgba of the accent colour but how to derive that?
+  // box-shadow: 0px 0px 8px 2px oklch(from (var(--accent-color)) calc(l * 2) calc(c * 0.125) h);
   background: var(--secondary);
 
   .d-icon {
@@ -62,10 +49,10 @@
 
   &:hover {
     .discourse-no-touch & {
-      border: 1px solid var(--accent-color);
+      border: 1px solid transparent;
       box-shadow: 0px 0px 8px 2px var(--button-box-shadow);
       background: var(--secondary);
-      color: var(--primary);
+      color: var(--accent-color);
       .d-icon {
         color: var(--accent-color);
       }
@@ -86,12 +73,10 @@
 //not shared with select-kit
 .btn-default {
   &:active {
-    .discourse-no-touch & {
+    color: var(--secondary);
+    background: oklch(from var(--accent-color) 30% c h) !important;
+    .d-icon {
       color: var(--secondary);
-      background: oklch(from var(--accent-color) 30% c h) !important;
-      .d-icon {
-        color: var(--secondary);
-      }
     }
   }
 }
@@ -126,15 +111,13 @@
     }
   }
   &:active {
-    .discourse-no-touch & {
-      // background: radial-gradient(
-      //     65% 95% at 50% 50%,
-      //     rgba(0, 0, 0, 0.4) 0%,
-      //     rgba(0, 0, 0, 0) 100%
-      //   ),
-      //   var(--accent-color) !important;
-      background: oklch(from var(--accent-color) 30% c h) !important;
-    }
+    // background: radial-gradient(
+    //     65% 95% at 50% 50%,
+    //     rgba(0, 0, 0, 0.4) 0%,
+    //     rgba(0, 0, 0, 0) 100%
+    //   ),
+    //   var(--accent-color) !important;
+    background: oklch(from var(--accent-color) 30% c h) !important;
   }
 }
 

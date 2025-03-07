@@ -87,10 +87,10 @@ body:not(.has-full-page-chat) {
         padding-inline: 1.5em;
       }
       border-radius: var(--d-border-radius-large);
+      border-radius: 1.25rem;
       @include breakpoint(medium) {
         border-radius: 0px;
       }
-      border-radius: 1.25rem;
       // box-shadow: 0px 0px 1px 2px #e2e8f8, 0px 0px 24px 4px #e2e8f8;
       background-color: var(--d-content-background);
     }

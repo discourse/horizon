@@ -50,18 +50,10 @@
   @include breakpoint(extra-large, $rule: min-width) {
     z-index: z("composer", "content") - 1;
     padding: var(--spacing-block-l) var(--spacing-inline-xl);
-    position: sticky;
     margin-bottom: 0;
     top: var(--header-offset);
     background: var(--d-content-background);
   }
-  z-index: z("composer", "content") - 1;
-  padding: var(--spacing-block-l) var(--spacing-inline-xl);
-  position: sticky;
-  margin-bottom: 0;
-  top: var(--header-offset);
-  background: var(--d-content-background);
-  border-radius: var(--d-border-radius-large);
 }
 .container.posts,
 .more-topics__container,
