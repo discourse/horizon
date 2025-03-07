@@ -2,41 +2,24 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 import didInsert from "@ember/render-modifiers/modifiers/did-insert";
-import { cancel, throttle } from "@ember/runloop";
 import { htmlSafe } from "@ember/template";
 import { bind } from "discourse/lib/decorators";
 
 export default class ExperimentalScreen extends Component {
   @tracked left = 0;
   @tracked right = 0;
+  resizeObserver;
 
   willDestroy() {
     super.willDestroy(...arguments);
-    cancel(this._throttledCalculateDistanceHandler);
-  }
-
-  getDistance(element) {
-    const rect = element.getBoundingClientRect();
-    return rect;
+    this.resizeObserver.disconnect();
   }
 
   @bind
-  calculateDistance() {
-    this._throttledCalculateDistanceHandler = throttle(
-      this,
-      this._throttledCalculateDistance,
-      50
-    );
-  }
-
-  _throttledCalculateDistance() {
-    const element = document.getElementById("main-outlet");
-
-    if (element) {
-      const distance = this.getDistance(element);
-      this.left = distance.left;
-      this.right = distance.right;
-    }
+  calculateDistance(element) {
+    const distance = element.getBoundingClientRect();
+    this.left = distance.left;
+    this.right = distance.right;
   }
 
   get distanceStyles() {
@@ -46,9 +29,16 @@ export default class ExperimentalScreen extends Component {
   }
 
   @action
-  onInsert() {
-    this.calculateDistance();
-    window.addEventListener("resize", this.calculateDistance);
+  onInsert(element) {
+    this.calculateDistance(element);
+
+    this.resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        this.calculateDistance(entry.target);
+      }
+    });
+
+    this.resizeObserver.observe(element);
   }
 
   <template>
