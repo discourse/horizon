@@ -19,6 +19,9 @@
 
 .has-full-page-chat .chat-replying-indicator-container {
   margin-bottom: var(--d-border-radius-large);
+  @include breakpoint(medium) {
+    margin-bottom: 0;
+  }
 }
 
 .experimental-screen {

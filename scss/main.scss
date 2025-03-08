@@ -20,8 +20,8 @@ body.has-full-page-chat:not(.has-sidebar-page) {
   }
   #main-outlet-wrapper {
     gap: var(--main-grid-gap);
-    @include breakpoint(mobile-extra-large) {
-      grid-column-gap: 0;
+    @include breakpoint("medium") {
+      gap: 0;
     }
     .full-page-chat.full-page-chat-sidebar-enabled,
     .c-navbar-container {
@@ -39,7 +39,9 @@ body.has-sidebar-page #main-outlet-wrapper {
 }
 
 body:not(.has-sidebar-page) #main-outlet-wrapper {
-  grid-template-columns: 0px 1fr 0px;
+  @include breakpoint("medium", $rule: min-width) {
+    grid-template-columns: 0px 1fr 0px;
+  }
 }
 
 body:not(.has-full-page-chat) {
