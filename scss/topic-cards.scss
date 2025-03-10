@@ -29,7 +29,7 @@ $extra-large: 1280px;
   }
 }
 
-body.bulk-select-enabled .topic-list-item {
+.bulk-select-enabled .topic-list-item {
   grid-template-areas:
     "bulk-select avatar author status status . activity"
     ". topic-title topic-title topic-title likes-replies likes-replies category";
