@@ -19,11 +19,9 @@
   "color_schemes": {
     "Horizon": {
       "primary": "1A1A1A",
-      "primary-low": "ebecf9",
-      "primary-500": "8591ad",
       "secondary": "ffffff",
       "header_background": "f5f8ff",
-      "tertiary": "313270",
+      "tertiary": "595bca",
       "tertiary-low": "d8d9f3",
       "tertiary-50": "f5f8ff",
       "selected": "d8d9f3",
