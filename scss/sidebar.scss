@@ -1,8 +1,12 @@
-.sidebar-wrapper {
+.sidebar-wrapper,
+.sidebar-hamburger-dropdown {
   @include breakpoint(medium) {
     background: var(--secondary);
     .sidebar-footer-wrapper {
       background: var(--secondary);
+      .sidebar-footer-container::before {
+        display: none;
+      }
     }
   }
   .has-full-page-chat &,
@@ -18,9 +22,6 @@
   }
   .sidebar-section-link {
     font-size: var(--font-up-1);
-    // dont want to change fonts here just yet as font-size can be changed as a user pref.
-    // – charlie: sure but I want it to be bigger by default
-    // letter-spacing: 0.5px;
     transition: none;
     border-radius: var(--d-border-radius);
   }
@@ -28,6 +29,7 @@
     border-radius: 0px;
   }
 }
+
 .sidebar-section-wrapper {
   @include breakpoint(extra-large, $rule: min-width) {
     padding-block: 0.45em;
