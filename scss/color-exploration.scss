@@ -7,7 +7,7 @@
   //   --background-color: light-dark(#f5f8ff, #101112);
   --background-color: light-dark(
     oklch(from var(--accent-color) 98% calc(c * 0.25) h),
-    oklch(from var(--accent-color) calc(l * 0.275) 0.025 h)
+    oklch(from var(--accent-color) 10% 0.025 h)
   );
   --header_primary-low-mid: light-dark(
     oklch(from var(--background-color) calc(l * 0.8) calc(c * 2) h),
@@ -22,7 +22,7 @@
     oklch(from var(--accent-color) calc(l * 0.375) 0 h)
   );
   --primary-300: light-dark(
-    oklch(from var(--accent-color) calc(l * 1.5) 0 h),
+    oklch(from var(--accent-color) calc(l * 1.75) 0 h),
     oklch(from var(--accent-color) calc(l * 0.75) 0 h)
   );
   --primary-low: var(--primary-300);
