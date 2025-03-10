@@ -44,7 +44,8 @@
   padding: 3px;
 }
 
-a,
-a:visited {
-  color: var(--accent-color);
-}
+//alas too broad, is overruling links that we made grey because they are minor, for exmaple, date link on a post, dont have alternative yet
+// a,
+// a:visited {
+//   color: var(--accent-color);
+// }
