@@ -89,7 +89,6 @@ body:not(.has-full-page-chat) {
         }
       }
       border-radius: var(--d-border-radius-large);
-      border-radius: 1.25rem;
       @include breakpoint(medium) {
         border-radius: 0px;
       }
