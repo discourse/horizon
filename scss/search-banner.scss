@@ -7,13 +7,12 @@
   border-bottom: 1px solid var(--primary-300);
   padding: 1.5em 0 2.5em;
   margin-bottom: 0;
-  @media screen and (max-width: 900px) {
-    padding-bottom: 1em;
+  @media screen and (max-width: 600px) {
+    padding: 1em;
   }
   h1 {
     grid-column: 1/2;
     grid-row: 1/-1;
-    padding: 0 1em;
     text-align: left;
     align-self: center;
     margin: 0;
