@@ -3,7 +3,7 @@ import { action } from "@ember/object";
 import Service from "@ember/service";
 
 export default class customColor extends Service {
-  @tracked color = localStorage.getItem("d-customColor");
+  @tracked color = localStorage.getItem("d-customColor") || "horizon";
 
   @action
   setColor(color) {
