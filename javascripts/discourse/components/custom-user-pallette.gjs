@@ -1,4 +1,3 @@
-import Component from "@glimmer/component";
 import { array } from "@ember/helper";
 import icon from "discourse/helpers/d-icon";
 import DMenu from "float-kit/components/d-menu";
@@ -31,27 +30,25 @@ const PALLETTES = [
   },
 ];
 
-export default class CustomUserPallette extends Component {
-  <template>
-    <DMenu
-      @identifier="user-color-pallette"
-      @triggers={{array "click"}}
-      @placementStrategy="fixed"
-      class="btn-flat user-color-pallette sidebar-footer-actions-button"
-      @inline={{true}}
-    >
-      <:trigger>
-        {{icon "paint-brush"}}
-      </:trigger>
-      <:content>
-        <div class="color-pallette-menu">
-          <div class="color-pallette-menu__content">
-            {{#each PALLETTES as |colorScheme|}}
-              <SitePallette @colorScheme={{colorScheme}} />
-            {{/each}}
-          </div>
+<template>
+  <DMenu
+    @identifier="user-color-pallette"
+    @triggers={{array "click"}}
+    @placementStrategy="fixed"
+    class="btn-flat user-color-pallette sidebar-footer-actions-button"
+    @inline={{true}}
+  >
+    <:trigger>
+      {{icon "paint-brush"}}
+    </:trigger>
+    <:content>
+      <div class="color-pallette-menu">
+        <div class="color-pallette-menu__content">
+          {{#each PALLETTES as |colorScheme|}}
+            <SitePallette @colorScheme={{colorScheme}} />
+          {{/each}}
         </div>
-      </:content>
-    </DMenu>
-  </template>
-}
+      </div>
+    </:content>
+  </DMenu>
+</template>
