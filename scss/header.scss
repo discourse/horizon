@@ -81,3 +81,13 @@
 .menu-panel .panel-body-bottom .btn:hover {
   background-color: var(--d-content-background);
 }
+
+body.login-page,
+body.signup-page,
+body.invite-page,
+body.password-reset-page,
+body.activate-account-page {
+  .d-header {
+    background: var(--background-color);
+  }
+}
