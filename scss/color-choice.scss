@@ -5,7 +5,9 @@
     justify-content: flex-start;
   }
   &__item .btn-icon-text.btn-flat:hover {
+    background-color: var(--d-selected);
     box-shadow: none;
+    color: var(--primary);
   }
   &__item .btn-icon-text.btn-flat:hover svg {
     color: var(--icon-color);

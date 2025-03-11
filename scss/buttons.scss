@@ -39,6 +39,13 @@
   box-shadow: none;
 }
 
+.post-info.edits .btn-flat {
+  background-color: transparent;
+  &:hover {
+    box-shadow: none;
+  }
+}
+
 .discourse-no-touch .btn-default.sidebar-new-topic-button,
 .discourse-no-touch .interface-color-selector-content,
 .btn-default,
@@ -47,7 +54,7 @@
   background: var(--primary-100);
 
   .d-icon {
-    color: var(--tertiary);
+    color: var(--accent-color);
   }
 
   &:hover {
@@ -126,4 +133,9 @@
 
 .dropdown-menu__item .btn {
   background-color: var(--d-content-background);
+  &:hover {
+    background-color: var(--d-selected);
+    box-shadow: none;
+    color: var(--primary);
+  }
 }
