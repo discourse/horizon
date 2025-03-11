@@ -10,13 +10,16 @@
 .btn-primary,
 .btn-danger,
 .select-kit .select-kit-header {
-  padding: var(--spacing-block-s) var(--spacing-inline-m);
+  //using this hard coded value to make standalone icon-only btns perfect circles; I can't target the class no-text see below line 18
+  padding: var(--spacing-block-s) 0.665rem;
   // font-size: var(--font-up-1-rem);
   // border-radius: var(--d-button-border-radius);
 
-  &.no-text {
-    padding-inline: 0.665rem;
-  }
+  //theres buttons with text hidden that dont have the no-text class, and my :has workaround for some reason refuses to work
+  // &.no-text,
+  // .btn-icon-text:has(.d-button-label) {
+  //   padding-inline: 0.665rem;
+  // }
 }
 
 .sidebar-new-topic-button__wrapper .topic-drafts-menu-trigger.btn.no-text {
@@ -38,13 +41,15 @@
 .discourse-no-touch .interface-color-selector-content,
 .btn-default,
 .select-kit .select-kit-header {
-  border: 1px solid var(--accent-color);
+  // border: 1px solid var(--accent-color);
+  border: 1px solid var(--tertiary-300);
   //id like to use rgba of the accent colour but how to derive that?
   // box-shadow: 0px 0px 8px 2px oklch(from (var(--accent-color)) calc(l * 2) calc(c * 0.125) h);
   background: var(--secondary);
 
   .d-icon {
-    color: var(--accent-color);
+    color: var(--tertiary);
+    // color: var(--accent-color);
   }
 
   &:hover {
