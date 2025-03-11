@@ -1,6 +1,6 @@
 en:
   theme_metadata:
-    description: "A simple, beautiful theme for the future of Discourse that improves the out of the box experience for sites."
+    description: "A simple, beautiful theme for the future of Discourse that improves the out of the box experience for Discourse sites."
   topic_bookmarked: "Bookmarked"
   topic_closed_archived: "Closed and archived"
   topic_closed: "Closed"
