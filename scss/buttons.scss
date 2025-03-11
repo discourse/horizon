@@ -38,7 +38,7 @@
 .discourse-no-touch .btn-default.sidebar-new-topic-button,
 .discourse-no-touch .interface-color-selector-content,
 .btn-default,
-.select-kit .select-kit-header {
+.select-kit .select-kit-header.btn-default {
   background: var(--primary-100);
 
   .d-icon {
@@ -63,7 +63,7 @@
       background: var(--secondary);
       color: var(--accent-color);
       // box-shadow: 0px 0px 8px 1px var(--button-box-shadow);
-      box-shadow: 0px 0px 0px 4px var(--button-box-shadow);
+      box-shadow: 0px 0px 0px 3px var(--button-box-shadow);
       .d-icon {
         color: var(--accent-color);
       }
