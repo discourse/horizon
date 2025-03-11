@@ -10,7 +10,7 @@
     oklch(from var(--accent-color) calc(l * 1.85) calc(c * 2) h)
   );
   --topic-card-shadow: light-dark(
-    oklch(from var(--accent-color) calc(l * 2) calc(c * 0.1) h / 0.5),
+    oklch(from var(--accent-color) calc(l * 1.85) calc(c * 0.5) h),
     oklch(from var(--accent-color) calc(l * 0.2) calc(c * 0.01) h / 0.25)
   );
   --button-box-shadow: light-dark(

@@ -359,7 +359,7 @@ body.user-messages-page .topic-list-item {
 
 .topic-list-item {
   background: var(--d-content-background);
-  box-shadow: 0px 0px 26px 1px var(--topic-card-shadow);
+  box-shadow: 0px 0px 12px 1px var(--topic-card-shadow);
   &:hover {
     .discourse-no-touch & {
       border: 1px solid var(--accent-color);
