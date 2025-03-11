@@ -36,15 +36,17 @@
 
 .nav-pills > li > a:hover,
 .nav-pills > li button:hover {
-  background: transparent;
-  color: var(--accent-color);
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: var(--d-nav-underline-height);
-    background: var(--accent-color);
+  .discourse-no-touch & {
+    background: transparent;
+    color: var(--accent-color);
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      height: var(--d-nav-underline-height);
+      background: var(--accent-color);
+    }
   }
 }
