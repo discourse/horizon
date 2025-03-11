@@ -134,3 +134,27 @@
   outline: transparent;
   border-color: var(--accent-color);
 }
+
+.color-pallette-menu__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.color-pallette-menu__item-choice.btn-flat .d-icon,
+.discourse-no-touch .color-pallette-menu__item-choice.btn-flat:hover .d-icon {
+  color: var(--icon-color);
+}
+
+.color-pallette-menu__item {
+  width: 100%;
+}
+
+.color-pallette-menu__item-choice.btn-flat {
+  width: 100%;
+  justify-content: start;
+}
+
+.color-pallette-menu__item-choice.btn-flat:hover {
+  background: var(--d-hover);
+}

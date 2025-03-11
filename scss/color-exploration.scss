@@ -22,7 +22,7 @@
     oklch(from var(--accent-color) calc(l * 0.375) 0 h)
   );
   --primary-300: light-dark(
-    oklch(from var(--accent-color) calc(l * 1.75) 0 h),
+    oklch(from var(--accent-color) calc(l * 1.15) 0 h),
     oklch(from var(--accent-color) calc(l * 0.75) 0 h)
   );
   --primary-low: var(--primary-300);
