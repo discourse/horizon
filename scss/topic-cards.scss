@@ -17,6 +17,9 @@ $extra-large: 1280px;
 
 .topic-list > .topic-list-body > .topic-list-item.last-visit {
   border-bottom: 1px solid var(--primary-300);
+  &:hover {
+    border-color: var(--accent-color);
+  }
 }
 
 .topic-list-body {
@@ -362,7 +365,7 @@ body.user-messages-page .topic-list-item {
   box-shadow: 0px 0px 26px 1px var(--topic-card-shadow);
   &:hover {
     .discourse-no-touch & {
-      border: 1px solid var(--accent-color);
+      border-color: var(--accent-color);
       background: var(--d-content-background);
     }
   }

@@ -25,6 +25,9 @@
   .d-icon {
     color: inherit;
   }
+  &.--active .d-icon {
+    color: var(--accent-color);
+  }
   &:hover {
     box-shadow: none;
   }
