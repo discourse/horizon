@@ -72,3 +72,10 @@ input[type="color"]:focus,
 #reply-control {
   background-color: var(--background-color);
 }
+
+.search-container .search-header,
+.search-container .search-bar,
+.search-container .search-filters,
+.search-container .search-filters .search-advanced-filters {
+  background-color: var(--d-content-background);
+}
