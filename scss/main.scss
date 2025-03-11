@@ -82,7 +82,7 @@ body:not(.has-full-page-chat) {
       .container.badges,
       .topic-above-footer-buttons-outlet .presence-users,
       .global-notice {
-        @include breakpoint(extra-large, $rule: min-width) {
+        @include breakpoint(medium, $rule: min-width) {
           max-width: 1000px;
           margin-inline: auto;
           padding-inline: var(--spacing-inline-l);
@@ -113,9 +113,8 @@ aside.onebox {
 }
 
 .d-editor-preview-wrapper {
-  box-shadow: 0px 0px 1px 2px var(--tertiary-50),
-    0px 0px 24px 4px var(--tertiary-50);
-  border-radius: var(--d-border-radius-large);
+  // box-shadow: 0px 0px 0px 2px var(--accent-color);
+  border-radius: var(--d-border-radius);
   padding: 1em;
   background-color: var(--d-content-background);
 }
