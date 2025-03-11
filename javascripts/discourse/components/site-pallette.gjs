@@ -1,22 +1,26 @@
 import Component from "@glimmer/component";
+import { fn } from "@ember/helper";
 import { action } from "@ember/object";
+import { service } from "@ember/service";
 import DButton from "discourse/components/d-button";
 
 export default class SitePallette extends Component {
-    @action
-    handleInput() {
-        console.log(this);
-    }
+  @service customColor;
 
-    <template>
-        <div class="color-pallette-menu__item">
-        <DButton
+  @action
+  handleInput(colorScheme) {
+    this.customColor.setColor(colorScheme.name);
+  }
+
+  <template>
+    <div class="color-pallette-menu__item">
+      <DButton
         class="btn-flat color-pallette-menu__item-choice"
         style="--icon-color: {{@colorScheme.color}}"
         @icon="circle"
         @translatedLabel={{@colorScheme.name}}
-        @action={{this.handleInput}}
-        />
-        </div>
-    </template>
+        @action={{fn this.handleInput @colorScheme}}
+      />
+    </div>
+  </template>
 }
