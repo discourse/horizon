@@ -20,6 +20,16 @@
   // }
 }
 
+.btn.btn-transparent.btn-icon-text {
+  background-color: transparent;
+  .d-icon {
+    color: inherit;
+  }
+  &:hover {
+    box-shadow: none;
+  }
+}
+
 .sidebar-new-topic-button__wrapper .topic-drafts-menu-trigger.btn.no-text {
   background: var(--accent-color);
   &:hover {
@@ -52,7 +62,6 @@
 .btn-icon-text,
 .select-kit .select-kit-header.btn-default {
   background: var(--primary-100);
-
   .d-icon {
     color: var(--accent-color);
   }
@@ -118,8 +127,29 @@
 }
 
 .post-controls {
-  svg.d-icon {
+  svg.d-icon:not(.d-icon-heart, .d-icon-far-heart) {
     color: inherit !important; //something we should honestly implement in core imo, when do we ever NOT want the same colour for icon and text?
+  }
+}
+
+.discourse-reactions-double-button:hover .reactions-counter {
+  color: var(--love);
+}
+
+.discourse-no-touch
+  .discourse-reactions-actions.has-reacted
+  .discourse-reactions-double-button:hover,
+.discourse-no-touch
+  .discourse-reactions-actions.has-reacted.can-toggle-reaction
+  .discourse-reactions-reaction-button:hover
+  .reaction-button,
+.discourse-no-touch
+  .discourse-reactions-actions.has-reacted:not(.can-toggle-reaction)
+  .discourse-reactions-reaction-button:hover
+  .reaction-button {
+  background: var(--love-low);
+  .d-icon-heart {
+    color: var(--love);
   }
 }
 

@@ -90,8 +90,5 @@
   --d-sidebar-highlight-background: var(--d-selected);
   --d-sidebar-section-link-icon-size: 1em;
   --d-input-bg-color: var(--d-content-background);
-}
-
-.list-controls {
-  background-color: var(--tertiary-low);
+  --tertiary-hover: var(--accent-color);
 }
