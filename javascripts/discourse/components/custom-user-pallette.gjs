@@ -10,12 +10,12 @@ const PALLETTES = [
     color: "#d3881f",
   },
   {
-    name: "pansy",
+    name: "violet",
     color: "#9b15de",
   },
   {
-    name: "rose",
-    color: "#d32f2f",
+    name: "lily",
+    color: "#CC336F",
   },
   {
     name: "clover",
