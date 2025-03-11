@@ -73,6 +73,14 @@ input[type="color"]:focus,
   background-color: var(--background-color);
 }
 
+
 .fk-d-menu__trigger.topic-list-layout-trigger {
   display: none;
+}
+
+.search-container .search-header,
+.search-container .search-bar,
+.search-container .search-filters,
+.search-container .search-filters .search-advanced-filters {
+  background-color: var(--d-content-background);
 }

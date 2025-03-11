@@ -2,6 +2,10 @@ html:not(:has(.has-full-page-chat)) {
   background-color: var(--background-color);
 }
 
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
 :root {
   --main-grid-gap: 2em;
 }
