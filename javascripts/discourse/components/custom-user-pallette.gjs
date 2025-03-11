@@ -39,7 +39,7 @@ const PALLETTES = [
     @inline={{true}}
   >
     <:trigger>
-      {{icon "paint-brush"}}
+      {{icon "paintbrush"}}
     </:trigger>
     <:content>
       <div class="color-pallette-menu">
