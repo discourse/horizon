@@ -10,12 +10,12 @@
     oklch(from var(--accent-color) 10% 0.025 h)
   );
   --header_primary-low-mid: light-dark(
-    oklch(from var(--background-color) calc(l * 0.8) calc(c * 2) h),
-    oklch(from var(--accent-color) calc(l * 0.9) calc(c * 0.25) h)
+    oklch(from var(--background-color) calc(l * 0.75) calc(c * 2) h),
+    oklch(from var(--accent-color) calc(l * 1) calc(c * 0.25) h)
   );
   --header_primary-medium: light-dark(
-    oklch(from var(--background-color) calc(l * 0.6) calc(c * 2) h),
-    oklch(from var(--accent-color) calc(l * 1.25) calc(c * 0.25) h)
+    oklch(from var(--background-color) calc(l * 0.55) calc(c * 2) h),
+    oklch(from var(--accent-color) calc(l * 1.35) calc(c * 0.25) h)
   );
   --d-content-background: light-dark(
     oklch(from var(--accent-color) calc(l * 2) 0 h),
