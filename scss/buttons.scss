@@ -38,6 +38,7 @@
 .discourse-no-touch .btn-default.sidebar-new-topic-button,
 .discourse-no-touch .interface-color-selector-content,
 .btn-default,
+.btn-icon-text,
 .select-kit .select-kit-header.btn-default {
   background: var(--primary-100);
 
@@ -51,8 +52,6 @@
       box-shadow: 0px 0px 8px 1px var(--button-box-shadow);
       background: var(--secondary);
       color: var(--accent-color);
-      border-radius: 0.5rem;
-
       .d-icon {
         color: var(--accent-color);
       }
@@ -62,7 +61,6 @@
     .discourse-no-touch & {
       background: var(--secondary);
       color: var(--accent-color);
-      // box-shadow: 0px 0px 8px 1px var(--button-box-shadow);
       box-shadow: 0px 0px 0px 3px var(--button-box-shadow);
       .d-icon {
         color: var(--accent-color);
@@ -88,7 +86,6 @@
   }
   &:hover {
     .discourse-no-touch & {
-      border-radius: 0.5rem;
       background: oklch(from var(--accent-color) 40% c h) !important;
       box-shadow: 0px 0px 6px 1px var(--button-box-shadow);
     }
@@ -100,12 +97,6 @@
     }
   }
   &:active {
-    // background: radial-gradient(
-    //     65% 95% at 50% 50%,
-    //     rgba(0, 0, 0, 0.4) 0%,
-    //     rgba(0, 0, 0, 0) 100%
-    //   ),
-    //   var(--accent-color) !important;
     background: oklch(from var(--accent-color) 30% c h) !important;
   }
 }
