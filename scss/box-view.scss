@@ -24,6 +24,13 @@
   }
 }
 
+.has-full-page-chat .chat-selection-management {
+  margin-bottom: var(--d-border-radius-large);
+  @include breakpoint(medium) {
+    margin-bottom: 0;
+  }
+}
+
 .experimental-screen {
   @include breakpoint(medium) {
     display: none;
