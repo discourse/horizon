@@ -131,7 +131,8 @@
   border-color: var(--accent-color);
 }
 
-.dropdown-menu__item .btn {
+.dropdown-menu__item .btn,
+.fk-d-menu .btn {
   background-color: var(--d-content-background);
   &:hover {
     background-color: var(--d-selected);
