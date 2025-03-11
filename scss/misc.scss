@@ -72,3 +72,7 @@ input[type="color"]:focus,
 #reply-control {
   background-color: var(--background-color);
 }
+
+.fk-d-menu__trigger.topic-list-layout-trigger {
+  display: none;
+}
