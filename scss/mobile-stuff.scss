@@ -66,7 +66,9 @@
         }
       }
       .navigation-controls {
-        gap: var(--spacing-inline-s);
+        @include breakpoint(mobile-extra-large) {
+          gap: var(--spacing-inline-s);
+        }
       }
     }
   }
@@ -201,6 +203,7 @@
   }
   .topic-admin-menu-trigger {
     border-radius: 0;
+    background: var(--secondary);
     border: 1px solid var(--tertiary-low);
   }
 }
