@@ -23,9 +23,14 @@
   );
   --primary-100: light-dark(#f2f2f2, #333333);
   --primary-300: light-dark(#d1d1d1, #838383);
-  --primary-low: var(--primary-300);
+  --primary-low: light-dark(#e8e8e8, #414350);
   --d-hover: oklch(from var(--d-selected) l c h / 0.75);
   --tertiary-med-or-tertiary: var(--accent-color);
+  --tertiary-low: light-dark(
+    oklch(from var(--accent-color) calc(l * 1.6) calc(c * 0.25) h),
+    oklch(from var(--accent-color) calc(l * 0.6) calc(c * 0.25) h)
+  );
+  --tertiary: var(--accent-color);
   --d-sidebar-highlight-hover-icon: var(--d-sidebar-link-color);
   --search-color: light-dark(
     oklch(from var(--accent-color) calc(l * 0.65) calc(c * 0.65) h),
@@ -53,7 +58,7 @@
     oklch(from var(--accent-color) calc(l * 0.7) calc(c * 0.25) h)
   );
   --d-chat-border: light-dark(
-    oklch(from var(--accent-color) calc(l * 1.5) calc(c * 0.25) h),
+    oklch(from var(--accent-color) calc(l * 1.25) calc(c * 0.25) h),
     oklch(from var(--accent-color) calc(l * 0.25) calc(c * 0.25) h)
   );
   --accent-text-color: light-dark(#ffffff, #0f1024);
@@ -85,4 +90,8 @@
   --d-sidebar-highlight-background: var(--d-selected);
   --d-sidebar-section-link-icon-size: 1em;
   --d-input-bg-color: var(--d-content-background);
+}
+
+.list-controls {
+  background-color: var(--tertiary-low);
 }

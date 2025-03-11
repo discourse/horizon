@@ -18,7 +18,7 @@ const PALLETTES = [
   },
   {
     name: "clover",
-    color: "#4caf50",
+    color: "#45a06e",
   },
   {
     name: "royal",
