@@ -12,8 +12,6 @@
 .select-kit .select-kit-header {
   //using this hard coded value to make standalone icon-only btns perfect circles; I can't target the class no-text see below line 18
   padding: var(--spacing-block-s) 0.665rem;
-  // font-size: var(--font-up-1-rem);
-  // border-radius: var(--d-button-border-radius);
 
   //theres buttons with text hidden that dont have the no-text class, and my :has workaround for some reason refuses to work
   // &.no-text,
@@ -41,23 +39,20 @@
 .discourse-no-touch .interface-color-selector-content,
 .btn-default,
 .select-kit .select-kit-header {
-  // border: 1px solid var(--accent-color);
-  border: 1px solid var(--tertiary-300);
-  //id like to use rgba of the accent colour but how to derive that?
-  // box-shadow: 0px 0px 8px 2px oklch(from (var(--accent-color)) calc(l * 2) calc(c * 0.125) h);
-  background: var(--secondary);
+  background: var(--primary-100);
 
   .d-icon {
     color: var(--tertiary);
-    // color: var(--accent-color);
   }
 
   &:hover {
     .discourse-no-touch & {
       border: 1px solid transparent;
-      box-shadow: 0px 0px 8px 2px var(--button-box-shadow);
+      box-shadow: 0px 0px 8px 1px var(--button-box-shadow);
       background: var(--secondary);
       color: var(--accent-color);
+      border-radius: 0.5rem;
+
       .d-icon {
         color: var(--accent-color);
       }
@@ -67,24 +62,23 @@
     .discourse-no-touch & {
       background: var(--secondary);
       color: var(--accent-color);
-      box-shadow: 0px 0px 0px 2px var(--secondary),
-        0px 0px 0px 4px var(--button-box-shadow);
+      // box-shadow: 0px 0px 8px 1px var(--button-box-shadow);
+      box-shadow: 0px 0px 0px 4px var(--button-box-shadow);
       .d-icon {
         color: var(--accent-color);
       }
     }
   }
-}
-//not shared with select-kit
-.btn-default {
-  &:active {
-    color: var(--secondary);
-    background: oklch(from var(--accent-color) 30% c h) !important;
+  &:active:not(:hover, :focus) {
+    color: var(--primary);
+    background: var(--tertiary-300);
+    background-image: none;
     .d-icon {
-      color: var(--secondary);
+      color: var(--tertiary-high);
     }
   }
 }
+
 .btn-primary,
 #create-topic.btn {
   background-color: var(--accent-color);
@@ -94,25 +88,15 @@
   }
   &:hover {
     .discourse-no-touch & {
-      background: radial-gradient(
-          90% 110% at 50% 50%,
-          rgba(255, 255, 255, 0.3) 0%,
-          rgba(255, 255, 255, 0) 100%
-        ),
-        var(--accent-color);
+      border-radius: 0.5rem;
+      background: oklch(from var(--accent-color) 40% c h) !important;
       box-shadow: 0px 0px 6px 1px var(--button-box-shadow);
     }
   }
   &:focus-visible {
     .discourse-no-touch & {
-      background: radial-gradient(
-          90% 110% at 50% 50%,
-          rgba(255, 255, 255, 0.3) 0%,
-          rgba(255, 255, 255, 0) 100%
-        ),
-        var(--accent-color);
-      box-shadow: 0px 0px 0px 2px var(--secondary),
-        0px 0px 0px 4px var(--button-box-shadow);
+      background: oklch(from var(--accent-color) 40% c h) !important;
+      box-shadow: 0px 0px 0px 4px var(--button-box-shadow);
     }
   }
   &:active {
