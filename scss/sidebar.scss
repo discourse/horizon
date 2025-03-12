@@ -52,6 +52,10 @@
   }
 }
 
+.sidebar-wrapper .sidebar-sections {
+  --scrollbarThumbBg: var(--d-selected);
+}
+
 .sidebar-section-link-wrapper .sidebar-section-link:focus,
 .sidebar-section-link-wrapper .sidebar-section-link:hover {
   .d-icon {

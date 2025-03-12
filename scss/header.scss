@@ -30,3 +30,64 @@
 .user-menu.revamped .tabs-list .btn.active {
   background: var(--d-hover);
 }
+
+.discourse-no-touch .d-header-icons .icon:hover,
+.discourse-no-touch .d-header-icons .icon:focus,
+.header-sidebar-toggle button:focus:hover,
+.discourse-no-touch .header-sidebar-toggle button:hover {
+  background-color: transparent;
+}
+
+.discourse-no-touch .d-header-icons .icon:hover > .d-icon,
+.drop-down-mode .d-header-icons .active .icon > .d-icon,
+.drop-down-mode
+  .d-header-icons
+  .header-color-scheme-toggle
+  .-expanded
+  > .d-icon,
+.discourse-no-touch .btn-flat:hover .d-icon {
+  color: var(--header_primary-medium);
+}
+
+.discourse-no-touch .interface-color-selector-content {
+  border: none;
+  border-radius: var(--d-border-radius);
+  .btn {
+    border: none;
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}
+
+.drop-down-mode .d-header-icons .active .icon,
+.drop-down-mode .d-header-icons .header-color-scheme-toggle .-expanded {
+  border-color: transparent;
+}
+
+.drop-down-mode .d-header-icons .active .icon,
+.drop-down-mode .d-header-icons .header-color-scheme-toggle .-expanded {
+  background-color: transparent;
+}
+
+.badge-notification {
+  color: var(--accent-text-color);
+}
+
+.user-menu .quick-access-panel li,
+.user-notifications-list li,
+.user-menu .quick-access-panel li.do-not-disturb,
+.menu-panel .panel-body-bottom .btn,
+.menu-panel .panel-body-bottom .btn:hover {
+  background-color: var(--d-content-background);
+}
+
+body.login-page,
+body.signup-page,
+body.invite-page,
+body.password-reset-page,
+body.activate-account-page {
+  .d-header {
+    background: var(--background-color);
+  }
+}
