@@ -9,12 +9,12 @@ export default class SitePallette extends Component {
   @service customColor;
 
   get siteStyle() {
-    return `--icon-color: ${this.args.colorScheme.color}`;
+    return `--icon-color: ${this.args.colorPalette.color}`;
   }
 
   @action
-  handleInput(colorScheme) {
-    this.customColor.setColor(colorScheme.name);
+  handleInput(colorPalette) {
+    this.customColor.setColor(colorPalette.name);
   }
 
   <template>
@@ -23,8 +23,8 @@ export default class SitePallette extends Component {
         class="btn-flat color-pallette-menu__item-choice"
         style={{htmlSafe this.siteStyle}}
         @icon="circle"
-        @translatedLabel={{@colorScheme.name}}
-        @action={{fn this.handleInput @colorScheme}}
+        @translatedLabel={{@colorPalette.label}}
+        @action={{fn this.handleInput @colorPalette}}
       />
     </div>
   </template>

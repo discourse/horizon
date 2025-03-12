@@ -1,30 +1,35 @@
-import { array } from "@ember/helper";
 import icon from "discourse/helpers/d-icon";
 import DMenu from "float-kit/components/d-menu";
 import SitePallette from "./site-pallette";
 
 const PALLETTES = [
   {
+    label: "Marigold",
     name: "marigold",
     color: "#d3881f",
   },
   {
+    label: "Violet",
     name: "violet",
     color: "#9b15de",
   },
   {
+    label: "Lily",
     name: "lily",
     color: "#CC336F",
   },
   {
+    label: "Clover",
     name: "clover",
     color: "#45a06e",
   },
   {
+    label: "Royal",
     name: "royal",
     color: "#4169e1",
   },
   {
+    label: "Horizon",
     name: "horizon",
     color: "#595bca",
   },
@@ -33,7 +38,6 @@ const PALLETTES = [
 <template>
   <DMenu
     @identifier="user-color-pallette"
-    @triggers={{array "click"}}
     @placementStrategy="fixed"
     class="btn-flat user-color-pallette sidebar-footer-actions-button"
     @inline={{true}}
@@ -44,8 +48,8 @@ const PALLETTES = [
     <:content>
       <div class="color-pallette-menu">
         <div class="color-pallette-menu__content">
-          {{#each PALLETTES as |colorScheme|}}
-            <SitePallette @colorScheme={{colorScheme}} />
+          {{#each PALLETTES as |colorPalette|}}
+            <SitePallette @colorPalette={{colorPalette}} />
           {{/each}}
         </div>
       </div>

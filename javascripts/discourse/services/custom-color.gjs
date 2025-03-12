@@ -1,13 +1,16 @@
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
-import Service from "@ember/service";
+import Service, { service } from "@ember/service";
 
-export default class customColor extends Service {
-  @tracked color = localStorage.getItem("d-customColor") || "horizon";
+const CUSTOM_COLOR_KEY = "d-custom-color-preference";
+
+export default class CustomColor extends Service {
+  @service keyValueStore;
+  @tracked color = this.keyValueStore.getItem(CUSTOM_COLOR_KEY) || "horizon";
 
   @action
   setColor(color) {
     this.color = color;
-    localStorage.setItem("d-customColor", color);
+    this.keyValueStore.setItem(CUSTOM_COLOR_KEY, color);
   }
 }
