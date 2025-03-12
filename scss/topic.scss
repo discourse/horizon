@@ -47,12 +47,15 @@
 }
 
 #topic-title {
-  @include breakpoint(extra-large, $rule: min-width) {
+  @include breakpoint(medium, $rule: min-width) {
     z-index: z("composer", "content") - 1;
-    padding: var(--spacing-block-l) var(--spacing-inline-xl);
+    padding: var(--spacing-block-m) var(--spacing-inline-xl);
     margin-bottom: 0;
+    position: sticky;
     top: var(--header-offset);
     background: var(--d-content-background);
+    border-top-right-radius: var(--d-border-radius-large);
+    border-top-left-radius: var(--d-border-radius-large);
   }
 }
 .container.posts,
