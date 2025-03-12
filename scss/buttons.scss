@@ -163,3 +163,11 @@
   outline: transparent;
   border-color: var(--accent-color);
 }
+
+.fk-d-menu__inner-content {
+  .btn-icon-text.btn-flat:hover {
+    background-color: var(--d-selected);
+    box-shadow: none;
+    color: var(--primary);
+  }
+}
