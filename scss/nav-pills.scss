@@ -20,7 +20,16 @@
     // font-size: var(--font-up-1-rem);
     &:hover {
       border: 1px solid var(--accent-color);
-      box-shadow: 0px 0px 8px 2px var(--button-box-shadow);
+    }
+    &:focus-visible {
+      .discourse-no-touch & {
+        background: var(--secondary);
+        color: var(--accent-color);
+        box-shadow: 0px 0px 0px 3px var(--button-box-shadow);
+        .d-icon {
+          color: var(--accent-color);
+        }
+      }
     }
   }
   .select-kit.combo-box.category-drop.has-selection
@@ -36,15 +45,17 @@
 
 .nav-pills > li > a:hover,
 .nav-pills > li button:hover {
-  background: transparent;
-  color: var(--accent-color);
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: var(--d-nav-underline-height);
-    background: var(--accent-color);
+  .discourse-no-touch & {
+    background: transparent;
+    color: var(--accent-color);
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      height: var(--d-nav-underline-height);
+      background: var(--accent-color);
+    }
   }
 }

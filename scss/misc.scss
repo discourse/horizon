@@ -44,8 +44,43 @@
   padding: 3px;
 }
 
-//alas too broad, is overruling links that we made grey because they are minor, for exmaple, date link on a post, dont have alternative yet
-// a,
-// a:visited {
-//   color: var(--accent-color);
-// }
+.open .grippie {
+  background-color: var(--accent-color);
+}
+
+.d-editor-textarea-wrapper.in-focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.select-kit.multi-select.is-expanded .multi-select-header,
+.select-kit.multi-select .multi-select-header:focus {
+  border-color: var(--accent-color);
+  outline: 2px solid var(--accent-color);
+}
+
+#reply-control {
+  background-color: var(--background-color);
+}
+
+
+.fk-d-menu__trigger.topic-list-layout-trigger {
+  display: none;
+}
+
+.search-container .search-header,
+.search-container .search-bar,
+.search-container .search-filters,
+.search-container .search-filters .search-advanced-filters {
+  background-color: var(--d-content-background);
+}

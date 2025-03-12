@@ -10,12 +10,26 @@
 .btn-primary,
 .btn-danger,
 .select-kit .select-kit-header {
-  padding: var(--spacing-block-s) var(--spacing-inline-m);
-  // font-size: var(--font-up-1-rem);
-  // border-radius: var(--d-button-border-radius);
+  //using this hard coded value to make standalone icon-only btns perfect circles; I can't target the class no-text see below line 18
+  padding: var(--spacing-block-s) 0.665rem;
 
-  &.no-text {
-    padding-inline: 0.665rem;
+  //theres buttons with text hidden that dont have the no-text class, and my :has workaround for some reason refuses to work
+  // &.no-text,
+  // .btn-icon-text:has(.d-button-label) {
+  //   padding-inline: 0.665rem;
+  // }
+}
+
+.btn.btn-transparent.btn-icon-text {
+  background-color: transparent;
+  .d-icon {
+    color: inherit;
+  }
+  &.--active .d-icon {
+    color: var(--accent-color);
+  }
+  &:hover {
+    box-shadow: none;
   }
 }
 
@@ -34,24 +48,32 @@
   }
 }
 
+.discourse-no-touch .btn.post-action-menu__reply:hover {
+  box-shadow: none;
+}
+
+.post-info.edits .btn-flat {
+  background-color: transparent;
+  &:hover {
+    box-shadow: none;
+  }
+}
+
 .discourse-no-touch .btn-default.sidebar-new-topic-button,
 .discourse-no-touch .interface-color-selector-content,
 .btn-default,
-.select-kit .select-kit-header {
-  border: 1px solid var(--accent-color);
-  //id like to use rgba of the accent colour but how to derive that?
-  // box-shadow: 0px 0px 8px 2px oklch(from (var(--accent-color)) calc(l * 2) calc(c * 0.125) h);
-  background: var(--secondary);
-
+.btn-icon-text,
+.select-kit .select-kit-header.btn-default {
+  background: var(--primary-100);
   .d-icon {
     color: var(--accent-color);
   }
 
   &:hover {
     .discourse-no-touch & {
-      border: 1px solid transparent;
-      box-shadow: 0px 0px 8px 2px var(--button-box-shadow);
-      background: var(--secondary);
+      border-color: transparent;
+      box-shadow: 0px 0px 8px 1px var(--button-box-shadow);
+      background: var(--d-content-background);
       color: var(--accent-color);
       .d-icon {
         color: var(--accent-color);
@@ -60,26 +82,24 @@
   }
   &:focus-visible {
     .discourse-no-touch & {
-      background: var(--secondary);
+      background: var(--d-content-background);
       color: var(--accent-color);
-      box-shadow: 0px 0px 0px 2px var(--secondary),
-        0px 0px 0px 4px var(--button-box-shadow);
+      box-shadow: 0px 0px 0px 3px var(--button-box-shadow);
       .d-icon {
         color: var(--accent-color);
       }
     }
   }
-}
-//not shared with select-kit
-.btn-default {
-  &:active {
-    color: var(--secondary);
-    background: oklch(from var(--accent-color) 30% c h) !important;
+  &:active:not(:hover, :focus) {
+    color: var(--primary);
+    background: var(--tertiary-300);
+    background-image: none;
     .d-icon {
-      color: var(--secondary);
+      color: var(--tertiary-high);
     }
   }
 }
+
 .btn-primary,
 #create-topic.btn {
   background-color: var(--accent-color);
@@ -89,41 +109,50 @@
   }
   &:hover {
     .discourse-no-touch & {
-      background: radial-gradient(
-          90% 110% at 50% 50%,
-          rgba(255, 255, 255, 0.3) 0%,
-          rgba(255, 255, 255, 0) 100%
-        ),
-        var(--accent-color);
+      background: oklch(from var(--accent-color) 40% c h) !important;
       box-shadow: 0px 0px 6px 1px var(--button-box-shadow);
+      color: var(--accent-text-color);
+      .d-icon {
+        color: var(--accent-text-color);
+      }
     }
   }
   &:focus-visible {
     .discourse-no-touch & {
-      background: radial-gradient(
-          90% 110% at 50% 50%,
-          rgba(255, 255, 255, 0.3) 0%,
-          rgba(255, 255, 255, 0) 100%
-        ),
-        var(--accent-color);
-      box-shadow: 0px 0px 0px 2px var(--secondary),
-        0px 0px 0px 4px var(--button-box-shadow);
+      background: oklch(from var(--accent-color) 40% c h) !important;
+      box-shadow: 0px 0px 0px 4px var(--button-box-shadow);
+      color: var(--accent-text-color);
     }
   }
   &:active {
-    // background: radial-gradient(
-    //     65% 95% at 50% 50%,
-    //     rgba(0, 0, 0, 0.4) 0%,
-    //     rgba(0, 0, 0, 0) 100%
-    //   ),
-    //   var(--accent-color) !important;
     background: oklch(from var(--accent-color) 30% c h) !important;
   }
 }
 
 .post-controls {
-  svg.d-icon {
+  svg.d-icon:not(.d-icon-heart, .d-icon-far-heart) {
     color: inherit !important; //something we should honestly implement in core imo, when do we ever NOT want the same colour for icon and text?
+  }
+}
+
+.discourse-reactions-double-button:hover .reactions-counter {
+  color: var(--love);
+}
+
+.discourse-no-touch
+  .discourse-reactions-actions.has-reacted
+  .discourse-reactions-double-button:hover,
+.discourse-no-touch
+  .discourse-reactions-actions.has-reacted.can-toggle-reaction
+  .discourse-reactions-reaction-button:hover
+  .reaction-button,
+.discourse-no-touch
+  .discourse-reactions-actions.has-reacted:not(.can-toggle-reaction)
+  .discourse-reactions-reaction-button:hover
+  .reaction-button {
+  background: var(--love-low);
+  .d-icon-heart {
+    color: var(--love);
   }
 }
 
@@ -133,4 +162,15 @@
 .select-kit.single-select .select-kit-header:not(.btn):active {
   outline: transparent;
   border-color: var(--accent-color);
+}
+
+.chat-message-actions .btn,
+.dropdown-menu__item .btn,
+.fk-d-menu .btn {
+  background-color: var(--d-content-background);
+  &:hover {
+    background-color: var(--d-selected);
+    box-shadow: none;
+    color: var(--primary);
+  }
 }
