@@ -15,6 +15,9 @@
   &__item .btn-icon-text.btn-flat svg {
     color: var(--icon-color);
   }
+  &__item-choice.active.btn-icon-text.btn-flat {
+    background-color: var(--d-selected);
+  }
 }
 
 .user-color-palette-content .fk-d-menu__inner-content {
