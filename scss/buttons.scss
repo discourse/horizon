@@ -163,14 +163,3 @@
   outline: transparent;
   border-color: var(--accent-color);
 }
-
-.chat-message-actions .btn,
-.dropdown-menu__item .btn,
-.fk-d-menu .btn {
-  background-color: var(--d-content-background);
-  &:hover {
-    background-color: var(--d-selected);
-    box-shadow: none;
-    color: var(--primary);
-  }
-}

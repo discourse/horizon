@@ -47,3 +47,11 @@ body.has-full-page-chat {
 .chat-composer__wrapper {
   background: var(--d-content-background);
 }
+
+.chat-message-actions .more-buttons .btn-icon-text {
+  &:hover {
+    background-color: var(--d-selected);
+    box-shadow: none;
+    color: var(--primary);
+  }
+}
