@@ -15,9 +15,17 @@ body.has-full-page-chat {
   background-color: var(--background-color);
 }
 
-.chat-drawer .chat-drawer-container {
-  box-shadow: 0px 0px 0px 2px var(--d-chat-border);
-  border: none;
+.chat-drawer-container {
+  .is-expanded & {
+    box-shadow: 0px 0px 0px 2px var(--d-chat-border);
+  }
+  .chat-drawer.is-expanded & {
+    border: none;
+  }
+}
+
+.chat-drawer-outlet-container {
+  z-index: z("composer", "content") + 1;
 }
 
 .chat-drawer .channels-list-container .chat-channel-row {
