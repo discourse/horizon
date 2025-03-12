@@ -37,6 +37,15 @@ describe "Horizon theme | High level", type: :system do
     # Can see a topic in the list and navigate to it successfully
     topic_list.visit_topic(topic_1)
     expect(topic_page).to have_topic_title(topic_1.title)
+
+    # Can change site colors from the sidebar palette, which are remembered across page reloads
+    palette_menu =
+      PageObjects::Components::DMenu.new(find(".sidebar-footer-actions .user-color-palette"))
+    palette_menu.expand
+    find(".color-palette-menu__content .color-palette-menu__item[data-color='marigold']").click
+    expect(page).to have_css(".custom-color-marigold")
+    page.refresh
+    expect(page).to have_css(".custom-color-marigold")
   end
 
   it "works for anon" do

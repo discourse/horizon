@@ -1,8 +1,8 @@
 import icon from "discourse/helpers/d-icon";
 import DMenu from "float-kit/components/d-menu";
-import SitePallette from "./site-pallette";
+import SitePaletteMenuItem from "./site-palette-menu-item";
 
-const PALLETTES = [
+const PALETTES = [
   {
     label: "Marigold",
     name: "marigold",
@@ -35,21 +35,23 @@ const PALLETTES = [
   },
 ];
 
+export const DEFAULT_PALETTE_NAME = "horizon";
+
 <template>
   <DMenu
-    @identifier="user-color-pallette"
+    @identifier="user-color-palette"
     @placementStrategy="fixed"
-    class="btn-flat user-color-pallette sidebar-footer-actions-button"
+    class="btn-flat user-color-palette sidebar-footer-actions-button"
     @inline={{true}}
   >
     <:trigger>
       {{icon "paintbrush"}}
     </:trigger>
     <:content>
-      <div class="color-pallette-menu">
-        <div class="color-pallette-menu__content">
-          {{#each PALLETTES as |colorPalette|}}
-            <SitePallette @colorPalette={{colorPalette}} />
+      <div class="color-palette-menu">
+        <div class="color-palette-menu__content">
+          {{#each PALETTES as |colorPalette|}}
+            <SitePaletteMenuItem @colorPalette={{colorPalette}} />
           {{/each}}
         </div>
       </div>

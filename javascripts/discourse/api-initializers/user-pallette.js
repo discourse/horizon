@@ -1,6 +1,6 @@
 import { apiInitializer } from "discourse/lib/api";
-import CustomUserPallette from "../components/custom-user-pallette";
+import CustomUserPalette from "../components/custom-user-palette";
 
 export default apiInitializer("1.8.0", (api) => {
-  api.renderInOutlet("sidebar-footer-actions", CustomUserPallette);
+  api.renderInOutlet("sidebar-footer-actions", CustomUserPalette);
 });
