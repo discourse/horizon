@@ -44,8 +44,7 @@
   .d-header-icons
   .header-color-scheme-toggle
   .-expanded
-  > .d-icon,
-.discourse-no-touch .btn-flat:hover .d-icon {
+  > .d-icon {
   color: var(--header_primary-medium);
 }
 
@@ -79,7 +78,7 @@
 .user-menu .quick-access-panel li.do-not-disturb,
 .menu-panel .panel-body-bottom .btn,
 .menu-panel .panel-body-bottom .btn:hover {
-  background-color: var(--d-content-background);
+  // background-color: var(--d-content-background);
 }
 
 body.login-page,

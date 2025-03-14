@@ -41,6 +41,14 @@
     oklch(from var(--accent-color) calc(l * 1.6) calc(c * 0.25) h),
     oklch(from var(--accent-color) calc(l * 0.6) calc(c * 0.25) h)
   );
+  --tertiary-300: light-dark(
+    oklch(from var(--accent-color) calc(l * 1.5) calc(c * 2) h),
+    oklch(from var(--accent-color) calc(l * 0.65) calc(c * 0.65) h)
+  );
+  --tertiary-high: light-dark(
+    oklch(from var(--accent-color) calc(l * 1) c h),
+    oklch(from var(--accent-color) calc(l * 1) c h)
+  );
   --d-sidebar-highlight-hover-icon: var(--d-sidebar-link-color);
   --search-color: light-dark(
     oklch(from var(--accent-color) calc(l * 0.65) calc(c * 0.65) h),

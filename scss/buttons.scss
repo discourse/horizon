@@ -6,26 +6,6 @@
   transition: none;
 }
 
-.btn-default,
-.btn-primary,
-.btn-danger,
-.select-kit .select-kit-header {
-  padding: var(--spacing-block-s) 0.665rem;
-}
-
-.btn.btn-transparent.btn-icon-text {
-  background-color: transparent;
-  .d-icon {
-    color: inherit;
-  }
-  &.--active .d-icon {
-    color: var(--accent-color);
-  }
-  &:hover {
-    box-shadow: none;
-  }
-}
-
 .sidebar-new-topic-button__wrapper .topic-drafts-menu-trigger.btn.no-text {
   background: var(--accent-color);
   &:hover {
@@ -41,45 +21,29 @@
   }
 }
 
-.discourse-no-touch .btn.post-action-menu__reply:hover {
-  box-shadow: none;
-}
-
-.post-info.edits .btn-flat {
-  background-color: transparent;
-  &:hover {
-    box-shadow: none;
-  }
-}
-
 .discourse-no-touch .btn-default.sidebar-new-topic-button,
-.discourse-no-touch .interface-color-selector-content,
-.btn-default,
-.select-kit .select-kit-header.btn-default {
+.discourse-no-touch .btn-default,
+.discourse-no-touch .select-kit .select-kit-header.btn-default {
   background: var(--primary-100);
   .d-icon {
     color: var(--accent-color);
   }
 
   &:hover {
-    .discourse-no-touch & {
-      border-color: transparent;
-      box-shadow: 0px 0px 8px 1px var(--button-box-shadow);
-      background: var(--d-content-background);
+    border-color: transparent;
+    box-shadow: 0px 0px 8px 1px var(--button-box-shadow);
+    background: var(--d-content-background);
+    color: var(--accent-color);
+    .d-icon {
       color: var(--accent-color);
-      .d-icon {
-        color: var(--accent-color);
-      }
     }
   }
   &:focus-visible {
-    .discourse-no-touch & {
-      background: var(--d-content-background);
+    background: var(--d-content-background);
+    color: var(--accent-color);
+    box-shadow: 0px 0px 0px 3px var(--button-box-shadow);
+    .d-icon {
       color: var(--accent-color);
-      box-shadow: 0px 0px 0px 3px var(--button-box-shadow);
-      .d-icon {
-        color: var(--accent-color);
-      }
     }
   }
   &:active:not(:hover, :focus) {
@@ -118,48 +82,5 @@
   }
   &:active {
     background: oklch(from var(--accent-color) 30% c h) !important;
-  }
-}
-
-.post-controls {
-  svg.d-icon:not(.d-icon-heart, .d-icon-far-heart) {
-    color: inherit !important; //something we should honestly implement in core imo, when do we ever NOT want the same colour for icon and text?
-  }
-}
-
-.discourse-reactions-double-button:hover .reactions-counter {
-  color: var(--love);
-}
-
-.discourse-no-touch
-  .discourse-reactions-actions.has-reacted
-  .discourse-reactions-double-button:hover,
-.discourse-no-touch
-  .discourse-reactions-actions.has-reacted.can-toggle-reaction
-  .discourse-reactions-reaction-button:hover
-  .reaction-button,
-.discourse-no-touch
-  .discourse-reactions-actions.has-reacted:not(.can-toggle-reaction)
-  .discourse-reactions-reaction-button:hover
-  .reaction-button {
-  background: var(--love-low);
-  .d-icon-heart {
-    color: var(--love);
-  }
-}
-
-//undoing the outline for select-kit, since Im using a custom visual cue
-.select-kit.single-select.is-expanded .select-kit-header:not(.btn),
-.select-kit.single-select .select-kit-header:not(.btn):focus,
-.select-kit.single-select .select-kit-header:not(.btn):active {
-  outline: transparent;
-  border-color: var(--accent-color);
-}
-
-.fk-d-menu__inner-content {
-  .btn-icon-text.btn-flat:hover {
-    background-color: var(--d-selected);
-    box-shadow: none;
-    color: var(--primary);
   }
 }
