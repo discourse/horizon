@@ -9,12 +9,12 @@ html:not(:has(.has-full-page-chat)) {
 body {
   -webkit-font-smoothing: antialiased;
 }
-z #main-outlet-wrapper {
+#main-outlet-wrapper {
   gap: var(--main-grid-gap);
 }
 
 body.has-sidebar-page.has-full-page-chat #main-outlet-wrapper {
-  grid-column-gap: var(--main-grid-gap);
+  gap: var(--main-grid-gap);
 }
 
 body.has-full-page-chat:not(.has-sidebar-page) {
@@ -38,7 +38,7 @@ body.has-sidebar-page #main-outlet-wrapper {
 
 body:not(.has-sidebar-page) #main-outlet-wrapper {
   @include breakpoint(medium, $rule: min-width) {
-    grid-template-columns: 0px 1fr 0px;
+    grid-template-columns: 0px minmax(0, 1fr) 0px;
   }
 }
 
