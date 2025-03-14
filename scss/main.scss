@@ -14,7 +14,7 @@ body {
 }
 
 body.has-sidebar-page.has-full-page-chat #main-outlet-wrapper {
-  gap: var(--main-grid-gap);
+  grid-column-gap: var(--main-grid-gap);
 }
 
 body.has-full-page-chat:not(.has-sidebar-page) {
