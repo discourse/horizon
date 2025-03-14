@@ -1,3 +1,7 @@
+:root {
+  --main-grid-gap: 2em;
+}
+
 html:not(:has(.has-full-page-chat)) {
   background-color: var(--background-color);
 }
@@ -5,12 +9,7 @@ html:not(:has(.has-full-page-chat)) {
 body {
   -webkit-font-smoothing: antialiased;
 }
-
-:root {
-  --main-grid-gap: 2em;
-}
-
-#main-outlet-wrapper {
+z #main-outlet-wrapper {
   gap: var(--main-grid-gap);
 }
 
@@ -24,26 +23,21 @@ body.has-full-page-chat:not(.has-sidebar-page) {
   }
   #main-outlet-wrapper {
     gap: var(--main-grid-gap);
-    @include breakpoint("medium") {
+    @include breakpoint(medium) {
       gap: 0;
-    }
-    .full-page-chat.full-page-chat-sidebar-enabled,
-    .c-navbar-container {
-      border-top-right-radius: 0;
-      border-top-left-radius: 0;
     }
   }
 }
 
 body.has-sidebar-page #main-outlet-wrapper {
-  grid-template-columns: var(--d-sidebar-width) 1fr 0px;
+  grid-template-columns: var(--d-sidebar-width) minmax(0, 1fr) 0px;
   #main-outlet {
     max-width: unset;
   }
 }
 
 body:not(.has-sidebar-page) #main-outlet-wrapper {
-  @include breakpoint("medium", $rule: min-width) {
+  @include breakpoint(medium, $rule: min-width) {
     grid-template-columns: 0px 1fr 0px;
   }
 }
@@ -59,12 +53,6 @@ body:not(.has-full-page-chat) {
     @include breakpoint(tablet, $rule: min-width) {
       gap: var(--main-grid-gap);
     }
-    // height: calc(100vh - var(--header-offset) - 4rem);
-    // box-sizing: border-box;
-    // > * {
-    // height: inherit;
-    // box-sizing: border-box;
-    // }
     #main-outlet {
       width: 100%;
       padding-bottom: var(--spacing-block-l);
@@ -96,14 +84,9 @@ body:not(.has-full-page-chat) {
       @include breakpoint(medium) {
         border-radius: 0px;
       }
-      // box-shadow: 0px 0px 1px 2px #e2e8f8, 0px 0px 24px 4px #e2e8f8;
       background-color: var(--d-content-background);
     }
   }
-
-  // .global-notice {
-  //   margin-top: var(--spacing-block-m);
-  // }
 }
 
 .list-container {
@@ -117,7 +100,6 @@ aside.onebox {
 }
 
 .d-editor-preview-wrapper {
-  // box-shadow: 0px 0px 0px 2px var(--accent-color);
   border-radius: var(--d-border-radius);
   padding: 1em;
   background-color: var(--d-content-background);
