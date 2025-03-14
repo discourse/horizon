@@ -10,14 +10,7 @@
 .btn-primary,
 .btn-danger,
 .select-kit .select-kit-header {
-  //using this hard coded value to make standalone icon-only btns perfect circles; I can't target the class no-text see below line 18
   padding: var(--spacing-block-s) 0.665rem;
-
-  //theres buttons with text hidden that dont have the no-text class, and my :has workaround for some reason refuses to work
-  // &.no-text,
-  // .btn-icon-text:has(.d-button-label) {
-  //   padding-inline: 0.665rem;
-  // }
 }
 
 .btn.btn-transparent.btn-icon-text {
@@ -62,7 +55,6 @@
 .discourse-no-touch .btn-default.sidebar-new-topic-button,
 .discourse-no-touch .interface-color-selector-content,
 .btn-default,
-.btn-icon-text,
 .select-kit .select-kit-header.btn-default {
   background: var(--primary-100);
   .d-icon {
