@@ -1,17 +1,3 @@
-.floating-search-input-wrapper {
-  grid-area: extra-info;
-}
-
-.header-search--enabled .floating-search-input-wrapper,
-.search-header--visible .floating-search-input-wrapper {
-  justify-content: end;
-}
-
-.header-search--enabled .floating-search-input,
-.search-header--visible .floating-search-input {
-  width: 70%;
-}
-
 .custom-search-banner-wrap {
   display: grid;
   grid-template-rows: 0.33fr 0.33fr 0.33fr;
