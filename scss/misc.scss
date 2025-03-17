@@ -83,3 +83,10 @@ input[type="color"]:focus,
 .search-container .search-filters .search-advanced-filters {
   background-color: var(--d-content-background);
 }
+
+.user-main .about .details {
+  padding: 1em 1em 0;
+  border-bottom: 0px;
+  border-radius: var(--d-border-radius);
+  background-color: var(--primary-50);
+}
