@@ -13,7 +13,6 @@
   },
   "components": [
     "https://github.com/discourse/discourse-sidebar-new-topic-button.git",
-    "https://github.com/discourse/discourse-search-banner.git",
     "https://github.com/discourse/discourse-full-width-component.git"
   ],
   "color_schemes": {
