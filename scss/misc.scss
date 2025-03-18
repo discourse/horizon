@@ -90,3 +90,7 @@ input[type="color"]:focus,
   border-radius: var(--d-border-radius);
   background-color: var(--primary-50);
 }
+
+.discourse-reactions-list .reactions {
+  gap: 0.15em;
+}
