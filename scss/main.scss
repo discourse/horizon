@@ -90,6 +90,16 @@ body:not(.has-full-page-chat) {
 }
 
 .list-container {
+  .show-more.has-topics {
+    right: 50%;
+    transform: translateX(50%);
+
+    .alert {
+      padding: var(--spacing-block-sm) var(--spacing-inline-m);
+      border-radius: var(--d-border-radius-large);
+      font-size: var(--font-down-1-rem);
+    }
+  }
   .topic-list-body {
     padding-top: var(--spacing-block-m);
   }
