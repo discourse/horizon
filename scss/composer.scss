@@ -1,10 +1,40 @@
-.d-editor-button-bar .btn:hover {
-  .discourse-no-touch & {
-    background: var(--tertiary-very-low);
-    color: var(--accent-color);
-
+#reply-control
+  .select-kit.dropdown-select-box.composer-actions
+  .select-kit-header {
+  border: 1px solid var(--tertiary-700);
+  background: var(--secondary);
+  &:hover {
     .d-icon {
-      color: inherit;
+      color: var(--accent-color);
     }
+  }
+}
+.d-editor-button-bar {
+  .btn:hover,
+  .toolbar-popup-menu-options.is-expanded {
+    .discourse-no-touch & {
+      background: var(--tertiary-very-low);
+      color: var(--accent-color);
+
+      .d-icon {
+        color: inherit;
+      }
+
+      //to have parity with regular select-kit styling used elsewhere
+      .select-kit-row {
+        .d-icon {
+          color: var(--primary-high);
+        }
+        &:hover {
+          .d-icon {
+            color: var(--primary);
+          }
+        }
+      }
+    }
+  }
+
+  .toolbar-popup-menu-options.is-expanded {
+    border-radius: var(--d-border-radius);
   }
 }
