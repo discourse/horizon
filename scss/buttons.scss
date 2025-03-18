@@ -8,15 +8,12 @@
 
 .sidebar-new-topic-button__wrapper .topic-drafts-menu-trigger.btn.no-text {
   background: var(--accent-color);
-  &:hover {
-    background: radial-gradient(
-        90% 110% at 50% 50%,
-        rgba(255, 255, 255, 0.3) 0%,
-        rgba(255, 255, 255, 0) 100%
-      ),
-      var(--accent-color);
+  &:hover,
+  &:focus-visible {
+    background: oklch(from var(--accent-color) 40% c h) !important;
+    box-shadow: none;
   }
-  svg {
+  .d-icon {
     color: var(--accent-text-color);
   }
 }
