@@ -91,6 +91,11 @@ input[type="color"]:focus,
   background-color: var(--primary-50);
 }
 
+
 .alert.alert-info {
   background: var(--tertiary-very-low);
+}
+
+.discourse-reactions-list .reactions {
+  gap: 0.15em;
 }
