@@ -1,0 +1,10 @@
+.d-editor-button-bar .btn:hover {
+  .discourse-no-touch & {
+    background: var(--tertiary-very-low);
+    color: var(--accent-color);
+
+    .d-icon {
+      color: inherit;
+    }
+  }
+}
