@@ -28,7 +28,6 @@
     border-radius: 0px;
   }
 }
-
 .sidebar-section-wrapper {
   @include breakpoint(extra-large, $rule: min-width) {
     padding-block: 0.45em;
@@ -39,7 +38,7 @@
     }
   }
   .sidebar-section-header {
-    font-size: var(--font-down-1);
+    font-size: var(--font-down-2);
   }
   .sidebar-section-content {
     margin: 0;
@@ -63,11 +62,9 @@
 }
 
 .sidebar-new-topic-button__wrapper {
-  margin-bottom: 1.5rem;
-  @media screen and (max-width: 1000px) {
-    .sidebar-new-topic-button .d-icon {
-      display: none;
-    }
+  margin: 0 var(--spacing-inline-m) var(--spacing-block-l);
+  .sidebar-new-topic-button .d-icon {
+    display: none;
   }
 }
 
