@@ -34,7 +34,7 @@ $extra-large: 1280px;
 
 .bulk-select-enabled .topic-list-item {
   grid-template-areas:
-    "bulk-select avatar author status status . activity"
+    "avatar author status status . activity"
     ". topic-title topic-title topic-title likes-replies likes-replies category";
   .bulk-select {
     grid-area: bulk-select;
@@ -353,10 +353,6 @@ body.user-messages-page .topic-list-item {
       color: var(--primary-600);
     }
   }
-}
-
-.topic-list-header {
-  display: none;
 }
 
 .topic-list-item {
