@@ -91,14 +91,16 @@ body:not(.has-full-page-chat) {
 
 #list-area {
   .show-more.has-topics {
-    width: auto;
-    right: 50%;
-    transform: translateX(50%);
+    @include breakpoint(medium, $rule: min-width) {
+      width: auto;
+      right: 50%;
+      transform: translateX(50%);
 
-    .alert {
-      padding: var(--spacing-block-sm) var(--spacing-inline-m);
-      border-radius: var(--d-border-radius-large);
-      font-size: var(--font-down-1-rem);
+      .alert {
+        padding: var(--spacing-block-sm) var(--spacing-inline-m);
+        border-radius: var(--d-border-radius-large);
+        font-size: var(--font-down-1-rem);
+      }
     }
   }
   .topic-list-body {
