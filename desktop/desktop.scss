@@ -9,9 +9,16 @@
 
   .bulk-select.topic-list-data {
     grid-area: avatar;
-    margin-top: 2.5em;
     margin-left: -0.5em;
     padding: 0;
+    margin-top: 2.5em;
+
+    @media screen and (max-width: 576px) {
+      margin-top: 0;
+      label {
+        padding-block: 0.345em;
+      }
+    }
 
     input {
       transform: scale(1.5);
@@ -44,6 +51,10 @@
   .bulk-select-topics {
     position: absolute;
     right: -1em;
+    @media screen and (max-width: 1048px) {
+      right: 0;
+    }
+
     background: var(--secondary);
     border-radius: 0 0 0 var(--d-border-radius);
     padding: 1em;

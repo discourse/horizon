@@ -50,7 +50,7 @@ $extra-large: 1280px;
     grid-template-columns: 44px min-content min-content auto min-content min-content min-content;
     grid-template-rows: 22px minmax(22px, auto);
     grid-template-areas:
-      "bulk-select avatar author status status  . activity"
+      "avatar author status status  . activity"
       ". topic-title topic-title topic-title . . likes-replies"
       ". topic-title topic-title topic-title . . category";
   }
@@ -58,7 +58,7 @@ $extra-large: 1280px;
     grid-template-columns: 25px auto repeat(6, 1fr);
     grid-template-rows: auto auto auto;
     grid-template-areas:
-      "bulk-select category-status category-status . . . . activity"
+      "avatar category-status category-status . . . . activity"
       "topic-title topic-title topic-title topic-title topic-title topic-title topic-title topic-title"
       "avatar author . . . . . likes-replies";
   }
