@@ -2,7 +2,6 @@ import Component from "@glimmer/component";
 import didInsert from "@ember/render-modifiers/modifiers/did-insert";
 import { service } from "@ember/service";
 import { TrackedArray } from "@ember-compat/tracked-built-ins";
-import ConditionalLoadingSection from "discourse/components/conditional-loading-section";
 import icon from "discourse/helpers/d-icon";
 import { listColorSchemes } from "discourse/lib/color-scheme-picker";
 import ColorScheme from "admin/models/color-scheme";
