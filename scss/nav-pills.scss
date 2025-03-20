@@ -1,3 +1,7 @@
+.welcome-banner {
+  z-index: 101; //one higher than sticky list-controls
+}
+
 .list-controls {
   position: sticky;
   top: var(--header-offset);
