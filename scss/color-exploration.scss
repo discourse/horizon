@@ -1,33 +1,38 @@
 :root {
+  --accent-base-color: #{$tertiary};
+
   // Accent Colors
-  // --accent-color: light-dark(
-  //   var(--accent-base-color),
-  //   oklch(from var(--accent-base-color) calc(l * 0.95) c h)
-  // );
+  --accent-color: light-dark(
+    var(--accent-base-color),
+    oklch(from var(--accent-base-color) calc(l * 0.95) c h)
+  );
+  --accent-text-color: light-dark(#ffffff, #212121);
 
   // Background Colors
-  // --background-color: light-dark(
-  //   oklch(from var(--accent-color) 98% calc(c * 0.25) h),
-  //   oklch(from var(--accent-color) 10% 0.025 h)
-  // );
+  --background-color: light-dark(
+    oklch(from var(--accent-color) 98% calc(c * 0.25) h),
+    oklch(from var(--accent-color) 10% 0.025 h)
+  );
+  --d-content-background: light-dark(
+    oklch(from var(--secondary) calc(2 * l) c h),
+    oklch(from var(--secondary) l c h)
+  );
 
-  --d-content-background: var(--content-background);
-
-  // Header Colors
-  // --header_primary-low-mid: light-dark(
-  //   oklch(from var(--accent-color) 73.5% calc(c * 0.5) h),
-  //   oklch(from var(--accent-color) l calc(c * 0.25) h)
-  // );
-  // --header_primary-medium: light-dark(
-  //   oklch(from var(--accent-color) 54% calc(c * 0.5) h),
-  //   oklch(from var(--accent-color) calc(l * 1.35) calc(c * 0.25) h)
-  // );
+  // HeaderColors
+  --header_primary-low-mid: light-dark(
+    oklch(from var(--accent-color) 73.5% calc(c * 0.5) h),
+    oklch(from var(--accent-color) l calc(c * 0.25) h)
+  );
+  --header_primary-medium: light-dark(
+    oklch(from var(--accent-color) 54% calc(c * 0.5) h),
+    oklch(from var(--accent-color) calc(l * 1.35) calc(c * 0.25) h)
+  );
 
   // Sidebar Colors
   --d-sidebar-highlight-hover-icon: var(--d-sidebar-link-color);
   --d-sidebar-highlight-hover-background: var(--d-selected);
   --d-sidebar-border-color: light-dark(
-    oklch(from var(--background-color) calc(l * 0.9) calc(c * 1) h),
+    oklch(from var(--accent-color) 90% c h),
     oklch(from var(--accent-color) calc(l * 0.7) calc(c * 0.25) h)
   );
   --d-sidebar-link-color: light-dark(
@@ -38,8 +43,8 @@
   --d-sidebar-header-color: var(--d-sidebar-link-color);
   --d-sidebar-header-icon-color: var(--d-sidebar-link-color);
   --d-sidebar-suffix-color: light-dark(
-    oklch(from var(--accent-base-color) l calc(c * 0.9) h),
-    oklch(from var(--accent-base-color) l calc(c * 0.9) h)
+    oklch(from var(--accent-color) l calc(c * 0.9) h),
+    oklch(from var(--accent-color) l calc(c * 0.9) h)
   );
   --d-sidebar-active-suffix-color: var(--d-sidebar-suffix-color);
   --d-sidebar-background: var(--background-color);
@@ -59,16 +64,19 @@
   --d-sidebar-section-link-icon-size: 1em;
 
   // Other Colors
+  --d-selected: light-dark(
+    oklch(from var(--accent-color) 92% calc(c * 0.5) h),
+    oklch(from var(--accent-color) calc(l * 0.7) calc(c * 0.25) h)
+  );
   --d-hover: oklch(from var(--d-selected) l c h / 0.75);
-  --accent-text-color: light-dark(#ffffff, #212121);
   --d-nav-color--active: var(--accent-color);
   --link-color: light-dark(
-    var(--accent-base-color),
-    oklch(from var(--accent-base-color) calc(l * 0.95) c h)
+    var(--accent-color),
+    oklch(from var(--accent-color) calc(l * 0.95) c h)
   );
   --link-color-hover: light-dark(
-    var(--accent-base-color),
-    oklch(from var(--accent-base-color) calc(l * 1.5) calc(c * 2.25) h)
+    var(--accent-color),
+    oklch(from var(--accent-color) calc(l * 1.5) calc(c * 2.25) h)
   );
   --d-input-bg-color: var(--d-content-background);
   --tertiary-hover: var(--accent-color);
@@ -94,62 +102,4 @@
     oklch(from var(--accent-color) calc(l * 1.5) calc(c * 0.35) h),
     oklch(from var(--accent-color) calc(l * 0.75) calc(c * 0.5) h)
   );
-
-  // Selected Colors
-  --d-selected: light-dark(
-    oklch(from var(--background-color) calc(l * 0.9375) calc(c * 2) h),
-    oklch(from var(--accent-color) calc(l * 0.7) calc(c * 0.25) h)
-  );
 }
-
-// Horizon Light
-// :root {
-//   --accent-color: #595bca;
-//   --accent-text-color: #ffffff;
-//   --background-color: #f1f6ff;
-//   --d-content-background: #ffffff;
-//   --link-color: #595bca;
-//   --link-color-hover: #595bca;
-//   --link-color: #595bca;
-//   --link-color-hover: #595bca;
-//   --d-sidebar-link-color: #494c65;
-//   --d-sidebar-suffix-color: #5a5ec1;
-//   --d-sidebar-active-prefix-background: #abb3ee;
-//   --d-sidebar-highlight-prefix-background: #abb3ee;
-//   --tertiary-medium: #8c91ad;
-//   --tertiary-very-low: #e0e5ff;
-//   --tertiary-low: #c6cbe9;
-//   --tertiary-300: #9a8aff;
-//   --tertiary-high: #595bca;
-//   --search-color: #2e2f70;
-//   --search-banner-text-color: #2e2f70;
-//   --topic-card-shadow: #ebf4ff;
-//   --button-box-shadow: #ebf4ff;
-//   --d-selected: #d7dfff;
-//   --d-sidebar-border-color: #d1d6f4;
-//   --d-chat-border: #8c91ad;
-//   --primary-100: #f2f2f2;
-//   --primary-300: #d1d1d1;
-//   --primary-low: #e9e9e9;
-//   --primary-high: #646464;
-//   --primary-very-high: #434343;
-//   --header_primary-low-mid: #9da4de;
-//   --header_primary-medium: #63699f;
-//   --d-hover: #d7dfffbf;
-//   --tertiary: #595bca;
-//   --tertiary-med-or-tertiary: #595bca;
-//   --d-sidebar-highlight-hover-icon: #494c65;
-//   --d-sidebar-highlight-hover-background: #d7dfff;
-//   --d-nav-color--active: #595bca;
-//   --d-sidebar-background: #f1f6ff;
-//   --d-sidebar-link-icon-color: #494c65;
-//   --d-sidebar-header-color: #494c65;
-//   --d-sidebar-header-icon-color: #494c65;
-//   --d-sidebar-active-suffix-color: #5a5ec1;
-//   --d-sidebar-prefix-background: #d7dfff;
-//   --d-sidebar-highlight-suffix-color: #5a5ec1;
-//   --d-sidebar-highlight-background: #d7dfff;
-//   --d-input-bg-color: #fff;
-//   --tertiary-hover: #595bca;
-//   --d-sidebar-footer-fade: #f1f6ff;
-// }
