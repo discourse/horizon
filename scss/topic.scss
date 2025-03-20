@@ -48,18 +48,6 @@
   }
 }
 
-#topic-title {
-  @include breakpoint(medium, $rule: min-width) {
-    z-index: 299;
-    padding: var(--spacing-block-m) var(--spacing-inline-xl);
-    margin-bottom: 0;
-    position: sticky;
-    top: var(--header-offset);
-    background: var(--d-content-background);
-    border-top-right-radius: var(--d-border-radius-large);
-    border-top-left-radius: var(--d-border-radius-large);
-  }
-}
 .container.posts,
 #topic-footer-buttons {
   padding: 0 24px;

@@ -34,7 +34,7 @@ $extra-large: 1280px;
 
 .bulk-select-enabled .topic-list-item {
   grid-template-areas:
-    "bulk-select avatar author status status . activity"
+    "avatar author status status . activity"
     ". topic-title topic-title topic-title likes-replies likes-replies category";
   .bulk-select {
     grid-area: bulk-select;
@@ -50,7 +50,7 @@ $extra-large: 1280px;
     grid-template-columns: 44px min-content min-content auto min-content min-content min-content;
     grid-template-rows: 22px minmax(22px, auto);
     grid-template-areas:
-      "bulk-select avatar author status status  . activity"
+      "avatar author status status  . activity"
       ". topic-title topic-title topic-title . . likes-replies"
       ". topic-title topic-title topic-title . . category";
   }
@@ -58,7 +58,7 @@ $extra-large: 1280px;
     grid-template-columns: 25px auto repeat(6, 1fr);
     grid-template-rows: auto auto auto;
     grid-template-areas:
-      "bulk-select category-status category-status . . . . activity"
+      "avatar category-status category-status . . . . activity"
       "topic-title topic-title topic-title topic-title topic-title topic-title topic-title topic-title"
       "avatar author . . . . . likes-replies";
   }
@@ -113,7 +113,7 @@ body.user-messages-page .topic-list-item {
   grid-row-gap: 8px;
   border-radius: var(--d-border-radius);
   &.excerpt-expanded {
-    grid-template-columns: 44px repeat(6, 1fr) auto;
+    grid-template-columns: 44px auto repeat(5, 1fr) auto;
     grid-template-rows: 22px auto auto 30px;
     grid-template-areas:
       "avatar author status status . . . activity"
@@ -209,7 +209,6 @@ body.user-messages-page .topic-list-item {
     border-radius: var(--d-border-radius);
     border: 1px solid var(--status-color);
     color: var(--status-color);
-    height: min-content;
     grid-area: status;
     width: min-content;
     @media screen and (max-width: $small) {
@@ -221,13 +220,8 @@ body.user-messages-page .topic-list-item {
     }
   }
 
-  .topic-status-card.--bookmark {
-    display: none;
-  }
-  .topic-status-card.--pinned,
-  .topic-status-card.--unpinned {
+  .topic-status-card.--pinned {
     --status-color: var(--primary-500);
-    cursor: pointer;
     background-color: transparent;
     line-height: unset;
   }
@@ -353,10 +347,6 @@ body.user-messages-page .topic-list-item {
       color: var(--primary-600);
     }
   }
-}
-
-.topic-list-header {
-  display: none;
 }
 
 .topic-list-item {
