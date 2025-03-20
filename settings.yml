@@ -8,4 +8,4 @@ search_experience:
   choices:
     - search_field
     - search_icon
-  description: "Overrides the core `search field` site setting"
+  description: "Overrides the core `search experience` site setting"
