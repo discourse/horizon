@@ -1,0 +1,77 @@
+$d-content-background: light-dark(
+  oklch(from #{$secondary} calc(2 * l) c h),
+  oklch(from #{$secondary} l c h)
+);
+
+:root {
+  --accent-color: #{$tertiary};
+  --accent-text-color: light-dark(#ffffff, #212121);
+  // Background Colors
+  --background-color: light-dark(
+    oklch(from #{$tertiary} 98% calc(c * 0.25) h),
+    oklch(from #{$tertiary} 10% 0.025 h)
+  );
+  --d-content-background: #{$d-content-background};
+  // HeaderColors
+  --header_primary-low-mid: light-dark(
+    oklch(from #{$tertiary} 73.5% calc(c * 0.5) h),
+    oklch(from #{$tertiary} l calc(c * 0.25) h)
+  );
+  --header_primary-medium: light-dark(
+    oklch(from #{$tertiary} 54% calc(c * 0.5) h),
+    oklch(from #{$tertiary} calc(l * 1.35) calc(c * 0.25) h)
+  );
+
+  // Sidebar Colors
+  --d-sidebar-border-color: light-dark(
+    oklch(from #{$tertiary} 90% c h),
+    oklch(from #{$tertiary} calc(l * 0.7) calc(c * 0.25) h)
+  );
+  --d-sidebar-link-color: light-dark(
+    oklch(from #{$tertiary} calc(l * 0.8) calc(c * 0.25) h),
+    oklch(from #{$tertiary} calc(l * 1.5) calc(c * 0.25) h)
+  );
+  --d-sidebar-suffix-color: light-dark(
+    oklch(from #{$tertiary} l calc(c * 0.9) h),
+    oklch(from #{$tertiary} l calc(c * 0.9) h)
+  );
+
+  // Other Colors
+  --d-selected: light-dark(
+    oklch(from #{$tertiary} 92% calc(c * 0.5) h),
+    oklch(from #{$tertiary} calc(l * 0.7) calc(c * 0.25) h)
+  );
+
+  --d-nav-color--active: #{$tertiary};
+  --link-color: light-dark(
+    #{$tertiary},
+    oklch(from #{$tertiary} calc(l * 0.95) c h)
+  );
+  --link-color-hover: light-dark(
+    #{$tertiary},
+    oklch(from #{$tertiary} calc(l * 1.5) calc(c * 2.25) h)
+  );
+  --tertiary-hover: #{$tertiary};
+
+  // Search Colors
+  --search-color: light-dark(
+    oklch(from #{$tertiary} calc(l * 0.65) calc(c * 0.65) h),
+    oklch(from #{$tertiary} calc(l * 1.5) calc(c * 2) h)
+  );
+  --search-banner-text-color: light-dark(
+    oklch(from #{$tertiary} calc(l * 0.65) calc(c * 0.65) h),
+    oklch(from #{$tertiary} calc(l * 1.85) calc(c * 2) h)
+  );
+
+  // Topic Card Colors
+  --topic-card-shadow: light-dark(
+    oklch(from #{$tertiary} calc(l * 1.85) calc(c * 0.5) h),
+    oklch(from #{$tertiary} calc(l * 0.2) calc(c * 0.01) h / 0.25)
+  );
+
+  // Button Colors
+  --button-box-shadow: light-dark(
+    oklch(from #{$tertiary} calc(l * 1.5) calc(c * 0.35) h),
+    oklch(from #{$tertiary} calc(l * 0.75) calc(c * 0.5) h)
+  );
+}
