@@ -19,22 +19,62 @@
     "Horizon": {
       "primary": "1A1A1A",
       "secondary": "ffffff",
-      "header_background": "f5f8ff",
-      "tertiary": "595bca",
-      "tertiary-low": "d8d9f3",
-      "tertiary-50": "f5f8ff",
-      "selected": "d8d9f3",
-      "hover": "ebebf9"
+      "tertiary": "595bca"
     },
     "Horizon Dark": {
-      "primary": "F1EFF9",
-      "secondary": "1e1a36",
-      "header_background": "00091d",
-      "header_primary": "F5F8FF",
-      "tertiary": "6465ab",
-      "tertiary-50": "131124",
-      "selected": "1e1a36",
-      "hover": "131124"
+      "primary": "ffffff",
+      "secondary": "1A1A1A",
+      "tertiary": "595bca"
+    },
+    "Royal": {
+      "primary": "1A1A1A",
+      "secondary": "ffffff",
+      "tertiary": "4169e1"
+    },
+    "Royal Dark": {
+      "primary": "ffffff",
+      "secondary": "1A1A1A",
+      "tertiary": "4169e1"
+    },
+    "Clover": {
+      "primary": "1A1A1A",
+      "secondary": "ffffff",
+      "tertiary": "45a06e"
+    },
+    "Clover Dark": {
+      "primary": "ffffff",
+      "secondary": "1A1A1A",
+      "tertiary": "45a06e"
+    },
+    "Lily": {
+      "primary": "1A1A1A",
+      "secondary": "ffffff",
+      "tertiary": "cc338c"
+    },
+    "Lily Dark": {
+      "primary": "ffffff",
+      "secondary": "1A1A1A",
+      "tertiary": "cc338c"
+    },
+    "Violet": {
+      "primary": "1A1A1A",
+      "secondary": "ffffff",
+      "tertiary": "9b15de"
+    },
+    "Violet Dark": {
+      "primary": "ffffff",
+      "secondary": "1A1A1A",
+      "tertiary": "9b15de"
+    },
+    "Marigold": {
+      "primary": "1A1A1A",
+      "secondary": "ffffff",
+      "tertiary": "d3881f"
+    },
+    "Marigold Dark": {
+      "primary": "ffffff",
+      "secondary": "1A1A1A",
+      "tertiary": "d3881f"
     }
   }
 }
