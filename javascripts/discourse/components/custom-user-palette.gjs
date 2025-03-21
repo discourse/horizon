@@ -39,13 +39,16 @@ export default class CustomUserPalette extends Component {
   @action
   async buildColorPaletteObject() {
     const userColorSchemes = this.site.user_color_schemes;
+    // Once ColorScheme model is available, we can use this code
+    //
     // const loadedColorSchemes = await ColorScheme.findAll();
 
     // match the user color schemes with the extra information loaded from the server
     const availablePalettes = userColorSchemes
       .map((usc) => {
+        // Once ColorScheme model is available, we can use this code
+        //
         // const scheme = loadedColorSchemes.find((item) => item.id === usc.id);
-
         // return scheme
         //   ? {
         //       ...usc,
@@ -78,7 +81,6 @@ export default class CustomUserPalette extends Component {
           }
 
           const normalizedLightName = palette.name.toLowerCase();
-          // .replace(/\s+light$/, "");
 
           const correspondingDarkModeId = availablePalettes.find(
             (item) =>
