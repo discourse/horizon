@@ -14,7 +14,7 @@ html {
   --header_primary-low-mid: light-dark(
     oklch(from #{$tertiary} 73.5% calc(c * 0.5) h),
     oklch(from #{$tertiary} l calc(c * 0.25) h)
-  );
+  ) !important;
   --header_primary-medium: light-dark(
     oklch(from #{$tertiary} 54% calc(c * 0.5) h),
     oklch(from #{$tertiary} calc(l * 1.35) calc(c * 0.25) h)
