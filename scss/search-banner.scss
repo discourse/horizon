@@ -1,3 +1,7 @@
+.welcome-banner {
+  z-index: calc(z("base") + 1);
+}
+
 .custom-search-banner-wrap {
   display: grid;
   grid-template-rows: 0.33fr 0.33fr 0.33fr;
