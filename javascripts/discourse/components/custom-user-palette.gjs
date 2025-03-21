@@ -1,16 +1,15 @@
 import Component from "@glimmer/component";
-import didInsert from "@ember/render-modifiers/modifiers/did-insert";
+import { action } from "@ember/object";
 import { service } from "@ember/service";
-import { TrackedArray } from "@ember-compat/tracked-built-ins";
+import AsyncContent from "discourse/components/async-content";
 import icon from "discourse/helpers/d-icon";
-import { listColorSchemes } from "discourse/lib/color-scheme-picker";
+import { i18n } from "discourse-i18n";
 import ColorScheme from "admin/models/color-scheme";
 import DMenu from "float-kit/components/d-menu";
 import SitePaletteMenuItem from "./site-palette-menu-item";
 
 export default class CustomUserPalette extends Component {
   @service site;
-  colorPalettes = new TrackedArray([]);
 
   // this function is to build a color pallet object in order to
   // add it to the colorPalettes array
@@ -28,23 +27,50 @@ export default class CustomUserPalette extends Component {
   //   ...more
   // ]
 
-  buildColorPaletteObject = async () => {
-    const colorSchemes = listColorSchemes(this.site);
-    let colors = [];
+  @action
+  async buildColorPaletteObject() {
+    const userColorSchemes = this.site.user_color_schemes;
+    const loadedColorSchemes = await ColorScheme.findAll();
 
-    for (let colorScheme of colorSchemes) {
-      let color = await ColorScheme.find(colorScheme.id);
-      let accent = `#${color.colors[2].originals.hex}`;
+    // match the user color schemes with the extra information loaded from the server
+    const availablePalettes = userColorSchemes
+      .map((usc) => {
+        const scheme = loadedColorSchemes.find((item) => item.id === usc.id);
 
-      colors.push({
-        id: colorScheme.id,
-        name: colorScheme.name,
-        accent,
-      });
-    }
+        return scheme
+          ? {
+              ...usc,
+              theme_id: scheme.theme_id,
+              accent: `#${scheme.colors[2].originals.hex}`,
+            }
+          : null;
+      })
+      .filter(Boolean)
+      .sort();
 
-    this.colorPalettes.push(...colors);
-  };
+    // match the light scheme with the corresponding dark id based in the name
+    return availablePalettes.map((palette) => {
+      if (palette.is_dark) {
+        return palette;
+      }
+
+      const normalizedLightName = palette.name
+        .toLowerCase()
+        .replace(/\s+light$/, "");
+
+      const correspondingDarkModeId = availablePalettes.find(
+        (item) =>
+          item.is_dark &&
+          normalizedLightName ===
+            item.name.toLowerCase().replace(/\s+dark$/, "")
+      )?.id;
+
+      return {
+        ...palette,
+        correspondingDarkModeId,
+      };
+    });
+  }
 
   <template>
     <DMenu
@@ -57,16 +83,20 @@ export default class CustomUserPalette extends Component {
         {{icon "paintbrush"}}
       </:trigger>
       <:content>
-        <div
-          class="color-palette-menu"
-          {{didInsert this.buildColorPaletteObject}}
-        >
-          <div class="color-palette-menu__content">
-            {{#each this.colorPalettes as |colorPalette|}}
-              <SitePaletteMenuItem @colorPalette={{colorPalette}} />
-            {{/each}}
-          </div>
-        </div>
+        <AsyncContent @asyncData={{this.buildColorPaletteObject}}>
+          <:loading>
+            {{i18n "loading"}}
+          </:loading>
+          <:content as |colorPalettes|>
+            <div class="color-palette-menu">
+              <div class="color-palette-menu__content">
+                {{#each colorPalettes as |colorPalette|}}
+                  <SitePaletteMenuItem @colorPalette={{colorPalette}} />
+                {{/each}}
+              </div>
+            </div>
+          </:content>
+        </AsyncContent>
       </:content>
     </DMenu>
   </template>
