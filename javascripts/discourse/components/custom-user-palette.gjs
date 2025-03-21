@@ -4,7 +4,7 @@ import { service } from "@ember/service";
 import AsyncContent from "discourse/components/async-content";
 import icon from "discourse/helpers/d-icon";
 import { i18n } from "discourse-i18n";
-import ColorScheme from "admin/models/color-scheme";
+// import ColorScheme from "admin/models/color-scheme";
 import DMenu from "float-kit/components/d-menu";
 import SitePaletteMenuItem from "./site-palette-menu-item";
 
