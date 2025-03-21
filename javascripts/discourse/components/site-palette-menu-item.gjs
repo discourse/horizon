@@ -1,5 +1,4 @@
 import Component from "@glimmer/component";
-import { inject as controller } from "@ember/controller";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
@@ -10,14 +9,11 @@ import {
   loadColorSchemeStylesheet,
   updateColorSchemeCookie,
 } from "discourse/lib/color-scheme-picker";
-import { currentThemeId } from "discourse/lib/theme-selector";
 
 export default class SitePaletteMenuItem extends Component {
   @service site;
   @service session;
   @service interfaceColor;
-  @controller("preferences") preferencesController;
-  themeId = currentThemeId();
 
   get siteStyle() {
     return `--icon-color: ${this.args.colorPalette.accent}`;

@@ -1,9 +1,4 @@
-$d-content-background: light-dark(
-  oklch(from #{$secondary} calc(2 * l) c h),
-  oklch(from #{$secondary} l c h)
-);
-
-:root {
+html {
   --accent-color: #{$tertiary};
   --accent-text-color: light-dark(#ffffff, #212121);
   // Background Colors
@@ -11,7 +6,10 @@ $d-content-background: light-dark(
     oklch(from #{$tertiary} 98% calc(c * 0.25) h),
     oklch(from #{$tertiary} 10% 0.025 h)
   );
-  --d-content-background: #{$d-content-background};
+  --d-content-background: light-dark(
+    oklch(from #{$secondary} calc(2 * l) c h),
+    oklch(from #{$secondary} l c h)
+  ) !important;
   // HeaderColors
   --header_primary-low-mid: light-dark(
     oklch(from #{$tertiary} 73.5% calc(c * 0.5) h),
@@ -40,7 +38,7 @@ $d-content-background: light-dark(
   --d-selected: light-dark(
     oklch(from #{$tertiary} 92% calc(c * 0.5) h),
     oklch(from #{$tertiary} calc(l * 0.7) calc(c * 0.25) h)
-  );
+  ) !important;
 
   --d-nav-color--active: #{$tertiary};
   --link-color: light-dark(
