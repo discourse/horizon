@@ -1,16 +1,23 @@
 import Component from "@glimmer/component";
+import { inject as controller } from "@ember/controller";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
 import DButton from "discourse/components/d-button";
 import concatClass from "discourse/helpers/concat-class";
+import { reload } from "discourse/helpers/page-reloader";
 import {
   loadColorSchemeStylesheet,
   updateColorSchemeCookie,
 } from "discourse/lib/color-scheme-picker";
+import { currentThemeId } from "discourse/lib/theme-selector";
 
 export default class SitePaletteMenuItem extends Component {
   @service site;
+  @service session;
+  @service interfaceColor;
+  @controller("preferences") preferencesController;
+  themeId = currentThemeId();
 
   get siteStyle() {
     return `--icon-color: ${this.args.colorPalette.accent}`;
@@ -18,10 +25,20 @@ export default class SitePaletteMenuItem extends Component {
 
   @action
   handleInput() {
-    loadColorSchemeStylesheet(this.args.colorPalette.id);
-    // also somehow set the dark mode color scheme
-    // using correspondingDarkModeId
-    updateColorSchemeCookie(this.args.colorPalette.id);
+    if (this.interfaceColor.lightModeForced) {
+      loadColorSchemeStylesheet(this.args.colorPalette.id);
+      updateColorSchemeCookie(this.args.colorPalette.id);
+      updateColorSchemeCookie(this.args.colorPalette.correspondingDarkModeId, {
+        dark: true,
+      });
+    } else if (this.interfaceColor.darkModeForced) {
+      loadColorSchemeStylesheet(this.args.colorPalette.correspondingDarkModeId);
+      updateColorSchemeCookie(this.args.colorPalette.id);
+      updateColorSchemeCookie(this.args.colorPalette.correspondingDarkModeId, {
+        dark: true,
+      });
+    }
+    reload();
   }
 
   <template>

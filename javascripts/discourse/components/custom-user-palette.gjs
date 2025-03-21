@@ -49,27 +49,29 @@ export default class CustomUserPalette extends Component {
       .sort();
 
     // match the light scheme with the corresponding dark id based in the name
-    return availablePalettes.map((palette) => {
-      if (palette.is_dark) {
-        return palette;
-      }
+    return availablePalettes
+      .map((palette) => {
+        if (palette.is_dark) {
+          return palette;
+        }
 
-      const normalizedLightName = palette.name
-        .toLowerCase()
-        .replace(/\s+light$/, "");
+        const normalizedLightName = palette.name
+          .toLowerCase()
+          .replace(/\s+light$/, "");
 
-      const correspondingDarkModeId = availablePalettes.find(
-        (item) =>
-          item.is_dark &&
-          normalizedLightName ===
-            item.name.toLowerCase().replace(/\s+dark$/, "")
-      )?.id;
+        const correspondingDarkModeId = availablePalettes.find(
+          (item) =>
+            item.is_dark &&
+            normalizedLightName ===
+              item.name.toLowerCase().replace(/\s+dark$/, "")
+        )?.id;
 
-      return {
-        ...palette,
-        correspondingDarkModeId,
-      };
-    });
+        return {
+          ...palette,
+          correspondingDarkModeId,
+        };
+      })
+      .filter((palette) => !palette.is_dark);
   }
 
   <template>
