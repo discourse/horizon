@@ -8,6 +8,15 @@ import ColorScheme from "admin/models/color-scheme";
 import DMenu from "float-kit/components/d-menu";
 import SitePaletteMenuItem from "./site-palette-menu-item";
 
+const HORIZON_PALETTES = [
+  { name: "Horizon", hex: "#595bca" },
+  { name: "Marigold", hex: "#d3881f" },
+  { name: "Violet", hex: "#9b15de" },
+  { name: "Lily", hex: "#cc338c" },
+  { name: "Clover", hex: "#45a06e" },
+  { name: "Royal", hex: "#4169e1" },
+];
+
 export default class CustomUserPalette extends Component {
   @service site;
 
@@ -30,22 +39,34 @@ export default class CustomUserPalette extends Component {
   @action
   async buildColorPaletteObject() {
     const userColorSchemes = this.site.user_color_schemes;
-    const loadedColorSchemes = await ColorScheme.findAll();
+    // const loadedColorSchemes = await ColorScheme.findAll();
 
     // match the user color schemes with the extra information loaded from the server
     const availablePalettes = userColorSchemes
       .map((usc) => {
-        const scheme = loadedColorSchemes.find((item) => item.id === usc.id);
+        // const scheme = loadedColorSchemes.find((item) => item.id === usc.id);
 
-        return scheme
-          ? {
-              ...usc,
-              theme_id: scheme.theme_id,
-              accent: `#${scheme.colors[2].originals.hex}`,
-            }
-          : null;
+        // return scheme
+        //   ? {
+        //       ...usc,
+        //       theme_id: scheme.theme_id,
+        //       accent: `#${scheme.colors[2].originals.hex}`,
+        //     }
+        //   : null;
+
+        return {
+          ...usc,
+          theme_id: usc.id,
+          accent: HORIZON_PALETTES.find((palette) => {
+            return palette.name.includes(usc.name);
+          })?.hex,
+        };
       })
-      .filter(Boolean)
+      .filter((usc) => {
+        return HORIZON_PALETTES.some((palette) => {
+          return usc.name.toLowerCase().includes(palette.name.toLowerCase());
+        });
+      })
       .sort();
 
     // match the light scheme with the corresponding dark id based in the name
@@ -56,9 +77,8 @@ export default class CustomUserPalette extends Component {
             return palette;
           }
 
-          const normalizedLightName = palette.name
-            .toLowerCase()
-            .replace(/\s+light$/, "");
+          const normalizedLightName = palette.name.toLowerCase();
+          // .replace(/\s+light$/, "");
 
           const correspondingDarkModeId = availablePalettes.find(
             (item) =>

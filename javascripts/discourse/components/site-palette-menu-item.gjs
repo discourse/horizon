@@ -21,6 +21,8 @@ export default class SitePaletteMenuItem extends Component {
 
   @action
   handleInput() {
+    console.log(this.args.colorPalette);
+
     if (this.interfaceColor.lightModeForced) {
       loadColorSchemeStylesheet(this.args.colorPalette.id);
       updateColorSchemeCookie(this.args.colorPalette.id);
