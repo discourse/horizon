@@ -1,28 +1,17 @@
-// 390x844 – mobile/portrait – (Figma iPhone 13 & 14)
-// 744x1133 – tablet/portrait – (Figma iPad mini 8.3)
-// 1280x832 – desktop small – (Figma MacBook Air)
-
-:root {
-  --hot-color: oklch(63.79% 0.1823 34.77);
-}
-
-$extra-small: 435px;
-$small: 576px;
-$medium: 980px;
-$extra-large: 1280px;
-
-.topic-list .topic-list-item-separator {
+.topic-list .topic-list-item:not(.bookmark-list-item)-separator {
   display: none;
 }
 
-.topic-list > .topic-list-body > .topic-list-item.last-visit {
+.topic-list
+  > .topic-list-body
+  > .topic-list-item:not(.bookmark-list-item).last-visit {
   border-bottom: 1px solid var(--primary-300);
   &:hover {
     border-color: var(--accent-color);
   }
 }
 
-.topic-list-body {
+body:not(.user-activity-bookmarks-page) .topic-list-body {
   border: none;
   display: flex;
   flex-direction: column;
@@ -32,7 +21,7 @@ $extra-large: 1280px;
   }
 }
 
-.bulk-select-enabled .topic-list-item {
+.bulk-select-enabled .topic-list-item:not(.bookmark-list-item) {
   grid-template-areas:
     "avatar author status status . activity"
     ". topic-title topic-title topic-title likes-replies likes-replies category";
@@ -46,7 +35,7 @@ $extra-large: 1280px;
       margin: 0;
     }
   }
-  @media screen and (max-width: $medium) {
+  @include breakpoint(large) {
     grid-template-columns: 44px min-content min-content auto min-content min-content min-content;
     grid-template-rows: 22px minmax(22px, auto);
     grid-template-areas:
@@ -54,7 +43,7 @@ $extra-large: 1280px;
       ". topic-title topic-title topic-title . . likes-replies"
       ". topic-title topic-title topic-title . . category";
   }
-  @media screen and (max-width: $small) {
+  @include breakpoint(mobile-extra-large) {
     grid-template-columns: 25px auto repeat(6, 1fr);
     grid-template-rows: auto auto auto;
     grid-template-areas:
@@ -64,7 +53,7 @@ $extra-large: 1280px;
   }
 }
 
-body.user-messages-page .topic-list-item {
+body.user-messages-page .topic-list-item:not(.bookmark-list-item) {
   .topic-category-status-data {
     display: none;
   }
@@ -79,7 +68,7 @@ body.user-messages-page .topic-list-item {
       "avatar topic-title topic-title topic-title topic-title . . ."
       ". excerpt excerpt excerpt excerpt excerpt . ."
       ". excerpt excerpt excerpt excerpt excerpt likes-replies likes-replies";
-    @media screen and (max-width: $extra-large) {
+    @include breakpoint(extra-large) {
       grid-template-areas:
         "avatar author status status . . . activity"
         "avatar topic-title topic-title topic-title topic-title . . ."
@@ -87,7 +76,7 @@ body.user-messages-page .topic-list-item {
         ". excerpt excerpt excerpt excerpt excerpt . likes-replies";
     }
   }
-  @media screen and (max-width: $small) {
+  @include breakpoint(mobile-extra-large) {
     grid-template-columns: 25px auto repeat(6, 1fr);
     grid-template-rows: auto auto;
     grid-template-areas:
@@ -99,7 +88,7 @@ body.user-messages-page .topic-list-item {
   }
 }
 
-.topic-list-item {
+.topic-list-item:not(.bookmark-list-item) {
   text-overflow: ellipsis;
   padding: 0.75em 1rem;
   border: 1px solid var(--primary-300);
@@ -112,7 +101,8 @@ body.user-messages-page .topic-list-item {
   grid-column-gap: 12px;
   grid-row-gap: 8px;
   border-radius: var(--d-border-radius);
-  &.excerpt-expanded {
+  &.excerpt-expanded,
+  &.bookmark-list-item {
     grid-template-columns: 44px auto repeat(5, 1fr) auto;
     grid-template-rows: 22px auto auto 30px;
     grid-template-areas:
@@ -120,14 +110,14 @@ body.user-messages-page .topic-list-item {
       "avatar topic-title topic-title topic-title topic-title . . ."
       ". excerpt excerpt excerpt excerpt excerpt . ."
       ". excerpt excerpt excerpt excerpt excerpt likes-replies category";
-    @media screen and (max-width: $extra-large) {
+    @include breakpoint(extra-large) {
       grid-template-areas:
         "avatar author status status . . . activity"
         "avatar topic-title topic-title topic-title topic-title . . ."
         ". excerpt excerpt excerpt excerpt excerpt . likes-replies"
         ". excerpt excerpt excerpt excerpt excerpt . category";
     }
-    @media screen and (max-width: $small) {
+    @include breakpoint(mobile-extra-large) {
       grid-template-columns: 25px auto repeat(6, 1fr);
       grid-template-rows: auto auto auto;
       grid-template-areas:
@@ -139,7 +129,7 @@ body.user-messages-page .topic-list-item {
       }
     }
   }
-  @media screen and (max-width: $medium) {
+  @include breakpoint(large) {
     grid-template-columns: 44px min-content min-content auto min-content min-content min-content;
     grid-template-rows: 22px minmax(22px, auto);
     grid-template-areas:
@@ -147,7 +137,7 @@ body.user-messages-page .topic-list-item {
       ". topic-title topic-title topic-title . . likes-replies"
       ". topic-title topic-title topic-title . . category";
   }
-  @media screen and (max-width: $small) {
+  @include breakpoint(mobile-extra-large) {
     grid-template-columns: 25px auto repeat(6, 1fr);
     grid-template-rows: auto auto auto;
     grid-template-areas:
@@ -174,15 +164,17 @@ body.user-messages-page .topic-list-item {
   }
 
   // avatar & author
-  .topic-author-avatar-data {
+  .topic-author-avatar-data,
+  .author-avatar {
     grid-area: avatar;
     margin: 0;
   }
-  .topic-author-avatar img.avatar {
+  .topic-author-avatar img.avatar,
+  .author-avatar img.avatar {
     width: 44px;
     height: 44px;
     border-radius: var(--d-border-radius);
-    @media screen and (max-width: $small) {
+    @include breakpoint(mobile-extra-large) {
       width: 25px;
       height: 25px;
     }
@@ -211,7 +203,7 @@ body.user-messages-page .topic-list-item {
     color: var(--status-color);
     grid-area: status;
     width: min-content;
-    @media screen and (max-width: $small) {
+    @include breakpoint(mobile-extra-large) {
       height: calc(100% - 2px);
     }
     svg {
@@ -226,7 +218,7 @@ body.user-messages-page .topic-list-item {
     line-height: unset;
   }
   .topic-status-card.--hot {
-    --status-color: var(--hot-color);
+    --status-color: #e45735;
   }
 
   // title
@@ -242,6 +234,10 @@ body.user-messages-page .topic-list-item {
 
   td.main-link a.topic-status {
     display: none;
+  }
+
+  .topic-list-data {
+    padding: 0;
   }
 
   td.main-link .link-top-line a.raw-topic-link {
@@ -283,18 +279,16 @@ body.user-messages-page .topic-list-item {
 
   td.topic-category-status-data {
     display: contents;
-    @media screen and (max-width: $small) {
+    @include breakpoint(mobile-extra-large) {
       grid-area: category-status;
       display: flex;
       gap: 0.5em;
       align-items: center;
     }
   }
-  td.topic-category-status-data .badge-category__wrapper {
+  td.topic-category-status-data .badge-category__wrapper,
+  td.main-link .link-bottom-line .badge-category__wrapper {
     grid-area: category;
-  }
-
-  td.topic-category-status-data .badge-category__wrapper {
     overflow: unset;
     border-radius: var(--d-border-radius);
     padding: 6px;
@@ -304,7 +298,7 @@ body.user-messages-page .topic-list-item {
       oklch(from var(--category-badge-color) 45% calc(c * 0.5) h)
     );
 
-    @media screen and (max-width: $small) {
+    @include breakpoint(mobile-extra-large) {
       padding: 2px 6px;
     }
 
@@ -349,7 +343,7 @@ body.user-messages-page .topic-list-item {
   }
 }
 
-.topic-list-item {
+.topic-list-item:not(.bookmark-list-item) {
   background: var(--d-content-background);
   box-shadow: 0px 0px 12px 1px var(--topic-card-shadow);
   &:hover {

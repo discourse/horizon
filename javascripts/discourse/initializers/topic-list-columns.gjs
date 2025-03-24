@@ -40,6 +40,7 @@ export default {
       api.registerValueTransformer(
         "topic-list-columns",
         ({ value: columns }) => {
+          console.log("columns", columns);
           columns.add("topic-author", {
             item: TopicAuthor,
             after: "activity",
