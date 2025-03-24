@@ -38,36 +38,39 @@ export default class CustomUserPalette extends Component {
 
   @action
   async buildColorPaletteObject() {
-    const userColorSchemes = this.site.user_color_schemes;
+    // NOTE: The site attr is called scheme, but we actually refer to these as palettes now.
+    const userColorPalettes = this.site.user_color_schemes;
     // Once ColorScheme model is available, we can use this code
     //
     // const loadedColorSchemes = await ColorScheme.findAll();
 
     // match the user color schemes with the extra information loaded from the server
-    const availablePalettes = userColorSchemes
-      .map((usc) => {
+    const availablePalettes = userColorPalettes
+      .map((userPalette) => {
         // Once ColorScheme model is available, we can use this code
         //
-        // const scheme = loadedColorSchemes.find((item) => item.id === usc.id);
+        // const scheme = loadedColorSchemes.find((item) => item.id === userPalette.id);
         // return scheme
         //   ? {
-        //       ...usc,
+        //       ...userPalette,
         //       theme_id: scheme.theme_id,
         //       accent: `#${scheme.colors[2].originals.hex}`,
         //     }
         //   : null;
 
         return {
-          ...usc,
-          theme_id: usc.id,
+          ...userPalette,
+          theme_id: userPalette.id,
           accent: HORIZON_PALETTES.find((palette) => {
-            return palette.name.includes(usc.name);
+            return palette.name.includes(userPalette.name);
           })?.hex,
         };
       })
-      .filter((usc) => {
+      .filter((userPalette) => {
         return HORIZON_PALETTES.some((palette) => {
-          return usc.name.toLowerCase().includes(palette.name.toLowerCase());
+          return userPalette.name
+            .toLowerCase()
+            .includes(palette.name.toLowerCase());
         });
       })
       .sort();
