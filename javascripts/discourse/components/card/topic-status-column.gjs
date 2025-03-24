@@ -6,10 +6,6 @@ import { i18n } from "discourse-i18n";
 export default class TopicStatusColumn extends Component {
   @service siteSettings;
 
-  get heatMap() {
-    return this.args.topic.views > this.siteSettings.topic_views_heat_medium;
-  }
-
   get badge() {
     if (this.args.topic.is_hot) {
       return {
