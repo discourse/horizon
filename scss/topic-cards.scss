@@ -1,17 +1,15 @@
-.topic-list .topic-list-item:not(.bookmark-list-item)-separator {
+.topic-list .topic-list-item-separator {
   display: none;
 }
 
-.topic-list
-  > .topic-list-body
-  > .topic-list-item:not(.bookmark-list-item).last-visit {
+.topic-list > .topic-list-body > .topic-list-item.last-visit {
   border-bottom: 1px solid var(--primary-300);
   &:hover {
     border-color: var(--accent-color);
   }
 }
 
-body:not(.user-activity-bookmarks-page) .topic-list-body {
+.topic-list-body {
   border: none;
   display: flex;
   flex-direction: column;
@@ -21,7 +19,7 @@ body:not(.user-activity-bookmarks-page) .topic-list-body {
   }
 }
 
-.bulk-select-enabled .topic-list-item:not(.bookmark-list-item) {
+.bulk-select-enabled .topic-list-item {
   grid-template-areas:
     "avatar author status status . activity"
     ". topic-title topic-title topic-title likes-replies likes-replies category";
@@ -53,7 +51,7 @@ body:not(.user-activity-bookmarks-page) .topic-list-body {
   }
 }
 
-body.user-messages-page .topic-list-item:not(.bookmark-list-item) {
+body.user-messages-page .topic-list-item {
   .topic-category-status-data {
     display: none;
   }
@@ -88,7 +86,7 @@ body.user-messages-page .topic-list-item:not(.bookmark-list-item) {
   }
 }
 
-.topic-list-item:not(.bookmark-list-item) {
+.topic-list-item {
   text-overflow: ellipsis;
   padding: 0.75em 1rem;
   border: 1px solid var(--primary-300);
@@ -343,7 +341,7 @@ body.user-messages-page .topic-list-item:not(.bookmark-list-item) {
   }
 }
 
-.topic-list-item:not(.bookmark-list-item) {
+.topic-list-item {
   background: var(--d-content-background);
   box-shadow: 0px 0px 12px 1px var(--topic-card-shadow);
   &:hover {
@@ -355,5 +353,51 @@ body.user-messages-page .topic-list-item:not(.bookmark-list-item) {
   &.selected {
     box-shadow: 0px 0px 0px 2px var(--accent-color),
       0px 0px 12px 1px var(--topic-card-shadow);
+  }
+}
+
+.topic-list-item.bookmark-list-item {
+  grid-template-areas:
+    "avatar topic-title topic-title topic-title topic-title topic-title update dropdown"
+    "avatar excerpt excerpt excerpt excerpt excerpt . dropdown"
+    ". excerpt excerpt excerpt excerpt excerpt . dropdown"
+    ". excerpt excerpt excerpt excerpt excerpt category dropdown";
+  td.main-link .link-bottom-line {
+    display: contents;
+    .badge-category__wrapper {
+      grid-area: category;
+    }
+  }
+  .post-excerpt {
+    grid-area: excerpt;
+  }
+  .topic-list-data:last-of-type {
+    display: contents;
+    .bookmark-actions-dropdown {
+      grid-area: dropdown;
+      align-self: center;
+    }
+  }
+  .post-metadata.topic-list-data.updated-at {
+    margin-left: auto;
+  }
+  td.activity .post-activity {
+    display: none;
+  }
+  .bookmark-metadata {
+    display: none;
+  }
+}
+
+.topic-list-item.assigned-list-item {
+  grid-template-areas:
+    "avatar author status status . activity dropdown"
+    ". topic-title topic-title topic-title likes-replies category dropdown";
+  .assign-topic-buttons {
+    display: contents;
+    .assign-actions-dropdown {
+      grid-area: dropdown;
+      align-self: center;
+    }
   }
 }
