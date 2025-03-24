@@ -3,76 +3,45 @@ import { action } from "@ember/object";
 import { service } from "@ember/service";
 import AsyncContent from "discourse/components/async-content";
 import icon from "discourse/helpers/d-icon";
+import { listColorSchemes } from "discourse/lib/color-scheme-picker";
 import { i18n } from "discourse-i18n";
-// import ColorScheme from "admin/models/color-scheme";
 import DMenu from "float-kit/components/d-menu";
 import SitePaletteMenuItem from "./site-palette-menu-item";
 
 const HORIZON_PALETTES = [
-  { name: "Horizon", hex: "#595bca" },
-  { name: "Marigold", hex: "#d3881f" },
-  { name: "Violet", hex: "#9b15de" },
-  { name: "Lily", hex: "#cc338c" },
-  { name: "Clover", hex: "#45a06e" },
-  { name: "Royal", hex: "#4169e1" },
+  "Horizon",
+  "Marigold",
+  "Violet",
+  "Lily",
+  "Clover",
+  "Royal",
 ];
 
 export default class CustomUserPalette extends Component {
   @service site;
 
-  // this function is to build a color pallet object in order to
-  // add it to the colorPalettes array
-  // I also want to figure out a way to add a dark mode ID to an object if there is a
-  // corresponding dark mode color palette with the same name
-  // the array should look like this:
-  //
-  // [
-  //   {
-  //     id: color palette id,
-  //     name: color palette name,
-  //     accent: hex code of "tertiary" from color palette,
-  //     correspondingDarkModeId: color palette id for dark mode
-  //   },
-  //   ...more
-  // ]
-
   @action
   async buildColorPaletteObject() {
-    const userColorSchemes = this.site.user_color_schemes;
-    // Once ColorScheme model is available, we can use this code
-    //
-    // const loadedColorSchemes = await ColorScheme.findAll();
+    // NOTE: The site attr is called scheme, but we actually refer to these as palettes now.
+    const userColorPalettes = listColorSchemes(this.site);
 
-    // match the user color schemes with the extra information loaded from the server
-    const availablePalettes = userColorSchemes
-      .map((usc) => {
-        // Once ColorScheme model is available, we can use this code
-        //
-        // const scheme = loadedColorSchemes.find((item) => item.id === usc.id);
-        // return scheme
-        //   ? {
-        //       ...usc,
-        //       theme_id: scheme.theme_id,
-        //       accent: `#${scheme.colors[2].originals.hex}`,
-        //     }
-        //   : null;
-
+    const availablePalettes = userColorPalettes
+      .map((userPalette) => {
         return {
-          ...usc,
-          theme_id: usc.id,
-          accent: HORIZON_PALETTES.find((palette) => {
-            return palette.name.includes(usc.name);
-          })?.hex,
+          ...userPalette,
+          accent: `#${
+            userPalette.colors.find((color) => color.name === "tertiary").hex
+          }`,
         };
       })
-      .filter((usc) => {
+      .filter((userPalette) => {
         return HORIZON_PALETTES.some((palette) => {
-          return usc.name.toLowerCase().includes(palette.name.toLowerCase());
+          return userPalette.name.toLowerCase().includes(palette.toLowerCase());
         });
       })
       .sort();
 
-    // match the light scheme with the corresponding dark id based in the name
+    // Match the light scheme with the corresponding dark id based in the name
     return (
       availablePalettes
         .map((palette) => {
@@ -94,7 +63,7 @@ export default class CustomUserPalette extends Component {
             correspondingDarkModeId,
           };
         })
-        // only want to show palettes that have corresponding light/dark modes
+        // Only want to show palettes that have corresponding light/dark modes
         .filter((palette) => !palette.is_dark)
     );
   }
