@@ -42,7 +42,10 @@ describe "Horizon theme | High level", type: :system do
     palette_menu =
       PageObjects::Components::DMenu.new(find(".sidebar-footer-actions .user-color-palette"))
     palette_menu.expand
-    find(".color-palette-menu__content .color-palette-menu__item[data-color='Marigold']").click
+    find(
+      ".color-palette-menu__content .color-palette-menu__item[data-color='Marigold']",
+      wait: 15,
+    ).click
     page.refresh
     expect(
       page.evaluate_script(
