@@ -73,7 +73,8 @@ body:not(.has-full-page-chat) {
       .body-page,
       .container.badges,
       .topic-above-footer-buttons-outlet .presence-users,
-      .global-notice {
+      .global-notice,
+      .container.tags-index {
         @include breakpoint(medium, $rule: min-width) {
           max-width: 1000px;
           margin-inline: auto;
