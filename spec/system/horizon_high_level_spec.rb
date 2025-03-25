@@ -42,10 +42,13 @@ describe "Horizon theme | High level", type: :system do
     palette_menu =
       PageObjects::Components::DMenu.new(find(".sidebar-footer-actions .user-color-palette"))
     palette_menu.expand
-    find(".color-palette-menu__content .color-palette-menu__item[data-color='marigold']").click
-    expect(page).to have_css(".custom-color-marigold")
+    find(".color-palette-menu__content .color-palette-menu__item[data-color='Marigold']").click
     page.refresh
-    expect(page).to have_css(".custom-color-marigold")
+    expect(
+      page.evaluate_script(
+        "getComputedStyle(document.documentElement).getPropertyValue('--tertiary')",
+      ),
+    ).to eq("#d3881f")
   end
 
   it "works for anon" do
