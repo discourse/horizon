@@ -21,8 +21,6 @@ export default class SitePaletteMenuItem extends Component {
 
   @action
   handleInput() {
-    console.log(this.args.colorPalette);
-
     if (this.interfaceColor.lightModeForced) {
       loadColorSchemeStylesheet(this.args.colorPalette.id);
       updateColorSchemeCookie(this.args.colorPalette.id);
@@ -40,7 +38,7 @@ export default class SitePaletteMenuItem extends Component {
   }
 
   <template>
-    <div class="color-palette-menu__item" data-color="color-palette-name">
+    <div class="color-palette-menu__item" data-color={{@colorPalette.name}}>
       <DButton
         class={{concatClass "btn-flat color-palette-menu__item-choice"}}
         style={{htmlSafe this.siteStyle}}
