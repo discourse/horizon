@@ -51,3 +51,7 @@ body.has-full-page-chat {
     color: var(--primary);
   }
 }
+
+.chat-drawer-active.chat-drawer-expanded .chat-composer-dropdown__menu-content {
+  z-index: z("composer", "content") + 1;
+}
