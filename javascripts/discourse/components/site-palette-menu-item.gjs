@@ -38,7 +38,6 @@ export default class SitePaletteMenuItem extends Component {
   }
 
   <template>
-    {{log @colorPalette}}
     <div class="color-palette-menu__item" data-color={{@colorPalette.name}}>
       <DButton
         class={{concatClass "btn-flat color-palette-menu__item-choice"}}
