@@ -36,6 +36,7 @@
           row-gap: var(--spacing-block-xs);
           flex-basis: 100%;
           .select-kit-header {
+            background: var(--d-content-background);
             padding-block: var(--spacing-block-s);
             padding-inline: 0;
             border: 0;
