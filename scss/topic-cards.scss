@@ -99,8 +99,7 @@ body.user-messages-page .topic-list-item {
   grid-column-gap: 12px;
   grid-row-gap: 8px;
   border-radius: var(--d-border-radius);
-  &.excerpt-expanded,
-  &.bookmark-list-item {
+  &.excerpt-expanded {
     grid-template-columns: 44px auto repeat(5, 1fr) auto;
     grid-template-rows: 22px auto auto 30px;
     grid-template-areas:
@@ -357,15 +356,41 @@ body.user-messages-page .topic-list-item {
 }
 
 .topic-list-item.bookmark-list-item {
+  &.has-metadata {
+    grid-template-areas:
+      "avatar metadata metadata metadata metadata update dropdown"
+      ". topic-title topic-title topic-title likes-replies category dropdown";
+  }
   grid-template-areas:
-    "avatar topic-title topic-title topic-title topic-title topic-title update dropdown"
-    "avatar excerpt excerpt excerpt excerpt excerpt . dropdown"
-    ". excerpt excerpt excerpt excerpt excerpt . dropdown"
-    ". excerpt excerpt excerpt excerpt excerpt category dropdown";
+    "avatar . . . . update dropdown"
+    ". topic-title topic-title topic-title topic-title category dropdown";
+  &.excerpt-expanded {
+    grid-template-areas:
+      "avatar topic-title topic-title topic-title topic-title topic-title update dropdown"
+      "avatar excerpt excerpt excerpt excerpt excerpt . dropdown"
+      ". excerpt excerpt excerpt excerpt excerpt . dropdown"
+      ". excerpt excerpt excerpt excerpt excerpt category dropdown";
+    &.has-metadata {
+      grid-template-areas:
+        "avatar metadata metadata metadata metadata metadata update dropdown"
+        "avatar topic-title topic-title topic-title topic-title topic-title . dropdown"
+        ". excerpt excerpt excerpt excerpt excerpt . dropdown"
+        ". excerpt excerpt excerpt excerpt excerpt category dropdown";
+    }
+  }
   td.main-link .link-bottom-line {
     display: contents;
     .badge-category__wrapper {
       grid-area: category;
+    }
+  }
+  td.main-link .link-top-line {
+    display: contents;
+    .bookmark-metadata {
+      grid-area: metadata;
+    }
+    .bookmark-status-with-link {
+      grid-area: topic-title;
     }
   }
   .post-excerpt {
@@ -379,12 +404,10 @@ body.user-messages-page .topic-list-item {
     }
   }
   .post-metadata.topic-list-data.updated-at {
+    grid-area: update;
     margin-left: auto;
   }
   td.activity .post-activity {
-    display: none;
-  }
-  .bookmark-metadata {
     display: none;
   }
 }
