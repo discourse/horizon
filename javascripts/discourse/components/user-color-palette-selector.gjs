@@ -97,7 +97,6 @@ export default class UserColorPaletteSelector extends Component {
 
   @action
   paletteSelected(selectedPalette) {
-    this.dMenu.close();
     if (this.interfaceColor.darkModeForced) {
       loadColorSchemeStylesheet(selectedPalette.correspondingDarkModeId);
       this.#updatePreference(selectedPalette);
@@ -105,7 +104,9 @@ export default class UserColorPaletteSelector extends Component {
       loadColorSchemeStylesheet(selectedPalette.id);
       this.#updatePreference(selectedPalette);
     }
-    reload();
+    if (this.currentUser) {
+      reload();
+    }
   }
 
   #updatePreference(selectedPalette) {
