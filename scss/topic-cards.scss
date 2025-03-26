@@ -455,10 +455,12 @@ body.user-messages-page .topic-list-item {
   }
 }
 
+// Bulk select
+
 .bulk-select-enabled .topic-list-item {
   grid-template-areas:
-    "avatar author status status . activity"
-    ". topic-title topic-title topic-title likes-replies likes-replies category";
+    "bulk-select activity activity activity . . status"
+    "bulk-select topic-title topic-title topic-title likes-replies likes-replies category";
   .bulk-select {
     grid-area: bulk-select;
     padding: 0;
@@ -470,19 +472,19 @@ body.user-messages-page .topic-list-item {
     }
   }
   @include breakpoint(large) {
-    grid-template-columns: 20px min-content min-content auto min-content min-content min-content;
+    grid-template-columns: 20px repeat(6, 1fr);
     grid-template-rows: 20px minmax(20px, auto);
     grid-template-areas:
-      "avatar author status status  . activity"
-      ". topic-title topic-title topic-title . . likes-replies"
-      ". topic-title topic-title topic-title . . category";
+      "bulk-select activity activity activity activity activity status"
+      "bulk-select topic-title topic-title topic-title topic-title topic-title topic-title"
+      "bulk-select category . . . . likes-replies";
   }
   @include breakpoint(mobile-extra-large) {
     grid-template-columns: 25px auto repeat(6, 1fr);
     grid-template-rows: auto auto auto;
     grid-template-areas:
-      "avatar category-status category-status . . . . activity"
-      "topic-title topic-title topic-title topic-title topic-title topic-title topic-title topic-title"
-      "avatar author . . . . . likes-replies";
+      "bulk-select activity activity activity activity activity activity status"
+      "bulk-select topic-title topic-title topic-title topic-title topic-title topic-title topic-title"
+      "bulk-select category . . . . .  likes-replies";
   }
 }
