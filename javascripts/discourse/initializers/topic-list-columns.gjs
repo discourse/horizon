@@ -1,7 +1,5 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 import TopicActivityColumn from "../components/card/topic-activity-column";
-import TopicAuthorAvatarColumn from "../components/card/topic-author-avatar-column";
-import TopicAuthorColumn from "../components/card/topic-author-column";
 import TopicCategoryColumn from "../components/card/topic-category-column";
 import TopicLikesColumn from "../components/card/topic-likes-column";
 import TopicRepliesColumn from "../components/card/topic-replies-column";
@@ -10,13 +8,6 @@ import TopicStatusColumn from "../components/card/topic-status-column";
 const TopicActivity = <template>
   <td class="topic-activity-data">
     <TopicActivityColumn @topic={{@topic}} />
-  </td>
-</template>;
-
-const TopicCategoryStatus = <template>
-  <td class="topic-category-status-data">
-    <TopicCategoryColumn @topic={{@topic}} />
-    <TopicStatusColumn @topic={{@topic}} />
   </td>
 </template>;
 

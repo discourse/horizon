@@ -11,7 +11,6 @@ export default class TopicActivityColumn extends Component {
   }
 
   <template>
-    {{log @topic}}
     <span class="topic-activity">
       <div class="topic-activity__user">
         {{#if (gt @topic.replyCount 1)}}
