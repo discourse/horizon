@@ -40,6 +40,18 @@ export default class UserColorPaletteSelector extends Component {
     }
   }
 
+  get userColorPalettes() {
+    return listColorSchemes(this.site);
+  }
+
+  get selectedColorPaletteId() {
+    if (this.currentUser) {
+      return this.session.userColorSchemeId;
+    }
+
+    return this.keyValueStore.getItem("anon-horizon-color-palette-id");
+  }
+
   @action
   onRegisterMenu(api) {
     this.dMenu = api;
@@ -49,9 +61,8 @@ export default class UserColorPaletteSelector extends Component {
   async buildColorPaletteObject() {
     // NOTE: The function refers to color schemes, but we actually
     // refer to these as palettes now.
-    const userColorPalettes = listColorSchemes(this.site);
 
-    const availablePalettes = userColorPalettes
+    const availablePalettes = this.userColorPalettes
       .map((userPalette) => {
         return {
           ...userPalette,
@@ -94,28 +105,20 @@ export default class UserColorPaletteSelector extends Component {
     );
   }
 
-  get selectedColorPaletteId() {
-    if (this.currentUser) {
-      return this.session.userColorSchemeId;
-    }
-
-    return this.keyValueStore.getItem("anon-horizon-color-palette-id");
-  }
-
   @action
   paletteSelected(selectedPalette) {
     this.dMenu.close();
     if (this.interfaceColor.darkModeForced) {
       loadColorSchemeStylesheet(selectedPalette.correspondingDarkModeId);
-      this.updatePreference(selectedPalette);
+      this.#updatePreference(selectedPalette);
     } else {
       loadColorSchemeStylesheet(selectedPalette.id);
-      this.updatePreference(selectedPalette);
+      this.#updatePreference(selectedPalette);
     }
     reload();
   }
 
-  updatePreference(selectedPalette) {
+  #updatePreference(selectedPalette) {
     if (this.currentUser) {
       updateColorSchemeCookie(selectedPalette.id);
       updateColorSchemeCookie(selectedPalette.correspondingDarkModeId, {
@@ -134,37 +137,39 @@ export default class UserColorPaletteSelector extends Component {
   }
 
   <template>
-    <DMenu
-      @identifier="user-color-palette-selector"
-      @placementStrategy="fixed"
-      @onRegisterApi={{this.onRegisterMenu}}
-      class="btn-flat user-color-palette-selector sidebar-footer-actions-button"
-      data-selected-color-palette-id={{this.selectedColorPaletteId}}
-      @inline={{true}}
-    >
-      <:trigger>
-        {{icon "paintbrush"}}
-      </:trigger>
-      <:content>
-        <AsyncContent @asyncData={{this.buildColorPaletteObject}}>
-          <:loading>
-            {{i18n "loading"}}
-          </:loading>
-          <:content as |colorPalettes|>
-            <div class="user-color-palette-menu">
-              <div class="user-color-palette-menu__content">
-                {{#each colorPalettes as |colorPalette|}}
-                  <UserColorPaletteMenuItem
-                    @selectedColorPaletteId={{this.selectedColorPaletteId}}
-                    @colorPalette={{colorPalette}}
-                    @paletteSelected={{this.paletteSelected}}
-                  />
-                {{/each}}
+    {{#if this.userColorPalettes}}
+      <DMenu
+        @identifier="user-color-palette-selector"
+        @placementStrategy="fixed"
+        @onRegisterApi={{this.onRegisterMenu}}
+        class="btn-flat user-color-palette-selector sidebar-footer-actions-button"
+        data-selected-color-palette-id={{this.selectedColorPaletteId}}
+        @inline={{true}}
+      >
+        <:trigger>
+          {{icon "paintbrush"}}
+        </:trigger>
+        <:content>
+          <AsyncContent @asyncData={{this.buildColorPaletteObject}}>
+            <:loading>
+              {{i18n "loading"}}
+            </:loading>
+            <:content as |colorPalettes|>
+              <div class="user-color-palette-menu">
+                <div class="user-color-palette-menu__content">
+                  {{#each colorPalettes as |colorPalette|}}
+                    <UserColorPaletteMenuItem
+                      @selectedColorPaletteId={{this.selectedColorPaletteId}}
+                      @colorPalette={{colorPalette}}
+                      @paletteSelected={{this.paletteSelected}}
+                    />
+                  {{/each}}
+                </div>
               </div>
-            </div>
-          </:content>
-        </AsyncContent>
-      </:content>
-    </DMenu>
+            </:content>
+          </AsyncContent>
+        </:content>
+      </DMenu>
+    {{/if}}
   </template>
 }
