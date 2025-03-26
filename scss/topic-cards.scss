@@ -24,79 +24,12 @@
   }
 }
 
-.bulk-select-enabled .topic-list-item {
-  grid-template-areas:
-    "avatar author status status . activity"
-    ". topic-title topic-title topic-title likes-replies likes-replies category";
-  .bulk-select {
-    grid-area: bulk-select;
-    padding: 0;
-    margin: 0;
-    align-self: center;
-    justify-self: center;
-    label {
-      margin: 0;
-    }
-  }
-  @include breakpoint(large) {
-    grid-template-columns: 44px min-content min-content auto min-content min-content min-content;
-    grid-template-rows: 22px minmax(22px, auto);
-    grid-template-areas:
-      "avatar author status status  . activity"
-      ". topic-title topic-title topic-title . . likes-replies"
-      ". topic-title topic-title topic-title . . category";
-  }
-  @include breakpoint(mobile-extra-large) {
-    grid-template-columns: 25px auto repeat(6, 1fr);
-    grid-template-rows: auto auto auto;
-    grid-template-areas:
-      "avatar category-status category-status . . . . activity"
-      "topic-title topic-title topic-title topic-title topic-title topic-title topic-title topic-title"
-      "avatar author . . . . . likes-replies";
-  }
-}
-
-body.user-messages-page .topic-list-item {
-  .topic-category-status-data {
-    display: none;
-  }
-  grid-template-areas:
-    "avatar author status status . . activity"
-    ". topic-title topic-title topic-title likes-replies likes-replies likes-replies";
-  &.excerpt-expanded {
-    grid-template-columns: 44px repeat(6, 1fr) auto;
-    grid-template-rows: 22px auto auto 30px;
-    grid-template-areas:
-      "avatar author status status . . . activity"
-      "avatar topic-title topic-title topic-title topic-title . . ."
-      ". excerpt excerpt excerpt excerpt excerpt . ."
-      ". excerpt excerpt excerpt excerpt excerpt likes-replies likes-replies";
-    @include breakpoint(extra-large) {
-      grid-template-areas:
-        "avatar author status status . . . activity"
-        "avatar topic-title topic-title topic-title topic-title . . ."
-        ". excerpt excerpt excerpt excerpt excerpt . likes-replies"
-        ". excerpt excerpt excerpt excerpt excerpt . likes-replies";
-    }
-  }
-  @include breakpoint(mobile-extra-large) {
-    grid-template-columns: 25px auto repeat(6, 1fr);
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      "topic-title topic-title topic-title topic-title topic-title topic-title topic-title activity"
-      "avatar author . . . . . likes-replies";
-    .topic-excerpt {
-      display: none;
-    }
-  }
-}
-
-.topic-list-item {
+.topic-list-body .topic-list-item {
   text-overflow: ellipsis;
   padding: 0.75em 1rem;
   border: 1px solid var(--primary-300);
   display: grid;
-  grid-template-columns: 44px min-content min-content auto min-content min-content min-content;
+  grid-template-columns: 22px min-content min-content auto min-content min-content min-content;
   grid-template-rows: 22px minmax(22px, auto);
   grid-template-areas:
     "activity activity activity activity . . status"
@@ -105,7 +38,7 @@ body.user-messages-page .topic-list-item {
   grid-row-gap: 8px;
   border-radius: var(--d-border-radius);
   &.excerpt-expanded {
-    grid-template-columns: 44px auto repeat(5, 1fr) auto;
+    grid-template-columns: 22px auto repeat(5, 1fr) auto;
     grid-template-rows: 22px auto auto 30px;
     grid-template-areas:
       "activity activity activity activity . . . status"
@@ -132,15 +65,15 @@ body.user-messages-page .topic-list-item {
     }
   }
   @include breakpoint(large) {
-    grid-template-columns: 44px min-content min-content auto min-content min-content min-content;
+    grid-template-columns: 22px repeat(6, 1fr);
     grid-template-rows: 22px minmax(22px, auto);
     grid-template-areas:
       "activity activity activity activity activity activity status"
-      "topic-title topic-title topic-title topic-title topic-title topic-title likes-replies"
-      ". . . . . . category";
+      "topic-title topic-title topic-title topic-title topic-title topic-title topic-title"
+      "category . . . . . likes-replies";
   }
   @include breakpoint(mobile-extra-large) {
-    grid-template-columns: 25px auto repeat(6, 1fr);
+    grid-template-columns: 25px repeat(7, 1fr);
     grid-template-rows: auto auto auto;
     grid-template-areas:
       "activity activity activity activity activity activity activity status"
@@ -150,6 +83,8 @@ body.user-messages-page .topic-list-item {
   @include breakpoint(mobile-extra-large) {
     border: none;
     border-bottom: 1px solid var(--primary-200);
+    box-shadow: none;
+    border-radius: 0;
   }
 
   // display contents
@@ -284,6 +219,7 @@ body.user-messages-page .topic-list-item {
   }
   td.topic-category-data {
     grid-area: category;
+    align-self: flex-end;
   }
   td.topic-category-data .badge-category__wrapper,
   td.main-link .link-bottom-line .badge-category__wrapper {
@@ -295,7 +231,7 @@ body.user-messages-page .topic-list-item {
       oklch(from var(--category-badge-color) 45% calc(c * 0.5) h)
     );
 
-    @include breakpoint(mobile-extra-large) {
+    @include breakpoint(tablet) {
       padding: 2px 6px;
     }
 
@@ -355,45 +291,47 @@ body.user-messages-page .topic-list-item {
   }
 }
 
+// Bookmarks
+
 .topic-list-item.bookmark-list-item {
-  @include breakpoint(mobile-extra-large) {
-    grid-template-columns: 25px auto repeat(5, 1fr) min-content;
-  }
+  grid-template-columns: 22px min-content min-content auto min-content min-content 36px;
   grid-template-areas:
-    "avatar . . . . update dropdown"
-    ". topic-title topic-title topic-title topic-title category dropdown";
+    "avatar update metadata metadata metadata metadata dropdown"
+    "topic-title topic-title topic-title topic-title topic-title category dropdown";
   @include breakpoint(mobile-extra-large) {
+    grid-template-columns: 22px min-content min-content auto min-content min-content min-content 36px;
     grid-template-areas:
-      "avatar . . . . . update dropdown"
-      ". topic-title topic-title topic-title topic-title . category dropdown";
+      "avatar update metadata metadata metadata metadata metadata dropdown"
+      "topic-title topic-title topic-title topic-title topic-title likes-replies category dropdown";
   }
   &.has-metadata {
     grid-template-areas:
-      "avatar metadata metadata metadata metadata update dropdown"
-      ". topic-title topic-title topic-title likes-replies category dropdown";
+      "avatar update metadata metadata metadata metadata dropdown"
+      "topic-title topic-title topic-title topic-title likes-replies category dropdown";
     @include breakpoint(mobile-extra-large) {
       grid-template-areas:
-        "avatar metadata metadata metadata metadata . update dropdown"
-        ". topic-title topic-title topic-title likes-replies . category dropdown";
+        "avatar update metadata metadata metadata metadata metadata dropdown"
+        "topic-title topic-title topic-title topic-title likes-replies . category dropdown";
     }
   }
   &.excerpt-expanded {
     grid-template-areas:
-      "avatar topic-title topic-title topic-title topic-title topic-title update dropdown"
-      "avatar excerpt excerpt excerpt excerpt excerpt . dropdown"
-      ". excerpt excerpt excerpt excerpt excerpt . dropdown"
-      ". excerpt excerpt excerpt excerpt excerpt category dropdown";
+      "avatar update metadata metadata metadata metadata metadata dropdown"
+      "topic-title topic-title topic-title topic-title topic-title topic-title . dropdown"
+      "excerpt excerpt excerpt excerpt excerpt excerpt . dropdown"
+      "excerpt excerpt excerpt excerpt excerpt excerpt category dropdown";
     @include breakpoint(mobile-extra-large) {
+      grid-template-columns: 22px min-content min-content auto min-content min-content min-content 36px;
       .post-excerpt {
         display: none;
       }
     }
     &.has-metadata {
       grid-template-areas:
-        "avatar metadata metadata metadata metadata metadata update dropdown"
-        "avatar topic-title topic-title topic-title topic-title topic-title topic-title dropdown"
-        ". excerpt excerpt excerpt excerpt excerpt . dropdown"
-        ". excerpt excerpt excerpt excerpt excerpt category dropdown";
+        "avatar update metadata metadata metadata metadata metadata dropdown"
+        "topic-title topic-title topic-title topic-title topic-title topic-title topic-title dropdown"
+        "excerpt excerpt excerpt excerpt excerpt excerpt . dropdown"
+        "excerpt excerpt excerpt excerpt excerpt excerpt category dropdown";
     }
   }
   td.main-link .link-bottom-line {
@@ -413,6 +351,7 @@ body.user-messages-page .topic-list-item {
   }
   .post-excerpt {
     grid-area: excerpt;
+    margin: 0;
   }
   .topic-list-data:last-of-type {
     display: contents;
@@ -430,15 +369,24 @@ body.user-messages-page .topic-list-item {
   }
 }
 
+// Assigned List
+
 .topic-list-item.assigned-list-item {
+  grid-template-columns: 22px min-content min-content auto min-content min-content 36px;
   grid-template-areas:
-    "avatar author status status . activity dropdown"
-    ". topic-title topic-title topic-title likes-replies category dropdown";
+    "activity activity activity activity activity status dropdown"
+    "topic-title topic-title topic-title topic-title likes-replies category dropdown";
+  @include breakpoint(large) {
+    grid-template-areas:
+      "activity activity activity activity activity status dropdown"
+      "topic-title topic-title topic-title topic-title topic-title topic-title dropdown"
+      "category . . . . likes-replies dropdown";
+  }
   @include breakpoint(mobile-extra-large) {
     grid-template-areas:
-      "avatar author status status . . . activity dropdown"
-      ". topic-title topic-title topic-title . . . . dropdown"
-      ". topic-title topic-title topic-title likes-replies likes-replies likes-replies category dropdown";
+      "activity activity activity activity activity activity status dropdown"
+      "topic-title topic-title topic-title topic-title topic-title topic-title . dropdown"
+      "category . . . . . likes-replies dropdown";
   }
   .assign-topic-buttons {
     display: contents;
@@ -449,5 +397,76 @@ body.user-messages-page .topic-list-item {
   }
   td.topic-category-status-data {
     display: contents;
+  }
+}
+
+// User Messages
+
+body.user-messages-page .topic-list-item {
+  td.topic-category-data,
+  td.topic-likes-replies-data,
+  td.topic-status-data {
+    display: none;
+  }
+  grid-template-areas:
+    "activity activity activity activity activity activity activity"
+    "topic-title topic-title topic-title topic-title likes-replies likes-replies likes-replies";
+  &.excerpt-expanded {
+    grid-template-columns: 22px repeat(6, 1fr) auto;
+    grid-template-rows: 22px auto auto 30px;
+    grid-template-areas:
+      "activity activity activity activity activity activity activity activity"
+      "topic-title topic-title topic-title topic-title topic-title topic-title topic-title topic-title"
+      "excerpt excerpt excerpt excerpt excerpt excerpt . ."
+      "excerpt excerpt excerpt excerpt excerpt excerpt likes-replies likes-replies";
+    @include breakpoint(extra-large) {
+      grid-template-areas:
+        "avatar author status status . . . activity"
+        "avatar topic-title topic-title topic-title topic-title . . ."
+        ". excerpt excerpt excerpt excerpt excerpt . likes-replies"
+        ". excerpt excerpt excerpt excerpt excerpt . likes-replies";
+    }
+  }
+  @include breakpoint(mobile-extra-large) {
+    grid-template-columns: 25px auto repeat(6, 1fr);
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "activity activity activity activity activity activity activity activity"
+      "topic-title topic-title topic-title topic-title topic-title topic-title topic-title topic-title";
+    .topic-excerpt {
+      display: none;
+    }
+  }
+}
+
+.bulk-select-enabled .topic-list-item {
+  grid-template-areas:
+    "avatar author status status . activity"
+    ". topic-title topic-title topic-title likes-replies likes-replies category";
+  .bulk-select {
+    grid-area: bulk-select;
+    padding: 0;
+    margin: 0;
+    align-self: center;
+    justify-self: center;
+    label {
+      margin: 0;
+    }
+  }
+  @include breakpoint(large) {
+    grid-template-columns: 22px min-content min-content auto min-content min-content min-content;
+    grid-template-rows: 22px minmax(22px, auto);
+    grid-template-areas:
+      "avatar author status status  . activity"
+      ". topic-title topic-title topic-title . . likes-replies"
+      ". topic-title topic-title topic-title . . category";
+  }
+  @include breakpoint(mobile-extra-large) {
+    grid-template-columns: 25px auto repeat(6, 1fr);
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "avatar category-status category-status . . . . activity"
+      "topic-title topic-title topic-title topic-title topic-title topic-title topic-title topic-title"
+      "avatar author . . . . . likes-replies";
   }
 }

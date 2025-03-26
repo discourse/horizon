@@ -85,19 +85,6 @@
         padding-top: 0;
       }
     }
-
-    .topic-list-item {
-      @include breakpoint(mobile-extra-large) {
-        box-shadow: none;
-        border-radius: 0;
-        //to be moved to topic card segment for general use
-        // .navigation-category & {
-        //   .badge-category__wrapper {
-        //     display: none;
-        //   }
-        // }
-      }
-    }
   }
 
   #topic-title {
