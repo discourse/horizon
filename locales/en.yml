@@ -1,12 +1,8 @@
 en:
   theme_metadata:
     description: "A simple, beautiful theme that improves the out of the box experience for Discourse sites."
-  topic_bookmarked: "Bookmarked"
-  topic_closed_archived: "Closed and archived"
-  topic_closed: "Closed"
-  topic_archived: "Archived"
-  topic_warning: "Warning"
-  topic_personal_message: "Personal message"
   topic_pinned: "Pinned"
-  topic_unpinned: "Unpinned"
   topic_hot: "Hot"
+  user_replied: "replied"
+  user_posted: "posted"
+

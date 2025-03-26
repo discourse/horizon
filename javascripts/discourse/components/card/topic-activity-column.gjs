@@ -2,12 +2,19 @@ import Component from "@glimmer/component";
 import avatar from "discourse/helpers/avatar";
 import formatDate from "discourse/helpers/format-date";
 import { i18n } from "discourse-i18n";
-import eq from "truth-helpers/helpers/eq";
 import gt from "truth-helpers/helpers/gt";
 
 export default class TopicActivityColumn extends Component {
   get displayUnreadPosts() {
     return this.args.topic.unread_posts || this.args.topic.new_posts;
+  }
+
+  get activityText() {
+    if (this.args.topic.posts_count > 1) {
+      return "user_replied";
+    } else if (this.args.topic.posts_count === 1) {
+      return "user_posted";
+    }
   }
 
   <template>
@@ -26,11 +33,7 @@ export default class TopicActivityColumn extends Component {
         {{/if}}
       </div>
       <div class="topic-activity__reason">
-        {{#if (gt @topic.posts_count 1)}}
-          replied
-        {{else if (eq @topic.posts_count 1)}}
-          posted
-        {{/if}}
+        {{i18n (themePrefix this.activityText)}}
       </div>
       <div class="topic-activity__time">
         {{formatDate @topic.bumpedAt}}
