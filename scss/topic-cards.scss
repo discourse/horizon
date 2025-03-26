@@ -123,8 +123,17 @@
   // status
   .topic-status-data {
     grid-area: status;
+    position: relative;
   }
   .topic-status-card {
+    @include breakpoint("large", min-width) {
+      position: absolute;
+      right: 0px;
+      top: -22px;
+      background-color: var(--d-content-background);
+      height: 85%;
+      font-size: var(--font-down-3);
+    }
     height: 100%;
     margin-left: auto;
     display: flex;
