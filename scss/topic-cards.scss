@@ -393,6 +393,7 @@
       "category . . . . likes-replies dropdown";
   }
   @include breakpoint(mobile-extra-large) {
+    grid-template-columns: 20px min-content min-content auto min-content min-content min-content 36px;
     grid-template-areas:
       "activity activity activity activity activity activity status dropdown"
       "topic-title topic-title topic-title topic-title topic-title topic-title . dropdown"
@@ -407,6 +408,11 @@
   }
   td.topic-category-status-data {
     display: contents;
+  }
+  .topic-status-card {
+    position: relative;
+    top: unset;
+    right: unset;
   }
 }
 
