@@ -1,7 +1,6 @@
 import Component from "@glimmer/component";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
-import AsyncContent from "discourse/components/async-content";
 import icon from "discourse/helpers/d-icon";
 import { reload } from "discourse/helpers/page-reloader";
 import {
@@ -9,7 +8,6 @@ import {
   loadColorSchemeStylesheet,
   updateColorSchemeCookie,
 } from "discourse/lib/color-scheme-picker";
-import { i18n } from "discourse-i18n";
 import DMenu from "float-kit/components/d-menu";
 import UserColorPaletteMenuItem from "./user-color-palette-menu-item";
 
@@ -41,28 +39,7 @@ export default class UserColorPaletteSelector extends Component {
   }
 
   get userColorPalettes() {
-    return listColorSchemes(this.site);
-  }
-
-  get selectedColorPaletteId() {
-    if (this.currentUser) {
-      return this.session.userColorSchemeId;
-    }
-
-    return this.keyValueStore.getItem("anon-horizon-color-palette-id");
-  }
-
-  @action
-  onRegisterMenu(api) {
-    this.dMenu = api;
-  }
-
-  @action
-  async buildColorPaletteObject() {
-    // NOTE: The function refers to color schemes, but we actually
-    // refer to these as palettes now.
-
-    const availablePalettes = this.userColorPalettes
+    const availablePalettes = listColorSchemes(this.site)
       .map((userPalette) => {
         return {
           ...userPalette,
@@ -103,6 +80,19 @@ export default class UserColorPaletteSelector extends Component {
         // Only want to show palettes that have corresponding light/dark modes
         .filter((palette) => !palette.is_dark)
     );
+  }
+
+  get selectedColorPaletteId() {
+    if (this.currentUser) {
+      return this.session.userColorSchemeId;
+    }
+
+    return this.keyValueStore.getItem("anon-horizon-color-palette-id");
+  }
+
+  @action
+  onRegisterMenu(api) {
+    this.dMenu = api;
   }
 
   @action
@@ -150,24 +140,17 @@ export default class UserColorPaletteSelector extends Component {
           {{icon "paintbrush"}}
         </:trigger>
         <:content>
-          <AsyncContent @asyncData={{this.buildColorPaletteObject}}>
-            <:loading>
-              {{i18n "loading"}}
-            </:loading>
-            <:content as |colorPalettes|>
-              <div class="user-color-palette-menu">
-                <div class="user-color-palette-menu__content">
-                  {{#each colorPalettes as |colorPalette|}}
-                    <UserColorPaletteMenuItem
-                      @selectedColorPaletteId={{this.selectedColorPaletteId}}
-                      @colorPalette={{colorPalette}}
-                      @paletteSelected={{this.paletteSelected}}
-                    />
-                  {{/each}}
-                </div>
-              </div>
-            </:content>
-          </AsyncContent>
+          <div class="user-color-palette-menu">
+            <div class="user-color-palette-menu__content">
+              {{#each this.userColorPalettes as |colorPalette|}}
+                <UserColorPaletteMenuItem
+                  @selectedColorPaletteId={{this.selectedColorPaletteId}}
+                  @colorPalette={{colorPalette}}
+                  @paletteSelected={{this.paletteSelected}}
+                />
+              {{/each}}
+            </div>
+          </div>
         </:content>
       </DMenu>
     {{/if}}

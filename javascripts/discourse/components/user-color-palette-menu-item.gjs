@@ -1,4 +1,5 @@
 import Component from "@glimmer/component";
+import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
 import DButton from "discourse/components/d-button";
@@ -18,6 +19,11 @@ export default class UserColorPaletteMenuItem extends Component {
     }
   }
 
+  @action
+  paletteSelected() {
+    this.args.paletteSelected(this.args.colorPalette);
+  }
+
   <template>
     <div
       class="user-color-palette-menu__item"
@@ -31,7 +37,7 @@ export default class UserColorPaletteMenuItem extends Component {
         style={{htmlSafe this.siteStyle}}
         @icon="circle"
         @translatedLabel={{@colorPalette.name}}
-        @action={{@paletteSelected @colorPalette}}
+        @action={{this.paletteSelected}}
       />
     </div>
   </template>
