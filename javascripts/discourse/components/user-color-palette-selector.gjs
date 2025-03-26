@@ -41,6 +41,11 @@ export default class UserColorPaletteSelector extends Component {
   }
 
   @action
+  onRegisterMenu(api) {
+    this.dMenu = api;
+  }
+
+  @action
   async buildColorPaletteObject() {
     // NOTE: The function refers to color schemes, but we actually
     // refer to these as palettes now.
@@ -99,6 +104,7 @@ export default class UserColorPaletteSelector extends Component {
 
   @action
   paletteSelected(selectedPalette) {
+    this.dMenu.close();
     if (this.interfaceColor.darkModeForced) {
       loadColorSchemeStylesheet(selectedPalette.correspondingDarkModeId);
       this.updatePreference(selectedPalette);
@@ -131,6 +137,7 @@ export default class UserColorPaletteSelector extends Component {
     <DMenu
       @identifier="user-color-palette-selector"
       @placementStrategy="fixed"
+      @onRegisterApi={{this.onRegisterMenu}}
       class="btn-flat user-color-palette-selector sidebar-footer-actions-button"
       data-selected-color-palette-id={{this.selectedColorPaletteId}}
       @inline={{true}}
@@ -148,6 +155,7 @@ export default class UserColorPaletteSelector extends Component {
               <div class="user-color-palette-menu__content">
                 {{#each colorPalettes as |colorPalette|}}
                   <UserColorPaletteMenuItem
+                    @selectedColorPaletteId={{this.selectedColorPaletteId}}
                     @colorPalette={{colorPalette}}
                     @paletteSelected={{this.paletteSelected}}
                   />
