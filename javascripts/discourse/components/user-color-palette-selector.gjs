@@ -37,11 +37,16 @@ export default class UserColorPaletteSelector extends Component {
     // color scheme cookie set and other automatic things from core loads their
     // preference.
     if (!this.currentUser && this.anonColorPaletteId) {
-      loadColorSchemeStylesheet(
-        this.anonColorPaletteId,
-        null,
+      const selectedPalette = this.userColorPalettes.find(
+        (palette) => palette.id === this.anonColorPaletteId
+      );
+      const darkMode =
         this.interfaceColor.darkModeForced ||
-          this.devicePreferredColorScheme === "dark"
+        this.devicePreferredColorScheme === "dark";
+      loadColorSchemeStylesheet(
+        darkMode ? selectedPalette.correspondingDarkModeId : selectedPalette.id,
+        null,
+        darkMode
       );
     }
   }
