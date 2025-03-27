@@ -10,12 +10,13 @@
   }
 }
 
-#reply-control.hide-preview:not(.draft) {
+#reply-control.hide-preview {
   @include breakpoint("mobile-extra-large", $rule: min-width) {
     background: var(--d-content-background);
 
     border-top-right-radius: var(--d-border-radius);
     border-top-left-radius: var(--d-border-radius);
+    overflow: hidden;
 
     .grippie {
       background: var(--tertiary-low);
