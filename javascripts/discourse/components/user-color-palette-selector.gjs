@@ -37,8 +37,19 @@ export default class UserColorPaletteSelector extends Component {
     // color scheme cookie set and other automatic things from core loads their
     // preference.
     if (!this.currentUser && this.anonColorPaletteId) {
-      loadColorSchemeStylesheet(this.anonColorPaletteId);
+      loadColorSchemeStylesheet(
+        this.anonColorPaletteId,
+        null,
+        this.interfaceColor.darkModeForced ||
+          this.devicePreferredColorScheme === "dark"
+      );
     }
+  }
+
+  get devicePreferredColorScheme() {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
   }
 
   get userColorPalettes() {
@@ -104,8 +115,15 @@ export default class UserColorPaletteSelector extends Component {
       return;
     }
 
-    if (this.interfaceColor.darkModeForced) {
-      loadColorSchemeStylesheet(selectedPalette.correspondingDarkModeId);
+    if (
+      this.interfaceColor.darkModeForced ||
+      this.devicePreferredColorScheme === "dark"
+    ) {
+      loadColorSchemeStylesheet(
+        selectedPalette.correspondingDarkModeId,
+        null,
+        true
+      );
       this.#updatePreference(selectedPalette);
     } else {
       loadColorSchemeStylesheet(selectedPalette.id);
