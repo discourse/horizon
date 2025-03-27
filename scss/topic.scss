@@ -18,36 +18,52 @@
   min-width: unset; // why we have this?
   .timeline-scrollarea {
     border-left: 1px solid var(--accent-color);
-  }
-  .timeline-scroller {
-    padding: 0.25em;
-    border: 1px solid var(--accent-color);
-    border-radius: 0.75em;
-    padding-left: 0.5em;
-    margin-left: calc(-0.5em - 2.5px);
-    background: var(--d-content-background);
-    height: 40px !important; // height is coming from element style have no other choice
-  }
-  .timelime-scroller-content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25em;
-  }
-  .timeline-replies,
-  .timeline-ago {
-    line-height: 1;
-  }
-  .timeline-ago {
-    // font-size: var(--font-down-1);
-  }
-  .timeline-handle {
-    background-color: var(--accent-color);
-    width: 3px;
-    border-radius: 2px;
-    height: calc(100% - 6px);
+
+    .timeline-scroller {
+      @include breakpoint("medium", $rule: min-width) {
+        padding: 0.25em;
+        border: 1px solid var(--accent-color);
+        border-radius: 0.75em;
+        padding-left: 0.5em;
+        margin-left: calc(-0.5em - 2.5px);
+        background: var(--d-content-background);
+        height: 40px !important; // height is coming from element style have no other choice
+      }
+
+      .timeline-scroller-content {
+        // display: flex;
+        // flex-direction: column;
+        // gap: 0.25em;
+      }
+      .timeline-replies,
+      .timeline-ago {
+        line-height: 1;
+      }
+    }
+    .timeline-handle {
+      background-color: var(--accent-color);
+      @include breakpoint("medium", $rule: min-width) {
+        width: 3px;
+        border-radius: 2px;
+        height: calc(100% - 6px);
+      }
+    }
   }
 }
 
+//should probably get rid of this extra specificity class in core?
+.timeline-container.timeline-fullscreen {
+  @include breakpoint("medium", $rule: max-width) {
+    .topic-timeline .timeline-scrollarea-wrapper {
+    }
+    .topic-timeline
+      .timeline-scrollarea
+      .timeline-scroller
+      .timeline-scroller-content {
+      padding-right: 0.5em;
+    }
+  }
+}
 .container.posts,
 #topic-footer-buttons {
   padding: 0 24px;
