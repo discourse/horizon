@@ -170,9 +170,15 @@
   td.main-link .link-top-line {
     font-size: var(--font-0);
     grid-row: 1/2;
-    grid-column: 1/-2;
+    grid-column: 1/-1;
     font-weight: 500;
     display: flex;
+  }
+
+  &.--has-status-card {
+    td.main-link .link-top-line {
+      grid-column: 1/-2;
+    }
   }
 
   .link-top-line .event-date {
