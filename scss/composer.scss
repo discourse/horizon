@@ -14,8 +14,26 @@
   @include breakpoint("mobile-extra-large", $rule: min-width) {
     background: var(--d-content-background);
 
+    border-top-right-radius: var(--d-border-radius);
+    border-top-left-radius: var(--d-border-radius);
+    overflow: hidden;
+
     .grippie {
       background: var(--tertiary-low);
+    }
+
+    .title-and-category {
+      padding: 0 var(--spacing-inline-m);
+      width: calc(100% - var(--spacing-inline-m) * 2);
+    }
+
+    .d-editor-button-bar {
+      padding: 3px var(--spacing-inline-m);
+      border: none;
+    }
+
+    .d-editor-input {
+      padding: var(--spacing-inline-m);
     }
 
     &:has(.in-focus) .grippie {
