@@ -1,27 +1,10 @@
 import Component from "@glimmer/component";
 import avatar from "discourse/helpers/avatar";
-import concatClass from "discourse/helpers/concat-class";
 import formatDate from "discourse/helpers/format-date";
 import { i18n } from "discourse-i18n";
 import gt from "truth-helpers/helpers/gt";
 
 export default class TopicActivityColumn extends Component {
-  get displayUnreadPosts() {
-    return (
-      this.args.topic.unread_posts ||
-      this.args.topic.new_posts ||
-      this.args.topic.unseen
-    );
-  }
-
-  get badgeClass() {
-    return this.args.topic.unread_posts || this.args.topic.new_posts
-      ? "unread-posts"
-      : this.args.topic.unseen
-      ? "new-topic"
-      : "";
-  }
-
   get activityText() {
     // this should handle any case where a topic was no bumped due to a reply/post
     if (
@@ -62,15 +45,6 @@ export default class TopicActivityColumn extends Component {
           format="medium-with-ago-and-on"
         }}
       </div>
-      {{#if this.displayUnreadPosts}}
-        <span class="topic-post-badges">
-          <a
-            href={{@topic.url}}
-            title={{i18n "topic.unread_posts" count=this.displayUnreadPosts}}
-            class={{concatClass "badge badge-notification" this.badgeClass}}
-          >{{this.displayUnreadPosts}}</a>
-        </span>
-      {{/if}}
     </span>
   </template>
 }
