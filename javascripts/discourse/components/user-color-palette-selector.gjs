@@ -5,11 +5,12 @@ import { service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
 import icon from "discourse/helpers/d-icon";
 import { reload } from "discourse/helpers/page-reloader";
+import { ajax } from "discourse/lib/ajax";
 import {
   listColorSchemes,
-  loadColorSchemeStylesheet,
   updateColorSchemeCookie,
 } from "discourse/lib/color-scheme-picker";
+import cookie from "discourse/lib/cookie";
 import DMenu from "float-kit/components/d-menu";
 import UserColorPaletteMenuItem from "./user-color-palette-menu-item";
 
@@ -29,33 +30,6 @@ export default class UserColorPaletteSelector extends Component {
   @service session;
   @service interfaceColor;
   @tracked anonColorPaletteId = this.#loadAnonColorPalette();
-
-  constructor() {
-    super(...arguments);
-
-    // Only need to do this for anon because the current user will have their
-    // color scheme cookie set and other automatic things from core loads their
-    // preference.
-    if (!this.currentUser && this.anonColorPaletteId) {
-      const selectedPalette = this.userColorPalettes.find(
-        (palette) => palette.id === this.anonColorPaletteId
-      );
-      const darkMode =
-        this.interfaceColor.darkModeForced ||
-        this.devicePreferredColorScheme === "dark";
-      loadColorSchemeStylesheet(
-        darkMode ? selectedPalette.correspondingDarkModeId : selectedPalette.id,
-        null,
-        darkMode
-      );
-    }
-  }
-
-  get devicePreferredColorScheme() {
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  }
 
   get userColorPalettes() {
     const availablePalettes = listColorSchemes(this.site)
@@ -120,50 +94,54 @@ export default class UserColorPaletteSelector extends Component {
       return;
     }
 
-    if (
-      this.interfaceColor.darkModeForced ||
-      this.devicePreferredColorScheme === "dark"
-    ) {
-      loadColorSchemeStylesheet(
-        selectedPalette.correspondingDarkModeId,
-        null,
-        true
-      );
-      this.#updatePreference(selectedPalette);
-    } else {
-      loadColorSchemeStylesheet(selectedPalette.id);
-      this.#updatePreference(selectedPalette);
-    }
-    if (this.currentUser) {
-      // We close the menu first here because otherwise the active item
-      // does not match the selected color, which is confusing.
-      this.dMenu.close();
-      reload();
-    }
+    this.#updatePreference(selectedPalette);
+    this.#changeSiteColorPalette(
+      selectedPalette.id,
+      selectedPalette.correspondingDarkModeId
+    );
+    this.dMenu.close();
   }
 
   #updatePreference(selectedPalette) {
-    if (this.currentUser) {
-      updateColorSchemeCookie(selectedPalette.id);
-      updateColorSchemeCookie(selectedPalette.correspondingDarkModeId, {
-        dark: true,
-      });
-    } else {
-      this.keyValueStore.setItem(
-        "anon-horizon-color-palette-id",
-        selectedPalette.id
-      );
+    updateColorSchemeCookie(selectedPalette.id);
+    updateColorSchemeCookie(selectedPalette.correspondingDarkModeId, {
+      dark: true,
+    });
+
+    if (!this.currentUser) {
       this.anonColorPaletteId = selectedPalette.id;
     }
   }
 
   #loadAnonColorPalette() {
-    const storedAnonPaletteId = this.keyValueStore.getItem(
-      "anon-horizon-color-palette-id"
-    );
+    const storedAnonPaletteId = cookie("color_scheme_id");
     if (storedAnonPaletteId) {
       return parseInt(storedAnonPaletteId, 10);
     }
+  }
+
+  async #changeSiteColorPalette(lightPaletteId, darkPaletteId) {
+    const lightTag = document.querySelector("link.light-scheme");
+    const darkTag = document.querySelector("link.dark-scheme");
+
+    if (!darkTag) {
+      reload();
+      return;
+    }
+
+    // TODO(osama) once we have built-in light/dark modes for each palette, we
+    // can stop making the 2nd ajax call for the dark palette and replace it
+    // with a `include_dark_scheme` param on the ajax call for the light
+    // palette which will include the href for the dark palette in the response
+    const lightPaletteInfo = await ajax(
+      `/color-scheme-stylesheet/${lightPaletteId}.json`
+    );
+    const darkPaletteInfo = await ajax(
+      `/color-scheme-stylesheet/${darkPaletteId}.json`
+    );
+
+    lightTag.href = lightPaletteInfo.new_href;
+    darkTag.href = darkPaletteInfo.new_href;
   }
 
   <template>
