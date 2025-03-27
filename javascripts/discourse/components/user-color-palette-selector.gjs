@@ -1,6 +1,8 @@
 import Component from "@glimmer/component";
+import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
+import { isEmpty } from "@ember/utils";
 import icon from "discourse/helpers/d-icon";
 import { reload } from "discourse/helpers/page-reloader";
 import {
@@ -26,6 +28,7 @@ export default class UserColorPaletteSelector extends Component {
   @service site;
   @service session;
   @service interfaceColor;
+  @tracked anonColorPaletteId = this.#loadAnonColorPalette();
 
   constructor() {
     super(...arguments);
@@ -33,8 +36,8 @@ export default class UserColorPaletteSelector extends Component {
     // Only need to do this for anon because the current user will have their
     // color scheme cookie set and other automatic things from core loads their
     // preference.
-    if (!this.currentUser && this.selectedColorPaletteId) {
-      loadColorSchemeStylesheet(this.selectedColorPaletteId);
+    if (!this.currentUser && this.anonColorPaletteId) {
+      loadColorSchemeStylesheet(this.anonColorPaletteId);
     }
   }
 
@@ -87,7 +90,7 @@ export default class UserColorPaletteSelector extends Component {
       return this.session.userColorSchemeId;
     }
 
-    return this.keyValueStore.getItem("anon-horizon-color-palette-id");
+    return this.anonColorPaletteId;
   }
 
   @action
@@ -97,6 +100,10 @@ export default class UserColorPaletteSelector extends Component {
 
   @action
   paletteSelected(selectedPalette) {
+    if (selectedPalette.id === this.selectedColorPaletteId) {
+      return;
+    }
+
     if (this.interfaceColor.darkModeForced) {
       loadColorSchemeStylesheet(selectedPalette.correspondingDarkModeId);
       this.#updatePreference(selectedPalette);
@@ -105,6 +112,9 @@ export default class UserColorPaletteSelector extends Component {
       this.#updatePreference(selectedPalette);
     }
     if (this.currentUser) {
+      // We close the menu first here because otherwise the active item
+      // does not match the selected color, which is confusing.
+      this.dMenu.close();
       reload();
     }
   }
@@ -120,15 +130,21 @@ export default class UserColorPaletteSelector extends Component {
         "anon-horizon-color-palette-id",
         selectedPalette.id
       );
-      this.keyValueStore.setItem(
-        "anon-horizon-color-palette-dark-id",
-        selectedPalette.correspondingDarkModeId
-      );
+      this.anonColorPaletteId = selectedPalette.id;
+    }
+  }
+
+  #loadAnonColorPalette() {
+    const storedAnonPaletteId = this.keyValueStore.getItem(
+      "anon-horizon-color-palette-id"
+    );
+    if (storedAnonPaletteId) {
+      return parseInt(storedAnonPaletteId, 10);
     }
   }
 
   <template>
-    {{#if this.userColorPalettes}}
+    {{#unless (isEmpty this.userColorPalettes)}}
       <DMenu
         @identifier="user-color-palette-selector"
         @placementStrategy="fixed"
@@ -154,6 +170,6 @@ export default class UserColorPaletteSelector extends Component {
           </div>
         </:content>
       </DMenu>
-    {{/if}}
+    {{/unless}}
   </template>
 }

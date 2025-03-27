@@ -56,7 +56,7 @@ describe "Horizon theme | High level", type: :system do
 
     page.refresh
     expect(palette_selector).to have_selected_palette(marigold_palette)
-    expect(palette_selector).to have_computed_color(marigold_palette, "tertiary")
+    expect(palette_selector).to have_tertiary_color(marigold_palette)
   end
 
   it "works for anon" do
