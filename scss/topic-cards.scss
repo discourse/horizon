@@ -50,7 +50,7 @@
     grid-template-areas:
       ". . . . . . . status"
       "activity activity activity activity activity activity activity activity"
-      "category category category category . . . likes-replies";
+      "category category category category category category category likes-replies";
     border: none;
     border-bottom: 1px solid var(--primary-200);
     box-shadow: none;
@@ -119,13 +119,9 @@
   }
 
   .topic-activity__username {
-    @include breakpoint(tablet) {
+    @include breakpoint(mobile-extra-large) {
       display: none;
     }
-  }
-
-  @include breakpoint("large", min-width) {
-    position: relative;
   }
 
   // status
@@ -227,7 +223,7 @@
     grid-area: category;
     display: flex;
     justify-content: flex-end;
-    @include breakpoint(tablet) {
+    @include breakpoint(mobile-extra-large) {
       justify-content: flex-start;
     }
   }
