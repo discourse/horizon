@@ -36,7 +36,11 @@ export default class TopicActivityColumn extends Component {
         {{i18n (themePrefix this.activityText)}}
       </div>
       <div class="topic-activity__time">
-        {{formatDate @topic.bumpedAt}}
+        {{formatDate
+          @topic.bumpedAt
+          leaveAgo="true"
+          format="medium-with-ago-and-on"
+        }}
       </div>
       {{#if this.displayUnreadPosts}}
         <span class="topic-post-badges">
