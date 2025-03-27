@@ -33,6 +33,7 @@ describe "Horizon theme | User color palette selector", type: :system do
       visit "/"
       palette_selector.open_palette_menu
       palette_selector.click_palette_menu_item(marigold_palette.name)
+      page.refresh
 
       expect(palette_selector).to have_selected_palette(marigold_palette)
       expect(palette_selector).to have_tertiary_color(marigold_palette)
@@ -45,6 +46,7 @@ describe "Horizon theme | User color palette selector", type: :system do
       visit "/"
       palette_selector.open_palette_menu
       palette_selector.click_palette_menu_item(marigold_palette.name)
+      page.refresh
 
       expect(palette_selector).to have_selected_palette(marigold_palette)
       expect(palette_selector).to have_computed_color("oklch(0.92 0.0708528 68.5036)")
@@ -52,7 +54,6 @@ describe "Horizon theme | User color palette selector", type: :system do
       interface_color_selector.expand
       interface_color_selector.dark_option.click
       expect(interface_color_mode).to have_dark_mode_forced
-      pause_test
       expect(palette_selector).to have_computed_color("oklch(0.481966 0.0354264 68.5036)")
 
       page.refresh
@@ -66,6 +67,7 @@ describe "Horizon theme | User color palette selector", type: :system do
       visit "/"
       palette_selector.open_palette_menu
       palette_selector.click_palette_menu_item(marigold_palette.name)
+      page.refresh
 
       expect(palette_selector).to have_selected_palette(marigold_palette)
       expect(palette_selector).to have_tertiary_color(marigold_palette)
@@ -76,6 +78,7 @@ describe "Horizon theme | User color palette selector", type: :system do
       visit "/"
       palette_selector.open_palette_menu
       palette_selector.click_palette_menu_item(marigold_palette.name)
+      page.refresh
 
       pause_test
       expect(palette_selector).to have_selected_palette(marigold_palette)
