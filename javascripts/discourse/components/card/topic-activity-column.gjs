@@ -10,6 +10,13 @@ export default class TopicActivityColumn extends Component {
   }
 
   get activityText() {
+    // this should handle any case where a topic was no bumped due to a reply/post
+    if (
+      moment(this.args.topic.bumped_at).isAfter(this.args.topic.last_posted_at)
+    ) {
+      return "user_updated";
+    }
+
     if (this.args.topic.posts_count > 1) {
       return "user_replied";
     } else if (this.args.topic.posts_count === 1) {
