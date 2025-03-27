@@ -68,6 +68,9 @@ export default {
           if (context.topic.pinned || context.topic.pinned_globally) {
             classes.push("--pinned");
           }
+          if (context.topic.is_hot) {
+            classes.push("--hot");
+          }
           return classes;
         }
       );

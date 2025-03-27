@@ -5,11 +5,14 @@ import { i18n } from "discourse-i18n";
 import gt from "truth-helpers/helpers/gt";
 
 export default class TopicActivityColumn extends Component {
-  get displayUnreadPosts() {
-    return this.args.topic.unread_posts || this.args.topic.new_posts;
-  }
-
   get activityText() {
+    // this should handle any case where a topic was no bumped due to a reply/post
+    if (
+      moment(this.args.topic.bumped_at).isAfter(this.args.topic.last_posted_at)
+    ) {
+      return "user_updated";
+    }
+
     if (this.args.topic.posts_count > 1) {
       return "user_replied";
     } else if (this.args.topic.posts_count === 1) {
@@ -36,17 +39,12 @@ export default class TopicActivityColumn extends Component {
         {{i18n (themePrefix this.activityText)}}
       </div>
       <div class="topic-activity__time">
-        {{formatDate @topic.bumpedAt}}
+        {{formatDate
+          @topic.bumpedAt
+          leaveAgo="true"
+          format="medium-with-ago-and-on"
+        }}
       </div>
-      {{#if this.displayUnreadPosts}}
-        <span class="topic-post-badges">
-          <a
-            href={{@topic.url}}
-            title={{i18n "topic.unread_posts" count=this.displayUnreadPosts}}
-            class="badge badge-notification unread-posts"
-          >{{this.displayUnreadPosts}}</a>
-        </span>
-      {{/if}}
     </span>
   </template>
 }

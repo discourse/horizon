@@ -4,10 +4,17 @@
 
 html:not(:has(.has-full-page-chat)) {
   background-color: var(--background-color);
+
+  @include breakpoint("mobile-extra-large") {
+    background-color: var(--d-content-background);
+  }
 }
 
 body {
   -webkit-font-smoothing: antialiased;
+  @include breakpoint("mobile-extra-large") {
+    background-color: var(--d-content-background);
+  }
 }
 #main-outlet-wrapper {
   gap: var(--main-grid-gap);
