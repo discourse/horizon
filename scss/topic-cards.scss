@@ -449,9 +449,12 @@ body.user-messages-page .topic-list-item {
   td.topic-status-data {
     display: none;
   }
+<<<<<<< HEAD
   grid-template-areas:
     ". . . . . . ."
     "activity activity activity activity activity likes-replies likes-replies";
+=======
+>>>>>>> FIX: Messed up CSS grid on messages list (#88)
   &.excerpt-expanded {
     grid-template-columns: 20px repeat(6, 1fr) auto;
     grid-template-rows: 20px auto auto 30px;
