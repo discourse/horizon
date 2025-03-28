@@ -56,7 +56,7 @@
       grid-row: 2/3;
       grid-column: 1/-1;
     }
-    grid-template-columns: 25px repeat(5, 1fr);
+    grid-template-columns: 20px repeat(5, 1fr);
     grid-template-rows: auto auto auto;
     grid-template-areas:
       "category category category category category status"
