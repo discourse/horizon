@@ -10,7 +10,7 @@
   }
 }
 
-#reply-control.hide-preview {
+#reply-control.hide-preview:not(.draft) {
   @include breakpoint("mobile-extra-large", $rule: min-width) {
     background: var(--d-content-background);
 
