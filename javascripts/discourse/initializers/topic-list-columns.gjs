@@ -65,9 +65,6 @@ export default {
       api.registerValueTransformer(
         "topic-list-item-class",
         ({ value: classes, context }) => {
-          if (context.topic.pinned || context.topic.pinned_globally) {
-            classes.push("--pinned");
-          }
           if (
             context.topic.is_hot ||
             context.topic.pinned ||
