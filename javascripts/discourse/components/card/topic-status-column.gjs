@@ -7,23 +7,23 @@ export default class TopicStatusColumn extends Component {
   @service siteSettings;
 
   get badge() {
-    // if (this.args.topic.is_hot) {
-    //   return {
-    //     icon: "fire",
-    //     text: "topic_hot",
-    //     className: "--hot",
-    //   };
-    // }
+    if (this.args.topic.is_hot) {
+      return {
+        icon: "fire",
+        text: "topic_hot",
+        className: "--hot",
+      };
+    }
 
-    // if (this.args.topic.pinned) {
-    return {
-      icon: "thumbtack",
-      text: "topic_pinned",
-      className: "--pinned",
-    };
-    // }
+    if (this.args.topic.pinned) {
+      return {
+        icon: "thumbtack",
+        text: "topic_pinned",
+        className: "--pinned",
+      };
+    }
 
-    // return null;
+    return null;
   }
 
   <template>
