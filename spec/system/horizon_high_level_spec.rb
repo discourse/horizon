@@ -35,7 +35,7 @@ describe "Horizon theme | High level", type: :system do
     topic_item = find(topic_list.topic_list_item_class(topic_1))
     expect(topic_item.all("td").map { |el| el["class"] }).to eq(
       [
-        "main-link topic-list-data",
+        "main-link clearfix topic-list-data",
         "topic-activity-data",
         "topic-status-data",
         "topic-category-data",
@@ -52,6 +52,7 @@ describe "Horizon theme | High level", type: :system do
     marigold_palette = ColorScheme.find_by(name: "Marigold")
     palette_selector.open_palette_menu
     palette_selector.click_palette_menu_item(marigold_palette.name)
+    expect(palette_selector).to have_no_palette_menu
 
     page.refresh
     expect(palette_selector).to have_selected_palette(marigold_palette)

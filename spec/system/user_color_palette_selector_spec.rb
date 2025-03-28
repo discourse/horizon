@@ -33,6 +33,7 @@ describe "Horizon theme | User color palette selector", type: :system do
       visit "/"
       palette_selector.open_palette_menu
       palette_selector.click_palette_menu_item(marigold_palette.name)
+      expect(palette_selector).to have_no_palette_menu
       page.refresh
 
       expect(palette_selector).to have_selected_palette(marigold_palette)
@@ -46,6 +47,7 @@ describe "Horizon theme | User color palette selector", type: :system do
       visit "/"
       palette_selector.open_palette_menu
       palette_selector.click_palette_menu_item(marigold_palette.name)
+      expect(palette_selector).to have_no_palette_menu
       page.refresh
 
       expect(palette_selector).to have_selected_palette(marigold_palette)
@@ -67,20 +69,20 @@ describe "Horizon theme | User color palette selector", type: :system do
       visit "/"
       palette_selector.open_palette_menu
       palette_selector.click_palette_menu_item(marigold_palette.name)
+      expect(palette_selector).to have_no_palette_menu
       page.refresh
 
       expect(palette_selector).to have_selected_palette(marigold_palette)
       expect(palette_selector).to have_tertiary_color(marigold_palette)
     end
 
-    # TODO (martin) Fix this so dark mode selector works for anon
-    xit "uses the dark version of the palette if the user selects dark mode, which is preserved on reload" do
+    it "uses the dark version of the palette if the user selects dark mode, which is preserved on reload" do
       visit "/"
       palette_selector.open_palette_menu
       palette_selector.click_palette_menu_item(marigold_palette.name)
+      expect(palette_selector).to have_no_palette_menu
       page.refresh
 
-      pause_test
       expect(palette_selector).to have_selected_palette(marigold_palette)
       expect(palette_selector).to have_computed_color("oklch(0.92 0.0708528 68.5036)")
 

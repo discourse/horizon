@@ -30,6 +30,7 @@ export default class UserColorPaletteSelector extends Component {
   @service session;
   @service interfaceColor;
   @tracked anonColorPaletteId = this.#loadAnonColorPalette();
+  @tracked userColorPaletteId = this.session.userColorSchemeId;
 
   get userColorPalettes() {
     const availablePalettes = listColorSchemes(this.site)
@@ -77,7 +78,7 @@ export default class UserColorPaletteSelector extends Component {
 
   get selectedColorPaletteId() {
     if (this.currentUser) {
-      return this.session.userColorSchemeId;
+      return this.userColorPaletteId;
     }
 
     return this.anonColorPaletteId;
@@ -110,6 +111,8 @@ export default class UserColorPaletteSelector extends Component {
 
     if (!this.currentUser) {
       this.anonColorPaletteId = selectedPalette.id;
+    } else {
+      this.userColorPaletteId = selectedPalette.id;
     }
   }
 

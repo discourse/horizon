@@ -7,9 +7,16 @@ module PageObjects
         ".sidebar-footer-actions .user-color-palette-selector"
       end
 
+      def palette_menu
+        PageObjects::Components::DMenu.new(find(sidebar_footer_button_css))
+      end
+
       def open_palette_menu
-        palette_menu = PageObjects::Components::DMenu.new(find(sidebar_footer_button_css))
         palette_menu.expand
+      end
+
+      def has_no_palette_menu?
+        has_no_css?(".user-color-palette-selector-content")
       end
 
       def click_palette_menu_item(palette_name)
