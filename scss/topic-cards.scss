@@ -25,6 +25,7 @@
 }
 
 .topic-list-body .topic-list-item {
+  // title
   text-overflow: ellipsis;
   padding: 0.75em 1rem;
   border: 1px solid var(--primary-300);
@@ -37,16 +38,26 @@
   grid-column-gap: 12px;
   grid-row-gap: 8px;
   border-radius: var(--d-border-radius);
+  td.main-link .link-top-line {
+    grid-row: 1/2;
+    grid-column: 1/-1;
+    font-weight: 500;
+  }
+
+  &.--has-status-card {
+    td.main-link .link-top-line {
+      grid-column: 1/-2;
+    }
+  }
   @include breakpoint(extra-large) {
-    grid-template-columns: 20px repeat(6, 1fr);
     grid-template-areas:
       ". . . . . . status"
       "activity activity activity activity activity likes-replies category";
   }
   @include breakpoint(mobile-extra-large) {
     td.main-link .link-top-line {
-      grid-row: 2/3 !important;
-      grid-column: 1/-1 !important;
+      grid-row: 2/3;
+      grid-column: 1/-1;
     }
     grid-template-columns: 25px repeat(7, 1fr);
     grid-template-rows: auto auto auto;
@@ -170,21 +181,6 @@
   }
   .topic-status-card.--hot {
     --status-color: #e45735;
-  }
-
-  // title
-  td.main-link .link-top-line {
-    font-size: var(--font-0);
-    grid-row: 1/2;
-    grid-column: 1/-1;
-    font-weight: 500;
-    display: flex;
-  }
-
-  &.--has-status-card {
-    td.main-link .link-top-line {
-      grid-column: 1/-2;
-    }
   }
 
   .link-top-line .event-date {
