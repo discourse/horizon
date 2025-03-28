@@ -44,12 +44,16 @@
       "activity activity activity activity activity likes-replies category";
   }
   @include breakpoint(mobile-extra-large) {
+    td.main-link .link-top-line {
+      grid-row: 2/3 !important;
+      grid-column: 1/-1 !important;
+    }
     grid-template-columns: 25px repeat(7, 1fr);
     grid-template-rows: auto auto auto;
     grid-template-areas:
-      ". . . . . . . status"
-      "activity activity activity activity activity activity activity activity"
-      "category category category category category category category likes-replies";
+      "category category category category category category category status"
+      ". . . . . . . ."
+      "activity activity activity activity activity activity activity likes-replies";
     border: none;
     border-bottom: 1px solid var(--primary-200);
     box-shadow: none;
@@ -104,6 +108,8 @@
     display: flex;
     gap: 0.25em;
     font-size: var(--font-down-1);
+    height: 100%;
+    align-items: center;
   }
 
   .topic-activity__user {
@@ -254,6 +260,7 @@
 
     @include breakpoint(tablet) {
       padding: 2px 6px;
+      font-size: var(--font-down-2);
     }
 
     .badge-category__name {
@@ -443,30 +450,30 @@ body.user-messages-page .topic-list-item {
     display: none;
   }
   grid-template-areas:
-    "activity activity activity activity activity activity activity"
-    ". . . . likes-replies likes-replies likes-replies";
+    ". . . . . . ."
+    "activity activity activity activity activity likes-replies likes-replies";
   &.excerpt-expanded {
     grid-template-columns: 20px repeat(6, 1fr) auto;
     grid-template-rows: 20px auto auto 30px;
     grid-template-areas:
-      "activity activity activity activity activity activity activity activity"
       ". . . . . . . ."
+      "activity activity activity activity activity activity activity activity"
       "excerpt excerpt excerpt excerpt excerpt excerpt . ."
       "excerpt excerpt excerpt excerpt excerpt excerpt likes-replies likes-replies";
     @include breakpoint(extra-large) {
       grid-template-areas:
-        "avatar author status status . . . activity"
-        "avatar . . . . . . ."
-        ". excerpt excerpt excerpt excerpt excerpt . likes-replies"
-        ". excerpt excerpt excerpt excerpt excerpt . likes-replies";
+        ". . . . . . . ."
+        "activity activity activity activity activity activity activity activity"
+        "excerpt excerpt excerpt excerpt excerpt excerpt . likes-replies"
+        "excerpt excerpt excerpt excerpt excerpt excerpt . likes-replies";
     }
   }
   @include breakpoint(mobile-extra-large) {
     grid-template-columns: 25px auto repeat(6, 1fr);
     grid-template-rows: auto auto;
     grid-template-areas:
-      "activity activity activity activity activity activity activity activity"
-      ". . . . . . . .";
+      ". . . . . . . ."
+      "activity activity activity activity activity activity activity activity";
     .topic-excerpt {
       display: none;
     }
