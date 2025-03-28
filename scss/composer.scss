@@ -10,13 +10,11 @@
   }
 }
 
-#reply-control.hide-preview {
+#reply-control.hide-preview:not(.draft) {
   @include breakpoint("mobile-extra-large", $rule: min-width) {
     background: var(--d-content-background);
-
     border-top-right-radius: var(--d-border-radius);
     border-top-left-radius: var(--d-border-radius);
-    overflow: hidden;
 
     .grippie {
       background: var(--tertiary-low);
@@ -36,8 +34,13 @@
       padding: var(--spacing-inline-m);
     }
 
-    &:has(.in-focus) .grippie {
-      background: var(--tertiary);
+    &:has(.in-focus) {
+      .grippie {
+        background: var(--tertiary);
+      }
+      .d-editor-button-bar .btn {
+        color: var(--primary-high);
+      }
     }
 
     .reply-area {
