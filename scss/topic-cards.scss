@@ -84,9 +84,9 @@
       grid-template-columns: 25px auto repeat(6, 1fr);
       grid-template-rows: auto auto auto;
       grid-template-areas:
-        ". . . . . . . status"
-        "activity activity activity activity activity activity activity activity"
-        "category . . . . . . likes-replies";
+        "category category category category category category category status"
+        ". . . . . . . ."
+        "activity activity activity activity activity activity activity likes-replies";
       .topic-excerpt {
         display: none;
       }
