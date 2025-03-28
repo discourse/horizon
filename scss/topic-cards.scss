@@ -445,6 +445,10 @@ body.user-messages-page .topic-list-item {
   td.topic-status-data {
     display: none;
   }
+  td.main-link .link-top-line {
+    grid-row: 1 / 2;
+    grid-column: 1 / -1;
+  }
   grid-template-areas:
     ". . . . . . ."
     "activity activity activity activity activity likes-replies likes-replies";
