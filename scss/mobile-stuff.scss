@@ -35,10 +35,12 @@
           column-gap: var(--spacing-inline-s);
           row-gap: var(--spacing-block-xs);
           flex-basis: 100%;
+          li {
+            margin-right: 0;
+            margin-left: -0.35em;
+          }
           .select-kit-header {
             background: var(--d-content-background);
-            padding-block: var(--spacing-block-s);
-            padding-inline: 0;
             border: 0;
           }
         }
