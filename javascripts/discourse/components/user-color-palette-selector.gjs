@@ -3,6 +3,7 @@ import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
+import concatClass from "discourse/helpers/concat-class";
 import icon from "discourse/helpers/d-icon";
 import { reload } from "discourse/helpers/page-reloader";
 import { ajax } from "discourse/lib/ajax";
@@ -31,6 +32,7 @@ export default class UserColorPaletteSelector extends Component {
   @service interfaceColor;
   @tracked anonColorPaletteId = this.#loadAnonColorPalette();
   @tracked userColorPaletteId = this.session.userColorSchemeId;
+  @tracked cssLoaded = true;
 
   get userColorPalettes() {
     const availablePalettes = listColorSchemes(this.site)
@@ -96,10 +98,7 @@ export default class UserColorPaletteSelector extends Component {
     }
 
     this.#updatePreference(selectedPalette);
-    this.#changeSiteColorPalette(
-      selectedPalette.id,
-      selectedPalette.correspondingDarkModeId
-    );
+    this.#changeSiteColorPalette(selectedPalette);
     this.dMenu.close();
   }
 
@@ -123,28 +122,59 @@ export default class UserColorPaletteSelector extends Component {
     }
   }
 
-  async #changeSiteColorPalette(lightPaletteId, darkPaletteId) {
+  async #changeSiteColorPalette(colorPalette) {
+    this.cssLoaded = false;
+
+    const lightPaletteId = colorPalette.id;
+    const darkPaletteId = colorPalette.correspondingDarkModeId;
     const lightTag = document.querySelector("link.light-scheme");
     const darkTag = document.querySelector("link.dark-scheme");
 
+    // TODO(osama) once we have built-in light/dark modes for each palette, we
+    // can stop making the 2nd ajax call for the dark palette and replace it
+    // with a include_dark_scheme param on the ajax call for the light
+    // palette which will include the href for the dark palette in the response
     if (!darkTag) {
       reload();
       return;
     }
 
-    // TODO(osama) once we have built-in light/dark modes for each palette, we
-    // can stop making the 2nd ajax call for the dark palette and replace it
-    // with a `include_dark_scheme` param on the ajax call for the light
-    // palette which will include the href for the dark palette in the response
     const lightPaletteInfo = await ajax(
-      `/color-scheme-stylesheet/${lightPaletteId}.json`
+      `/color-scheme-stylesheet/${lightPaletteId}/${colorPalette.theme_id}.json`
     );
     const darkPaletteInfo = await ajax(
-      `/color-scheme-stylesheet/${darkPaletteId}.json`
+      `/color-scheme-stylesheet/${darkPaletteId}/${colorPalette.theme_id}.json`
     );
 
-    lightTag.href = lightPaletteInfo.new_href;
-    darkTag.href = darkPaletteInfo.new_href;
+    const replaceLinkTag = (oldTag, newHref, className, mode, paletteId) => {
+      const newTag = document.createElement("link");
+      newTag.rel = "stylesheet";
+      newTag.href = newHref;
+      newTag.className = className;
+      newTag.dataset.schemeId = paletteId;
+      newTag.media = `(prefers-color-scheme: ${mode})`;
+
+      newTag.onload = () => {
+        this.cssLoaded = true;
+      };
+
+      oldTag.parentNode.replaceChild(newTag, oldTag);
+    };
+
+    replaceLinkTag(
+      lightTag,
+      lightPaletteInfo.new_href,
+      "light-scheme",
+      "light",
+      lightPaletteId
+    );
+    replaceLinkTag(
+      darkTag,
+      darkPaletteInfo.new_href,
+      "dark-scheme",
+      "dark",
+      darkPaletteId
+    );
   }
 
   <template>
@@ -153,7 +183,10 @@ export default class UserColorPaletteSelector extends Component {
         @identifier="user-color-palette-selector"
         @placementStrategy="fixed"
         @onRegisterApi={{this.onRegisterMenu}}
-        class="btn-flat user-color-palette-selector sidebar-footer-actions-button"
+        class={{concatClass
+          "btn-flat user-color-palette-selector sidebar-footer-actions-button"
+          (if this.cssLoaded "user-color-palette-css-loaded")
+        }}
         data-selected-color-palette-id={{this.selectedColorPaletteId}}
         @inline={{true}}
       >

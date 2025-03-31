@@ -29,6 +29,10 @@ module PageObjects
         has_css?(".user-color-palette-selector[data-selected-color-palette-id='#{palette.id}']")
       end
 
+      def has_loaded_css?
+        has_css?(".user-color-palette-selector.user-color-palette-css-loaded")
+      end
+
       def has_tertiary_color?(palette)
         computed_color_hex =
           page.evaluate_script(
