@@ -13,7 +13,7 @@ body.has-full-page-chat {
 
 .chat-drawer-container {
   .is-expanded & {
-    box-shadow: 0px 0px 0px 2px var(--d-chat-border);
+    box-shadow: 0px 0px 0px 2px var(--tertiary-medium);
   }
   .chat-drawer.is-expanded & {
     border: none;
@@ -27,7 +27,6 @@ body.has-full-page-chat {
 .chat-drawer .channels-list-container .chat-channel-row {
   margin-bottom: var(--spacing-block-xs);
   font-size: var(--font-up-1);
-  border-radius: var(--d-border-radius);
   border-bottom: none;
   &:hover {
     background-color: var(--d-sidebar-active-background);
