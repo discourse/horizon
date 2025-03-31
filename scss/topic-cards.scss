@@ -371,7 +371,7 @@
       grid-template-columns: 20px min-content auto min-content;
       grid-template-areas:
         ". . . dropdown"
-        "avatar update metadata ."
+        "avatar update metadata metadata"
         "excerpt excerpt excerpt . "
         "excerpt excerpt excerpt category";
       @include breakpoint(mobile-extra-large) {
