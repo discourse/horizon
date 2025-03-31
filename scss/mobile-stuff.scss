@@ -37,10 +37,13 @@
           flex-basis: 100%;
           li {
             margin-right: 0;
-            margin-left: -0.35em;
+            margin-left: calc(
+              (var(--spacing-block-s) - 2px) * -1
+            ); // 2px is width of the outline
           }
           .select-kit-header {
             background: var(--d-content-background);
+
             border: 0;
           }
         }
