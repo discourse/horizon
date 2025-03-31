@@ -35,7 +35,7 @@ describe "Horizon theme | High level", type: :system do
     topic_item = find(topic_list.topic_list_item_class(topic_1))
     expect(topic_item.all("td").map { |el| el["class"] }).to eq(
       [
-        "main-link clearfix topic-list-data",
+        "main-link topic-list-data",
         "topic-activity-data",
         "topic-status-data",
         "topic-category-data",
