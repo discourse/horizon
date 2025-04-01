@@ -94,3 +94,7 @@ input[type="color"]:focus,
 .discourse-reactions-list .reactions {
   gap: 0.15em;
 }
+
+.group-details-container {
+  border-radius: var(--d-border-radius);
+}

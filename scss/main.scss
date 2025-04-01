@@ -72,16 +72,17 @@ body:not(.has-full-page-chat) {
       #topic-footer-buttons,
       .more-topics__container,
       .welcome-banner,
-      .container .user-main,
       .reviewable,
       .admin-content,
       .discourse-post-event-upcoming-events,
-      .container.groups-index,
       .body-page,
-      .container.badges,
       .topic-above-footer-buttons-outlet .presence-users,
       .global-notice,
-      .container.tags-index {
+      .container .user-main,
+      .container.groups-index,
+      .container.badges,
+      .container.tags-index,
+      .container.group {
         @include breakpoint(medium, $rule: min-width) {
           max-width: 1000px;
           margin-inline: auto;
