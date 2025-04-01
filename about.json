@@ -22,84 +22,108 @@
       "secondary": "ffffff",
       "tertiary": "595bca",
       "tertiary-med-or-tertiary": "595bca",
-      "selected": "d7dfff"
+      "selected": "d7dfff",
+      "header_background": "ffffff",
+      "header_primary": "1A1A1A"
     },
     "Horizon Dark": {
       "primary": "ffffff",
       "secondary": "1A1A1A",
       "tertiary": "595bca",
       "tertiary-med-or-tertiary": "595bca",
-      "selected": "3b3e56"
+      "selected": "3b3e56",
+      "header_background": "1A1A1A",
+      "header_primary": "ffffff"
     },
     "Royal": {
       "primary": "1A1A1A",
       "secondary": "ffffff",
       "tertiary": "4169e1",
       "tertiary-med-or-tertiary": "4169e1",
-      "selected": "c7e3ff"
+      "selected": "c7e3ff",
+      "header_background": "ffffff",
+      "header_primary": "1A1A1A"
     },
     "Royal Dark": {
       "primary": "ffffff",
       "secondary": "1A1A1A",
       "tertiary": "4169e1",
       "tertiary-med-or-tertiary": "4169e1",
-      "selected": "3a455f"
+      "selected": "3a455f",
+      "header_background": "1A1A1A",
+      "header_primary": "ffffff"
     },
     "Clover": {
       "primary": "1A1A1A",
       "secondary": "ffffff",
       "tertiary": "45a06e",
       "tertiary-med-or-tertiary": "45a06e",
-      "selected": "c6f1d5"
+      "selected": "c6f1d5",
+      "header_background": "ffffff",
+      "header_primary": "1A1A1A"
     },
     "Clover Dark": {
       "primary": "ffffff",
       "secondary": "1A1A1A",
       "tertiary": "45a06e",
       "tertiary-med-or-tertiary": "45a06e",
-      "selected": "47594e"
+      "selected": "47594e",
+      "header_background": "1A1A1A",
+      "header_primary": "ffffff"
     },
     "Lily": {
       "primary": "1A1A1A",
       "secondary": "ffffff",
       "tertiary": "cc338c",
       "tertiary-med-or-tertiary": "cc338c",
-      "selected": "ffc8ee"
+      "selected": "ffc8ee",
+      "header_background": "ffffff",
+      "header_primary": "1A1A1A"
     },
     "Lily Dark": {
       "primary": "ffffff",
       "secondary": "1A1A1A",
       "tertiary": "cc338c",
       "tertiary-med-or-tertiary": "cc338c",
-      "selected": "5f3e4e"
+      "selected": "5f3e4e",
+      "header_background": "1A1A1A",
+      "header_primary": "ffffff"
     },
     "Violet": {
       "primary": "1A1A1A",
       "secondary": "ffffff",
       "tertiary": "9b15de",
       "tertiary-med-or-tertiary": "9b15de",
-      "selected": "feccff"
+      "selected": "feccff",
+      "header_background": "ffffff",
+      "header_primary": "1A1A1A"
     },
     "Violet Dark": {
       "primary": "ffffff",
       "secondary": "1A1A1A",
       "tertiary": "9b15de",
       "tertiary-med-or-tertiary": "9b15de",
-      "selected": "4c385c"
+      "selected": "4c385c",
+      "header_background": "1A1A1A",
+      "header_primary": "ffffff"
     },
     "Marigold": {
       "primary": "1A1A1A",
       "secondary": "ffffff",
       "tertiary": "d3881f",
       "tertiary-med-or-tertiary": "d3881f",
-      "selected": "ffdcb2"
+      "selected": "ffdcb2",
+      "header_background": "ffffff",
+      "header_primary": "1A1A1A"
     },
     "Marigold Dark": {
       "primary": "ffffff",
       "secondary": "1A1A1A",
       "tertiary": "d3881f",
       "tertiary-med-or-tertiary": "d3881f",
-      "selected": "6c5b49"
+      "selected": "6c5b49",
+      "header_background": "1A1A1A",
+      "header_primary": "ffffff"
     }
   }
 }
