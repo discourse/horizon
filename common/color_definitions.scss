@@ -1,9 +1,9 @@
 html {
   --accent-color: #{$tertiary} !important;
-  --accent-text-color: light-dark(#ffffff, #212121) !important;
+  --accent-text-color: #ffffff;
   // Background Colors
   --background-color: light-dark(
-    oklch(from #{$tertiary} 98% calc(c * 0.25) h),
+    oklch(from #{$tertiary} 96% calc(c * 0.125) h),
     oklch(from #{$tertiary} 10% 0.025 h)
   ) !important;
   --d-content-background: light-dark(
@@ -22,7 +22,7 @@ html {
 
   // Sidebar Colors
   --d-sidebar-border-color: light-dark(
-    oklch(from #{$tertiary} 90% c h),
+    oklch(from #{$tertiary} 88% calc(c * 0.25) h),
     oklch(from #{$tertiary} calc(l * 0.7) calc(c * 0.25) h)
   ) !important;
   --d-sidebar-link-color: light-dark(
@@ -40,25 +40,29 @@ html {
     oklch(from #{$tertiary} calc(l * 0.7) calc(c * 0.25) h)
   ) !important;
 
-  --d-nav-color--active: #{$tertiary} !important;
+  --d-nav-color--active: light-dark(
+    oklch(from #{$tertiary} l c h),
+    oklch(from #{$tertiary} calc(l * 1.2) c h)
+  ) !important;
+
   --link-color: light-dark(
-    #{$tertiary},
+    oklch(from #{$tertiary} l c h),
     oklch(from #{$tertiary} calc(l * 0.95) c h)
   ) !important;
   --link-color-hover: light-dark(
-    #{$tertiary},
+    oklch(from #{$tertiary} l c h),
     oklch(from #{$tertiary} calc(l * 1.5) calc(c * 2.25) h)
   ) !important;
   --tertiary-hover: #{$tertiary} !important;
 
   // Search Colors
   --search-color: light-dark(
-    oklch(from #{$tertiary} calc(l * 0.65) calc(c * 0.65) h),
-    oklch(from #{$tertiary} calc(l * 1.5) calc(c * 2) h)
+    oklch(from #{$tertiary} l c h),
+    oklch(from #{$tertiary} calc(l * 1.5) c h)
   ) !important;
   --search-banner-text-color: light-dark(
     oklch(from #{$tertiary} calc(l * 0.65) calc(c * 0.65) h),
-    oklch(from #{$tertiary} calc(l * 1.85) calc(c * 2) h)
+    oklch(from #{$tertiary} calc(l * 1.5) c h)
   ) !important;
 
   // Topic Card Colors
