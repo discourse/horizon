@@ -334,7 +334,10 @@
     @include breakpoint(mobile-extra-large) {
       grid-template-areas:
         ". . . . . . . dropdown"
-        "avatar update metadata metadata metadata metadata category dropdown";
+        "update update metadata metadata metadata metadata category category";
+      .avatar {
+        display: none;
+      }
     }
   }
 
