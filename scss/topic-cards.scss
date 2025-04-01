@@ -90,6 +90,15 @@
         display: none;
       }
     }
+    .topic-likes-replies-data {
+      align-self: flex-end;
+    }
+    .topic-category-data {
+      align-items: flex-end;
+    }
+    .badge-category__wrapper {
+      height: min-content;
+    }
   }
 
   // display contents
