@@ -3,6 +3,7 @@ import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
+import { Promise } from "rsvp";
 import concatClass from "discourse/helpers/concat-class";
 import icon from "discourse/helpers/d-icon";
 import { reload } from "discourse/helpers/page-reloader";
@@ -127,7 +128,6 @@ export default class UserColorPaletteSelector extends Component {
 
     const lightPaletteId = colorPalette.id;
     const darkPaletteId = colorPalette.correspondingDarkModeId;
-    const lightTag = document.querySelector("link.light-scheme");
     const darkTag = document.querySelector("link.dark-scheme");
 
     // TODO(osama) once we have built-in light/dark modes for each palette, we
@@ -146,35 +146,32 @@ export default class UserColorPaletteSelector extends Component {
       `/color-scheme-stylesheet/${darkPaletteId}/${colorPalette.theme_id}.json`
     );
 
-    const replaceLinkTag = (oldTag, newHref, className, mode, paletteId) => {
-      const newTag = document.createElement("link");
-      newTag.rel = "stylesheet";
-      newTag.href = newHref;
-      newTag.className = className;
-      newTag.dataset.schemeId = paletteId;
-      newTag.media = `(prefers-color-scheme: ${mode})`;
+    Promise.all([
+      this.#preloadAndSwapCSS(lightPaletteInfo.new_href, "light-scheme"),
+      this.#preloadAndSwapCSS(darkPaletteInfo.new_href, "dark-scheme"),
+    ]).then(() => {
+      this.cssLoaded = true;
+    });
+  }
 
+  #preloadAndSwapCSS(newHref, existingLinkClass) {
+    return new Promise((resolve) => {
+      const existingLink = document.querySelector(
+        `link[rel='stylesheet'].${existingLinkClass}`
+      );
+      const newTag = document.createElement("link");
+
+      newTag.rel = "preload";
+      newTag.href = newHref;
+      newTag.as = "style";
       newTag.onload = () => {
-        this.cssLoaded = true;
+        existingLink.href = newHref;
+        newTag.remove();
+        resolve();
       };
 
-      oldTag.parentNode.replaceChild(newTag, oldTag);
-    };
-
-    replaceLinkTag(
-      lightTag,
-      lightPaletteInfo.new_href,
-      "light-scheme",
-      "light",
-      lightPaletteId
-    );
-    replaceLinkTag(
-      darkTag,
-      darkPaletteInfo.new_href,
-      "dark-scheme",
-      "dark",
-      darkPaletteId
-    );
+      document.head.appendChild(newTag);
+    });
   }
 
   <template>
