@@ -370,12 +370,11 @@
 
     @include breakpoint(mobile-extra-large) {
       grid-template-columns: auto min-content;
-      grid-template-rows: auto auto;
       grid-template-areas:
         ".  dropdown"
         "category category";
       .post-excerpt,
-      .author-avatar {
+      .avatar {
         display: none;
       }
     }
