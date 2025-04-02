@@ -78,11 +78,13 @@ body:not(.has-full-page-chat) {
       .body-page,
       .topic-above-footer-buttons-outlet .presence-users,
       .global-notice,
+      .users-directory.directory,
       .container .user-main,
       .container.groups-index,
       .container.badges,
       .container.tags-index,
-      .container.group {
+      .container.group,
+      .container.cakeday {
         @include breakpoint(medium, $rule: min-width) {
           max-width: 1000px;
           margin-inline: auto;
