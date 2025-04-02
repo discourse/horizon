@@ -22,4 +22,5 @@
   --d-sidebar-section-link-icon-size: 1em;
   --d-hover: oklch(from var(--d-selected) l c h / 0.75);
   --d-input-bg-color: var(--d-content-background);
+  --d-sidebar-active-color: var(--primary) !important;
 }
