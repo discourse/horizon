@@ -29,6 +29,7 @@ html {
     oklch(from #{$tertiary} calc(l * 0.8) calc(c * 0.25) h),
     oklch(from #{$tertiary} calc(l * 1.5) calc(c * 0.25) h)
   ) !important;
+  --d-sidebar-active-color: #{$primary} !important;
   --d-sidebar-suffix-color: light-dark(
     oklch(from #{$tertiary} l calc(c * 0.9) h),
     oklch(from #{$tertiary} l calc(c * 0.9) h)
