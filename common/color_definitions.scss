@@ -46,6 +46,11 @@ html {
     oklch(from #{$tertiary} calc(l * 1.2) c h)
   ) !important;
 
+  --d-nav-color--hover: light-dark(
+    oklch(from #{$tertiary} l c h),
+    oklch(from #{$tertiary} calc(l * 1.2) c h)
+  ) !important;
+
   --link-color: light-dark(
     oklch(from #{$tertiary} l c h),
     oklch(from #{$tertiary} calc(l * 0.95) c h)

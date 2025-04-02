@@ -44,7 +44,8 @@
   .d-header-icons
   .header-color-scheme-toggle
   .-expanded
-  > .d-icon {
+  > .d-icon,
+.discourse-no-touch .header-sidebar-toggle button:hover .d-icon {
   color: var(--header_primary-medium);
 }
 
@@ -71,14 +72,6 @@
 
 .badge-notification {
   color: var(--accent-text-color);
-}
-
-.user-menu .quick-access-panel li,
-.user-notifications-list li,
-.user-menu .quick-access-panel li.do-not-disturb,
-.menu-panel .panel-body-bottom .btn,
-.menu-panel .panel-body-bottom .btn:hover {
-  // background-color: var(--d-content-background);
 }
 
 body.login-page,
