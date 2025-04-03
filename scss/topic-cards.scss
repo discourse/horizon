@@ -119,15 +119,11 @@
     grid-area: activity;
   }
   .topic-activity {
-    display: flex;
-    gap: 0.25em;
+    display: grid;
+    grid-template-columns: 20px auto auto auto;
     font-size: var(--font-down-1);
     height: 100%;
     align-items: center;
-  }
-
-  .topic-activity__user {
-    display: flex;
     gap: 0.25em;
   }
 
@@ -137,10 +133,31 @@
     border-radius: 4px;
   }
 
+  .topic-activity__user {
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-low);
+  }
+
   .topic-activity__username {
-    @include breakpoint(mobile-extra-large) {
+    margin-left: 0.25em;
+  }
+
+  @include breakpoint(mobile-extra-large) {
+    .topic-activity__username {
       display: none;
     }
+    .topic-activity__reason {
+      margin-left: 0.25em;
+    }
+  }
+
+  .topic-activity.--updated .topic-activity__reason {
+    margin-left: 0.25em;
   }
 
   // status
