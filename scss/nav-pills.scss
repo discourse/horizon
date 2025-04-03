@@ -47,7 +47,7 @@
 .nav-pills > li button:hover {
   .discourse-no-touch & {
     background: transparent;
-    color: var(--accent-color);
+    color: var(--d-nav-color--hover);
     &::after {
       content: "";
       position: absolute;
@@ -55,7 +55,7 @@
       bottom: 0;
       right: 0;
       height: var(--d-nav-underline-height);
-      background: var(--accent-color);
+      background: var(--d-nav-color--hover);
     }
   }
 }
