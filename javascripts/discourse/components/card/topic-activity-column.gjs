@@ -1,8 +1,8 @@
 import Component from "@glimmer/component";
 import avatar from "discourse/helpers/avatar";
+import icon from "discourse/helpers/d-icon";
 import formatDate from "discourse/helpers/format-date";
 import { i18n } from "discourse-i18n";
-import gt from "truth-helpers/helpers/gt";
 
 export default class TopicActivityColumn extends Component {
   get activityText() {
@@ -20,19 +20,37 @@ export default class TopicActivityColumn extends Component {
     }
   }
 
+  get topicUser() {
+    // this should handle any case where a topic was no bumped due to a reply/post
+    if (
+      moment(this.args.topic.bumped_at).isAfter(this.args.topic.last_posted_at)
+    ) {
+      return "";
+    }
+
+    if (this.args.topic.posts_count > 1) {
+      return {
+        user: this.args.topic.lastPosterUser,
+        username: this.args.topic.last_poster_username,
+      };
+    } else if (this.args.topic.posts_count === 1) {
+      return {
+        user: this.args.topic.creator,
+        username: this.args.topic.creator.username,
+      };
+    }
+  }
+
   <template>
     <span class="topic-activity">
       <div class="topic-activity__user">
-        {{#if (gt @topic.replyCount 1)}}
-          {{avatar @topic.lastPosterUser imageSize="small"}}
-          <span
-            class="topic-activity__username"
-          >@{{@topic.last_poster_username}}</span>
+        {{#if this.topicUser}}
+          {{avatar this.topicUser.user imageSize="small"}}
+          <span class="topic-activity__username">
+            {{this.topicUser.username}}
+          </span>
         {{else}}
-          {{avatar @topic.creator imageSize="small"}}
-          <span
-            class="topic-activity__username"
-          >@{{@topic.creator.username}}</span>
+          {{icon "pencil"}}
         {{/if}}
       </div>
       <div class="topic-activity__reason">
