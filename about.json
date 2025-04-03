@@ -40,8 +40,8 @@
     "Royal": {
       "primary": "1A1A1A",
       "secondary": "ffffff",
-      "tertiary": "288EDC",
-      "tertiary-med-or-tertiary": "288EDC",
+      "tertiary": "1F7BC1",
+      "tertiary-med-or-tertiary": "1F7BC1",
       "selected": "c7e3ff",
       "header_background": "ffffff",
       "header_primary": "1A1A1A",
@@ -50,8 +50,8 @@
     "Royal Dark": {
       "primary": "ffffff",
       "secondary": "1A1A1A",
-      "tertiary": "288EDC",
-      "tertiary-med-or-tertiary": "288EDC",
+      "tertiary": "1F7BC1",
+      "tertiary-med-or-tertiary": "1F7BC1",
       "selected": "3a455f",
       "header_background": "1A1A1A",
       "header_primary": "ffffff",
@@ -60,8 +60,8 @@
     "Clover": {
       "primary": "1A1A1A",
       "secondary": "ffffff",
-      "tertiary": "45a06e",
-      "tertiary-med-or-tertiary": "45a06e",
+      "tertiary": "39845B",
+      "tertiary-med-or-tertiary": "39845B",
       "selected": "c6f1d5",
       "header_background": "ffffff",
       "header_primary": "1A1A1A",
@@ -70,8 +70,8 @@
     "Clover Dark": {
       "primary": "ffffff",
       "secondary": "1A1A1A",
-      "tertiary": "45a06e",
-      "tertiary-med-or-tertiary": "45a06e",
+      "tertiary": "39845B",
+      "tertiary-med-or-tertiary": "39845B",
       "selected": "47594e",
       "header_background": "1A1A1A",
       "header_primary": "ffffff",

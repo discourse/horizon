@@ -64,11 +64,7 @@ html {
   // Search Colors
   --search-color: light-dark(
     oklch(from #{$tertiary} l c h),
-    oklch(from #{$tertiary} calc(l * 1.5) c h)
-  ) !important;
-  --search-banner-text-color: light-dark(
-    oklch(from #{$tertiary} calc(l * 0.65) calc(c * 0.65) h),
-    oklch(from #{$tertiary} calc(l * 1.5) c h)
+    oklch(from #{$tertiary} calc(l * 1.95) calc(c * 0.75) h)
   ) !important;
 
   // Topic Card Colors

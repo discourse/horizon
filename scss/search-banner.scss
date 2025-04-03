@@ -21,7 +21,7 @@
     align-self: center;
     margin: 0;
     font-weight: 400;
-    color: var(--search-banner-text-color);
+    color: var(--search-color);
     @media screen and (max-width: 1028px) {
       font-size: var(--font-up-4);
       grid-column: 1/-1;
