@@ -84,7 +84,8 @@ body:not(.has-full-page-chat) {
       .container.badges,
       .container.tags-index,
       .container.group,
-      .container.cakeday {
+      .container.cakeday,
+      .edit-category {
         @include breakpoint(medium, $rule: min-width) {
           max-width: 1000px;
           margin-inline: auto;
