@@ -21,20 +21,11 @@
 
     .timeline-scroller {
       @include breakpoint("medium", $rule: min-width) {
-        padding: 0.25em;
-        border: 1px solid var(--accent-color);
-        border-radius: 0.75em;
-        padding-left: 0.5em;
-        margin-left: calc(-0.5em - 2.5px);
+        margin-left: -4.5px;
         background: var(--d-content-background);
         height: 40px !important; // height is coming from element style have no other choice
       }
 
-      .timeline-scroller-content {
-        // display: flex;
-        // flex-direction: column;
-        // gap: 0.25em;
-      }
       .timeline-replies,
       .timeline-ago {
         line-height: 1;
@@ -43,8 +34,8 @@
     .timeline-handle {
       background-color: var(--accent-color);
       @include breakpoint("medium", $rule: min-width) {
-        width: 3px;
-        border-radius: 2px;
+        width: 8px;
+        border-radius: 10px;
         height: calc(100% - 6px);
       }
     }
@@ -70,7 +61,7 @@
 }
 
 .container.posts {
-  grid-template-columns: auto 150px;
+  grid-template-columns: auto 8em;
   @media screen and (max-width: 924px) {
     grid-template-columns: auto auto;
   }
