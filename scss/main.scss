@@ -64,29 +64,9 @@ body:not(.has-full-page-chat) {
       width: 100%;
       padding-bottom: var(--spacing-block-l);
       max-width: unset;
-      //thanks to random container elements on the page, I can't do a direct child selector here because it targets all the randomness, so I see no other option than MANUALLY adding every possible element that can appear in the main outlet YAY
-      .list-controls,
-      .list-container,
-      #topic-title,
-      .container.posts,
-      #topic-footer-buttons,
-      .more-topics__container,
-      .welcome-banner,
-      .reviewable,
-      .admin-content,
-      .discourse-post-event-upcoming-events,
-      .body-page,
-      .topic-above-footer-buttons-outlet .presence-users,
-      .global-notice,
-      .users-directory.directory,
-      .container .user-main,
-      .container.groups-index,
-      .container.badges,
-      .container.tags-index,
-      .container.group,
-      .container.cakeday,
-      .edit-category {
+      > * {
         @include breakpoint(medium, $rule: min-width) {
+          box-sizing: border-box;
           max-width: 1000px;
           margin-inline: auto;
           padding-inline: var(--spacing-inline-l);
