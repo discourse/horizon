@@ -91,6 +91,7 @@ body:not(.has-full-page-chat) {
       .container.cakeday,
       .edit-category {
         @include breakpoint(medium, $rule: min-width) {
+          box-sizing: border-box;
           max-width: 1000px;
           margin-inline: auto;
           padding-inline: var(--spacing-inline-l);
