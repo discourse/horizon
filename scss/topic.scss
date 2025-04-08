@@ -6,7 +6,7 @@
   }
 }
 
-.container.posts .topic-navigation {
+.container.posts .topic-navigation:not(.with-topic-progress) {
   // super fragile because new sticky topic title doesnt have a calculated value (= 53px with this font and size but…)
   top: calc(
     var(--header-offset, 60px) + 53px + calc(var(--spacing-block-l) * 2)
