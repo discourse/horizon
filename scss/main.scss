@@ -62,8 +62,12 @@ body:not(.has-full-page-chat) {
     }
     #main-outlet {
       width: 100%;
-      padding-bottom: var(--spacing-block-l);
       max-width: unset;
+      padding-bottom: var(--spacing-block-l);
+      html.composer-open & {
+        padding-bottom: var(--composer-height);
+      }
+
       //thanks to random container elements on the page, I can't do a direct child selector here because it targets all the randomness, so I see no other option than MANUALLY adding every possible element that can appear in the main outlet YAY
       .list-controls,
       .list-container,
