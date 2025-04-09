@@ -62,8 +62,11 @@ body:not(.has-full-page-chat) {
     }
     #main-outlet {
       width: 100%;
-      padding-bottom: var(--spacing-block-l);
       max-width: unset;
+      padding-bottom: var(--spacing-block-l);
+      html.composer-open & {
+        padding-bottom: var(--composer-height);
+      }
       > * {
         @include breakpoint(medium, $rule: min-width) {
           box-sizing: border-box;
