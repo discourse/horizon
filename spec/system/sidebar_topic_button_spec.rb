@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe "Sidebar New Topic Button", system: true do
-  fab!(:theme) { upload_theme }
+  before { upload_theme }
   fab!(:group)
   fab!(:user) { Fabricate(:user, trust_level: 3, groups: [group]) }
   fab!(:category)

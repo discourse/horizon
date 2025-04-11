@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe "Sidebar New Topic Button", system: true do
-  fab!(:theme) { upload_theme }
+  before { upload_theme }
 
   it "does not render the sidebar button for anons" do
     visit("/latest")
