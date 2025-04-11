@@ -569,6 +569,9 @@ body.user-messages-page {
       display: flex;
       align-items: center;
       height: 100%;
+      a {
+        margin-right: 4px;
+      }
       .avatar {
         width: 20px;
         height: 20px;
