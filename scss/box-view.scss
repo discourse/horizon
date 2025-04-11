@@ -19,20 +19,20 @@
 
 .has-full-page-chat .chat-replying-indicator-container {
   margin-bottom: var(--d-border-radius-large);
-  @include breakpoint(medium) {
+  @include breakpoint(tablet) {
     margin-bottom: 0;
   }
 }
 
 .has-full-page-chat .chat-selection-management {
   margin-bottom: var(--d-border-radius-large);
-  @include breakpoint(medium) {
+  @include breakpoint(tablet) {
     margin-bottom: 0;
   }
 }
 
 .experimental-screen {
-  @include breakpoint(medium) {
+  @include breakpoint(tablet) {
     display: none;
   }
   max-width: unset !important;
