@@ -546,8 +546,8 @@ body.user-messages-page {
     border-left: none;
     display: grid;
     grid-template-areas: "title activity" "posters .";
-    grid-template-columns: min-content auto;
-    grid-template-rows: min-content;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
     td.topic-category-data,
     td.topic-likes-replies-data,
     td.topic-status-data {
@@ -561,10 +561,6 @@ body.user-messages-page {
       background-color: var(--primary-low);
       border-color: var(--primary-200);
     }
-    .link-top-line {
-      order: 1;
-      width: max-content;
-    }
     td.topic-activity-data {
       grid-area: activity;
     }
@@ -573,6 +569,7 @@ body.user-messages-page {
       display: flex;
       align-items: center;
       height: 100%;
+      gap: 0.25em;
       .avatar {
         width: 20px;
         height: 20px;
