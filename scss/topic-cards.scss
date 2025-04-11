@@ -569,11 +569,11 @@ body.user-messages-page {
       display: flex;
       align-items: center;
       height: 100%;
-      gap: 0.25em;
       .avatar {
         width: 20px;
         height: 20px;
         border-radius: 4px;
+        background-color: var(--primary-low);
       }
     }
   }
