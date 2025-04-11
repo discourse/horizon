@@ -530,46 +530,93 @@
 
 // User Messages
 
-body.user-messages-page .topic-list-item {
-  td.topic-category-data,
-  td.topic-likes-replies-data,
-  td.topic-status-data {
-    display: none;
+body.user-messages-page {
+  .topic-list-body {
+    gap: 0;
   }
-  td.main-link .link-top-line {
-    grid-row: 1 / 2;
-    grid-column: 1 / -1;
+  .topic-list .topic-list-data.posters a:not(.latest) {
+    display: block;
   }
-  grid-template-areas:
-    ". . . . . . ."
-    "activity . . . . likes-replies likes-replies";
-  &.excerpt-expanded {
-    grid-template-columns: 20px repeat(6, 1fr) auto;
-    grid-template-rows: 20px auto auto 30px;
-    grid-template-areas:
-      ". . . . . . . ."
-      "activity . . . . . . ."
-      "excerpt excerpt excerpt excerpt excerpt excerpt . ."
-      "excerpt excerpt excerpt excerpt excerpt excerpt likes-replies likes-replies";
-    @include breakpoint(extra-large) {
-      grid-template-areas:
-        ". . . . . . . ."
-        "activity . . . . . . ."
-        "excerpt excerpt excerpt excerpt excerpt excerpt . likes-replies"
-        "excerpt excerpt excerpt excerpt excerpt excerpt . likes-replies";
-    }
-  }
-  @include breakpoint(mobile-extra-large) {
-    grid-template-columns: 25px auto repeat(6, 1fr);
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      ". . . . . . . ."
-      "activity . . . . . . .";
-    .topic-excerpt {
+  .topic-list-item {
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid var(--primary-200);
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    display: grid;
+    grid-template-areas: "title activity" "posters .";
+    grid-template-columns: min-content auto;
+    grid-template-rows: min-content;
+    td.topic-category-data,
+    td.topic-likes-replies-data,
+    td.topic-status-data {
       display: none;
+    }
+    &.visited .main-link .link-top-line {
+      font-weight: normal;
+      grid-area: title;
+    }
+    &:hover {
+      background-color: var(--primary-low);
+      border-color: var(--primary-200);
+    }
+    .link-top-line {
+      order: 1;
+      width: max-content;
+    }
+    td.topic-activity-data {
+      grid-area: activity;
+    }
+    td.topic-list-data.posters {
+      grid-area: posters;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      .avatar {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+      }
     }
   }
 }
+
+// td.main-link .link-top-line {
+//   grid-row: 1 / 2;
+//   grid-column: 1 / -1;
+// }
+// grid-template-areas:
+//   ". posters posters"
+//   "activity posters posters";
+// grid-template-columns: min-content auto auto;
+// &.excerpt-expanded {
+//   grid-template-columns: 20px repeat(6, 1fr) auto;
+//   grid-template-rows: 20px auto auto 30px;
+//   grid-template-areas:
+//     ". . . . . . . ."
+//     "activity . . . . . . ."
+//     "excerpt excerpt excerpt excerpt excerpt excerpt . ."
+//     "excerpt excerpt excerpt excerpt excerpt excerpt posters posters";
+//   @include breakpoint(extra-large) {
+//     grid-template-areas:
+//       ". . . . . . . ."
+//       "activity . . . . . . ."
+//       "excerpt excerpt excerpt excerpt excerpt excerpt . posters"
+//       "excerpt excerpt excerpt excerpt excerpt excerpt . posters";
+//   }
+// }
+// @include breakpoint(mobile-extra-large) {
+//   grid-template-columns: 25px auto repeat(6, 1fr);
+//   grid-template-rows: auto auto;
+//   grid-template-areas:
+//     ". . . . . . . ."
+//     "activity . . . . . . .";
+//   .topic-excerpt {
+//     display: none;
+//   }
+// }
+// }
 
 // Bulk select
 
