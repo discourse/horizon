@@ -33,15 +33,12 @@ const TopicLikesReplies = <template>
 export default {
   name: "topic-list-customizations",
 
-  initialize() {
+  initialize(container) {
+    const router = container.lookup("service:router");
     withPluginApi("1.39.0", (api) => {
       api.registerValueTransformer(
         "topic-list-columns",
         ({ value: columns }) => {
-          columns.add("topic-activity", {
-            item: TopicActivity,
-            after: "title",
-          });
           columns.add("topic-status", {
             item: TopicStatus,
             after: "topic-author",
@@ -50,14 +47,21 @@ export default {
             item: TopicCategory,
             after: "topic-status",
           });
+
           columns.add("topic-likes-replies", {
             item: TopicLikesReplies,
             after: "topic-author-avatar",
           });
-          columns.delete("posters");
           columns.delete("views");
           columns.delete("replies");
-          columns.delete("activity");
+          if (!router.currentRouteName.includes("userPrivateMessages")) {
+            columns.add("topic-activity", {
+              item: TopicActivity,
+              after: "title",
+            });
+            columns.delete("posters");
+            columns.delete("activity");
+          }
           return columns;
         }
       );
