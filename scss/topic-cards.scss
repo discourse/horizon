@@ -582,42 +582,6 @@ body.user-messages-page {
   }
 }
 
-// td.main-link .link-top-line {
-//   grid-row: 1 / 2;
-//   grid-column: 1 / -1;
-// }
-// grid-template-areas:
-//   ". posters posters"
-//   "activity posters posters";
-// grid-template-columns: min-content auto auto;
-// &.excerpt-expanded {
-//   grid-template-columns: 20px repeat(6, 1fr) auto;
-//   grid-template-rows: 20px auto auto 30px;
-//   grid-template-areas:
-//     ". . . . . . . ."
-//     "activity . . . . . . ."
-//     "excerpt excerpt excerpt excerpt excerpt excerpt . ."
-//     "excerpt excerpt excerpt excerpt excerpt excerpt posters posters";
-//   @include breakpoint(extra-large) {
-//     grid-template-areas:
-//       ". . . . . . . ."
-//       "activity . . . . . . ."
-//       "excerpt excerpt excerpt excerpt excerpt excerpt . posters"
-//       "excerpt excerpt excerpt excerpt excerpt excerpt . posters";
-//   }
-// }
-// @include breakpoint(mobile-extra-large) {
-//   grid-template-columns: 25px auto repeat(6, 1fr);
-//   grid-template-rows: auto auto;
-//   grid-template-areas:
-//     ". . . . . . . ."
-//     "activity . . . . . . .";
-//   .topic-excerpt {
-//     display: none;
-//   }
-// }
-// }
-
 // Bulk select
 
 .bulk-select-enabled .topic-list-body .topic-list-item {
