@@ -34,6 +34,22 @@
       border-radius: 0 var(--d-button-border-radius)
         var(--d-button-border-radius) 0;
     }
+
+    .fk-d-button-tooltip:has(button[disabled]) {
+      + .topic-drafts-menu-trigger {
+        display: none;
+      }
+
+      .fk-d-tooltip__trigger {
+        background: var(--accent-color);
+        border-radius: 0 var(--d-button-border-radius)
+          var(--d-button-border-radius) 0;
+        padding-right: 0.65em;
+        .d-icon {
+          color: var(--secondary);
+        }
+      }
+    }
   }
 }
 
