@@ -1,5 +1,3 @@
-//
-body.login-page,
 body.static-login {
   #main-outlet-wrapper {
     grid-template-areas:
@@ -13,19 +11,4 @@ body.static-login {
     border: none;
     box-shadow: none;
   }
-}
-
-.login-fullpage .input-group .user-field.text label.control-label,
-.login-fullpage .input-group .user-field.dropdown label.control-label,
-.login-fullpage .input-group .user-field.multiselect label.control-label,
-.signup-fullpage .input-group .user-field.text label.control-label,
-.signup-fullpage .input-group .user-field.dropdown label.control-label,
-.signup-fullpage .input-group .user-field.multiselect label.control-label,
-.invites-show .input-group .user-field.text label.control-label,
-.invites-show .input-group .user-field.dropdown label.control-label,
-.invites-show .input-group .user-field.multiselect label.control-label,
-.password-reset-page .input-group .user-field.text label.control-label,
-.password-reset-page .input-group .user-field.dropdown label.control-label,
-.password-reset-page .input-group .user-field.multiselect label.control-label {
-  z-index: 398;
 }
