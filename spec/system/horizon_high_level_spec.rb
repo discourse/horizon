@@ -36,10 +36,10 @@ describe "Horizon theme | High level", type: :system do
     expect(topic_item.all("td").map { |el| el["class"] }).to eq(
       [
         "main-link topic-list-data",
-        "topic-activity-data",
         "topic-status-data",
         "topic-category-data",
         "topic-likes-replies-data",
+        "topic-activity-data",
       ],
     )
 

@@ -12,10 +12,6 @@
     "svg_icons": ["fire"],
     "serialize_topic_is_hot": true
   },
-  "components": [
-    "https://github.com/discourse/discourse-sidebar-new-topic-button.git",
-    "https://github.com/discourse/discourse-full-width-component.git"
-  ],
   "color_schemes": {
     "Horizon": {
       "primary": "1A1A1A",

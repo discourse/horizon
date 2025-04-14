@@ -22,6 +22,7 @@ body {
 
 body.has-sidebar-page.has-full-page-chat #main-outlet-wrapper {
   grid-column-gap: var(--main-grid-gap);
+  background-color: var(--background-color);
 }
 
 body.has-full-page-chat:not(.has-sidebar-page) {
@@ -67,7 +68,7 @@ body:not(.has-full-page-chat) {
       html.composer-open & {
         padding-bottom: var(--composer-height);
       }
-      > * {
+      > *:not(.experimental-screen, .activate-account) {
         @include breakpoint(medium, $rule: min-width) {
           box-sizing: border-box;
           max-width: 1000px;
