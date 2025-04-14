@@ -145,6 +145,7 @@
 
   .topic-activity__username {
     margin-left: 0.25em;
+    text-wrap: nowrap;
   }
 
   @include breakpoint(mobile-extra-large) {
