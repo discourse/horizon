@@ -2,10 +2,14 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 import didInsert from "@ember/render-modifiers/modifiers/did-insert";
+import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
 import { bind } from "discourse/lib/decorators";
 
+const DO_NOT_RENDER_LIST = ["login"];
+
 export default class ExperimentalScreen extends Component {
+  @service router;
   @tracked left = 0;
   @tracked right = 0;
   resizeObserver;
@@ -28,6 +32,10 @@ export default class ExperimentalScreen extends Component {
     );
   }
 
+  get shouldRender() {
+    return !DO_NOT_RENDER_LIST.includes(this.router.currentRouteName);
+  }
+
   @action
   onInsert(element) {
     this.calculateDistance(element);
@@ -42,16 +50,18 @@ export default class ExperimentalScreen extends Component {
   }
 
   <template>
-    <ul
-      class="experimental-screen"
-      {{didInsert this.onInsert}}
-      style={{this.distanceStyles}}
-    >
-      <li class="experimental-screen__top-left"></li>
-      <li class="experimental-screen__top-right"></li>
-      <li class="experimental-screen__bottom-left"></li>
-      <li class="experimental-screen__bottom-right"></li>
-      <li class="experimental-screen__bottom-bar"></li>
-    </ul>
+    {{#if this.shouldRender}}
+      <ul
+        class="experimental-screen"
+        {{didInsert this.onInsert}}
+        style={{this.distanceStyles}}
+      >
+        <li class="experimental-screen__top-left"></li>
+        <li class="experimental-screen__top-right"></li>
+        <li class="experimental-screen__bottom-left"></li>
+        <li class="experimental-screen__bottom-right"></li>
+        <li class="experimental-screen__bottom-bar"></li>
+      </ul>
+    {{/if}}
   </template>
 }
