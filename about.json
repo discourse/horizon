@@ -1,13 +1,10 @@
 {
   "name": "Horizon",
   "authors": "Design Team",
-  "about_url": "TODO: Put your theme's public repo or Meta topic URL here",
-  "license_url": "TODO: Put your theme's LICENSE URL here",
-  "learn_more": "TODO",
+  "about_url": "https://meta.discourse.org/t/horizon-theme/360486",
+  "license_url": "https://github.com/discourse/horizon/blob/main/LICENSE",
+  "learn_more": "https://meta.discourse.org/t/installing-a-theme-or-theme-component/63682",
   "theme_version": "0.0.1",
-  "minimum_discourse_version": null,
-  "maximum_discourse_version": null,
-  "assets": {},
   "modifiers": {
     "svg_icons": ["fire"],
     "serialize_topic_is_hot": true

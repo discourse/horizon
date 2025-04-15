@@ -1,5 +1,3 @@
-# next-gen
+Horizon is a simple, beautiful theme that improves the out-of-the-box experience for Discourse sites.
 
-**Theme Summary**
-
-For more information, please see: **url to meta topic**
+https://meta.discourse.org/t/horizon-theme/360486
