@@ -86,7 +86,8 @@
         "category category category category status"
         ". . . . ."
         "activity . . . likes-replies";
-      .topic-excerpt {
+      .topic-excerpt,
+      .link-bottom-line {
         display: none;
       }
     }
@@ -98,6 +99,9 @@
     }
     .badge-category__wrapper {
       height: min-content;
+    }
+    .link-bottom-line {
+      display: flex;
     }
   }
 
@@ -233,14 +237,6 @@
     min-width: unset;
   }
 
-  // excerpt
-  .topic-excerpt {
-    grid-row: 3 / -1;
-    grid-column: 1 / -3;
-    margin: 0;
-    font-size: var(--font-down-2);
-  }
-
   // timestamp
   td.activity .post-activity {
     grid-area: activity;
@@ -250,10 +246,27 @@
     padding: 0;
   }
 
-  // metadata
-  // metadata - category
-  td.main-link .link-bottom-line {
+  .link-bottom-line {
     display: none;
+  }
+
+  // metadata
+  // metadata - excerpt
+  .topic-excerpt,
+  td.main-link .link-bottom-line {
+    grid-row: 3 / -1;
+    grid-column: 1 / -3;
+    margin: 0;
+    font-size: var(--font-down-2);
+
+    .excerpt__contents {
+      color: var(--primary-high);
+    }
+
+    // default category position hidden
+    .badge-category__wrapper {
+      display: none;
+    }
   }
 
   td.topic-category-status-data {
