@@ -51,13 +51,12 @@
   .bulk-select-topics {
     position: absolute;
     right: -1em;
-    @media screen and (max-width: 1048px) {
-      right: 0;
-    }
-
     background: var(--secondary);
     border-radius: 0 0 0 var(--d-border-radius);
     padding: 1em;
+    @media screen and (max-width: 1048px) {
+      right: 0;
+    }
     button {
       white-space: nowrap;
     }

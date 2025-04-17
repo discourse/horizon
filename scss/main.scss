@@ -65,6 +65,11 @@ body:not(.has-full-page-chat) {
       width: 100%;
       max-width: unset;
       padding-bottom: var(--spacing-block-l);
+      border-radius: var(--d-border-radius-large);
+      background-color: var(--d-content-background);
+      @include breakpoint(medium) {
+        border-radius: 0px;
+      }
       html.composer-open & {
         padding-bottom: var(--composer-height);
       }
@@ -76,11 +81,6 @@ body:not(.has-full-page-chat) {
           padding-inline: var(--spacing-inline-l);
         }
       }
-      border-radius: var(--d-border-radius-large);
-      @include breakpoint(medium) {
-        border-radius: 0px;
-      }
-      background-color: var(--d-content-background);
     }
   }
 }
