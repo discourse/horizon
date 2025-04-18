@@ -58,7 +58,7 @@ body:not(.has-full-page-chat) {
     @include breakpoint(medium) {
       --main-grid-gap: 0;
     }
-    @include breakpoint(tablet, $rule: min-width) {
+    @media screen and (min-width: 768px) {
       gap: var(--main-grid-gap);
     }
     #main-outlet {
