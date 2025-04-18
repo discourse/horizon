@@ -2,7 +2,7 @@
   z-index: calc(z("base") + 1);
 }
 
-.custom-search-banner-wrap {
+.welcome-banner__wrap {
   display: grid;
   grid-template-rows: 0.33fr 0.33fr 0.33fr;
   grid-template-columns: 1fr 1fr;
