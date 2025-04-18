@@ -5,27 +5,28 @@ import { service } from "@ember/service";
 import DButton from "discourse/components/d-button";
 import bodyClass from "discourse/helpers/body-class";
 
-export default class PeekModeToggle extends Component {
+export default class ComposerPeekModeToggle extends Component {
   @service composer;
+  @service keyValueStore;
 
   @tracked
-  peekModeActive = localStorage.getItem("peekModeActive") === "true" || false;
+  peekModeActive = this.keyValueStore.getItem("peekModeActive") === "true";
 
-  get bodyClassText() {
+  get bodyCssClass() {
     return this.peekModeActive ? "peek-mode-active" : "";
   }
 
   @action
   togglePeekMode() {
     this.peekModeActive = !this.peekModeActive;
-    localStorage.setItem("peekModeActive", this.peekModeActive);
+    this.keyValueStore.setItem("peekModeActive", this.peekModeActive);
     if (this.composer.showPreview) {
       this.composer.togglePreview();
     }
   }
 
   <template>
-    {{bodyClass this.bodyClassText}}
+    {{bodyClass this.bodyCssClass}}
     <DButton
       @action={{this.togglePeekMode}}
       @preventFocus={{true}}

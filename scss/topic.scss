@@ -45,8 +45,6 @@
 //should probably get rid of this extra specificity class in core?
 .timeline-container.timeline-fullscreen {
   @include breakpoint("medium", $rule: max-width) {
-    .topic-timeline .timeline-scrollarea-wrapper {
-    }
     .topic-timeline
       .timeline-scrollarea
       .timeline-scroller

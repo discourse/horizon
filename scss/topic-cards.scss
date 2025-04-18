@@ -174,14 +174,6 @@
     position: relative;
   }
   .topic-status-card {
-    @include breakpoint("large", min-width) {
-      position: absolute;
-      right: 0px;
-      top: -20px;
-      background-color: var(--d-content-background);
-      height: 20px;
-      font-size: var(--font-down-3);
-    }
     height: min-content;
     margin-left: auto;
     display: flex;
@@ -195,6 +187,14 @@
     border: 1px solid var(--status-color);
     color: var(--status-color);
     width: min-content;
+    @include breakpoint("large", min-width) {
+      position: absolute;
+      right: 0px;
+      top: -20px;
+      background-color: var(--d-content-background);
+      height: 20px;
+      font-size: var(--font-down-3);
+    }
     svg {
       font-size: var(--font-down-1);
       color: var(--status-color);
@@ -384,9 +384,6 @@
   //card with excerpt (all in horizon since the toggle is gone)
   &.excerpt-expanded {
     grid-template-columns: 20px min-content auto minmax(0, 100px);
-    @include breakpoint(extra-large, $rule: min-width) {
-      grid-template-columns: 20px min-content auto min-content;
-    }
     grid-template-areas:
       ". . .  dropdown"
       "avatar update metadata metadata"
@@ -397,6 +394,10 @@
       align-self: flex-end;
       height: min-content;
       max-width: 100%;
+    }
+
+    @include breakpoint(extra-large, $rule: min-width) {
+      grid-template-columns: 20px min-content auto min-content;
     }
 
     @include breakpoint(mobile-extra-large) {
@@ -599,6 +600,9 @@ body.user-messages-page {
 // Bulk select
 
 .bulk-select-enabled .topic-list-body .topic-list-item {
+  grid-template-areas:
+    "bulk-select . . . status"
+    "bulk-select activity activity . category";
   td.topic-likes-replies-data {
     display: none;
   }
@@ -622,9 +626,6 @@ body.user-messages-page {
         "bulk-select activity activity . . .";
     }
   }
-  grid-template-areas:
-    "bulk-select . . . status"
-    "bulk-select activity activity . category";
   .bulk-select {
     grid-area: bulk-select;
     padding: 0;
