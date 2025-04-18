@@ -2,7 +2,7 @@
   box-shadow: none;
   background: var(--background-color);
   @include breakpoint(extra-large, $rule: min-width) {
-    padding-bottom: 1em;
+    padding-bottom: var(--main-grid-gap);
   }
 }
 

@@ -18,21 +18,21 @@
 }
 
 .has-full-page-chat .chat-replying-indicator-container {
-  margin-bottom: var(--d-border-radius-large);
-  @include breakpoint(tablet) {
+  margin-bottom: var(--main-grid-gap);
+  @include breakpoint(medium) {
     margin-bottom: 0;
   }
 }
 
 .has-full-page-chat .chat-selection-management {
-  margin-bottom: var(--d-border-radius-large);
-  @include breakpoint(tablet) {
+  margin-bottom: var(--main-grid-gap);
+  @include breakpoint(medium) {
     margin-bottom: 0;
   }
 }
 
 .experimental-screen {
-  @include breakpoint(tablet) {
+  @include breakpoint(medium) {
     display: none;
   }
   max-width: unset !important;
@@ -77,7 +77,7 @@
   }
   &__bottom-left {
     transform: rotate(-90deg);
-    bottom: var(--d-border-radius-large);
+    bottom: var(--main-grid-gap);
     left: var(--left-distance);
     @media screen and (max-width: 768px) {
       bottom: calc(var(--d-border-radius-large) * 2);
@@ -85,7 +85,7 @@
   }
   &__bottom-right {
     transform: rotate(180deg);
-    bottom: var(--d-border-radius-large);
+    bottom: var(--main-grid-gap);
     left: calc(var(--right-distance) - var(--d-border-radius-large));
     @media screen and (max-width: 768px) {
       bottom: calc(var(--d-border-radius-large) * 2);
@@ -98,7 +98,7 @@
     background-color: var(--background-color);
     bottom: 0;
     left: var(--left-distance);
-    height: var(--d-border-radius-large);
+    height: var(--main-grid-gap);
     @media screen and (max-width: 768px) {
       height: calc(var(--d-border-radius-large) * 2);
     }
