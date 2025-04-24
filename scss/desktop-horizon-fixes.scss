@@ -50,7 +50,8 @@
 
   .bulk-select-topics {
     position: absolute;
-    right: -1em;
+    right: 0;
+    bottom: 0;
     background: var(--secondary);
     border-radius: 0 0 0 var(--d-border-radius);
     padding: 1em;
