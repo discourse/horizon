@@ -39,8 +39,6 @@
     }
 
     &.default {
-      position: absolute;
-      right: 0;
       .bulk-select,
       span:not(.bulk-select-topics, .d-button-label) {
         display: none;
