@@ -5,6 +5,12 @@
   }
 }
 
+.has-ai-conversations-sidebar {
+  .sidebar-new-topic-button__wrapper {
+    display: none;
+  }
+}
+
 .sidebar-new-topic-button {
   flex: 1 1 auto;
 

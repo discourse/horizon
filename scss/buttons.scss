@@ -58,7 +58,8 @@
 }
 
 .btn-primary,
-#create-topic.btn {
+#create-topic.btn,
+.discourse-no-touch .btn-default.ai-new-question-button {
   background-color: var(--accent-color);
   color: var(--accent-text-color);
   .d-icon {
