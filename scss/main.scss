@@ -12,10 +12,12 @@ html:not(:has(.has-full-page-chat)) {
 
 body {
   -webkit-font-smoothing: antialiased;
+
   @include breakpoint("mobile-extra-large") {
     background-color: var(--d-content-background);
   }
 }
+
 #main-outlet-wrapper {
   gap: var(--main-grid-gap);
 }
@@ -29,8 +31,10 @@ body.has-full-page-chat:not(.has-sidebar-page) {
   .d-header {
     background-color: var(--background-color);
   }
+
   #main-outlet-wrapper {
     gap: var(--main-grid-gap);
+
     @include breakpoint(medium) {
       gap: 0;
     }
@@ -38,7 +42,8 @@ body.has-full-page-chat:not(.has-sidebar-page) {
 }
 
 body.has-sidebar-page #main-outlet-wrapper {
-  grid-template-columns: var(--d-sidebar-width) minmax(0, 1fr) 0px;
+  grid-template-columns: var(--d-sidebar-width) minmax(0, 1fr) 0;
+
   #main-outlet {
     max-width: unset;
   }
@@ -46,7 +51,7 @@ body.has-sidebar-page #main-outlet-wrapper {
 
 body:not(.has-sidebar-page) #main-outlet-wrapper {
   @include breakpoint(medium, $rule: min-width) {
-    grid-template-columns: 0px minmax(0, 1fr) 0px;
+    grid-template-columns: 0 minmax(0, 1fr) 0;
   }
 }
 
@@ -54,25 +59,31 @@ body:not(.has-full-page-chat) {
   @include breakpoint(extra-large, $rule: min-width) {
     background-color: var(--background-color);
   }
+
   #main-outlet-wrapper {
     @include breakpoint(medium) {
       --main-grid-gap: 0;
     }
+
     @media screen and (min-width: 768px) {
       gap: var(--main-grid-gap);
     }
+
     #main-outlet {
       width: 100%;
       max-width: unset;
       padding-bottom: var(--spacing-block-l);
       border-radius: var(--d-border-radius-large);
       background-color: var(--d-content-background);
+
       @include breakpoint(medium) {
-        border-radius: 0px;
+        border-radius: 0;
       }
+
       html.composer-open & {
         padding-bottom: var(--composer-height);
       }
+
       > *:not(.experimental-screen, .activate-account) {
         @include breakpoint(medium, $rule: min-width) {
           box-sizing: border-box;
@@ -99,6 +110,7 @@ body:not(.has-full-page-chat) {
       }
     }
   }
+
   .topic-list-body {
     padding-top: var(--spacing-block-m);
   }

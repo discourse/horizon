@@ -1,6 +1,7 @@
 html {
   --accent-color: #{$tertiary} !important;
-  --accent-text-color: #ffffff;
+  --accent-text-color: #fff;
+
   // Background Colors
   --background-color: light-dark(
     oklch(from #{$tertiary} 96% calc(c * 0.125) h),
@@ -10,6 +11,7 @@ html {
     oklch(from #{$secondary} calc(2 * l) c h),
     oklch(from #{$secondary} l c h)
   ) !important;
+
   // HeaderColors
   --header_primary-low-mid: light-dark(
     oklch(from #{$tertiary} 73.5% calc(c * 0.5) h),
@@ -40,17 +42,14 @@ html {
     oklch(from #{$tertiary} 92% calc(c * 0.5) h),
     oklch(from #{$tertiary} calc(l * 0.7) calc(c * 0.25) h)
   ) !important;
-
   --d-nav-color--active: light-dark(
     oklch(from #{$tertiary} l c h),
     oklch(from #{$tertiary} calc(l * 1.2) c h)
   ) !important;
-
   --d-nav-color--hover: light-dark(
     oklch(from #{$tertiary} l c h),
     oklch(from #{$tertiary} calc(l * 1.2) c h)
   ) !important;
-
   --link-color: light-dark(
     oklch(from #{$tertiary} l c h),
     oklch(from #{$tertiary} calc(l * 0.95) c h)
@@ -78,7 +77,6 @@ html {
     oklch(from #{$tertiary} calc(l * 1.5) calc(c * 0.35) h),
     oklch(from #{$tertiary} calc(l * 0.75) calc(c * 0.5) h)
   ) !important;
-
   --d-sidebar-highlight-hover-icon: var(--d-sidebar-link-color) !important;
   --d-sidebar-highlight-hover-background: var(--d-selected) !important;
   --d-sidebar-link-icon-color: var(--d-sidebar-link-color) !important;

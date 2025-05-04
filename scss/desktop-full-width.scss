@@ -22,6 +22,7 @@ $sidebar-width: 17em;
   // allows some flexibility for wide logos
   body:not(.has-sidebar-page) & {
     max-width: unset;
+
     @include breakpoint("mobile-extra-large") {
       max-width: 25vw;
     }
@@ -30,9 +31,11 @@ $sidebar-width: 17em;
 
 .d-header #site-text-logo {
   font-size: clamp(var(--font-0), 2.5vw, var(--font-up-2));
+
   .has-sidebar-page & {
     white-space: wrap;
     line-height: var(--line-height-medium);
+
     @include line-clamp(2);
   }
 }

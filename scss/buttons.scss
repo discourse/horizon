@@ -8,11 +8,13 @@
 
 .sidebar-new-topic-button__wrapper .topic-drafts-menu-trigger.btn.no-text {
   background: var(--accent-color);
+
   &:hover,
   &:focus-visible {
     background: oklch(from var(--accent-color) 40% c h) !important;
     box-shadow: none;
   }
+
   .d-icon {
     color: var(--accent-text-color);
   }
@@ -26,31 +28,37 @@
 .discourse-no-touch .btn-default,
 .discourse-no-touch .select-kit .select-kit-header.btn-default {
   background: var(--primary-100);
+
   .d-icon {
     color: var(--accent-color);
   }
 
   &:hover {
     border-color: transparent;
-    box-shadow: 0px 0px 8px 1px var(--button-box-shadow);
+    box-shadow: 0 0 8px 1px var(--button-box-shadow);
     background: var(--d-content-background);
     color: var(--accent-color);
+
     .d-icon {
       color: var(--accent-color);
     }
   }
+
   &:focus-visible {
     background: var(--d-content-background);
     color: var(--accent-color);
-    box-shadow: 0px 0px 0px 3px var(--button-box-shadow);
+    box-shadow: 0 0 0 3px var(--button-box-shadow);
+
     .d-icon {
       color: var(--accent-color);
     }
   }
+
   &:active:not(:hover, :focus) {
     color: var(--primary);
     background: var(--tertiary-300);
     background-image: none;
+
     .d-icon {
       color: var(--tertiary-high);
     }
@@ -61,32 +69,37 @@
 #create-topic.btn {
   background-color: var(--accent-color);
   color: var(--accent-text-color);
+
   .d-icon {
     color: var(--accent-text-color);
   }
+
   &:hover {
     .discourse-no-touch & {
       background: light-dark(
         oklch(from var(--accent-color) 40% c h),
         oklch(from var(--accent-color) 50% c h)
       );
-      box-shadow: 0px 0px 6px 1px var(--button-box-shadow);
+      box-shadow: 0 0 6px 1px var(--button-box-shadow);
       color: var(--accent-text-color);
+
       .d-icon {
         color: var(--accent-text-color);
       }
     }
   }
+
   &:focus-visible {
     .discourse-no-touch & {
       background: light-dark(
         oklch(from var(--accent-color) 40% c h),
         oklch(from var(--accent-color) 50% c h)
       );
-      box-shadow: 0px 0px 0px 4px var(--button-box-shadow);
+      box-shadow: 0 0 0 4px var(--button-box-shadow);
       color: var(--accent-text-color);
     }
   }
+
   &:active {
     background: light-dark(
       oklch(from var(--accent-color) 40% c h),

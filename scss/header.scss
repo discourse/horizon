@@ -1,6 +1,7 @@
 .d-header {
   box-shadow: none;
   background: var(--background-color);
+
   @include breakpoint(extra-large, $rule: min-width) {
     padding-bottom: var(--main-grid-gap);
   }
@@ -48,8 +49,10 @@
 .discourse-no-touch .interface-color-selector-content {
   border: none;
   border-radius: var(--d-border-radius);
+
   .btn {
     border: none;
+
     &:hover {
       box-shadow: none;
     }
@@ -59,10 +62,6 @@
 .drop-down-mode .d-header-icons .active .icon,
 .drop-down-mode .d-header-icons .header-color-scheme-toggle .-expanded {
   border-color: transparent;
-}
-
-.drop-down-mode .d-header-icons .active .icon,
-.drop-down-mode .d-header-icons .header-color-scheme-toggle .-expanded {
   background-color: transparent;
 }
 

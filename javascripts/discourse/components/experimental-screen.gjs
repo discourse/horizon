@@ -10,6 +10,7 @@ const DO_NOT_RENDER_LIST = ["login"];
 
 export default class ExperimentalScreen extends Component {
   @service router;
+
   @tracked left = 0;
   @tracked right = 0;
   resizeObserver;

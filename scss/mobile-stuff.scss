@@ -1,10 +1,11 @@
-//temp sepeate file to avoid merge hell… to be distributed later
+// temp separate file to avoid merge hell… to be distributed later
 @include breakpoint(medium) {
   html,
   .d-header {
     background-color: var(--d-content-background);
   }
 }
+
 #main-outlet-wrapper {
   *[class*="navigation-"] & {
     @include breakpoint(mobile-extra-large) {
@@ -12,6 +13,7 @@
     }
   }
 }
+
 #main-outlet {
   @include breakpoint(mobile-extra-large) {
     padding-top: var(--spacing-block-sm);
@@ -21,48 +23,57 @@
     @include breakpoint(mobile-extra-large) {
       padding-inline: var(
         --spacing-inline-m
-      ) !important; //override will be fixed when the whole chat page shenanigans is resolved
+      ) !important; // override will be fixed when the whole chat page shenanigans is resolved
       padding-block: var(--spacing-block-s);
       border-bottom: 1px solid var(--primary-200);
     }
+
     .navigation-container {
       @include breakpoint(mobile-extra-large) {
         gap: var(--spacing-inline-s);
-        //dont know why we even hide this crucial navigation on mobile
+
+        // don't know why we even hide this crucial navigation on mobile
         .category-breadcrumb.hidden,
         .category-breadcrumb {
           display: flex !important;
           column-gap: var(--spacing-inline-s);
           row-gap: var(--spacing-block-xs);
           flex-basis: 100%;
+
           li {
             margin-right: 0;
             margin-left: calc(
               (var(--spacing-block-s) - 2px) * -1
             ); // 2px is width of the outline
           }
+
           .select-kit-header {
             background: var(--d-content-background);
             border: 0;
           }
         }
+
         .btn-default {
           border: 0;
           margin-right: 0;
+
           .d-icon {
             font-size: var(--font-up-1);
           }
         }
+
         .fk-d-button-tooltip {
           margin-right: 0;
           margin-left: var(
             --spacing-inline-xs
-          ); //pure visual correction for horitzontal alignment
+          ); // pure visual correction for horizontal alignment
+
           &:has(#create-topic) {
             order: 1;
           }
         }
       }
+
       #navigation-bar,
       .navigation-controls,
       .category-breadcrumb {
@@ -70,6 +81,7 @@
           margin-bottom: 0;
         }
       }
+
       .navigation-controls {
         @include breakpoint(mobile-extra-large) {
           gap: var(--spacing-inline-s);
@@ -98,10 +110,12 @@
       .title-wrapper {
         gap: var(--spacing-block-s);
       }
+
       .topic-category {
         order: -1;
       }
-      //make mixin of this
+
+      // make mixin of this
       .badge-category__wrapper {
         font-size: var(--font-down-2-rem);
         border-radius: var(--d-border-radius);
@@ -123,12 +137,15 @@
           oklch(from var(--category-badge-color) 100% calc(c * 0.9) h)
         );
       }
+
       .discourse-tags {
         gap: var(--spacing-inline-xs);
+
         &__tag-separator {
           display: none;
         }
       }
+
       .discourse-tag {
         font-size: var(--font-down-2-rem);
         padding: var(--spacing-inline-xs) var(--spacing-inline-s);
@@ -139,6 +156,7 @@
       }
     }
   }
+
   .container.posts {
     @include breakpoint(mobile-extra-large) {
       padding-inline: var(--spacing-inline-xs) !important;
@@ -154,18 +172,22 @@
             font-size: var(--font-0-rem);
           }
         }
+
         .contents {
           padding-top: var(--spacing-block-m);
         }
       }
+
       .small-action {
         &-desc {
           padding: var(--spacing-block-xs) 0;
         }
-        //for core eventually, better way imo
+
+        // for core eventually, better way imo
         .topic-avatar {
           padding-top: 0;
           align-items: center;
+
           .d-icon {
             font-size: var(--font-up-1);
           }
@@ -181,23 +203,26 @@
   }
 }
 
-//should be changed in core, should not be a primary btn
-//changing this into straight buttons to match the progress one, which doesnt work well with rounded corners
+// should be changed in core, should not be a primary btn
+// changing this into straight buttons to match the progress one, which doesn't work well with rounded corners
 #topic-progress-wrapper {
   .progress-back-container {
     margin-right: 0;
     margin-bottom: var(--spacing-block-xs);
+
     .btn-primary.progress-back {
       border-radius: 0;
       background: var(--secondary);
       border: 1px solid var(--tertiary-low);
       color: var(--accent-color);
       padding: var(--spacing-inline-s) var(--spacing-inline-m);
+
       .d-icon {
         color: var(--accent-color);
       }
     }
   }
+
   .topic-admin-menu-trigger {
     border-radius: 0;
     background: var(--secondary);

@@ -7,7 +7,7 @@
 }
 
 .container.posts .topic-navigation:not(.with-topic-progress) {
-  // super fragile because new sticky topic title doesnt have a calculated value (= 53px with this font and size but…)
+  // super fragile because new sticky topic title doesn't have a calculated value (= 53px with this font and size but…)
   top: calc(
     var(--header-offset, 60px) + 53px + calc(var(--spacing-block-l) * 2)
   );
@@ -16,6 +16,7 @@
 
 .timeline-container .topic-timeline {
   min-width: unset; // why we have this?
+
   .timeline-scrollarea {
     border-left: 1px solid var(--accent-color);
 
@@ -31,8 +32,10 @@
         line-height: 1;
       }
     }
+
     .timeline-handle {
       background-color: var(--accent-color);
+
       @include breakpoint("medium", $rule: min-width) {
         width: 8px;
         border-radius: 10px;
@@ -42,7 +45,7 @@
   }
 }
 
-//should probably get rid of this extra specificity class in core?
+// should probably get rid of this extra specificity class in core?
 .timeline-container.timeline-fullscreen {
   @include breakpoint("medium", $rule: max-width) {
     .topic-timeline
@@ -56,6 +59,7 @@
 
 .container.posts {
   grid-template-columns: auto 8em;
+
   @media screen and (max-width: 924px) {
     grid-template-columns: auto auto;
   }

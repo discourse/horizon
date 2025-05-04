@@ -31,6 +31,7 @@ export default class UserColorPaletteSelector extends Component {
   @service site;
   @service session;
   @service interfaceColor;
+
   @tracked anonColorPaletteId = this.#loadAnonColorPalette();
   @tracked userColorPaletteId = this.session.userColorSchemeId;
   @tracked cssLoaded = true;

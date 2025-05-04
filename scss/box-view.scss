@@ -19,6 +19,7 @@
 
 .has-full-page-chat .chat-replying-indicator-container {
   margin-bottom: var(--main-grid-gap);
+
   @include breakpoint(medium) {
     margin-bottom: 0;
   }
@@ -26,15 +27,13 @@
 
 .has-full-page-chat .chat-selection-management {
   margin-bottom: var(--main-grid-gap);
+
   @include breakpoint(medium) {
     margin-bottom: 0;
   }
 }
 
 .experimental-screen {
-  @include breakpoint(medium) {
-    display: none;
-  }
   max-width: unset !important;
   width: 100%;
   display: block;
@@ -42,17 +41,25 @@
   padding: 0;
   position: relative;
   container: content-width / inline-size;
+
+  @include breakpoint(medium) {
+    display: none;
+  }
+
   @media screen and (max-width: 488px) {
     display: none;
   }
+
   @include breakpoint(tablet) {
     display: none;
   }
+
   li {
     list-style: none;
     margin: 0;
     padding: 0;
   }
+
   &__top-left,
   &__top-right,
   &__bottom-left,
@@ -68,38 +75,39 @@
       transparent var(--d-border-radius-large),
       black var(--d-border-radius-large)
     );
-    -webkit-mask: radial-gradient(
-      circle at var(--d-border-radius-large) var(--d-border-radius-large),
-      transparent var(--d-border-radius-large),
-      transparent var(--d-border-radius-large),
-      black var(--d-border-radius-large)
-    );
   }
+
   &__top-left {
     top: var(--header-offset);
     left: var(--left-distance);
   }
+
   &__top-right {
     top: var(--header-offset);
     transform: rotate(90deg);
     left: calc(var(--right-distance) - var(--d-border-radius-large));
   }
+
   &__bottom-left {
     transform: rotate(-90deg);
     bottom: var(--main-grid-gap);
     left: var(--left-distance);
+
     @media screen and (max-width: 768px) {
       bottom: calc(var(--d-border-radius-large) * 2);
     }
   }
+
   &__bottom-right {
     transform: rotate(180deg);
     bottom: var(--main-grid-gap);
     left: calc(var(--right-distance) - var(--d-border-radius-large));
+
     @media screen and (max-width: 768px) {
       bottom: calc(var(--d-border-radius-large) * 2);
     }
   }
+
   &__bottom-bar {
     position: fixed;
     width: 100%;
@@ -108,9 +116,11 @@
     bottom: 0;
     left: var(--left-distance);
     height: var(--main-grid-gap);
+
     @media screen and (max-width: 768px) {
       height: calc(var(--d-border-radius-large) * 2);
     }
+
     @container content-width (width > 1px) {
       width: 100cqw;
     }
