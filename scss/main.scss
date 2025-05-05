@@ -50,7 +50,7 @@ body:not(.has-sidebar-page) #main-outlet-wrapper {
   }
 }
 
-body:not(.has-full-page-chat) {
+body:not(.has-full-page-chat, .wizard) {
   @include breakpoint(extra-large, $rule: min-width) {
     background-color: var(--background-color);
   }
