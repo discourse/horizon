@@ -370,8 +370,7 @@
   }
 
   &.selected {
-    box-shadow:
-      0 0 0 2px var(--accent-color),
+    box-shadow: 0 0 0 2px var(--accent-color),
       0 0 12px 1px var(--topic-card-shadow);
   }
 }
@@ -717,5 +716,18 @@ body.user-messages-page {
     label {
       margin: 0;
     }
+  }
+}
+
+.mobile-view {
+  .link-top-line .event-date-container {
+    display: inline;
+    margin-top: 0;
+  }
+
+  .topic-list-body .topic-list-item .link-top-line .event-date {
+    position: relative;
+    margin-left: 0;
+    top: -0.125em;
   }
 }
