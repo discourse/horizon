@@ -91,3 +91,27 @@
     border-radius: var(--d-border-radius);
   }
 }
+
+.discourse-no-touch .translation-selector-dropdown {
+  .select-kit-header.btn-default {
+    background: var(--background-color);
+  }
+}
+
+#reply-control.composer-action-add_translation {
+  .d-editor-preview .d-editor-translation-preview-wrapper {
+    border-color: var(--d-sidebar-border-color);
+  }
+
+  .d-editor-preview .d-editor-translation-preview-wrapper__header {
+    top: 6.5rem;
+    padding: 0.25rem 0.75rem;
+    background: var(--background-color);
+    color: var(--accent-color);
+    border-radius: var(--d-border-radius-large);
+  }
+
+  .topic-title-translator input {
+    width: 47.25vw;
+  }
+}
