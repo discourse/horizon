@@ -370,7 +370,8 @@
   }
 
   &.selected {
-    box-shadow: 0 0 0 2px var(--accent-color),
+    box-shadow:
+      0 0 0 2px var(--accent-color),
       0 0 12px 1px var(--topic-card-shadow);
   }
 }
