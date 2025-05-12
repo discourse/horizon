@@ -68,7 +68,6 @@ export default class SidebarNewTopicButton extends Component {
 
   @action
   createNewTopic() {
-    this.closeHamburger();
     this.composer.openNewTopic({ category: this.category, tags: this.tag?.id });
   }
 

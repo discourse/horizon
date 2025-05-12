@@ -85,9 +85,9 @@
 
 // put the draft menu above the slide-out hamburger on small desktop screens
 @include viewport.until(md) {
-  body:not(.mobile-view) {
+  html:not(.mobile-view) {
     .topic-drafts-menu-content {
-      z-index: z("header") + 1;
+      z-index: z("modal", "overlay");
     }
   }
 }
