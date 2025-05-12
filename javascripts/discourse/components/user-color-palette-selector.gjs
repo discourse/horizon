@@ -37,8 +37,8 @@ export default class UserColorPaletteSelector extends Component {
   @tracked cssLoaded = true;
 
   get userColorPalettes() {
-
-    const availablePalettes = listColorSchemes(this.site)?.map((userPalette) => {
+    const availablePalettes = listColorSchemes(this.site)
+      ?.map((userPalette) => {
         return {
           ...userPalette,
           accent: `#${
