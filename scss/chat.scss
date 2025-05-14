@@ -27,7 +27,7 @@ body.has-full-page-chat {
   .peek-mode-active & {
     padding-bottom: 0;
     left: unset;
-    right: 0;
+    right: var(--main-grid-gap);
     &:has(.is-expanded) {
       z-index: 701;
     }
