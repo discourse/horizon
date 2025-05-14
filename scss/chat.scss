@@ -28,6 +28,7 @@ body.has-full-page-chat {
     padding-bottom: 0;
     left: unset;
     right: var(--main-grid-gap);
+
     &:has(.is-expanded) {
       z-index: 701;
     }
