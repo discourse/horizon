@@ -23,6 +23,21 @@ body.has-full-page-chat {
 
 .chat-drawer-outlet-container {
   z-index: z("composer", "content");
+
+  .peek-mode-active & {
+    padding-bottom: 0;
+    left: unset;
+    right: 0;
+    &:has(.is-expanded) {
+      z-index: 701;
+    }
+  }
+}
+
+.chat-drawer {
+  .peek-mode-active & {
+    max-width: 90vw;
+  }
 }
 
 .chat-drawer .channels-list-container .chat-channel-row {
@@ -55,4 +70,10 @@ body.has-full-page-chat {
 
 .chat-drawer-active.chat-drawer-expanded .chat-composer-dropdown__menu-content {
   z-index: z("composer", "content") + 1;
+}
+
+.chat-replying-indicator-container {
+  @include breakpoint("mobile-extra-large") {
+    margin-left: calc(0.65em + 0.2rem);
+  }
 }
