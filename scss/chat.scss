@@ -1,3 +1,5 @@
+@use "lib/viewport";
+
 .full-page-chat.full-page-chat-sidebar-enabled {
   border: none;
 }
@@ -74,7 +76,7 @@ body.has-full-page-chat {
 }
 
 .chat-replying-indicator-container {
-  @include breakpoint("mobile-extra-large") {
+  @include viewport.from(sm) {
     margin-left: calc(0.65em + 0.2rem);
   }
 }
