@@ -32,7 +32,7 @@ body.has-full-page-chat {
     right: var(--main-grid-gap);
 
     &:has(.is-expanded) {
-      z-index: 701;
+      z-index: calc(z("composer", "dropdown") + 1);
     }
   }
 }
