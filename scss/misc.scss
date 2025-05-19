@@ -129,13 +129,13 @@ input[type="color"]:focus,
     width: auto;
     box-sizing: border-box;
 
+    @include viewport.until(lg) {
+      display: none;
+    }
+
     .top-contributors-heading {
       font-size: var(--font-up-2);
       padding-bottom: 0.5em;
-    }
-
-    @include viewport.until(lg) {
-      display: none;
     }
   }
 }
