@@ -359,6 +359,7 @@
 }
 
 .topic-list-item {
+  cursor: pointer;
   background: var(--d-content-background);
   box-shadow: 0 0 12px 1px var(--topic-card-shadow);
 
