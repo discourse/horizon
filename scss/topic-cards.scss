@@ -720,15 +720,8 @@ body.user-messages-page {
   }
 }
 
-.mobile-view {
-  .link-top-line .event-date-container {
-    display: inline;
-    margin-top: 0;
-  }
-
-  .topic-list-body .topic-list-item .link-top-line .event-date {
-    position: relative;
-    margin-left: 0;
-    top: -0.125em;
-  }
+.event-date-container {
+  display: inline-flex;
+  position: relative;
+  top: -0.25em; // optical alignment
 }
