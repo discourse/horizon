@@ -72,7 +72,7 @@ body.has-full-page-chat {
 }
 
 .chat-drawer-active.chat-drawer-expanded .chat-composer-dropdown__menu-content {
-  z-index: z("composer", "content") + 1;
+  z-index: z("modal", "dialog");
 }
 
 .chat-replying-indicator-container {
