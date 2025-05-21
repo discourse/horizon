@@ -256,6 +256,10 @@
     min-width: unset;
   }
 
+  .badge-notification.new-topic::before {
+    display: none;
+  }
+
   // timestamp
   td.activity .post-activity {
     grid-area: activity;
