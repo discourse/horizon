@@ -1,3 +1,5 @@
+@use "lib/viewport";
+
 .topic-list .topic-list-item-separator {
   display: none;
 }
@@ -32,44 +34,21 @@
   padding: 0.75em 1rem;
   border: 1px solid var(--primary-300);
   display: grid;
-  grid-template-columns: min-content min-content min-content auto min-content;
-  grid-template-rows: auto minmax(20px, auto);
+  grid-template-columns: min-content min-content auto min-content;
   grid-template-areas:
-    "creator title title title status"
-    "creator category activity likes-replies .";
+    "creator title title status"
+    "creator category activity likes-replies";
   grid-column-gap: 0.75rem;
   grid-row-gap: 0.5rem;
   border-radius: var(--d-border-radius);
   cursor: pointer;
 
-  td.main-link .link-top-line {
-    // grid-column: 3/-1;
-    grid-area: title;
-    font-weight: 500;
-  }
-
-  &.--has-status-card td.main-link .link-top-line {
-    // grid-column: 3/-2;
-  }
-
-  @include breakpoint(extra-large) {
+  @include viewport.until(sm) {
     grid-template-areas:
-      ". . . . status"
-      "activity . . likes-replies category";
-  }
-
-  @include breakpoint(mobile-extra-large) {
-    td.main-link .link-top-line,
-    &.--has-status-card td.main-link .link-top-line {
-      grid-row: 2/3;
-      grid-column: 1/-1;
-    }
-    grid-template-columns: 20px repeat(5, 1fr);
-    grid-template-rows: auto auto auto;
-    grid-template-areas:
-      "category category category category category status"
-      ". . . . . ."
-      "activity . . . . likes-replies";
+      "category category category status"
+      "creator title title title"
+      "activity activity activity likes-replies";
+    row-gap: 0.75em;
     border: none;
     border-bottom: 1px solid var(--primary-200);
     box-shadow: none;
@@ -77,49 +56,38 @@
   }
 
   &.excerpt-expanded {
-    grid-template-columns: 20px auto auto min-content min-content;
-    grid-template-rows: auto auto auto auto;
-    grid-template-areas:
-      "category category . . status"
-      "title title title title title"
-      "activity . . . ."
-      "excerpt excerpt excerpt excerpy likes-replies";
-
-    // @include breakpoint(extra-large) {
-    //   grid-template-areas:
-    //     "category category . . status"
-    //     "activity . . . ."
-    //     "excerpt excerpt excerpt excerpt likes-replies";
-    // }
-
-    @include breakpoint(mobile-extra-large) {
-      grid-template-rows: auto auto auto;
-      grid-template-areas:
-        "category category category category status"
-        ". . . . ."
-        "activity . . . likes-replies";
-
+    @include viewport.until(sm) {
       .topic-excerpt,
       .link-bottom-line {
         display: none;
       }
     }
 
-    .topic-likes-replies-data {
-      align-self: flex-end;
+    @include viewport.from(sm) {
+      grid-template-areas:
+        "creator title title status"
+        "creator category activity likes-replies "
+        "creator excerpt excerpt excerpt";
     }
 
-    .topic-category-data {
-      align-items: flex-end;
+    //when there is enough space, excerpt can be next to likes-replies
+    @include viewport.from(lg) {
+      grid-template-areas:
+        "creator title title status"
+        "creator category activity ."
+        "creator excerpt excerpt likes-replies";
     }
+  }
 
-    .badge-category__wrapper {
-      height: min-content;
-    }
+  .badge-category__wrapper {
+    height: min-content;
+  }
 
-    .link-bottom-line {
-      display: flex;
-    }
+  .link-top-line {
+    grid-area: title;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
   }
 
   // display contents
@@ -127,12 +95,25 @@
   td.posters,
   td.posts,
   td.views,
-  td.activity {
+  td.activity,
+  td.topic-category-status-data {
     display: contents;
   }
 
   td.num.posts a {
     padding: 0;
+  }
+
+  //display:nones
+  td.main-link a.topic-status,
+  .link-bottom-line,
+  .badge-notification.new-topic::before {
+    display: none;
+  }
+
+  .topic-category-data {
+    grid-area: category;
+    display: flex;
   }
 
   //OP avatar
@@ -143,56 +124,56 @@
       height: 50px;
       width: 50px;
       border-radius: var(--d-border-radius);
+
+      @include viewport.until(sm) {
+        height: 30px;
+        width: 30px;
+        border-radius: 0.25rem;
+      }
     }
   }
 
-  // topic activity, avatar, text
+  .dot-separator {
+    width: 0.25em;
+    height: 0.25em;
+    background-color: var(--primary-500);
+    border-radius: 100%;
+    margin-inline: 0.25em;
+  }
+
+  // topic activity, icon, text
   .topic-activity-data {
+    @include ellipsis;
     grid-area: activity;
   }
 
   .topic-activity {
-    display: grid;
-    grid-template-columns: 20px auto auto auto;
+    display: flex;
     font-size: var(--font-down-1);
     height: 100%;
     align-items: center;
     gap: 0.25em;
   }
 
-  .topic-activity__user .avatar {
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-  }
-
-  .topic-activity__user {
-    height: 20px;
-    width: 20px;
-    border-radius: 4px;
+  .topic-activity__type {
+    border-radius: 0.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--primary-low);
   }
 
   .topic-activity__username {
+    @include ellipsis;
     margin-left: 0.25em;
-    text-wrap: nowrap;
   }
 
-  @include breakpoint(mobile-extra-large) {
-    .topic-activity__username {
-      display: none;
-    }
-
-    .topic-activity__reason {
-      margin-left: 0.25em;
-    }
-  }
-
-  .topic-activity.--updated .topic-activity__reason {
-    margin-left: 0.25em;
+  // timestamp
+  td.activity .post-activity {
+    grid-area: activity;
+    font-size: var(--font-down-1);
+    color: var(--primary-500);
+    margin-left: auto;
+    padding: 0;
   }
 
   // status
@@ -206,15 +187,23 @@
     margin-left: auto;
     display: flex;
     flex-direction: row;
-    gap: 4px;
+    gap: 0.25em;
     align-items: center;
-    padding: 0 6px;
+    padding: 0.25em 0.5rem;
     font-size: var(--font-down-2);
     font-weight: 600;
-    border-radius: var(--d-border-radius);
+    border-radius: 0.25rem;
     border: 1px solid var(--status-color);
     color: var(--status-color);
     width: min-content;
+
+    &.--pinned {
+      --status-color: var(--primary-500);
+    }
+
+    &.--hot {
+      --status-color: #e45735;
+    }
 
     @include breakpoint("large", min-width) {
       position: absolute;
@@ -231,28 +220,12 @@
     }
   }
 
-  .topic-status-card.--pinned {
-    --status-color: var(--primary-500);
-  }
-
-  .topic-status-card.--hot {
-    --status-color: #e45735;
-  }
-
   .link-top-line .event-date {
     margin-left: 0.5em;
     font-size: var(--font-down-3);
   }
 
-  td.main-link a.topic-status {
-    display: none;
-  }
-
   .topic-list-data {
-    padding: 0;
-  }
-
-  td.main-link .link-top-line a.raw-topic-link {
     padding: 0;
   }
 
@@ -268,33 +241,13 @@
     min-width: unset;
   }
 
-  .badge-notification.new-topic::before {
-    display: none;
-  }
-
-  // timestamp
-  td.activity .post-activity {
-    grid-area: activity;
-    font-size: var(--font-down-1);
-    color: var(--primary-500);
-    margin-left: auto;
-    padding: 0;
-  }
-
-  .link-bottom-line {
-    display: none;
-  }
-
-  // metadata
   // metadata - excerpt
-  .topic-excerpt,
-  td.main-link .link-bottom-line {
-    // grid-row: 3 / -1;
-    // grid-column: 1 / -3;
+  .topic-excerpt {
     grid-area: excerpt;
     margin: 0;
     padding: 0;
     font-size: var(--font-down-2);
+    width: 100%;
 
     .excerpt__contents {
       color: var(--primary-high);
@@ -306,31 +259,17 @@
     }
   }
 
-  td.topic-category-status-data {
-    display: contents;
-  }
-
-  td.topic-category-data {
-    grid-area: category;
-    display: flex;
-    justify-content: flex-end;
-
-    @include breakpoint(mobile-extra-large) {
-      justify-content: flex-start;
-    }
-  }
-
   td.topic-category-data .badge-category__wrapper,
   td.main-link .link-bottom-line .badge-category__wrapper {
-    border-radius: var(--d-border-radius);
-    padding: 3px 6px;
+    border-radius: 0.25rem;
+    padding: 0.25em 0.5rem;
     background-color: light-dark(
       oklch(from var(--category-badge-color) 97% calc(c * 0.3) h),
       oklch(from var(--category-badge-color) 45% calc(c * 0.5) h)
     );
 
     @include breakpoint(tablet) {
-      padding: 2px 6px;
+      padding: 0.25em 0.5rem;
       font-size: var(--font-down-2);
     }
 
@@ -370,6 +309,7 @@
     gap: 0.5em;
     align-items: center;
     color: var(--primary-500);
+    font-size: var(--font-down-1-rem);
 
     svg {
       color: var(--primary-600);

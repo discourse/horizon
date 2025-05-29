@@ -97,6 +97,10 @@ body:not(.has-full-page-chat, .wizard) {
 }
 
 #list-area {
+  .contents {
+    max-width: 100%;
+    overflow: hidden;
+  }
   .show-more.has-topics {
     @include breakpoint(medium, $rule: min-width) {
       width: auto;

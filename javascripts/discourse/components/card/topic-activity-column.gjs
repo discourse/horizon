@@ -26,13 +26,19 @@ export default class TopicActivityColumn extends Component {
         class: "--replied",
       };
     } else if (this.args.topic.posts_count === 1) {
+      return {
+        user: this.args.topic.firstPosterUser,
+        username: this.args.topic.last_poster_username,
+        class: "--created",
+      };
+    } else {
       return;
     }
   }
 
   <template>
     <span class={{concatClass "topic-activity" this.topicUser.class}}>
-      <div class="topic-activity__user">
+      <div class="topic-activity__type">
         {{#if this.topicUser.user}}
           {{icon "reply"}}
         {{else}}
@@ -44,24 +50,11 @@ export default class TopicActivityColumn extends Component {
         <span
           class="topic-activity__username"
         >{{this.topicUser.username}}</span>
-      {{/if}}
-
-      {{#if this.topicUser.user}}
-        {{#if this.site.mobileView}}
-          <span class="dot-separator"></span>
-        {{else}}
-          <div class="topic-activity__reason">
-            {{i18n (themePrefix this.topicUser.activityText)}}
-          </div>
-        {{/if}}
+        <span class="dot-separator"></span>
       {{/if}}
 
       <div class="topic-activity__time">
-        {{formatDate
-          @topic.bumpedAt
-          leaveAgo="true"
-          format="medium-with-ago-and-on"
-        }}
+        {{formatDate @topic.bumpedAt leaveAgo="true" format="tiny"}}
       </div>
     </span>
   </template>

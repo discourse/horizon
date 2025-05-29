@@ -13,7 +13,7 @@ export default class TopicActivityColumn extends Component {
   <template>
     <div class={{this.topicUser.class}}>
       {{avatar this.topicCreator.user}}
-      <span class="topic-activity__username">{{this.topicUser.username}}</span>
+      <span class="topic-creator__username">{{this.topicUser.username}}</span>
     </div>
   </template>
 }
