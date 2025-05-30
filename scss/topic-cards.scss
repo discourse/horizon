@@ -375,8 +375,7 @@
   }
 
   &.selected {
-    box-shadow:
-      0 0 0 2px var(--accent-color),
+    box-shadow: 0 0 0 2px var(--accent-color),
       0 0 12px 1px var(--topic-card-shadow);
   }
 }
@@ -629,9 +628,12 @@ body.user-messages-page {
       display: none;
     }
 
+    .main-link .link-top-line {
+      grid-area: title;
+    }
+
     &.visited .main-link .link-top-line {
       font-weight: normal;
-      grid-area: title;
     }
 
     td.topic-activity-data {
