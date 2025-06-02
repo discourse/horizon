@@ -82,9 +82,6 @@
       .link-bottom-line {
         display: none;
       }
-
-      .bulk-select-enabled & {
-      }
     }
 
     @include viewport.from(sm) {
@@ -101,7 +98,7 @@
       }
     }
 
-    //when there is enough space, excerpt can be next to likes-replies
+    // when there is enough space, excerpt can be next to likes-replies
     @include viewport.from(lg) {
       grid-template-areas:
         "creator title title status"
@@ -135,7 +132,7 @@
     padding: 0;
   }
 
-  //display:nones
+  // display:nones
   td.main-link a.topic-status,
   .link-bottom-line,
   .badge-notification.new-topic::before {
@@ -168,7 +165,7 @@
     }
   }
 
-  //OP avatar
+  // OP avatar
   .topic-creator {
     grid-area: creator;
 
