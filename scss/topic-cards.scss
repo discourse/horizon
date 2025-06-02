@@ -45,6 +45,13 @@
   border-radius: var(--d-border-radius);
   cursor: pointer;
 
+  .bulk-select-enabled & {
+    grid-template-columns: min-content min-content min-content auto min-content;
+    grid-template-areas:
+      "bulk-select creator title title status"
+      "bulk-select creator category activity likes-replies";
+  }
+
   @include viewport.until(sm) {
     grid-template-areas:
       "category category category status"
@@ -75,6 +82,9 @@
       .link-bottom-line {
         display: none;
       }
+
+      .bulk-select-enabled & {
+      }
     }
 
     @include viewport.from(sm) {
@@ -82,6 +92,13 @@
         "creator title title status"
         "creator category activity likes-replies "
         "creator excerpt excerpt excerpt";
+
+      .bulk-select-enabled & {
+        grid-template-areas:
+          "bulk-select creator title title status"
+          "bulk-select creator category activity likes-replies "
+          " bulk-select creator excerpt excerpt excerpt";
+      }
     }
 
     //when there is enough space, excerpt can be next to likes-replies
@@ -98,6 +115,10 @@
     font-weight: 500;
     display: flex;
     align-items: center;
+
+    .title {
+      padding: 0;
+    }
   }
 
   // display contents
@@ -322,6 +343,22 @@
 
     svg {
       color: var(--primary-600);
+    }
+  }
+
+  .bulk-select {
+    grid-area: bulk-select;
+    padding: 0;
+    margin: 0;
+    align-self: flex-start;
+    justify-self: center;
+
+    label {
+      margin: 0;
+    }
+
+    &th {
+      display: none;
     }
   }
 }
@@ -564,13 +601,16 @@ body.user-messages-page {
     grid-template-rows: auto auto;
 
     &:hover {
-      background-color: var(--primary-low);
-      border-color: var(--primary-200);
+      .discourse-no-touch & {
+        background-color: var(--primary-low);
+        border-color: var(--primary-200);
+      }
     }
 
     td.topic-category-data,
     td.topic-likes-replies-data,
-    td.topic-status-data {
+    td.topic-status-data,
+    td.topic-creator {
       display: none;
     }
 
@@ -599,73 +639,6 @@ body.user-messages-page {
         border-radius: 4px;
         background-color: var(--primary-low);
       }
-    }
-  }
-}
-
-// Bulk select
-.bulk-select-enabled .topic-list-body .topic-list-item {
-  grid-template-areas:
-    "bulk-select . . . status"
-    "bulk-select activity activity . category";
-
-  @include breakpoint(large) {
-    grid-template-areas:
-      "bulk-select . . . status"
-      "bulk-select activity activity . category";
-  }
-
-  @include breakpoint(mobile-extra-large) {
-    grid-template-areas:
-      "bulk-select category . . .  status"
-      "bulk-select . . . . ."
-      "bulk-select activity activity . . .";
-
-    td.main-link .link-top-line,
-    &.--has-status-card td.main-link .link-top-line {
-      grid-column: 2/-1;
-      grid-row: 2;
-      font-weight: 500;
-    }
-  }
-
-  td.topic-likes-replies-data {
-    display: none;
-  }
-
-  td.main-link .link-top-line,
-  &.--has-status-card td.main-link .link-top-line {
-    grid-column: 2/-1;
-    font-weight: 500;
-  }
-
-  .topic-excerpt {
-    grid-area: excerpt;
-    margin: 0;
-  }
-
-  &.excerpt-expanded {
-    grid-template-areas:
-      "bulk-select . . . status" "bulk-select activity . . ."
-      "bulk-select excerpt excerpt excerpt category";
-
-    @include breakpoint(mobile-extra-large) {
-      grid-template-areas:
-        "bulk-select category . . .  status"
-        "bulk-select . . . . ."
-        "bulk-select activity activity . . .";
-    }
-  }
-
-  .bulk-select {
-    grid-area: bulk-select;
-    padding: 0;
-    margin: 0;
-    align-self: center;
-    justify-self: center;
-
-    label {
-      margin: 0;
     }
   }
 }
