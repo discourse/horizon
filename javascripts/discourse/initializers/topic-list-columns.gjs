@@ -32,7 +32,7 @@ const TopicLikesReplies = <template>
 </template>;
 
 const TopicCreator = <template>
-  <td class="topic-creator">
+  <td class="topic-creator-data">
     <TopicCreatorColumn @topic={{@topic}} />
   </td>
 </template>;

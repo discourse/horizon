@@ -72,8 +72,7 @@
   }
 
   &.selected {
-    box-shadow:
-      0 0 0 2px var(--accent-color),
+    box-shadow: 0 0 0 2px var(--accent-color),
       0 0 12px 1px var(--topic-card-shadow);
   }
 
@@ -167,7 +166,7 @@
   }
 
   // OP avatar
-  .topic-creator {
+  .topic-creator-data {
     grid-area: creator;
 
     .avatar {
@@ -612,7 +611,7 @@ body.user-messages-page {
     td.topic-category-data,
     td.topic-likes-replies-data,
     td.topic-status-data,
-    td.topic-creator {
+    td.topic-creator-data {
       display: none;
     }
 

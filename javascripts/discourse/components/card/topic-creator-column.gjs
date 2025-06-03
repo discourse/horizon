@@ -1,7 +1,7 @@
 import Component from "@glimmer/component";
 import avatar from "discourse/helpers/avatar";
 
-export default class TopicActivityColumn extends Component {
+export default class TopicCreatorColumn extends Component {
   get topicCreator() {
     return {
       user: this.args.topic.creator,
