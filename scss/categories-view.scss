@@ -1,3 +1,5 @@
+@use "lib/viewport";
+
 .categories-and-latest {
   .category-list {
     border-collapse: separate;
@@ -101,5 +103,95 @@
   }
 
   .latest-topic-list {
+    &-item {
+      display: grid;
+      grid-template-columns: min-content min-content auto min-content;
+      grid-template-areas:
+        "creator title title status"
+        "creator category activity likes-replies";
+      grid-column-gap: 0.75rem;
+      grid-row-gap: 0.5rem;
+      background: var(--d-content-background);
+      box-shadow: 0 0 12px 1px var(--topic-card-shadow);
+      text-overflow: ellipsis;
+      padding: 0.75em 1rem;
+      border: 1px solid var(--primary-300);
+      border-radius: var(--d-border-radius-large);
+      margin-top: 1em;
+    }
+
+    .main-link,
+    .topic-stats {
+      display: contents;
+    }
+
+    .top-row {
+      grid-area: title;
+    }
+
+    .bottom-row {
+      grid-area: category;
+      .discourse-tags {
+        display: none;
+      }
+    }
+
+    .badge-category__wrapper {
+      border-radius: var(--d-border-radius);
+      padding: 0.25em 0.5rem;
+      background-color: light-dark(
+        oklch(from var(--category-badge-color) 97% calc(c * 0.3) h),
+        oklch(from var(--category-badge-color) 45% calc(c * 0.5) h)
+      );
+
+      @include breakpoint(tablet) {
+        padding: 0.25em 0.5rem;
+        font-size: var(--font-down-2);
+      }
+
+      .badge-category__name {
+        color: light-dark(
+          oklch(from var(--category-badge-color) 20% calc(c * 1) h),
+          oklch(from var(--category-badge-color) 100% calc(c * 0.9) h)
+        );
+      }
+    }
+
+    .topic-list-data {
+      grid-area: likes-replies;
+    }
+
+    .topic-last-activity {
+      grid-area: activity;
+      display: flex;
+      align-items: center;
+      text-align: left;
+
+      &:before {
+        content: "";
+        display: inline-block;
+        width: 0.25em;
+        height: 0.25em;
+        background-color: var(--primary-500);
+        border-radius: 100%;
+        margin-right: 0.5em;
+      }
+    }
+
+    .topic-poster {
+      grid-area: creator;
+
+      .avatar {
+        height: 50px;
+        width: 50px;
+        border-radius: var(--d-border-radius);
+
+        @include viewport.until(sm) {
+          height: 30px;
+          width: 30px;
+          border-radius: 0.25rem;
+        }
+      }
+    }
   }
 }
