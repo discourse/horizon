@@ -2,7 +2,7 @@
 
 .sidebar-wrapper,
 .sidebar-hamburger-dropdown {
-  @include breakpoint(medium) {
+  @include viewport.until(lg) {
     background: var(--secondary);
 
     .sidebar-footer-wrapper {
@@ -42,7 +42,7 @@
     padding-block: 0.45em;
   }
 
-  @include breakpoint(mobile-extra-large) {
+  @include viewport.until(sm) {
     .hamburger-panel .revamped & {
       margin-bottom: var(--spacing-block-m);
     }
