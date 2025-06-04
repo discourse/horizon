@@ -30,6 +30,7 @@
 }
 
 .topic-list-body .topic-list-item {
+  position: relative;
   background: var(--d-content-background);
   box-shadow: 0 0 12px 1px var(--topic-card-shadow);
   text-overflow: ellipsis;
@@ -72,8 +73,7 @@
   }
 
   &.selected {
-    box-shadow:
-      0 0 0 2px var(--accent-color),
+    box-shadow: 0 0 0 2px var(--accent-color),
       0 0 12px 1px var(--topic-card-shadow);
   }
 
@@ -229,7 +229,6 @@
   // status
   .topic-status-data {
     grid-area: status;
-    position: relative;
   }
 
   .topic-status-card {
@@ -239,10 +238,10 @@
     flex-direction: row;
     gap: 0.25em;
     align-items: center;
-    padding: 0.25em 0.5rem;
-    font-size: var(--font-down-2);
+    padding: 0.2em 0.5rem;
+    font-size: var(--font-down-3);
     font-weight: 600;
-    border-radius: 0.25rem;
+    border-radius: var(--d-border-radius);
     border: 1px solid var(--status-color);
     color: var(--status-color);
     width: min-content;
@@ -255,13 +254,12 @@
       --status-color: #e45735;
     }
 
-    @include breakpoint("large", min-width) {
+    @include viewport.from(lg) {
       position: absolute;
-      right: 0;
-      top: -20px;
+      right: 1rem;
+      top: 0;
+      transform: translateY(-45%);
       background-color: var(--d-content-background);
-      height: 20px;
-      font-size: var(--font-down-3);
     }
 
     svg {
