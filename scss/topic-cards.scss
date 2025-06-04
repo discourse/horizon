@@ -146,7 +146,7 @@
   }
 
   .badge-category__wrapper {
-    border-radius: 0.25rem;
+    border-radius: var(--d-border-radius);
     padding: 0.25em 0.5rem;
     background-color: light-dark(
       oklch(from var(--category-badge-color) 97% calc(c * 0.3) h),
