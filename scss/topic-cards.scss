@@ -109,7 +109,7 @@
   .link-top-line {
     grid-area: title;
     font-weight: 500;
-    line-height: 30px; //avatar sizing
+    line-height: calc(var(--space-3) * 2); // avatar sizing
 
     .title {
       padding: 0;
