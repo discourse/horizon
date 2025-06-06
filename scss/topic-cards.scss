@@ -124,8 +124,6 @@
 
     @include viewport.until(sm) {
       line-height: normal;
-
-      // font-size: var(--font-down-1);
     }
 
     .title {
