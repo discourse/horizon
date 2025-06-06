@@ -1,5 +1,9 @@
 @use "lib/viewport";
 
+:root {
+  --d-border-radius-mobile: calc(var(--d-border-radius) * 0.5);
+}
+
 .topic-list .topic-list-item-separator {
   display: none;
 }
@@ -53,14 +57,20 @@
   }
 
   @include viewport.until(sm) {
+    grid-template-columns: min-content min-content auto min-content;
     grid-template-areas:
-      "category category category status"
       "creator title title title"
-      ". activity activity likes-replies";
+      "category category activity likes-replies";
     border: none;
     border-bottom: 1px solid var(--primary-200);
     box-shadow: none;
     border-radius: 0;
+
+    &.--has-status-card {
+      grid-template-areas:
+        "creator title title status"
+        "category category activity likes-replies";
+    }
   }
 
   &:hover {
@@ -111,6 +121,11 @@
     font-weight: 500;
     line-height: calc(var(--space-3) * 2); // avatar sizing
 
+    @include viewport.until(sm) {
+      line-height: normal;
+      font-size: var(--font-down-1);
+    }
+
     .title {
       padding: 0;
     }
@@ -144,6 +159,10 @@
 
   .badge-category__wrapper {
     border-radius: var(--d-border-radius);
+
+    @include viewport.until(sm) {
+      border-radius: var(--d-border-radius-mobile);
+    }
     padding: 0.25em 0.5rem;
     background-color: light-dark(
       oklch(from var(--category-badge-color) 97% calc(c * 0.3) h),
@@ -172,6 +191,10 @@
       height: calc(var(--space-3) * 2);
       width: calc(var(--space-3) * 2);
       border-radius: var(--d-border-radius);
+
+      @include viewport.until(sm) {
+        border-radius: var(--d-border-radius-mobile);
+      }
     }
   }
 
@@ -220,6 +243,11 @@
 
   // status
   .topic-status-data {
+    display: none;
+  }
+
+  &.--has-status-card .topic-status-data {
+    display: block;
     grid-area: status;
   }
 
@@ -237,6 +265,11 @@
     border: 1px solid var(--status-color);
     color: var(--status-color);
     width: min-content;
+
+    @include viewport.until(sm) {
+      border-radius: var(--d-border-radius-mobile);
+      padding: 0.25em;
+    }
 
     &.--pinned {
       --status-color: var(--primary-500);
@@ -257,6 +290,14 @@
     svg {
       font-size: var(--font-down-1);
       color: var(--status-color);
+    }
+
+    &__name {
+      margin: 0;
+
+      @include viewport.until(sm) {
+        display: none;
+      }
     }
   }
 
