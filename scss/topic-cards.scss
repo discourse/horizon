@@ -40,7 +40,7 @@
   grid-template-columns: min-content min-content auto min-content;
   grid-template-areas:
     "creator title title status"
-    "creator category activity likes-replies";
+    "category category activity likes-replies";
   grid-column-gap: 0.75rem;
   grid-row-gap: 0.5rem;
   border-radius: var(--d-border-radius);
@@ -57,7 +57,7 @@
     grid-template-areas:
       "category category category status"
       "creator title title title"
-      "activity activity activity likes-replies";
+      ". activity activity likes-replies";
     row-gap: 0.75em;
     border: none;
     border-bottom: 1px solid var(--primary-200);
@@ -104,8 +104,8 @@
     @include viewport.from(lg) {
       grid-template-areas:
         "creator title title status"
-        "creator category activity ."
-        "creator excerpt excerpt likes-replies";
+        "category category activity ."
+        "excerpt excerpt excerpt likes-replies";
     }
   }
 
@@ -172,8 +172,8 @@
     grid-area: creator;
 
     .avatar {
-      height: 50px;
-      width: 50px;
+      height: 30px;
+      width: 30px;
       border-radius: var(--d-border-radius);
 
       @include viewport.until(sm) {
