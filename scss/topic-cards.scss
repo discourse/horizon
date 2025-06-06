@@ -37,20 +37,20 @@
   padding: 0.75em 1rem;
   border: 1px solid var(--primary-300);
   display: grid;
-  grid-template-columns: min-content min-content auto min-content;
+  grid-template-columns: min-content min-content auto min-content min-content;
   grid-template-areas:
-    "creator title title status"
-    "category category activity likes-replies";
+    "creator title title title status"
+    "category category activity likes-replies likes-replies";
   grid-column-gap: 0.75rem;
   grid-row-gap: 0.5rem;
   border-radius: var(--d-border-radius);
   cursor: pointer;
 
   .bulk-select-enabled & {
-    grid-template-columns: min-content min-content min-content auto min-content;
+    grid-template-columns: min-content min-content min-content auto min-content min-content;
     grid-template-areas:
-      "bulk-select creator title title status"
-      "bulk-select creator category activity likes-replies";
+      "bulk-select creator title title title status"
+      "bulk-select creator category activity likes-replies likes-replies";
   }
 
   @include viewport.until(sm) {
@@ -88,24 +88,24 @@
 
     @include viewport.from(sm) {
       grid-template-areas:
-        "creator title title status"
-        "creator category activity likes-replies "
-        "creator excerpt excerpt excerpt";
+        "creator title title title status"
+        "creator category activity likes-replies likes-replies "
+        "creator excerpt excerpt excerpt excerpt";
 
       .bulk-select-enabled & {
         grid-template-areas:
-          "bulk-select creator title title status"
-          "bulk-select creator category activity likes-replies "
-          " bulk-select creator excerpt excerpt excerpt";
+          "bulk-select creator title title title status"
+          "bulk-select creator category activity likes-replies likes-replies "
+          " bulk-select creator excerpt excerpt excerpt excerpt";
       }
     }
 
     // when there is enough space, excerpt can be next to likes-replies
     @include viewport.from(lg) {
       grid-template-areas:
-        "creator title title status"
-        "category category activity ."
-        "excerpt excerpt excerpt likes-replies";
+        "creator title title title status"
+        "category category activity activity ."
+        "excerpt excerpt excerpt likes-replies likes-replies";
     }
   }
 
@@ -334,6 +334,10 @@
     justify-content: flex-end;
     height: min-content;
     align-self: center;
+
+    @include viewport.from(lg) {
+      align-self: flex-end;
+    }
   }
 
   .topic-likes-replies-data .topic-likes,
