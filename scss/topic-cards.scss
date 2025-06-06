@@ -162,6 +162,7 @@
 
     @include viewport.until(sm) {
       border-radius: var(--d-border-radius-mobile);
+      max-width: 125px;
     }
     padding: 0.25em 0.5rem;
     background-color: light-dark(
@@ -180,6 +181,10 @@
         oklch(from var(--category-badge-color) 20% calc(c * 1) h),
         oklch(from var(--category-badge-color) 100% calc(c * 0.9) h)
       );
+      min-width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
 
