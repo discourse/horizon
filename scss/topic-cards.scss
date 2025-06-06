@@ -34,15 +34,14 @@
   background: var(--d-content-background);
   box-shadow: 0 0 12px 1px var(--topic-card-shadow);
   text-overflow: ellipsis;
-  padding: 0.75em 1rem;
+  padding: var(--space-3);
   border: 1px solid var(--primary-300);
   display: grid;
   grid-template-columns: min-content min-content auto min-content min-content;
   grid-template-areas:
     "creator title title title status"
     "category category activity likes-replies likes-replies";
-  grid-column-gap: 0.75rem;
-  grid-row-gap: 0.5rem;
+  grid-gap: var(--space-3);
   border-radius: var(--d-border-radius);
   cursor: pointer;
 
@@ -72,8 +71,7 @@
   }
 
   &.selected {
-    box-shadow:
-      0 0 0 2px var(--accent-color),
+    box-shadow: 0 0 0 2px var(--accent-color),
       0 0 12px 1px var(--topic-card-shadow);
   }
 
@@ -171,15 +169,9 @@
     grid-area: creator;
 
     .avatar {
-      height: 30px;
-      width: 30px;
+      height: calc(var(--space-3) * 2);
+      width: calc(var(--space-3) * 2);
       border-radius: var(--d-border-radius);
-
-      @include viewport.until(sm) {
-        height: 30px;
-        width: 30px;
-        border-radius: 0.25rem;
-      }
     }
   }
 
@@ -328,7 +320,7 @@
     grid-area: likes-replies;
     display: flex;
     flex-direction: row;
-    gap: 0.5em;
+    gap: var(--space-3);
     justify-content: flex-end;
     height: min-content;
     align-self: center;
