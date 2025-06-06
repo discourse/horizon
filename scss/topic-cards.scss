@@ -65,6 +65,7 @@
     border-bottom: 1px solid var(--primary-200);
     box-shadow: none;
     border-radius: 0;
+    padding: var(--space-4) var(--space-3);
 
     &.--has-status-card {
       grid-template-areas:
@@ -123,7 +124,8 @@
 
     @include viewport.until(sm) {
       line-height: normal;
-      font-size: var(--font-down-1);
+
+      // font-size: var(--font-down-1);
     }
 
     .title {
