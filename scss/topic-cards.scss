@@ -57,21 +57,21 @@
   }
 
   @include viewport.until(sm) {
-    grid-template-columns: min-content min-content auto min-content;
+    grid-template-columns: min-content min-content min-content auto min-content;
     grid-template-areas:
-      "creator title title title"
-      "category category activity likes-replies";
+      "creator title title title status"
+      "category category likes-replies activity . ";
     border: none;
     border-bottom: 1px solid var(--primary-200);
     box-shadow: none;
     border-radius: 0;
     padding: var(--space-4) var(--space-3);
 
-    &.--has-status-card {
-      grid-template-areas:
-        "creator title title status"
-        "category category activity likes-replies";
-    }
+    // &.--has-status-card {
+    //   grid-template-areas:
+    //     "creator title title status"
+    //     "category category activity likes-replies";
+    // }
   }
 
   &:hover {
@@ -82,7 +82,8 @@
   }
 
   &.selected {
-    box-shadow: 0 0 0 2px var(--accent-color),
+    box-shadow:
+      0 0 0 2px var(--accent-color),
       0 0 12px 1px var(--topic-card-shadow);
   }
 
@@ -367,9 +368,12 @@
     display: flex;
     flex-direction: row;
     gap: var(--space-3);
-    justify-content: flex-end;
     height: min-content;
     align-self: center;
+
+    .topic-likes {
+      display: none;
+    }
 
     @include viewport.from(lg) {
       align-self: flex-end;

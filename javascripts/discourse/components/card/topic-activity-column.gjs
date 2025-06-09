@@ -36,13 +36,13 @@ export default class TopicActivityColumn extends Component {
 
   <template>
     <span class={{concatClass "topic-activity" this.topicUser.class}}>
-      <div class="topic-activity__type">
+      {{!-- <div class="topic-activity__type">
         {{#if this.topicUser.user}}
           {{icon "reply"}}
         {{else}}
           {{icon "pencil"}}
         {{/if}}
-      </div>
+      </div> --}}
 
       {{#if this.topicUser.username}}
         <span
