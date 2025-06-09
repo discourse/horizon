@@ -60,7 +60,7 @@
     grid-template-columns: min-content min-content min-content auto min-content;
     grid-template-areas:
       "creator title title title status"
-      "category category likes-replies activity . ";
+      ". category likes-replies activity . ";
     border: none;
     border-bottom: 1px solid var(--primary-200);
     box-shadow: none;
