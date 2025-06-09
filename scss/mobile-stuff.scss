@@ -34,11 +34,10 @@
       @include viewport.until(sm) {
         gap: var(--spacing-inline-s);
 
-        // don't know why we even hide this crucial navigation on mobile
         .category-breadcrumb.hidden,
         .category-breadcrumb {
           display: flex !important;
-          column-gap: var(--spacing-inline-s);
+          column-gap: var(--spacing-inline-m);
           row-gap: var(--spacing-block-xs);
           flex-basis: 100%;
 
@@ -49,9 +48,12 @@
             ); // 2px is width of the outline
           }
 
+          .select-kit-header-wrapper {
+            gap: 0.25em;
+          }
+
           .select-kit-header {
             background: var(--d-content-background);
-            border: 0;
           }
         }
 
