@@ -1,13 +1,35 @@
+@use "lib/viewport";
 .list-controls {
   position: sticky;
   top: var(--header-offset);
   background: var(--d-content-background);
   z-index: z("base");
-  padding: 1.5rem 0 1rem 0;
+  padding: 1.5rem 0 0 0;
   max-width: unset;
 
+  @include viewport.until(sm) {
+    padding-bottom: 1em;
+  }
+
   .navigation-container {
+    position: relative;
     gap: 1rem;
+
+    @include viewport.from(sm) {
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1rem;
+        height: 1rem;
+        background: linear-gradient(
+          to bottom,
+          var(--d-content-background),
+          transparent
+        );
+      }
+    }
 
     .category-breadcrumb {
       order: 1;
