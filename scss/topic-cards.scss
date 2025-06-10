@@ -1,7 +1,7 @@
 @use "lib/viewport";
 
 :root {
-  --d-border-radius-mobile: calc(var(--d-border-radius) * 0.5);
+  --d-border-radius-small: calc(var(--d-border-radius) * 0.5);
 }
 
 .topic-list .topic-list-item-separator {
@@ -60,12 +60,24 @@
     grid-template-columns: min-content min-content min-content auto min-content;
     grid-template-areas:
       "creator title title title status"
-      ". category likes-replies activity . ";
+      ". category activity activity . ";
     border: none;
     border-bottom: 1px solid var(--primary-200);
     box-shadow: none;
     border-radius: 0;
     padding: var(--space-4) var(--space-3);
+
+    &.has-replies {
+      grid-template-areas:
+        "creator title title title status"
+        ". category likes-replies activity . ";
+    }
+
+    &:not(.has-replies) {
+      .topic-likes-replies-data {
+        display: none;
+      }
+    }
 
     // &.--has-status-card {
     //   grid-template-areas:
@@ -162,7 +174,7 @@
     border-radius: var(--d-border-radius);
 
     @include viewport.until(sm) {
-      border-radius: var(--d-border-radius-mobile);
+      border-radius: var(--d-border-radius-small);
       max-width: 125px;
     }
     padding: 0.25em 0.5rem;
@@ -176,6 +188,10 @@
       font-size: var(--font-down-2);
     }
 
+    .badge-category {
+      align-items: center;
+    }
+
     .badge-category__name {
       font-size: var(--font-down-1);
       color: light-dark(
@@ -186,6 +202,11 @@
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+    }
+
+    .d-icon {
+      width: var(--font-down-1);
+      height: var(--font-down-1);
     }
   }
 
@@ -199,7 +220,7 @@
       border-radius: var(--d-border-radius);
 
       @include viewport.until(sm) {
-        border-radius: var(--d-border-radius-mobile);
+        border-radius: var(--d-border-radius-small);
       }
     }
   }
@@ -265,7 +286,10 @@
     gap: 0.25em;
     align-items: center;
     padding: 0.2em 0.5rem;
-    font-size: var(--font-down-3);
+    font-size: var(--font-down-2);
+    @include viewport.from(lg) {
+      font-size: var(--font-down-3);
+    }
     font-weight: 600;
     border-radius: var(--d-border-radius);
     border: 1px solid var(--status-color);
@@ -273,8 +297,8 @@
     width: min-content;
 
     @include viewport.until(sm) {
-      border-radius: var(--d-border-radius-mobile);
-      padding: 0.25em;
+      border-radius: var(--d-border-radius-small);
+      padding: 0.35em;
     }
 
     &.--pinned {
@@ -294,8 +318,10 @@
     }
 
     svg {
-      font-size: var(--font-down-1);
       color: var(--status-color);
+      @include viewport.from(lg) {
+        font-size: var(--font-down-1);
+      }
     }
 
     &__name {
