@@ -41,15 +41,29 @@
   padding: var(--space-3);
   border: 1px solid var(--primary-300);
   display: grid;
-  grid-template-columns: min-content min-content auto min-content min-content;
+  grid-template-columns: min-content min-content min-content auto min-content;
   grid-template-areas:
     "creator title title title status"
-    "category category activity likes-replies likes-replies";
+    "category category activity activity .";
   grid-gap: var(--space-3);
   border-radius: var(--d-border-radius);
   cursor: pointer;
 
+  &.has-replies {
+    grid-template-areas:
+      "creator title title title status"
+      "category category likes-replies activity .";
+  }
+
+  &:not(.has-replies) {
+    .topic-likes-replies-data {
+      display: none;
+    }
+  }
+
   @include viewport.until(sm) {
+    max-width: 100vw;
+    box-sizing: border-box;
     grid-template-columns: min-content min-content min-content auto min-content;
     grid-template-areas:
       "creator title title title status"
@@ -65,24 +79,18 @@
         "creator title title title status"
         ". category likes-replies activity . ";
     }
-
-    &:not(.has-replies) {
-      .topic-likes-replies-data {
-        display: none;
-      }
-    }
   }
 
   .bulk-select-enabled & {
     grid-template-columns: min-content min-content min-content auto min-content min-content;
     grid-template-areas:
       "bulk-select creator title title title status"
-      "bulk-select creator category activity activity .";
+      "bulk-select category category activity activity .";
 
     &.has-replies {
       grid-template-areas:
         "bulk-select creator title title title status"
-        "bulk-select creator category activity likes-replies likes-replies";
+        "bulk-select category category activity likes-replies likes-replies";
     }
 
     @include viewport.until(sm) {
@@ -125,23 +133,22 @@
     @include viewport.from(sm) {
       grid-template-areas:
         "creator title title title status"
-        "creator category activity likes-replies likes-replies "
-        "creator excerpt excerpt excerpt excerpt";
+        "category category activity activity . "
+        "excerpt excerpt excerpt excerpt excerpt";
+
+      &.has-replies {
+        grid-template-areas:
+          "creator title title title status"
+          "category category likes-replies activity ."
+          "excerpt excerpt excerpt excerpt excerpt";
+      }
 
       .bulk-select-enabled & {
         grid-template-areas:
           "bulk-select creator title title title status"
-          "bulk-select creator category activity likes-replies likes-replies "
-          " bulk-select creator excerpt excerpt excerpt excerpt";
+          "bulk-select category category activity likes-replies likes-replies "
+          " bulk-select excerpt excerpt excerpt excerpt excerpt";
       }
-    }
-
-    // when there is enough space, excerpt can be next to likes-replies
-    @include viewport.from(lg) {
-      grid-template-areas:
-        "creator title title title status"
-        "category category activity activity ."
-        "excerpt excerpt excerpt likes-replies likes-replies";
     }
   }
 
@@ -415,13 +422,8 @@
     .topic-likes {
       display: none;
     }
-
-    @include viewport.from(lg) {
-      align-self: flex-end;
-    }
   }
 
-  .topic-likes-replies-data .topic-likes,
   .topic-likes-replies-data .topic-replies {
     display: flex;
     flex-direction: row;
