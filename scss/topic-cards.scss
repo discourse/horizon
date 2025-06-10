@@ -49,13 +49,6 @@
   border-radius: var(--d-border-radius);
   cursor: pointer;
 
-  .bulk-select-enabled & {
-    grid-template-columns: min-content min-content min-content auto min-content min-content;
-    grid-template-areas:
-      "bulk-select creator title title title status"
-      "bulk-select creator category activity likes-replies likes-replies";
-  }
-
   @include viewport.until(sm) {
     grid-template-columns: min-content min-content min-content auto min-content;
     grid-template-areas:
@@ -78,12 +71,34 @@
         display: none;
       }
     }
+  }
 
-    // &.--has-status-card {
-    //   grid-template-areas:
-    //     "creator title title status"
-    //     "category category activity likes-replies";
-    // }
+  .bulk-select-enabled & {
+    grid-template-columns: min-content min-content min-content auto min-content min-content;
+    grid-template-areas:
+      "bulk-select creator title title title status"
+      "bulk-select creator category activity activity .";
+
+    &.has-replies {
+      grid-template-areas:
+        "bulk-select creator title title title status"
+        "bulk-select creator category activity likes-replies likes-replies";
+    }
+
+    @include viewport.until(sm) {
+      grid-template-columns: min-content min-content min-content min-content auto min-content;
+      grid-template-areas:
+        "bulk-select creator title title title status"
+        "bulk-select . category activity activity . ";
+    }
+
+    &.has-replies {
+      @include viewport.until(sm) {
+        grid-template-areas:
+          "bulk-select creator title title title status"
+          "bulk-select . category likes-replies activity . ";
+      }
+    }
   }
 
   &:hover {
