@@ -5,15 +5,14 @@ export default class TopicCreatorColumn extends Component {
   get topicCreator() {
     return {
       user: this.args.topic.creator,
-      username: this.args.topic.creator.username,
       class: "--topic-creator",
     };
   }
 
   <template>
-    <div class={{this.topicUser.class}}>
+    <div class={{this.topicCreator.class}}>
       {{avatar this.topicCreator.user}}
-      <span class="topic-creator__username">{{this.topicUser.username}}</span>
+      <span class="topic-creator__username">{{this.topicCreator.user.username}}</span>
     </div>
   </template>
 }
