@@ -12,7 +12,6 @@ export default class TopicCreatorColumn extends Component {
   <template>
     <div class={{this.topicCreator.class}}>
       {{avatar this.topicCreator.user}}
-      <span class="topic-creator__username">{{this.topicCreator.user.username}}</span>
     </div>
   </template>
 }
