@@ -44,7 +44,7 @@
   grid-template-columns: min-content min-content min-content auto min-content;
   grid-template-areas:
     "creator title title title status"
-    "category category activity activity .";
+    ". category activity activity .";
   grid-gap: var(--space-3);
   border-radius: var(--d-border-radius);
   cursor: pointer;
@@ -52,7 +52,7 @@
   &.has-replies {
     grid-template-areas:
       "creator title title title status"
-      "category category likes-replies activity .";
+      ". category likes-replies activity .";
   }
 
   &:not(.has-replies) {
@@ -132,14 +132,14 @@
     @include viewport.from(sm) {
       grid-template-areas:
         "creator title title title status"
-        "category category activity activity . "
-        "excerpt excerpt excerpt excerpt excerpt";
+        ". category activity activity . "
+        ". excerpt excerpt excerpt excerpt";
 
       &.has-replies {
         grid-template-areas:
           "creator title title title status"
-          "category category likes-replies activity ."
-          "excerpt excerpt excerpt excerpt excerpt";
+          ". category likes-replies activity ."
+          ". excerpt excerpt excerpt excerpt";
       }
 
       .bulk-select-enabled & {
