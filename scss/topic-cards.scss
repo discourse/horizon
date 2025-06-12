@@ -64,7 +64,6 @@
   @include viewport.until(sm) {
     max-width: 100vw;
     box-sizing: border-box;
-    grid-template-columns: min-content min-content min-content auto min-content;
     grid-template-areas:
       "creator title title title status"
       ". category activity activity . ";
@@ -456,220 +455,182 @@
       display: none;
     }
   }
-}
 
-// Bookmarks
-.topic-list-item.bookmark-list-item {
-  .link-bottom-line {
-    font-size: unset;
-  }
-
-  // regular card without excerpt class
-  grid-template-columns: 20px min-content min-content auto min-content min-content min-content;
-  grid-template-areas:
-    ". . . . . . dropdown"
-    "avatar update metadata metadata metadata . category";
-
-  @include breakpoint(mobile-extra-large) {
-    grid-template-columns: min-content min-content auto min-content min-content min-content min-content;
-    grid-template-areas:
-      " . . . . . . dropdown"
-      "update metadata metadata metadata metadata category category";
-
-    .avatar {
+  // Assigned List
+  &.assigned-list-item {
+    .topic-status-data {
       display: none;
+    }
+
+    grid-template-areas:
+      "creator title title title dropdown"
+      "category category activity activity .";
+
+    @include viewport.until(sm) {
+    }
+
+    &.has-replies {
+      grid-template-areas:
+        "creator title title title dropdown"
+        "category category likes-replies activity .";
+    }
+
+    .assign-topic-buttons {
+      display: contents;
+
+      .assign-actions-dropdown {
+        grid-area: dropdown;
+        justify-content: flex-end;
+        height: 1em;
+
+        .select-kit-header {
+          padding-top: 0;
+          margin-left: auto;
+          align-items: center;
+          background: transparent;
+        }
+
+        .select-kit-header-wrapper {
+          height: 1em;
+          width: 1em;
+        }
+      }
     }
   }
 
-  &.has-metadata {
-    grid-template-columns: 20px min-content min-content auto min-content min-content min-content;
+  // Bookmarks
+  &.bookmark-list-item {
+    grid-template-areas:
+      "title title title title dropdown"
+      "category category activity . . ";
 
-    @include breakpoint(mobile-extra-large) {
+    @include viewport.until(sm) {
       grid-template-areas:
-        ". . . . . . . dropdown"
-        "update update metadata metadata metadata metadata category category";
+        "title title title title dropdown"
+        "category category activity activity . ";
 
       .avatar {
         display: none;
       }
     }
-  }
 
-  // card with excerpt (all in horizon since the toggle is gone)
-  &.excerpt-expanded {
-    grid-template-columns: 20px min-content auto minmax(0, 100px);
-    grid-template-areas:
-      ". . .  dropdown"
-      "avatar update metadata metadata"
-      "excerpt excerpt excerpt ."
-      "excerpt excerpt excerpt category";
-
-    @include breakpoint(extra-large, $rule: min-width) {
-      grid-template-columns: 20px min-content auto min-content;
-    }
-
-    @include breakpoint(mobile-extra-large) {
-      grid-template-columns: auto min-content;
+    &.excerpt-expanded {
       grid-template-areas:
-        ".  dropdown"
-        "category category";
+        "title title title title dropdown"
+        "category category activity . . "
+        "excerpt excerpt excerpt excerpt excerpt";
 
-      .post-excerpt,
-      .avatar {
-        display: none;
+      @include viewport.until(sm) {
+        grid-template-areas:
+          "title title title title dropdown"
+          "category category activity activity . "
+          "excerpt excerpt excerpt excerpt excerpt";
       }
     }
 
     &.has-metadata {
-      grid-template-columns: 20px min-content auto min-content;
       grid-template-areas:
-        ". . . dropdown"
-        "avatar update metadata metadata"
-        "excerpt excerpt excerpt . "
-        "excerpt excerpt excerpt category";
-
-      @include breakpoint(mobile-extra-large) {
-        grid-template-columns: auto min-content;
+        "title title title title dropdown"
+        "category category activity metadata . ";
+      @include viewport.until(sm) {
         grid-template-areas:
-          " . dropdown"
-          "metadata category";
+          "metadata metadata metadata metadata dropdown"
+          "title title title title ."
+          "category category activity activity . ";
+      }
 
-        .bookmark-metadata {
-          flex-wrap: wrap;
+      &.excerpt-expanded {
+        grid-template-areas:
+          "title title title title dropdown"
+          "category category activity metadata . "
+          "excerpt excerpt excerpt excerpt excerpt";
+
+        @include viewport.until(sm) {
+          grid-template-areas:
+            "metadata metadata metadata metadata dropdown"
+            "title title title title ."
+            "category category activity activity . "
+            "excerpt excerpt excerpt excerpt excerpt";
         }
       }
     }
 
-    .badge-category__wrapper {
-      align-self: flex-end;
-      height: min-content;
-      max-width: 100%;
+    td.author-avatar {
+      grid-area: creator;
     }
-  }
 
-  td.author-avatar {
-    grid-area: avatar;
-  }
+    td.main-link .link-bottom-line {
+      display: contents;
 
-  td.main-link .link-bottom-line {
-    display: contents;
+      .badge-category__wrapper {
+        grid-area: category;
+        display: flex;
+        align-items: center;
+        width: min-content;
+        justify-self: flex-end;
+      }
+    }
 
-    .badge-category__wrapper {
-      grid-area: category;
+    td.main-link .link-top-line {
+      display: contents;
+
+      .bookmark-metadata {
+        grid-area: metadata;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: var(--spacing-inline-s);
+        white-space: nowrap;
+      }
+
+      .bookmark-metadata-item {
+        margin: 0;
+        vertical-align: middle;
+      }
+
+      .bookmark-status-with-link {
+        grid-area: title;
+      }
+    }
+
+    .post-excerpt {
+      grid-area: excerpt;
+      margin: 0;
+    }
+
+    .topic-list-data:last-of-type {
+      display: contents;
+
+      .bookmark-actions-dropdown {
+        grid-area: dropdown;
+        align-self: flex-start;
+        height: 1em;
+
+        .select-kit-header {
+          padding-top: 0;
+          margin-left: auto;
+          align-items: center;
+          background: transparent;
+        }
+
+        .select-kit-header-wrapper {
+          height: 1em;
+          width: 1em;
+        }
+      }
+    }
+
+    .post-metadata.topic-list-data.updated-at {
+      grid-area: activity;
       display: flex;
       align-items: center;
-      width: min-content;
-      justify-self: flex-end;
-    }
-  }
-
-  td.main-link .link-top-line {
-    display: contents;
-
-    .bookmark-metadata {
-      grid-area: metadata;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-inline-xs);
+      font-size: var(--font-down-1-rem);
     }
 
-    .bookmark-metadata-item {
-      margin: 0;
-      vertical-align: middle;
+    td.activity .post-activity {
+      display: none;
     }
-
-    .bookmark-status-with-link {
-      grid-column: 1/-2;
-      grid-row: 1/2;
-    }
-  }
-
-  .post-excerpt {
-    grid-area: excerpt;
-    margin: 0;
-  }
-
-  .topic-list-data:last-of-type {
-    display: contents;
-
-    .bookmark-actions-dropdown {
-      grid-area: dropdown;
-      align-self: flex-start;
-      height: 1em;
-
-      .select-kit-header {
-        padding-top: 0;
-        margin-left: auto;
-        align-items: center;
-        background: transparent;
-      }
-
-      .select-kit-header-wrapper {
-        height: 1em;
-        width: 1em;
-      }
-    }
-  }
-
-  .post-metadata.topic-list-data.updated-at {
-    grid-area: update;
-  }
-
-  td.activity .post-activity {
-    display: none;
-  }
-}
-
-// Assigned List
-.topic-list-item.assigned-list-item {
-  .topic-status-card {
-    display: none;
-    position: relative;
-    top: unset;
-    right: unset;
-  }
-
-  td.main-link .link-top-line {
-    grid-column: 1/-3;
-  }
-  grid-template-columns: 20px min-content min-content auto min-content min-content min-content;
-  grid-template-areas:
-    ". . . . . status dropdown"
-    "activity . . . . likes-replies category";
-
-  @include breakpoint(mobile-extra-large) {
-    grid-template-columns: 20px min-content min-content auto min-content min-content min-content 36px;
-    grid-template-areas:
-      "category category . . . . status dropdown"
-      ". . . . . . . . "
-      "activity . . . . . . likes-replies";
-  }
-
-  .assign-topic-buttons {
-    display: contents;
-
-    .assign-actions-dropdown {
-      grid-area: dropdown;
-      justify-content: flex-end;
-      height: 1em;
-
-      .select-kit-header {
-        padding-top: 0;
-        margin-left: auto;
-        align-items: center;
-        background: transparent;
-      }
-
-      .select-kit-header-wrapper {
-        height: 1em;
-        width: 1em;
-      }
-    }
-  }
-
-  td.topic-category-status-data {
-    display: contents;
   }
 }
 
