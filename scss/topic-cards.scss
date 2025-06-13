@@ -22,12 +22,12 @@
   flex-direction: column;
   gap: 1.25em;
 
-  @include viewport.until(lg) {
+  @include breakpoint(medium) {
     gap: 0.5em;
     padding: 0 0.5em;
   }
 
-  @include viewport.until(sm) {
+  @include breakpoint(mobile-extra-large) {
     gap: 0;
     padding: 0;
   }
@@ -204,7 +204,7 @@
       oklch(from var(--category-badge-color) 45% calc(c * 0.5) h)
     );
 
-    @include viewport.until(md) {
+    @include breakpoint(tablet) {
       padding: 0.25em 0.5rem;
       font-size: var(--font-down-2);
     }
@@ -461,6 +461,7 @@
     .topic-status-data {
       display: none;
     }
+
     grid-template-areas:
       "creator title title title dropdown"
       ". category activity activity .";
@@ -468,7 +469,7 @@
     &.has-replies {
       grid-template-areas:
         "creator title title title dropdown"
-        ". category likes-replies activity .";
+        "category category likes-replies activity .";
     }
 
     .assign-topic-buttons {
@@ -497,7 +498,7 @@
   // Bookmarks
   &.bookmark-list-item {
     grid-template-areas:
-      "title title title title dropdown"
+      "creator title title title dropdown"
       "category category activity . . ";
 
     @include viewport.until(sm) {
@@ -512,7 +513,7 @@
 
     &.excerpt-expanded {
       grid-template-areas:
-        "title title title title dropdown"
+        "creator title title title dropdown"
         "category category activity . . "
         "excerpt excerpt excerpt excerpt excerpt";
 
@@ -526,7 +527,7 @@
 
     &.has-metadata {
       grid-template-areas:
-        "title title title title dropdown"
+        "creator title title title dropdown"
         "category category activity metadata . ";
       @include viewport.until(sm) {
         grid-template-areas:
@@ -537,7 +538,7 @@
 
       &.excerpt-expanded {
         grid-template-areas:
-          "title title title title dropdown"
+          "creator title title title dropdown"
           "category category activity metadata . "
           "excerpt excerpt excerpt excerpt excerpt";
 
