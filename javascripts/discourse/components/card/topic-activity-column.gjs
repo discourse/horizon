@@ -42,7 +42,6 @@ export default class TopicActivityColumn extends Component {
         >{{this.topicUser.username}}</span>
         <span class="dot-separator"></span>
       {{/if}}
-
       <div class="topic-activity__time">
         {{formatDate @topic.bumpedAt leaveAgo="true" format="tiny"}}
       </div>
