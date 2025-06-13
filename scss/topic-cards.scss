@@ -16,6 +16,31 @@
   }
 }
 
+.topic-list {
+  .subcategories {
+    .badge-category__wrapper {
+      border-radius: var(--d-border-radius);
+      padding: 3px 6px;
+      background-color: light-dark(
+        oklch(from var(--category-badge-color) 97% calc(c * 0.3) h),
+        oklch(from var(--category-badge-color) 45% calc(c * 0.5) h)
+      );
+
+      @include viewport.until(md) {
+        padding: 2px 6px;
+        font-size: var(--font-down-2);
+      }
+
+      .badge-category__name {
+        color: light-dark(
+          oklch(from var(--category-badge-color) 20% calc(c * 1) h),
+          oklch(from var(--category-badge-color) 100% calc(c * 0.9) h)
+        );
+      }
+    }
+  }
+}
+
 .topic-list-body {
   border: none;
   display: flex;
