@@ -50,11 +50,9 @@
   cursor: pointer;
 
   &.has-replies {
-    body:not(.user-messages-page) & {
-      grid-template-areas:
-        "creator title title title status"
-        ". category likes-replies activity .";
-    }
+    grid-template-areas:
+      "creator title title title status"
+      ". category likes-replies activity .";
   }
 
   &:not(.has-replies) {
@@ -654,6 +652,10 @@ body.user-messages-page {
     grid-template-areas: "title activity" "posters .";
     grid-template-columns: auto auto;
     grid-template-rows: auto auto;
+
+    &.has-replies {
+      grid-template-areas: "title activity" "posters .";
+    }
 
     &:hover {
       .discourse-no-touch & {
