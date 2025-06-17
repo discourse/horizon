@@ -50,9 +50,11 @@
   cursor: pointer;
 
   &.has-replies {
-    grid-template-areas:
-      "creator title title title status"
-      ". category likes-replies activity .";
+    :not(.user-messages-page) & {
+      grid-template-areas:
+        "creator title title title status"
+        ". category likes-replies activity .";
+    }
   }
 
   &:not(.has-replies) {
