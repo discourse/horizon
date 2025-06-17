@@ -301,20 +301,20 @@
         &.--style-square:before {
           aspect-ratio: 1 / 1;
           height: auto;
-          width: 15%;
+          width: 13%;
           border-radius: var(--d-border-radius);
         }
 
         &__name {
           flex-basis: 100%;
-          font-size: var(--font-up-2-rem);
+          font-size: var(--font-up-1-rem);
         }
 
         .d-icon:not(.d-icon-lock),
         img.emoji {
           aspect-ratio: 1 / 1;
           height: auto;
-          width: 15%;
+          width: 13%;
         }
       }
     }
@@ -322,10 +322,17 @@
     .description {
       text-align: left;
       margin: 0;
+      font-size: var(--font-down-1-rem);
     }
 
     .subcategories {
       margin-top: auto;
+      row-gap: 0.5em;
+
+      .subcategory {
+        margin-bottom: 0;
+        font-size: var(--font-down-1);
+      }
     }
   }
 }
