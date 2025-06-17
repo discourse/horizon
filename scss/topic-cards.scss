@@ -40,6 +40,19 @@
   }
 }
 
+//undo all the above for the few instances that arent styled like traditional badges
+.category-text-title {
+  .badge-category__wrapper {
+    border-radius: 0;
+    padding: 0;
+    background-color: transparent;
+
+    .badge-category__name {
+      color: var(--primary);
+    }
+  }
+}
+
 .topic-list-body {
   border: none;
   display: flex;
