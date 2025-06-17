@@ -92,6 +92,12 @@
       grid-template-areas:
         "bulk-select creator title title title status"
         "bulk-select category category activity likes-replies likes-replies";
+
+      @include viewport.until(sm) {
+        grid-template-areas:
+          "bulk-select creator title title title status"
+          "bulk-select . category likes-replies activity . ";
+      }
     }
 
     @include viewport.until(sm) {
@@ -99,14 +105,6 @@
       grid-template-areas:
         "bulk-select creator title title title status"
         "bulk-select . category activity activity . ";
-    }
-
-    &.has-replies {
-      @include viewport.until(sm) {
-        grid-template-areas:
-          "bulk-select creator title title title status"
-          "bulk-select . category likes-replies activity . ";
-      }
     }
   }
 
