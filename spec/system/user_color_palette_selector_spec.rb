@@ -6,7 +6,7 @@ describe "Horizon theme | User color palette selector", type: :system do
   let(:set_theme_as_default) { true }
   let!(:theme) do
     horizon_theme = upload_theme(set_theme_as_default: set_theme_as_default)
-    theme.color_schemes.update_all(user_selectable: true)
+    horizon_theme.color_schemes.update_all(user_selectable: true)
     horizon_theme
   end
   fab!(:current_user) { Fabricate(:user) }
