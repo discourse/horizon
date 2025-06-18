@@ -631,6 +631,12 @@
   }
 }
 
+// bulk-select overrule for j/k nav
+.topic-list tr.selected td:first-of-type,
+.topic-list-item.selected td:first-of-type {
+  box-shadow: none;
+}
+
 // User Messages
 body.user-messages-page {
   .topic-list-body {
