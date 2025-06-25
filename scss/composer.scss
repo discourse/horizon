@@ -162,6 +162,9 @@
 
   #reply-control {
     background: var(--secondary);
+    top: 0;
+    transform: none;
+    height: 100dvh;
 
     .title-input {
       order: 1;
