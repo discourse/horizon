@@ -1,6 +1,6 @@
 en:
   theme_metadata:
-    description: "A simple, beautiful theme that improves the out of the box experience for Discourse sites."
+    description: "(DEPRECATED: Use the Horizon theme that is now preinstalled on your Discourse site). A simple, beautiful theme that improves the out of the box experience for Discourse sites."
   topic_pinned: "Pinned"
   topic_hot: "Hot"
   user_replied: "replied"
