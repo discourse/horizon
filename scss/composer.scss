@@ -180,6 +180,7 @@
       border-radius: 0;
       background: var(--secondary);
       font-size: var(--font-up-1);
+      margin: 0;
 
       &:focus {
         outline: 0;
@@ -213,12 +214,13 @@
         flex-wrap: nowrap;
         overflow-x: scroll;
         position: absolute;
-        bottom: var(--space-4);
+        bottom: 0;
         border: 1px solid var(--primary-low);
         border-radius: var(--d-border-radius);
         background: var(--secondary-very-high);
         scrollbar-width: none;
         -ms-overflow-style: none;
+        margin-block: var(--space-3);
 
         &::-webkit-scrollbar {
           display: none;
@@ -232,6 +234,27 @@
             flex-shrink: 0;
           }
         }
+      }
+    }
+
+    .composer-toggle-switch__slider {
+      background: var(--secondary);
+    }
+
+    .submit-panel {
+      .cancel {
+        position: absolute;
+        top: 0.5rem;
+        right: 3rem;
+
+        .d-icon {
+          font-size: var(--font-0);
+          padding: 0.4em 0.467em;
+        }
+      }
+
+      .mobile-preview {
+        display: none;
       }
     }
   }
