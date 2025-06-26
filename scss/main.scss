@@ -98,6 +98,13 @@ body:not(.has-full-page-chat, .wizard) {
   }
 }
 
+body.users-page {
+  // very specific to overcome the above rules
+  #main #main-outlet-wrapper #main-outlet > section {
+    max-width: unset;
+  }
+}
+
 @include viewport.until(sm) {
   .welcome-banner {
     display: none;
